@@ -1,0 +1,338 @@
+<HTML>
+<HEAD>
+<TITLE>class SDPMedia</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SDPMedia</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">SDP media description. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SDPMedia</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysdp___yatesdp_h.html">libs/ysdp/yatesdp.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__NamedList.html">TelEngine::NamedList</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SDPMedia.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref1">SDPMedia</A></b> (const char* media, const char* transport, const char* formats,
+	int rport = -1, int lport = -1) 
+</LI>
+<LI>virtual  &nbsp;<b><A HREF="#ref2">~SDPMedia</A></b> () 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref3">isAudio</A></b> ()  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref4">isVideo</A></b> ()  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref5">isModified</A></b> ()  const
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref6">setModified</A></b> (bool modified = true) 
+</LI>
+<LI>inline const String& &nbsp;<b><A HREF="#ref7">suffix</A></b> ()  const
+</LI>
+<LI>inline const String& &nbsp;<b><A HREF="#ref8">transport</A></b> ()  const
+</LI>
+<LI>inline const String& &nbsp;<b><A HREF="#ref9">id</A></b> ()  const
+</LI>
+<LI>inline const String& &nbsp;<b><A HREF="#ref10">format</A></b> ()  const
+</LI>
+<LI>inline const String& &nbsp;<b><A HREF="#ref11">formats</A></b> ()  const
+</LI>
+<LI>inline const String& &nbsp;<b><A HREF="#ref12">remotePort</A></b> ()  const
+</LI>
+<LI>inline const String& &nbsp;<b><A HREF="#ref13">localPort</A></b> ()  const
+</LI>
+<LI>inline const String& &nbsp;<b><A HREF="#ref14">mappings</A></b> ()  const
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref15">mappings</A></b> (const char* newMap) 
+</LI>
+<LI>inline const String& &nbsp;<b><A HREF="#ref16">rfc2833</A></b> ()  const
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref17">rfc2833</A></b> (int payload) 
+</LI>
+<LI>inline const String& &nbsp;<b><A HREF="#ref18">remoteCrypto</A></b> ()  const
+</LI>
+<LI>inline const String& &nbsp;<b><A HREF="#ref19">localCrypto</A></b> ()  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref20">securable</A></b> ()  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref21">sameAs</A></b> (const SDPMedia* other, bool ignorePort = false)  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref22">localChanged</A></b> ()  const
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref23">setLocalChanged</A></b> (bool chg = false) 
+</LI>
+<LI>const char* &nbsp;<b><A HREF="#ref24">fmtList</A></b> ()  const
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref25">update</A></b> (const char* formats, int rport = -1, int lport = -1, bool force = false) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref26">update</A></b> (const NamedList& msg, bool pickFormat) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref27">parameter</A></b> (const char* name, const char* value, bool append) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref28">parameter</A></b> (NamedString* param, bool append) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref29">crypto</A></b> (const char* desc, bool remote) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref30">putMedia</A></b> (NamedList& msg, bool putPort = true) 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ This class holds a single SDP media description
+</p>
+<A NAME="SDPMedia"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>SDPMedia</strong> (const char* media, const char* transport, const char* formats,
+	int rport = -1, int lport = -1)
+<br></td><td align="right"><h3><strong>SDPMedia</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>media</i></TD><TD align="left" valign="top">Media type name
+</TD></TR>
+<TR><TD align="left" valign="top"><i>transport</i></TD><TD align="left" valign="top">Transport name
+</TD></TR>
+<TR><TD align="left" valign="top"><i>formats</i></TD><TD align="left" valign="top">Comma separated list of formats
+</TD></TR>
+<TR><TD align="left" valign="top"><i>rport</i></TD><TD align="left" valign="top">Optional remote media port
+</TD></TR>
+<TR><TD align="left" valign="top"><i>lport</i></TD><TD align="left" valign="top">Optional local media port
+     </TD></TR>
+</TABLE></P>
+<A NAME="~SDPMedia"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~SDPMedia</strong> ()
+<br></td><td align="right"><h3><strong>~SDPMedia</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor
+     </p>
+<A NAME="isAudio"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>isAudio</strong> ()
+<br></td><td align="right"><h3><strong>isAudio</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Check if this media type is audio
+</p>
+<p><b>Returns</b>: True if this media describe an audio one
+     </p>
+<A NAME="isVideo"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>isVideo</strong> ()
+<br></td><td align="right"><h3><strong>isVideo</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Check if this media type is video
+</p>
+<p><b>Returns</b>: True if this media describe a video one
+     </p>
+<A NAME="isModified"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>isModified</strong> ()
+<br></td><td align="right"><h3><strong>isModified</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Check if a media parameter changed
+</p>
+<p><b>Returns</b>: True if a media changed
+     </p>
+<A NAME="setModified"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>setModified</strong> (bool modified = true)
+<br></td><td align="right"><h3><strong>setModified</strong></h3></td></tr></table><p></p><p>
+ Set or reset media parameter changed flag
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>modified</i></TD><TD align="left" valign="top">The new value of the media parameter changed flag
+     </TD></TR>
+</TABLE></P>
+<A NAME="suffix"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const String& &nbsp;<strong>suffix</strong> ()
+<br></td><td align="right"><h3><strong>suffix</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the media suffix (built from type)
+</p>
+<p><b>Returns</b>: Media suffix
+     </p>
+<A NAME="transport"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const String& &nbsp;<strong>transport</strong> ()
+<br></td><td align="right"><h3><strong>transport</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the media transport name
+</p>
+<p><b>Returns</b>: The media transport name
+     </p>
+<A NAME="id"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const String& &nbsp;<strong>id</strong> ()
+<br></td><td align="right"><h3><strong>id</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the media id
+</p>
+<p><b>Returns</b>: The media id
+     </p>
+<A NAME="format"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const String& &nbsp;<strong>format</strong> ()
+<br></td><td align="right"><h3><strong>format</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the current media format
+</p>
+<p><b>Returns</b>: The current media format
+     </p>
+<A NAME="formats"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const String& &nbsp;<strong>formats</strong> ()
+<br></td><td align="right"><h3><strong>formats</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the formats set for this media
+</p>
+<p><b>Returns</b>: Comma separated list of media formats
+     </p>
+<A NAME="remotePort"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const String& &nbsp;<strong>remotePort</strong> ()
+<br></td><td align="right"><h3><strong>remotePort</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the remote media port
+</p>
+<p><b>Returns</b>: The remote media port
+     </p>
+<A NAME="localPort"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const String& &nbsp;<strong>localPort</strong> ()
+<br></td><td align="right"><h3><strong>localPort</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the local media port
+</p>
+<p><b>Returns</b>: The local media port
+     </p>
+<A NAME="mappings"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const String& &nbsp;<strong>mappings</strong> ()
+<br></td><td align="right"><h3><strong>mappings</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve rtp payload mappings
+</p>
+<p><b>Returns</b>: Rtp payload mappings
+     </p>
+<A NAME="mappings"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>mappings</strong> (const char* newMap)
+<br></td><td align="right"><h3><strong>mappings</strong></h3></td></tr></table><p></p><p>
+ Set rtp payload mappings for this media
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>newMap</i></TD><TD align="left" valign="top">New rtp payload mappings
+     </TD></TR>
+</TABLE></P>
+<A NAME="rfc2833"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const String& &nbsp;<strong>rfc2833</strong> ()
+<br></td><td align="right"><h3><strong>rfc2833</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve RFC2833 status or payload of this media
+</p>
+<p><b>Returns</b>: RFC2833 status or payload of this media
+     </p>
+<A NAME="rfc2833"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>rfc2833</strong> (int payload)
+<br></td><td align="right"><h3><strong>rfc2833</strong></h3></td></tr></table><p></p><p>
+ Set RFC2833 status or payload of this media
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>payload</i></TD><TD align="left" valign="top">SDP numeric payload to set.
+  Set it to a negative value to reset RFC2833
+     </TD></TR>
+</TABLE></P>
+<A NAME="remoteCrypto"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const String& &nbsp;<strong>remoteCrypto</strong> ()
+<br></td><td align="right"><h3><strong>remoteCrypto</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve remote crypto description
+</p>
+<p><b>Returns</b>: Remote crypto description
+     </p>
+<A NAME="localCrypto"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const String& &nbsp;<strong>localCrypto</strong> ()
+<br></td><td align="right"><h3><strong>localCrypto</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve local crypto description
+</p>
+<p><b>Returns</b>: Local crypto description
+     </p>
+<A NAME="securable"></A><A NAME="ref20"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>securable</strong> ()
+<br></td><td align="right"><h3><strong>securable</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Check if this media is securable
+</p>
+<p><b>Returns</b>: True if this media is securable
+     </p>
+<A NAME="sameAs"></A><A NAME="ref21"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>sameAs</strong> (const SDPMedia* other, bool ignorePort = false)
+<br></td><td align="right"><h3><strong>sameAs</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Compare this media with another one
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>other</i></TD><TD align="left" valign="top">The media to compare with
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ignorePort</i></TD><TD align="left" valign="top">Ignore differences caused only by port number
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if both media have the same formats, transport and remote port
+     </p>
+<A NAME="localChanged"></A><A NAME="ref22"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>localChanged</strong> ()
+<br></td><td align="right"><h3><strong>localChanged</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Check if local part of this media changed
+</p>
+<p><b>Returns</b>: True if local part of this media changed
+     </p>
+<A NAME="setLocalChanged"></A><A NAME="ref23"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>setLocalChanged</strong> (bool chg = false)
+<br></td><td align="right"><h3><strong>setLocalChanged</strong></h3></td></tr></table><p></p><p>
+ Set or reset local media changed flag
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>chg</i></TD><TD align="left" valign="top">The new value for local media changed flag
+     </TD></TR>
+</TABLE></P>
+<A NAME="fmtList"></A><A NAME="ref24"></A><table width="100%"><tr bgcolor="#eeeeee"><td>const char* &nbsp;<strong>fmtList</strong> ()
+<br></td><td align="right"><h3><strong>fmtList</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve a formats list from this media
+</p>
+<p><b>Returns</b>: Comma separated list of media formats (from formats list,
+  current format or a default G711, 'alaw,mulaw', list
+     </p>
+<A NAME="update"></A><A NAME="ref25"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>update</strong> (const char* formats, int rport = -1, int lport = -1, bool force = false)
+<br></td><td align="right"><h3><strong>update</strong></h3></td></tr></table><p></p><p>
+ Update this media from formats and ports
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>formats</i></TD><TD align="left" valign="top">New media formats
+</TD></TR>
+<TR><TD align="left" valign="top"><i>rport</i></TD><TD align="left" valign="top">Optional remote media port
+</TD></TR>
+<TR><TD align="left" valign="top"><i>lport</i></TD><TD align="left" valign="top">Optional local media port
+</TD></TR>
+<TR><TD align="left" valign="top"><i>force</i></TD><TD align="left" valign="top">Force updating formats even if incompatible with old ones
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if media changed
+     </p>
+<A NAME="update"></A><A NAME="ref26"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>update</strong> (const NamedList& msg, bool pickFormat)
+<br></td><td align="right"><h3><strong>update</strong></h3></td></tr></table><p></p><p>
+ Update from a chan.rtp message (rtp id and local port)
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">The list of parameters
+</TD></TR>
+<TR><TD align="left" valign="top"><i>pickFormat</i></TD><TD align="left" valign="top">True to update media format(s) from the list
+     </TD></TR>
+</TABLE></P>
+<A NAME="parameter"></A><A NAME="ref27"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>parameter</strong> (const char* name, const char* value, bool append)
+<br></td><td align="right"><h3><strong>parameter</strong></h3></td></tr></table><p></p><p>
+ Add or replace a parameter by name and value, set the modified flag
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Parameter name
+</TD></TR>
+<TR><TD align="left" valign="top"><i>value</i></TD><TD align="left" valign="top">Parameter value
+</TD></TR>
+<TR><TD align="left" valign="top"><i>append</i></TD><TD align="left" valign="top">True to append, false to replace
+     </TD></TR>
+</TABLE></P>
+<A NAME="parameter"></A><A NAME="ref28"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>parameter</strong> (NamedString* param, bool append)
+<br></td><td align="right"><h3><strong>parameter</strong></h3></td></tr></table><p></p><p>
+ Add or replace a parameter, set the modified flag
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>param</i></TD><TD align="left" valign="top">The parameter
+</TD></TR>
+<TR><TD align="left" valign="top"><i>append</i></TD><TD align="left" valign="top">True to append, false to replace
+     </TD></TR>
+</TABLE></P>
+<A NAME="crypto"></A><A NAME="ref29"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>crypto</strong> (const char* desc, bool remote)
+<br></td><td align="right"><h3><strong>crypto</strong></h3></td></tr></table><p></p><p>
+ Set a new crypto description, set the modified flag if changed.
+ Reset the media securable flag if the remote crypto is empty
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>desc</i></TD><TD align="left" valign="top">The new crypto description
+</TD></TR>
+<TR><TD align="left" valign="top"><i>remote</i></TD><TD align="left" valign="top">True to set the remote crypto, false to set the local one
+     </TD></TR>
+</TABLE></P>
+<A NAME="putMedia"></A><A NAME="ref30"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>putMedia</strong> (NamedList& msg, bool putPort = true)
+<br></td><td align="right"><h3><strong>putMedia</strong></h3></td></tr></table><p></p><p>
+ Put this net media in a parameter list
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">Destination list
+</TD></TR>
+<TR><TD align="left" valign="top"><i>putPort</i></TD><TD align="left" valign="top">True to add remote media port
+     </TD></TR>
+</TABLE></P>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

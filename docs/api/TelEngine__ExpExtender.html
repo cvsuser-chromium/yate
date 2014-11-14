@@ -1,0 +1,134 @@
+<HTML>
+<HEAD>
+<TITLE>class ExpExtender</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class ExpExtender</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">ExpEvaluator extending interface. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::ExpExtender</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yscript___yatescript_h.html">libs/yscript/yatescript.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherited by</TH><TD><A HREF="TelEngine__JsArray.html">JsArray</A>, <A HREF="TelEngine__JsFunction.html">JsFunction</A>, <A HREF="TelEngine__JsObject.html">JsObject</A>, <A HREF="TelEngine__JsRegExp.html">JsRegExp</A>, <i><A HREF="TelEngine__ScriptContext.html">ScriptContext</A></i></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__ExpExtender.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>virtual  &nbsp;<b><A HREF="#ref1">~ExpExtender</A></b> () 
+</LI>
+<LI>virtual  RefObject* &nbsp;<b><A HREF="#ref2">refObj</A></b> () 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref3">hasField</A></b> (ObjList& stack, const String& name, GenObject* context)  const
+</LI>
+<LI>virtual  NamedString* &nbsp;<b><A HREF="#ref4">getField</A></b> (ObjList& stack, const String& name, GenObject* context)  const
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref5">runFunction</A></b> (ObjList& stack, const ExpOperation& oper, GenObject* context) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref6">runField</A></b> (ObjList& stack, const ExpOperation& oper, GenObject* context) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref7">runAssign</A></b> (ObjList& stack, const ExpOperation& oper, GenObject* context) 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ This class allows extending ExpEvaluator to implement custom fields and functions
+</p>
+<A NAME="~ExpExtender"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~ExpExtender</strong> ()
+<br></td><td align="right"><h3><strong>~ExpExtender</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor
+     </p>
+<A NAME="refObj"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td> RefObject* &nbsp;<strong>refObj</strong> ()
+<br></td><td align="right"><h3><strong>refObj</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Retrieve the reference counted object owning this interface
+</p>
+<p><b>Returns</b>: Pointer to object owning the extender, NULL if no ownership
+     </p>
+<A NAME="hasField"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>hasField</strong> (ObjList& stack, const String& name, GenObject* context)
+<br></td><td align="right"><h3><strong>hasField</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Check if a certain field is assigned in extender
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stack</i></TD><TD align="left" valign="top">Evaluation stack in use
+</TD></TR>
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Name of the field to test
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to arbitrary object passed from evaluation methods
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the field is present
+     </p>
+<A NAME="getField"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td> NamedString* &nbsp;<strong>getField</strong> (ObjList& stack, const String& name, GenObject* context)
+<br></td><td align="right"><h3><strong>getField</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Get a pointer to a field in extender
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stack</i></TD><TD align="left" valign="top">Evaluation stack in use
+</TD></TR>
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Name of the field to retrieve
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to arbitrary object passed from evaluation methods
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Pointer to field, NULL if not present
+     </p>
+<A NAME="runFunction"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>runFunction</strong> (ObjList& stack, const ExpOperation& oper, GenObject* context)
+<br></td><td align="right"><h3><strong>runFunction</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Try to evaluate a single function
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stack</i></TD><TD align="left" valign="top">Evaluation stack in use, parameters are popped off this stack
+  and results are pushed back on stack
+</TD></TR>
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Function to evaluate
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to arbitrary object passed from evaluation methods
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if evaluation succeeded
+     </p>
+<A NAME="runField"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>runField</strong> (ObjList& stack, const ExpOperation& oper, GenObject* context)
+<br></td><td align="right"><h3><strong>runField</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Try to evaluate a single field
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stack</i></TD><TD align="left" valign="top">Evaluation stack in use, field value must be pushed on it
+</TD></TR>
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Field to evaluate
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to arbitrary object passed from evaluation methods
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if evaluation succeeded
+     </p>
+<A NAME="runAssign"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>runAssign</strong> (ObjList& stack, const ExpOperation& oper, GenObject* context)
+<br></td><td align="right"><h3><strong>runAssign</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Try to assign a value to a single field
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stack</i></TD><TD align="left" valign="top">Evaluation stack in use
+</TD></TR>
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Field to assign to, contains the field name and new value
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to arbitrary object passed from evaluation methods
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if assignment succeeded
+     </p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

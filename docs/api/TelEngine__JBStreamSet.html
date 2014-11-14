@@ -1,0 +1,160 @@
+<HTML>
+<HEAD>
+<TITLE>class JBStreamSet</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class JBStreamSet</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">A set of streams to be processed in an uniform way. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH colspan="2">Contains pure virtuals</TH></TR><TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::JBStreamSet</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yjabber___yatejabber_h.html">libs/yjabber/yatejabber.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__GenObject.html">TelEngine::GenObject</A> <small>[public ]</small>, <A HREF="TelEngine__Mutex.html">TelEngine::Mutex</A> <small>[public ]</small></TD></TR>
+<TR><TH>Inherited by</TH><TD><A HREF="TelEngine__JBStreamSetProcessor.html">JBStreamSetProcessor</A>, <A HREF="TelEngine__JBStreamSetReceive.html">JBStreamSetReceive</A></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__JBStreamSet.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>virtual  &nbsp;<b><A HREF="#ref3">~JBStreamSet</A></b> () 
+</LI>
+<LI>inline ObjList& &nbsp;<b><A HREF="#ref4">clients</A></b> () 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref5">add</A></b> (JBStream* client) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref6">remove</A></b> (JBStream* client, bool delObj = true) 
+</LI>
+<LI>unsigned int &nbsp;<b><A HREF="#ref7">dropAll</A></b> (const JabberID& local = JabberID::empty(),
+	const JabberID& remote = JabberID::empty(),
+	XMPPError::Type error = XMPPError::NoError, const char* reason = 0) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref8">run</A></b> () 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref9">start</A></b> () 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref10">stop</A></b> () 
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref11">JBStreamSet</A></b> (JBStreamSetList* owner) 
+</LI>
+<LI>virtual  bool &nbsp;<b><i><A HREF="#ref12">process</A></i></b> (JBStream& stream) 
+</LI>
+</ul><h4>Protected Members</h4><ul><LI>bool <b><A HREF="#ref13">m_changed</A></b></LI>
+<LI>bool <b><A HREF="#ref14">m_exiting</A></b></LI>
+<LI>JBStreamSetList* <b><A HREF="#ref15">m_owner</A></b></LI>
+<LI>ObjList <b><A HREF="#ref16">m_clients</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ This class holds a set of streams to be processed in an uniform way.
+ This is a base class for specialized stream list processors.
+ Its process() method should be called in its own thread
+</p>
+<A NAME="~JBStreamSet"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~JBStreamSet</strong> ()
+<br></td><td align="right"><h3><strong>~JBStreamSet</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor. Delete the owned streams. Remove from owner
+     </p>
+<A NAME="clients"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline ObjList& &nbsp;<strong>clients</strong> ()
+<br></td><td align="right"><h3><strong>clients</strong></h3></td></tr></table><p></p><p>
+ Retrieve the list of clients.
+ Make sure the set is locked before calling this method
+</p>
+<p><b>Returns</b>: The list of clients
+     </p>
+<A NAME="add"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>add</strong> (JBStream* client)
+<br></td><td align="right"><h3><strong>add</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Add a stream to the set. The stream's reference counter will be increased.
+ This method doesn't check if the stream is already added
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>client</i></TD><TD align="left" valign="top">The stream to append
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True on success, false if there is no more room in this set
+     </p>
+<A NAME="remove"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>remove</strong> (JBStream* client, bool delObj = true)
+<br></td><td align="right"><h3><strong>remove</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Remove a stream from set
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>client</i></TD><TD align="left" valign="top">The stream to remove
+</TD></TR>
+<TR><TD align="left" valign="top"><i>delObj</i></TD><TD align="left" valign="top">True to release the stream, false to remove it from list
+  without releasing it
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True on success, false if not found
+     </p>
+<A NAME="dropAll"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int &nbsp;<strong>dropAll</strong> (const JabberID& local = JabberID::empty(),
+	const JabberID& remote = JabberID::empty(),
+	XMPPError::Type error = XMPPError::NoError, const char* reason = 0)
+<br></td><td align="right"><h3><strong>dropAll</strong></h3></td></tr></table><p></p><p>
+ Terminate all streams matching local/remote jid
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>local</i></TD><TD align="left" valign="top">Optional local jid to match
+</TD></TR>
+<TR><TD align="left" valign="top"><i>remote</i></TD><TD align="left" valign="top">Optional remote jid to match
+</TD></TR>
+<TR><TD align="left" valign="top"><i>error</i></TD><TD align="left" valign="top">Optional error to be sent to the client
+</TD></TR>
+<TR><TD align="left" valign="top"><i>reason</i></TD><TD align="left" valign="top">Optional error text to be sent to the client
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The number of streams terminated
+     </p>
+<A NAME="run"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>run</strong> ()
+<br></td><td align="right"><h3><strong>run</strong></h3></td></tr></table><p></p><p>
+ Process the list.
+ Returns as soon as there are no more streams in the list
+     </p>
+<A NAME="start"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>start</strong> ()
+<br></td><td align="right"><h3><strong>start</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Start running
+</p>
+<p><b>Returns</b>: True on success
+     </p>
+<A NAME="stop"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>stop</strong> ()
+<br></td><td align="right"><h3><strong>stop</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Stop running
+     </p>
+<A NAME="JBStreamSet"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>JBStreamSet</strong> (JBStreamSetList* owner)
+<br></td><td align="right"><h3><strong>JBStreamSet</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>owner</i></TD><TD align="left" valign="top">The list owning this set
+     </TD></TR>
+</TABLE></P>
+<A NAME="process"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<i><strong>process</strong></i> (JBStream& stream)
+<br></td><td align="right"><h3><i><strong>process</strong></i></h3></td></tr></table><p> <small>[protected pure virtual]</small></p><p>
+ This method is called from run() with the list unlocked and stream's
+  reference counter increased.
+ A specialized processor must implement this method
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stream</i></TD><TD align="left" valign="top">The stream to process
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if something was processed
+     </p>
+<A NAME="m_changed"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool  <strong>m_changed</strong>
+</td><td align="right"><h3><strong>m_changed</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_exiting"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool  <strong>m_exiting</strong>
+</td><td align="right"><h3><strong>m_exiting</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_owner"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>JBStreamSetList*  <strong>m_owner</strong>
+</td><td align="right"><h3><strong>m_owner</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_clients"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td>ObjList  <strong>m_clients</strong>
+</td><td align="right"><h3><strong>m_clients</strong></h3></td></tr></table><p> <small>[protected]</small></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

@@ -1,0 +1,94 @@
+<HTML>
+<HEAD>
+<TITLE>class JBConnect</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class JBConnect</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">A socket connector. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::JBConnect</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yjabber___yatejabber_h.html">libs/yjabber/yatejabber.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__GenObject.html">TelEngine::GenObject</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__JBConnect.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref1">Status</A> {	Start = 0,
+	Address,                         
+	Srv,                             
+	Domain                           
+    }
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref2">JBConnect</A></b> (const JBStream& stream) 
+</LI>
+<LI>virtual  &nbsp;<b><A HREF="#ref3">~JBConnect</A></b> () 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref4">stopConnect</A></b> () 
+</LI>
+<LI>virtual  const String& &nbsp;<b><A HREF="#ref5">toString</A></b> ()  const
+</LI>
+</ul><h4>Public Members</h4><ul><LI>static const TokenDict <b><A HREF="#ref6">s_statusName[]</A></b></LI>
+</ul><h4>Protected Methods</h4><ul><LI>void &nbsp;<b><A HREF="#ref7">connect</A></b> () 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ This class holds data used to connect an outgoing stream
+ A descendant class should implement the thread run method
+</p>
+<A NAME="Status"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>Status</strong> {	Start = 0,
+	Address,                         
+	Srv,                             
+	Domain                           
+    }
+</td><td align="right"><h3><strong>Status</strong></h3></td></tr></table><p></p><A NAME="JBConnect"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>JBConnect</strong> (const JBStream& stream)
+<br></td><td align="right"><h3><strong>JBConnect</strong></h3></td></tr></table><p></p><p>
+ Constructor. Add itself to the stream's engine
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stream</i></TD><TD align="left" valign="top">The stream to connect
+     </TD></TR>
+</TABLE></P>
+<A NAME="~JBConnect"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~JBConnect</strong> ()
+<br></td><td align="right"><h3><strong>~JBConnect</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor. Remove from engine if still there
+     </p>
+<A NAME="stopConnect"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>stopConnect</strong> ()
+<br></td><td align="right"><h3><strong>stopConnect</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Stop the thread. This method should be re-implemented
+     </p>
+<A NAME="toString"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td> const String& &nbsp;<strong>toString</strong> ()
+<br></td><td align="right"><h3><strong>toString</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Retrieve the stream name
+</p>
+<p><b>Returns</b>: Stream name
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__GenObject.html#toString">GenObject</A>.</p>
+<A NAME="s_statusName[]"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_statusName[]</strong>
+</td><td align="right"><h3><strong>s_statusName[]</strong></h3></td></tr></table><p></p><A NAME="connect"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>connect</strong> ()
+<br></td><td align="right"><h3><strong>connect</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Connect the socket.
+ Retrieve ip/port from engine ant use them if valid or try to use SRV records returned by
+ the given domain or use the domain's ip address and the default port given by the stream type.
+ Notify the stream on termination.
+ This method should be called from it's own thread
+     </p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

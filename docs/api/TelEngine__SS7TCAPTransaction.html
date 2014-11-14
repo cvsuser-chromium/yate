@@ -1,0 +1,451 @@
+<HTML>
+<HEAD>
+<TITLE>class SS7TCAPTransaction</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SS7TCAPTransaction</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">SS7 TCAP transaction implementation. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH colspan="2">Contains pure virtuals</TH></TR><TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SS7TCAPTransaction</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__Mutex.html">TelEngine::Mutex</A> <small>[public ]</small>, <A HREF="TelEngine__RefObject.html">TelEngine::RefObject</A> <small>[public ]</small></TD></TR>
+<TR><TH>Inherited by</TH><TD><A HREF="TelEngine__SS7TCAPTransactionANSI.html">SS7TCAPTransactionANSI</A>, <A HREF="TelEngine__SS7TCAPTransactionITU.html">SS7TCAPTransactionITU</A></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SS7TCAPTransaction.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref1">TransactionState</A> {	Idle                      = 0,
+	PackageSent               = 1,
+	PackageReceived           = 2,
+	Active                    = 3,
+    }
+</LI>
+<LI>enum <A HREF="#ref2">TransactionTransmit</A> {	NoTransmit       = 0,
+	PendingTransmit  = 256,
+	Transmitted      = 521,
+    }
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref3">SS7TCAPTransaction</A></b> (SS7TCAP* tcap, SS7TCAP::TCAPUserTransActions type, const String& transactID, NamedList& params,
+	<A HREF="#u_int64_t">u_int64_t</A> timeout, bool initLocal = true) 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref4">~SS7TCAPTransaction</A></b> () 
+</LI>
+<LI>virtual  SS7TCAPError &nbsp;<b><i><A HREF="#ref5">handleData</A></i></b> (NamedList& params, DataBlock& data) 
+</LI>
+<LI>virtual  SS7TCAPError &nbsp;<b><i><A HREF="#ref6">update</A></i></b> (SS7TCAP::TCAPUserTransActions type, NamedList& params, bool updateByUser = true) 
+</LI>
+<LI>virtual  SS7TCAPError &nbsp;<b><i><A HREF="#ref7">handleDialogPortion</A></i></b> (NamedList& params,bool byUser = true) 
+</LI>
+<LI>virtual  SS7TCAPError &nbsp;<b><A HREF="#ref8">buildComponentError</A></b> (SS7TCAPError& error, NamedList& params, DataBlock& data) 
+</LI>
+<LI>virtual  SS7TCAPError &nbsp;<b><A HREF="#ref9">handleComponents</A></b> (NamedList& params, bool updateByUser = true) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref10">requestComponents</A></b> (NamedList& params, DataBlock& data) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref11">transactionData</A></b> (NamedList& params) 
+</LI>
+<LI>virtual  void &nbsp;<b><i><A HREF="#ref12">requestContent</A></i></b> (NamedList& params, DataBlock& data) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref13">checkComponents</A></b> () 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref14">setTransactionType</A></b> (SS7TCAP::TCAPUserTransActions type) 
+</LI>
+<LI>inline SS7TCAP::TCAPUserTransActions &nbsp;<b><A HREF="#ref15">transactionType</A></b> () 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref16">setState</A></b> (TransactionState state) 
+</LI>
+<LI>inline TransactionState &nbsp;<b><A HREF="#ref17">transactionState</A></b> () 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref18">setTransmitState</A></b> (TransactionTransmit state) 
+</LI>
+<LI>inline TransactionTransmit &nbsp;<b><A HREF="#ref19">transmitState</A></b> () 
+</LI>
+<LI>inline SS7TCAP* &nbsp;<b><A HREF="#ref20">tcap</A></b> () 
+</LI>
+<LI>const String& &nbsp;<b><A HREF="#ref21">toString</A></b> ()  const
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref22">setUserName</A></b> (const String& name) 
+</LI>
+<LI>const String& &nbsp;<b><A HREF="#ref23">userName</A></b> () 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref24">basicEnd</A></b> () 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref25">addSCCPAddressing</A></b> (NamedList& fillParams, bool local) 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref26">endNow</A></b> () 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref27">endNow</A></b> (bool endNow) 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref28">timedOut</A></b> () 
+</LI>
+<LI>SS7TCAPComponent* &nbsp;<b><A HREF="#ref29">findComponent</A></b> (const String& id) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref30">updateToEnd</A></b> () 
+</LI>
+<LI>virtual  void &nbsp;<b><i><A HREF="#ref31">updateState</A></i></b> (bool byUser = true) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref32">abnormalDialogInfo</A></b> (NamedList& params) 
+</LI>
+<LI>virtual  SS7TCAPError &nbsp;<b><i><A HREF="#ref33">decodeDialogPortion</A></i></b> (NamedList& params, DataBlock& data) 
+</LI>
+<LI>virtual  void &nbsp;<b><i><A HREF="#ref34">encodeDialogPortion</A></i></b> (NamedList& params, DataBlock& data) 
+</LI>
+<LI>virtual  SS7TCAPError &nbsp;<b><i><A HREF="#ref35">decodeComponents</A></i></b> (NamedList& params, DataBlock& data) 
+</LI>
+<LI>virtual  void &nbsp;<b><i><A HREF="#ref36">encodeComponents</A></i></b> (NamedList& params, DataBlock& data) 
+</LI>
+</ul><h4>Protected Members</h4><ul><LI>SS7TCAP* <b><A HREF="#ref37">m_tcap</A></b></LI>
+<LI>SS7TCAP::TCAPType <b><A HREF="#ref38">m_tcapType</A></b></LI>
+<LI>String <b><A HREF="#ref39">m_userName</A></b></LI>
+<LI>String <b><A HREF="#ref40">m_localID</A></b></LI>
+<LI>String <b><A HREF="#ref41">m_remoteID</A></b></LI>
+<LI>SS7TCAP::TCAPUserTransActions <b><A HREF="#ref42">m_type</A></b></LI>
+<LI>TransactionState <b><A HREF="#ref43">m_state</A></b></LI>
+<LI>TransactionTransmit <b><A HREF="#ref44">m_transmit</A></b></LI>
+<LI>ObjList <b><A HREF="#ref45">m_components</A></b></LI>
+<LI>NamedList <b><A HREF="#ref46">m_localSCCPAddr</A></b></LI>
+<LI>NamedList <b><A HREF="#ref47">m_remoteSCCPAddr</A></b></LI>
+<LI>bool <b><A HREF="#ref48">m_basicEnd</A></b></LI>
+<LI>bool <b><A HREF="#ref49">m_endNow</A></b></LI>
+<LI>SignallingTimer <b><A HREF="#ref50">m_timeout</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ Implementation of SS7 Transactional Capabilities Application Part Transaction
+</p>
+<A NAME="TransactionState"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>TransactionState</strong> {	Idle                      = 0,
+	PackageSent               = 1,
+	PackageReceived           = 2,
+	Active                    = 3,
+    }
+</td><td align="right"><h3><strong>TransactionState</strong></h3></td></tr></table><p></p><A NAME="TransactionTransmit"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>TransactionTransmit</strong> {	NoTransmit       = 0,
+	PendingTransmit  = 256,
+	Transmitted      = 521,
+    }
+</td><td align="right"><h3><strong>TransactionTransmit</strong></h3></td></tr></table><p></p><A NAME="SS7TCAPTransaction"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>SS7TCAPTransaction</strong> (SS7TCAP* tcap, SS7TCAP::TCAPUserTransActions type, const String& transactID, NamedList& params,
+	<A HREF="#u_int64_t">u_int64_t</A> timeout, bool initLocal = true)
+<br></td><td align="right"><h3><strong>SS7TCAPTransaction</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>tcap</i></TD><TD align="left" valign="top">TCAP holding this transaction
+</TD></TR>
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Initiating type for transaction
+</TD></TR>
+<TR><TD align="left" valign="top"><i>transactID</i></TD><TD align="left" valign="top">Transaction ID
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Decoded TCAP parameters for building the transaction
+</TD></TR>
+<TR><TD align="left" valign="top"><i>timeout</i></TD><TD align="left" valign="top">Transaction timeout
+</TD></TR>
+<TR><TD align="left" valign="top"><i>initLocal</i></TD><TD align="left" valign="top">True if the transaction was initiated locally, false if not
+     </TD></TR>
+</TABLE></P>
+<A NAME="~SS7TCAPTransaction"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>~SS7TCAPTransaction</strong> ()
+<br></td><td align="right"><h3><strong>~SS7TCAPTransaction</strong></h3></td></tr></table><p></p><p>
+ Destructor
+     </p>
+<A NAME="handleData"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td> SS7TCAPError &nbsp;<i><strong>handleData</strong></i> (NamedList& params, DataBlock& data)
+<br></td><td align="right"><h3><i><strong>handleData</strong></i></h3></td></tr></table><p> <small>[pure virtual]</small></p><p>
+ Process transaction data and fill the NamedList with the decoded data
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">NamedList to fill with decoded data
+</TD></TR>
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Data to decode
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A TCAP error encountered whilst decoding
+     </p>
+<A NAME="update"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td> SS7TCAPError &nbsp;<i><strong>update</strong></i> (SS7TCAP::TCAPUserTransActions type, NamedList& params, bool updateByUser = true)
+<br></td><td align="right"><h3><i><strong>update</strong></i></h3></td></tr></table><p> <small>[pure virtual]</small></p><p>
+ An update request for this transaction
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">The type of transaction to which this transaction should be updated
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Update parameter
+</TD></TR>
+<TR><TD align="left" valign="top"><i>updateByUser</i></TD><TD align="left" valign="top">True if the update is made by the local user, false if it's made by the remote end
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A TCAP Error
+     </p>
+<A NAME="handleDialogPortion"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> SS7TCAPError &nbsp;<i><strong>handleDialogPortion</strong></i> (NamedList& params,bool byUser = true)
+<br></td><td align="right"><h3><i><strong>handleDialogPortion</strong></i></h3></td></tr></table><p> <small>[pure virtual]</small></p><p>
+ Handle TCAP relevant dialog data
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">NamedList containing (if present) dialog information
+</TD></TR>
+<TR><TD align="left" valign="top"><i>byUser</i></TD><TD align="left" valign="top">True if the dialog information is provided by the local user, false otherwise
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A report error
+     </p>
+<A NAME="buildComponentError"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td> SS7TCAPError &nbsp;<strong>buildComponentError</strong> (SS7TCAPError& error, NamedList& params, DataBlock& data)
+<br></td><td align="right"><h3><strong>buildComponentError</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Build a Reject component in answer to an encoutered error during decoding of the component portion
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>error</i></TD><TD align="left" valign="top">The encountered error
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Decoded TCAP message parameters
+</TD></TR>
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">DataBlock containing the rest of the coded TCAP message
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A report error
+     </p>
+<A NAME="handleComponents"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td> SS7TCAPError &nbsp;<strong>handleComponents</strong> (NamedList& params, bool updateByUser = true)
+<br></td><td align="right"><h3><strong>handleComponents</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Update components
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">NamedList reference containing the update information
+</TD></TR>
+<TR><TD align="left" valign="top"><i>updateByUser</i></TD><TD align="left" valign="top">Flag if the update was issued by local user or by remote
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A report error
+     </p>
+<A NAME="requestComponents"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>requestComponents</strong> (NamedList& params, DataBlock& data)
+<br></td><td align="right"><h3><strong>requestComponents</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Request encoding for the components of this transaction
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Components parameters to encode
+</TD></TR>
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">DataBlock reference in which to insert the encoded components
+     </TD></TR>
+</TABLE></P>
+<A NAME="transactionData"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>transactionData</strong> (NamedList& params)
+<br></td><td align="right"><h3><strong>transactionData</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Fill the NamedList with transaction portion parameters
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">NamedList reference to fill with transaction portion parameters
+     </TD></TR>
+</TABLE></P>
+<A NAME="requestContent"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<i><strong>requestContent</strong></i> (NamedList& params, DataBlock& data)
+<br></td><td align="right"><h3><i><strong>requestContent</strong></i></h3></td></tr></table><p> <small>[pure virtual]</small></p><p>
+ Request content for this transaction
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">List of parameters of this tranaction
+</TD></TR>
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Data block to fill with encoded content
+     </TD></TR>
+</TABLE></P>
+<A NAME="checkComponents"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>checkComponents</strong> ()
+<br></td><td align="right"><h3><strong>checkComponents</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Check components for timeouts
+     </p>
+<A NAME="setTransactionType"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>setTransactionType</strong> (SS7TCAP::TCAPUserTransActions type)
+<br></td><td align="right"><h3><strong>setTransactionType</strong></h3></td></tr></table><p></p><p>
+ Set the current type of transaction primitive
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">The transaction primitive to be set
+     </TD></TR>
+</TABLE></P>
+<A NAME="transactionType"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline SS7TCAP::TCAPUserTransActions &nbsp;<strong>transactionType</strong> ()
+<br></td><td align="right"><h3><strong>transactionType</strong></h3></td></tr></table><p></p><p>
+ Retrieve the current type of primitive that is set for this transaction
+</p>
+<p><b>Returns</b>: The transaction primitive type
+     </p>
+<A NAME="setState"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>setState</strong> (TransactionState state)
+<br></td><td align="right"><h3><strong>setState</strong></h3></td></tr></table><p></p><p>
+ Set the state of this transaction, trigger a transmission pending state
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>state</i></TD><TD align="left" valign="top">The state to set for the transaction
+     </TD></TR>
+</TABLE></P>
+<A NAME="transactionState"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline TransactionState &nbsp;<strong>transactionState</strong> ()
+<br></td><td align="right"><h3><strong>transactionState</strong></h3></td></tr></table><p></p><p>
+ Retrieve the state of this transaction
+</p>
+<p><b>Returns</b>: The state of this transaction
+     </p>
+<A NAME="setTransmitState"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>setTransmitState</strong> (TransactionTransmit state)
+<br></td><td align="right"><h3><strong>setTransmitState</strong></h3></td></tr></table><p></p><p>
+ Set the transmission state for this transaction
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>state</i></TD><TD align="left" valign="top">The transmission state to be set
+     </TD></TR>
+</TABLE></P>
+<A NAME="transmitState"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline TransactionTransmit &nbsp;<strong>transmitState</strong> ()
+<br></td><td align="right"><h3><strong>transmitState</strong></h3></td></tr></table><p></p><p>
+ The transmission state for this transaction
+</p>
+<p><b>Returns</b>: The current transmission state
+     </p>
+<A NAME="tcap"></A><A NAME="ref20"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline SS7TCAP* &nbsp;<strong>tcap</strong> ()
+<br></td><td align="right"><h3><strong>tcap</strong></h3></td></tr></table><p></p><p>
+ The TCAP to which this transaction belongs
+</p>
+<p><b>Returns</b>: A pointer to the TCAP component
+     </p>
+<A NAME="toString"></A><A NAME="ref21"></A><table width="100%"><tr bgcolor="#eeeeee"><td>const String& &nbsp;<strong>toString</strong> ()
+<br></td><td align="right"><h3><strong>toString</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the ID of the transaction so it can be used for list searches
+</p>
+<p><b>Returns</b>: A reference to the ID
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__GenObject.html#toString">GenObject</A>.</p>
+<A NAME="setUserName"></A><A NAME="ref22"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>setUserName</strong> (const String& name)
+<br></td><td align="right"><h3><strong>setUserName</strong></h3></td></tr></table><p></p><p>
+ Set the TCAP username to which this transaction belongs
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">The name of the user to set
+     </TD></TR>
+</TABLE></P>
+<A NAME="userName"></A><A NAME="ref23"></A><table width="100%"><tr bgcolor="#eeeeee"><td>const String& &nbsp;<strong>userName</strong> ()
+<br></td><td align="right"><h3><strong>userName</strong></h3></td></tr></table><p></p><p>
+ Return the name of the TCAP user to which this transaction belongs
+</p>
+<p><b>Returns</b>: The name of the user
+     </p>
+<A NAME="basicEnd"></A><A NAME="ref24"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>basicEnd</strong> ()
+<br></td><td align="right"><h3><strong>basicEnd</strong></h3></td></tr></table><p></p><p>
+ Check if a basic end was set for this transaction
+</p>
+<p><b>Returns</b>: True if basic end was specified by the user, false if prearranged end was specified
+     </p>
+<A NAME="addSCCPAddressing"></A><A NAME="ref25"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>addSCCPAddressing</strong> (NamedList& fillParams, bool local)
+<br></td><td align="right"><h3><strong>addSCCPAddressing</strong></h3></td></tr></table><p></p><p>
+ Add SCCP Addressing information
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>fillParams</i></TD><TD align="left" valign="top">NamedList to fill with addressing information
+</TD></TR>
+<TR><TD align="left" valign="top"><i>local</i></TD><TD align="left" valign="top">True if the information is for the user, otherwise
+     </TD></TR>
+</TABLE></P>
+<A NAME="endNow"></A><A NAME="ref26"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>endNow</strong> ()
+<br></td><td align="right"><h3><strong>endNow</strong></h3></td></tr></table><p></p><p>
+ Check if the flag to end this transaction immediately was set
+</p>
+<p><b>Returns</b>: True if the end flag was set, false otherwise
+     </p>
+<A NAME="endNow"></A><A NAME="ref27"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>endNow</strong> (bool endNow)
+<br></td><td align="right"><h3><strong>endNow</strong></h3></td></tr></table><p></p><p>
+ Set the flag to end this transaction immediately
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>endNow</i></TD><TD align="left" valign="top">Boolean value to set to the end flag
+     </TD></TR>
+</TABLE></P>
+<A NAME="timedOut"></A><A NAME="ref28"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>timedOut</strong> ()
+<br></td><td align="right"><h3><strong>timedOut</strong></h3></td></tr></table><p></p><p>
+ Check if the transaction has timed out
+</p>
+<p><b>Returns</b>: True if the transaction timed out, false otherwise
+     </p>
+<A NAME="findComponent"></A><A NAME="ref29"></A><table width="100%"><tr bgcolor="#eeeeee"><td>SS7TCAPComponent* &nbsp;<strong>findComponent</strong> (const String& id)
+<br></td><td align="right"><h3><strong>findComponent</strong></h3></td></tr></table><p></p><p>
+ Find a component with given id
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>id</i></TD><TD align="left" valign="top">Id of component to find
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The component with given id or null
+     </p>
+<A NAME="updateToEnd"></A><A NAME="ref30"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>updateToEnd</strong> ()
+<br></td><td align="right"><h3><strong>updateToEnd</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Update the state of this transaction to end the transaction
+     </p>
+<A NAME="updateState"></A><A NAME="ref31"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<i><strong>updateState</strong></i> (bool byUser = true)
+<br></td><td align="right"><h3><i><strong>updateState</strong></i></h3></td></tr></table><p> <small>[pure virtual]</small></p><p>
+ Update transaction state
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>byUser</i></TD><TD align="left" valign="top">True if update is requested by user, false if by remote
+     </TD></TR>
+</TABLE></P>
+<A NAME="abnormalDialogInfo"></A><A NAME="ref32"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>abnormalDialogInfo</strong> (NamedList& params)
+<br></td><td align="right"><h3><strong>abnormalDialogInfo</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Set information in case of abnormal dialog detection
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">List of parameters where to set the abnormal dialog information
+     </TD></TR>
+</TABLE></P>
+<A NAME="decodeDialogPortion"></A><A NAME="ref33"></A><table width="100%"><tr bgcolor="#eeeeee"><td> SS7TCAPError &nbsp;<i><strong>decodeDialogPortion</strong></i> (NamedList& params, DataBlock& data)
+<br></td><td align="right"><h3><i><strong>decodeDialogPortion</strong></i></h3></td></tr></table><p> <small>[pure virtual]</small></p><p>
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">NamedList reference to fill with the decoded dialog information
+</TD></TR>
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">DataBlock reference from which to decode the dialog information
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A TCAP error encountered whilst decoding
+     </p>
+<A NAME="encodeDialogPortion"></A><A NAME="ref34"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<i><strong>encodeDialogPortion</strong></i> (NamedList& params, DataBlock& data)
+<br></td><td align="right"><h3><i><strong>encodeDialogPortion</strong></i></h3></td></tr></table><p> <small>[pure virtual]</small></p><p>
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">NamedList reference from which to take the dialog information to encode
+</TD></TR>
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">DataBlock reference into which to put the encoded dialog information
+     </TD></TR>
+</TABLE></P>
+<A NAME="decodeComponents"></A><A NAME="ref35"></A><table width="100%"><tr bgcolor="#eeeeee"><td> SS7TCAPError &nbsp;<i><strong>decodeComponents</strong></i> (NamedList& params, DataBlock& data)
+<br></td><td align="right"><h3><i><strong>decodeComponents</strong></i></h3></td></tr></table><p> <small>[pure virtual]</small></p><p>
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">NamedList reference to fill with the decoded component information
+</TD></TR>
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">DataBlock reference from which to decode the component information
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A TCAP error encountered whilst decoding
+     </p>
+<A NAME="encodeComponents"></A><A NAME="ref36"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<i><strong>encodeComponents</strong></i> (NamedList& params, DataBlock& data)
+<br></td><td align="right"><h3><i><strong>encodeComponents</strong></i></h3></td></tr></table><p> <small>[pure virtual]</small></p><p>
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">NamedList reference from which to take the component information to encode
+</TD></TR>
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">DataBlock reference into which to put the encoded component information
+     </TD></TR>
+</TABLE></P>
+<A NAME="m_tcap"></A><A NAME="ref37"></A><table width="100%"><tr bgcolor="#eeeeee"><td>SS7TCAP*  <strong>m_tcap</strong>
+</td><td align="right"><h3><strong>m_tcap</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_tcapType"></A><A NAME="ref38"></A><table width="100%"><tr bgcolor="#eeeeee"><td>SS7TCAP::TCAPType  <strong>m_tcapType</strong>
+</td><td align="right"><h3><strong>m_tcapType</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_userName"></A><A NAME="ref39"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_userName</strong>
+</td><td align="right"><h3><strong>m_userName</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_localID"></A><A NAME="ref40"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_localID</strong>
+</td><td align="right"><h3><strong>m_localID</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_remoteID"></A><A NAME="ref41"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_remoteID</strong>
+</td><td align="right"><h3><strong>m_remoteID</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_type"></A><A NAME="ref42"></A><table width="100%"><tr bgcolor="#eeeeee"><td>SS7TCAP::TCAPUserTransActions  <strong>m_type</strong>
+</td><td align="right"><h3><strong>m_type</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_state"></A><A NAME="ref43"></A><table width="100%"><tr bgcolor="#eeeeee"><td>TransactionState  <strong>m_state</strong>
+</td><td align="right"><h3><strong>m_state</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_transmit"></A><A NAME="ref44"></A><table width="100%"><tr bgcolor="#eeeeee"><td>TransactionTransmit  <strong>m_transmit</strong>
+</td><td align="right"><h3><strong>m_transmit</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_components"></A><A NAME="ref45"></A><table width="100%"><tr bgcolor="#eeeeee"><td>ObjList  <strong>m_components</strong>
+</td><td align="right"><h3><strong>m_components</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_localSCCPAddr"></A><A NAME="ref46"></A><table width="100%"><tr bgcolor="#eeeeee"><td>NamedList  <strong>m_localSCCPAddr</strong>
+</td><td align="right"><h3><strong>m_localSCCPAddr</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_remoteSCCPAddr"></A><A NAME="ref47"></A><table width="100%"><tr bgcolor="#eeeeee"><td>NamedList  <strong>m_remoteSCCPAddr</strong>
+</td><td align="right"><h3><strong>m_remoteSCCPAddr</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_basicEnd"></A><A NAME="ref48"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool  <strong>m_basicEnd</strong>
+</td><td align="right"><h3><strong>m_basicEnd</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_endNow"></A><A NAME="ref49"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool  <strong>m_endNow</strong>
+</td><td align="right"><h3><strong>m_endNow</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_timeout"></A><A NAME="ref50"></A><table width="100%"><tr bgcolor="#eeeeee"><td>SignallingTimer  <strong>m_timeout</strong>
+</td><td align="right"><h3><strong>m_timeout</strong></h3></td></tr></table><p> <small>[protected]</small></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

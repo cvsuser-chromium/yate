@@ -1,0 +1,276 @@
+<HTML>
+<HEAD>
+<TITLE>class SS7Route</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SS7Route</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">A SS7 MSU route. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SS7Route</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__Mutex.html">TelEngine::Mutex</A> <small>[public ]</small>, <A HREF="TelEngine__RefObject.html">TelEngine::RefObject</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SS7Route.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref3">State</A> {	Unknown       = 0x80,
+	Prohibited    = 0x01,
+	Restricted    = 0x02,
+	Congestion    = 0x04,
+	Allowed       = 0x08,
+	NotAllowed    = 0x77,
+	NotCongested  = 0x78,
+	NotRestricted = 0x7c,
+	NotProhibited = 0x7e,
+	KnownState    = 0x7f,
+	AnyState      = 0xff
+    }
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>inline &nbsp;<b><A HREF="#ref4">SS7Route</A></b> (unsigned int packed, SS7PointCode::Type type,
+	    unsigned int priority = 0, unsigned int shift = 0,
+	    unsigned int maxDataLength = 272) 
+</LI>
+<LI>inline &nbsp;<b><A HREF="#ref5">SS7Route</A></b> (const SS7Route& original) 
+</LI>
+<LI>virtual  &nbsp;<b><A HREF="#ref6">~SS7Route</A></b> () 
+</LI>
+<LI>State &nbsp;<b><A HREF="#ref7">state</A></b> ()  const
+</LI>
+<LI>const char* &nbsp;<b><A HREF="#ref9">stateName</A></b> ()  const
+</LI>
+<LI>unsigned int &nbsp;<b><A HREF="#ref11">priority</A></b> ()  const
+</LI>
+<LI>unsigned int &nbsp;<b><A HREF="#ref12">getMaxDataLength</A></b> ()  const
+</LI>
+<LI>unsigned int &nbsp;<b><A HREF="#ref13">packed</A></b> ()  const
+</LI>
+<LI>unsigned int &nbsp;<b><A HREF="#ref14">shift</A></b> ()  const
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref15">attach</A></b> (SS7Layer3* network, SS7PointCode::Type type) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref16">detach</A></b> (SS7Layer3* network) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref17">hasNetwork</A></b> (const SS7Layer3* network) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref18">hasNetwork</A></b> (const SS7Layer3* network)  const
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref19">operational</A></b> (int sls = -1) 
+</LI>
+<LI>int &nbsp;<b><A HREF="#ref20">transmitMSU</A></b> (const SS7Router* router, const SS7MSU& msu,
+	const SS7Label& label, int sls, State states, const SS7Layer3* source = 0) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref21">congested</A></b> () 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref22">reroute</A></b> () 
+</LI>
+</ul><h4>Public Static Methods</h4><ul><LI>static  const TokenDict* &nbsp;<b><A HREF="#ref8">stateNames</A></b> () 
+</LI>
+<LI>static  const char* &nbsp;<b><A HREF="#ref10">stateName</A></b> (State state) 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ Keeps a packed destination point code, a network priority or a list of networks used
+  to route to the enclosed destination point code
+</p>
+<A NAME="State"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>State</strong> {	Unknown       = 0x80,
+	Prohibited    = 0x01,
+	Restricted    = 0x02,
+	Congestion    = 0x04,
+	Allowed       = 0x08,
+	NotAllowed    = 0x77,
+	NotCongested  = 0x78,
+	NotRestricted = 0x7c,
+	NotProhibited = 0x7e,
+	KnownState    = 0x7f,
+	AnyState      = 0xff
+    }
+</td><td align="right"><h3><strong>State</strong></h3></td></tr></table><p></p><p>
+ Route state
+     </p>
+<A NAME="SS7Route"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>SS7Route</strong> (unsigned int packed, SS7PointCode::Type type,
+	    unsigned int priority = 0, unsigned int shift = 0,
+	    unsigned int maxDataLength = 272)
+<br></td><td align="right"><h3><strong>SS7Route</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>packed</i></TD><TD align="left" valign="top">The packed value of the destination point code
+</TD></TR>
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">The destination point code type
+</TD></TR>
+<TR><TD align="left" valign="top"><i>priority</i></TD><TD align="left" valign="top">Optional value of the network priority
+</TD></TR>
+<TR><TD align="left" valign="top"><i>shift</i></TD><TD align="left" valign="top">SLS right shift to apply for balancing between linksets
+</TD></TR>
+<TR><TD align="left" valign="top"><i>maxDataLength</i></TD><TD align="left" valign="top">The maximum data that can be transported on this
+        route
+     </TD></TR>
+</TABLE></P>
+<A NAME="SS7Route"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>SS7Route</strong> (const SS7Route& original)
+<br></td><td align="right"><h3><strong>SS7Route</strong></h3></td></tr></table><p></p><p>
+ Copy constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>original</i></TD><TD align="left" valign="top">The original route
+     </TD></TR>
+</TABLE></P>
+<A NAME="~SS7Route"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~SS7Route</strong> ()
+<br></td><td align="right"><h3><strong>~SS7Route</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor
+     </p>
+<A NAME="state"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>State &nbsp;<strong>state</strong> ()
+<br></td><td align="right"><h3><strong>state</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the current state of the route
+</p>
+<p><b>Returns</b>: Current route state
+     </p>
+<A NAME="stateNames"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td> const TokenDict* &nbsp;<strong>stateNames</strong> ()
+<br></td><td align="right"><h3><strong>stateNames</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Retrieve the state names token table
+</p>
+<p><b>Returns</b>: Pointer to the token table mapping states to names
+     </p>
+<A NAME="stateName"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>const char* &nbsp;<strong>stateName</strong> ()
+<br></td><td align="right"><h3><strong>stateName</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the name of the current state
+</p>
+<p><b>Returns</b>: Name of the state, NULL if invalid
+     </p>
+<A NAME="stateName"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td> const char* &nbsp;<strong>stateName</strong> (State state)
+<br></td><td align="right"><h3><strong>stateName</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Retrieve the name of an arbitrary state
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>state</i></TD><TD align="left" valign="top">Route state whose name to return
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Name of the state, NULL if invalid
+     </p>
+<A NAME="priority"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int &nbsp;<strong>priority</strong> ()
+<br></td><td align="right"><h3><strong>priority</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the priority of this route
+</p>
+<p><b>Returns</b>: Route priority, zero = highest (adjacent)
+     </p>
+<A NAME="getMaxDataLength"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int &nbsp;<strong>getMaxDataLength</strong> ()
+<br></td><td align="right"><h3><strong>getMaxDataLength</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the maximum data length that can be transported on this route
+</p>
+<p><b>Returns</b>: The maximum data length
+     </p>
+<A NAME="packed"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int &nbsp;<strong>packed</strong> ()
+<br></td><td align="right"><h3><strong>packed</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the packed Point Code of this route
+</p>
+<p><b>Returns</b>: Packed Point Code of the route's destination
+     </p>
+<A NAME="shift"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int &nbsp;<strong>shift</strong> ()
+<br></td><td align="right"><h3><strong>shift</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the SLS right shift for this route
+</p>
+<p><b>Returns</b>: How many bits of SLS to shift off right when selecting linkset
+     </p>
+<A NAME="attach"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>attach</strong> (SS7Layer3* network, SS7PointCode::Type type)
+<br></td><td align="right"><h3><strong>attach</strong></h3></td></tr></table><p></p><p>
+ Attach a network to use for this destination or change its priority.
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>network</i></TD><TD align="left" valign="top">The network to attach or change priority
+</TD></TR>
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">The point code type used to get the priority from the given network or the networks already in the list
+     </TD></TR>
+</TABLE></P>
+<A NAME="detach"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>detach</strong> (SS7Layer3* network)
+<br></td><td align="right"><h3><strong>detach</strong></h3></td></tr></table><p></p><p>
+ Remove a network from the list without deleting it.
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>network</i></TD><TD align="left" valign="top">The network to remove
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if the list of networks is empty
+     </p>
+<A NAME="hasNetwork"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>hasNetwork</strong> (const SS7Layer3* network)
+<br></td><td align="right"><h3><strong>hasNetwork</strong></h3></td></tr></table><p></p><p>
+ Check if this route goes to a specific network
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>network</i></TD><TD align="left" valign="top">Pointer to the network to search
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the network was found in the route's list
+     </p>
+<A NAME="hasNetwork"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>hasNetwork</strong> (const SS7Layer3* network)
+<br></td><td align="right"><h3><strong>hasNetwork</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Check if this route goes to a specific network
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>network</i></TD><TD align="left" valign="top">Pointer to the network to search
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the network was found in the route's list
+     </p>
+<A NAME="operational"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>operational</strong> (int sls = -1)
+<br></td><td align="right"><h3><strong>operational</strong></h3></td></tr></table><p></p><p>
+ Check if the at least one network/linkset is fully operational
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>sls</i></TD><TD align="left" valign="top">Signalling Link to check, negative to check if any is operational
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the route has at least one linkset operational
+     </p>
+<A NAME="transmitMSU"></A><A NAME="ref20"></A><table width="100%"><tr bgcolor="#eeeeee"><td>int &nbsp;<strong>transmitMSU</strong> (const SS7Router* router, const SS7MSU& msu,
+	const SS7Label& label, int sls, State states, const SS7Layer3* source = 0)
+<br></td><td align="right"><h3><strong>transmitMSU</strong></h3></td></tr></table><p></p><p>
+ Try to transmit a MSU through one of the attached networks.
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>router</i></TD><TD align="left" valign="top">The router requesting the operation (used for debug)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>msu</i></TD><TD align="left" valign="top">Message data, starting with Service Indicator Octet
+</TD></TR>
+<TR><TD align="left" valign="top"><i>label</i></TD><TD align="left" valign="top">Routing label of the MSU
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sls</i></TD><TD align="left" valign="top">Signalling Link Selection, negative to choose best
+</TD></TR>
+<TR><TD align="left" valign="top"><i>source</i></TD><TD align="left" valign="top">Avoided network where the packet was received from
+</TD></TR>
+<TR><TD align="left" valign="top"><i>states</i></TD><TD align="left" valign="top">The states a network can have to be a transmission candidate
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Link the message was successfully queued to, negative for error
+     </p>
+<A NAME="congested"></A><A NAME="ref21"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>congested</strong> ()
+<br></td><td align="right"><h3><strong>congested</strong></h3></td></tr></table><p></p><p>
+ Check the current congestion status according to Q.704 11.2.3.1
+</p>
+<p><b>Returns</b>: True if a TFC should be sent
+     </p>
+<A NAME="reroute"></A><A NAME="ref22"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>reroute</strong> ()
+<br></td><td align="right"><h3><strong>reroute</strong></h3></td></tr></table><p></p><p>
+ Initiate controlled rerouting procedure, buffer user part messages for T6
+     </p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

@@ -1,0 +1,145 @@
+<HTML>
+<HEAD>
+<TITLE>class SS7Management</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SS7Management</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">SS7 SNM implementation. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SS7Management</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__Mutex.html">TelEngine::Mutex</A> <small>[public ]</small>, <A HREF="TelEngine__SS7Layer4.html">TelEngine::SS7Layer4</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SS7Management.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref1">SS7Management</A></b> (const NamedList& params, unsigned char sio = SS7MSU::SNM|SS7MSU::National) 
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>virtual  HandledMSU &nbsp;<b><A HREF="#ref2">receivedMSU</A></b> (const SS7MSU& msu, const SS7Label& label, SS7Layer3* network, int sls) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref3">inhibit</A></b> (const SS7Label& link, int setFlags, int clrFlags = 0) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref4">inhibited</A></b> (const SS7Label& link, int flags) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref5">recover</A></b> (const SS7Label& link, int sequence) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref6">notify</A></b> (SS7Layer3* link, int sls) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref7">control</A></b> (NamedList& params) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref8">timerTick</A></b> (const Time& when) 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ Implementation of SS7 SNM User Part (Management) - Q.704
+</p>
+<A NAME="SS7Management"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>SS7Management</strong> (const NamedList& params, unsigned char sio = SS7MSU::SNM|SS7MSU::National)
+<br></td><td align="right"><h3><strong>SS7Management</strong></h3></td></tr></table><p></p><p>
+ Constructor
+     </p>
+<A NAME="receivedMSU"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td> HandledMSU &nbsp;<strong>receivedMSU</strong> (const SS7MSU& msu, const SS7Label& label, SS7Layer3* network, int sls)
+<br></td><td align="right"><h3><strong>receivedMSU</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Process a MSU received from a Layer 3 component
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msu</i></TD><TD align="left" valign="top">Message data, starting with Service Indicator Octet
+</TD></TR>
+<TR><TD align="left" valign="top"><i>label</i></TD><TD align="left" valign="top">Routing label of the received MSU
+</TD></TR>
+<TR><TD align="left" valign="top"><i>network</i></TD><TD align="left" valign="top">Network layer that delivered the MSU
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sls</i></TD><TD align="left" valign="top">Signalling Link the MSU was received from
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Result of MSU processing
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7L3User.html#receivedMSU">SS7L3User</A>.</p>
+<A NAME="inhibit"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>inhibit</strong> (const SS7Label& link, int setFlags, int clrFlags = 0)
+<br></td><td align="right"><h3><strong>inhibit</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Set and clear inhibition flags on a link of a router attached network
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>link</i></TD><TD align="left" valign="top">Signalling Link to modify identified by a routing label
+</TD></TR>
+<TR><TD align="left" valign="top"><i>setFlags</i></TD><TD align="left" valign="top">Flag bits to set ORed together
+</TD></TR>
+<TR><TD align="left" valign="top"><i>clrFlags</i></TD><TD align="left" valign="top">Flag bits to clear  ORed together (optional)
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if inhibition flags were set
+     </p>
+<A NAME="inhibited"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>inhibited</strong> (const SS7Label& link, int flags)
+<br></td><td align="right"><h3><strong>inhibited</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Check inhibition flags on a link of a router attached network
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>link</i></TD><TD align="left" valign="top">Signalling Link to check identified by a routing label
+</TD></TR>
+<TR><TD align="left" valign="top"><i>flags</i></TD><TD align="left" valign="top">Flag bits to check ORed together
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if any of the specified inhibition flags are set
+     </p>
+<A NAME="recover"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>recover</strong> (const SS7Label& link, int sequence)
+<br></td><td align="right"><h3><strong>recover</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Recover MSUs from a link
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>link</i></TD><TD align="left" valign="top">Signalling Link to recover identified by a routing label
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sequence</i></TD><TD align="left" valign="top">Starting sequence number to recover
+     </TD></TR>
+</TABLE></P>
+<A NAME="notify"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>notify</strong> (SS7Layer3* link, int sls)
+<br></td><td align="right"><h3><strong>notify</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Process a notification generated by the attached network layer
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>link</i></TD><TD align="left" valign="top">Network or linkset that generated the notification
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sls</i></TD><TD align="left" valign="top">Signallink Link that generated the notification, negative if none
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if notification was processed
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7L3User.html#notify">SS7L3User</A>.</p>
+<A NAME="control"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>control</strong> (NamedList& params)
+<br></td><td align="right"><h3><strong>control</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Query or modify the management settings or operational parameters
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">The list of parameters to query or change
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the control operation was executed
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#control">SignallingComponent</A>.</p>
+<A NAME="timerTick"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>timerTick</strong> (const Time& when)
+<br></td><td align="right"><h3><strong>timerTick</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Method called periodically by the engine to retransmit messages
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>when</i></TD><TD align="left" valign="top">Time to use as computing base for timers
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#timerTick">SignallingComponent</A>.</p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

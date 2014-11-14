@@ -1,0 +1,407 @@
+<HTML>
+<HEAD>
+<TITLE>class SS7M2PA</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SS7M2PA</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">SIGTRAN MTP2 User Peer-to-Peer Adaptation Layer. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SS7M2PA</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><i><A HREF="TelEngine__SIGTRAN.html">TelEngine::SIGTRAN</A></i> <small>[public ]</small>, <i><A HREF="TelEngine__SS7Layer2.html">TelEngine::SS7Layer2</A></i> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SS7M2PA.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref1">m2paState</A> {	Alignment = 1,
+	ProvingNormal = 2,
+	ProvingEmergency = 3,
+	Ready = 4,
+	ProcessorOutage = 5,
+	ProcessorRecovered = 6,
+	Busy = 7,
+	BusyEnded = 8,
+	OutOfService = 9,
+    }
+</LI>
+<LI>enum <A HREF="#ref2">msgType</A> {	UserData = 1,
+	LinkStatus = 2
+    }
+</LI>
+<LI>enum <A HREF="#ref3">sctpState</A> {	Idle,
+	Associating,
+	Established
+    }
+</LI>
+<LI>enum <A HREF="#ref4">M2PAOperations</A> {	Pause        = SS7Layer2::Pause,
+	Resume       = SS7Layer2::Resume,
+	Align        = SS7Layer2::Align,
+	Status       = SS7Layer2::Status,
+	TransRestart = 0x500
+    }
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref5">SS7M2PA</A></b> (const NamedList& params) 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref6">~SS7M2PA</A></b> () 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref7">initialize</A></b> (const NamedList* config) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref8">control</A></b> (NamedList& params) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref9">control</A></b> (M2PAOperations oper, NamedList* params = 0) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref10">control</A></b> (SS7Layer2::Operation oper, NamedList* params = 0) 
+</LI>
+<LI>virtual  unsigned int &nbsp;<b><A HREF="#ref11">status</A></b> ()  const
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref12">transmitMSU</A></b> (const SS7MSU& msu) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref13">notifyLayer</A></b> (SignallingInterface::Notification status) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref14">recoverMSU</A></b> (int sequence) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref15">decodeSeq</A></b> (const DataBlock& data, <A HREF="#u_int8_t">u_int8_t</A> msgType) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref16">abortAlignment</A></b> (const char* info = 0) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref17">transmitLS</A></b> (int streamId = 0) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref18">setHeader</A></b> (DataBlock& data) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref19">processLinkStatus</A></b> (DataBlock& data, int streamId) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref20">processSLinkStatus</A></b> (DataBlock& data, int streamId) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref21">sendAck</A></b> () 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref22">removeFrame</A></b> (<A HREF="#u_int32_t">u_int32_t</A> bsn) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref23">nextBsn</A></b> (<A HREF="#u_int32_t">u_int32_t</A> bsn)  const
+</LI>
+</ul><h4>Public Static Methods</h4><ul><LI>static  inline <A HREF="#u_int32_t">u_int32_t</A> &nbsp;<b><A HREF="#ref24">increment</A></b> (<A HREF="#u_int32_t">u_int32_t</A>& nr) 
+</LI>
+<LI>static  inline <A HREF="#u_int32_t">u_int32_t</A> &nbsp;<b><A HREF="#ref25">getNext</A></b> (<A HREF="#u_int32_t">u_int32_t</A> nr) 
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>virtual  void &nbsp;<b><A HREF="#ref26">timerTick</A></b> (const Time& when) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref27">aligned</A></b> ()  const
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref28">operational</A></b> ()  const
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref29">processMSG</A></b> (unsigned char msgVersion, unsigned char msgClass,
+	unsigned char msgType, const DataBlock& msg, int streamId) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref30">startAlignment</A></b> (bool emergency = false) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref31">retransData</A></b> () 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref32">destroyed</A></b> () 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ RFC4165 SS7 Layer 2 implementation over SCTP/IP.
+ M2PA is intended to be used as a symmetrical Peer-to-Peer replacement of
+  a hardware based SS7 data link.
+</p>
+<A NAME="m2paState"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>m2paState</strong> {	Alignment = 1,
+	ProvingNormal = 2,
+	ProvingEmergency = 3,
+	Ready = 4,
+	ProcessorOutage = 5,
+	ProcessorRecovered = 6,
+	Busy = 7,
+	BusyEnded = 8,
+	OutOfService = 9,
+    }
+</td><td align="right"><h3><strong>m2paState</strong></h3></td></tr></table><p></p><A NAME="msgType"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>msgType</strong> {	UserData = 1,
+	LinkStatus = 2
+    }
+</td><td align="right"><h3><strong>msgType</strong></h3></td></tr></table><p></p><A NAME="sctpState"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>sctpState</strong> {	Idle,
+	Associating,
+	Established
+    }
+</td><td align="right"><h3><strong>sctpState</strong></h3></td></tr></table><p></p><A NAME="M2PAOperations"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>M2PAOperations</strong> {	Pause        = SS7Layer2::Pause,
+	Resume       = SS7Layer2::Resume,
+	Align        = SS7Layer2::Align,
+	Status       = SS7Layer2::Status,
+	TransRestart = 0x500
+    }
+</td><td align="right"><h3><strong>M2PAOperations</strong></h3></td></tr></table><p></p><A NAME="SS7M2PA"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>SS7M2PA</strong> (const NamedList& params)
+<br></td><td align="right"><h3><strong>SS7M2PA</strong></h3></td></tr></table><p></p><p>
+ Constructor
+     </p>
+<A NAME="~SS7M2PA"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>~SS7M2PA</strong> ()
+<br></td><td align="right"><h3><strong>~SS7M2PA</strong></h3></td></tr></table><p></p><p>
+ Destructor
+     </p>
+<A NAME="initialize"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>initialize</strong> (const NamedList* config)
+<br></td><td align="right"><h3><strong>initialize</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Configure and initialize M2PA and its transport
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>config</i></TD><TD align="left" valign="top">Optional configuration parameters override
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if M2PA and the transport were initialized properly
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#initialize">SignallingComponent</A>.</p>
+<A NAME="control"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>control</strong> (NamedList& params)
+<br></td><td align="right"><h3><strong>control</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Query or modify layer's settings or operational parameters
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">The list of parameters to query or change
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the control operation was executed
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer2.html#control">SS7Layer2</A>.</p>
+<A NAME="control"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>control</strong> (M2PAOperations oper, NamedList* params = 0)
+<br></td><td align="right"><h3><strong>control</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Execute a control operation. Operations can change the link status or
+  can query the aligned status.
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Operation to execute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Optional parameters for the operation
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the command completed successfully, for query operations
+  also indicates the data link is aligned and operational
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer2.html#control">SS7Layer2</A>.</p>
+<A NAME="control"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>control</strong> (SS7Layer2::Operation oper, NamedList* params = 0)
+<br></td><td align="right"><h3><strong>control</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Execute a control operation. Operations can change the link status or
+  can query the aligned status.
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Operation to execute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Optional parameters for the operation
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the command completed successfully, for query operations
+  also indicates the data link is aligned and operational
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer2.html#control">SS7Layer2</A>.</p>
+<A NAME="status"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td> unsigned int &nbsp;<strong>status</strong> ()
+<br></td><td align="right"><h3><strong>status</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Retrieve the current link status indications
+</p>
+<p><b>Returns</b>: Link status indication bits
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer2.html#status">SS7Layer2</A>.</p>
+<A NAME="transmitMSU"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>transmitMSU</strong> (const SS7MSU& msu)
+<br></td><td align="right"><h3><strong>transmitMSU</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Push a Message Signal Unit down the protocol stack
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msu</i></TD><TD align="left" valign="top">MSU data to transmit
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if message was successfully queued
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer2.html#transmitMSU">SS7Layer2</A>.</p>
+<A NAME="notifyLayer"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>notifyLayer</strong> (SignallingInterface::Notification status)
+<br></td><td align="right"><h3><strong>notifyLayer</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Method called when the transport status has been changed
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>status</i></TD><TD align="left" valign="top">Up or down
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SIGTRAN.html#notifyLayer">SIGTRAN</A>.</p>
+<A NAME="recoverMSU"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>recoverMSU</strong> (int sequence)
+<br></td><td align="right"><h3><strong>recoverMSU</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Remove the MSUs waiting in the transmit queue and return them
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>sequence</i></TD><TD align="left" valign="top">First sequence number to recover, flush earlier packets
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer2.html#recoverMSU">SS7Layer2</A>.</p>
+<A NAME="decodeSeq"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>decodeSeq</strong> (const DataBlock& data, <A HREF="#u_int8_t">u_int8_t</A> msgType)
+<br></td><td align="right"><h3><strong>decodeSeq</strong></h3></td></tr></table><p></p><p>
+ Decode sequence numbers from message and process them
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">The message
+</TD></TR>
+<TR><TD align="left" valign="top"><i>msgType</i></TD><TD align="left" valign="top">The message type
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if sequence numbers ar as we expected to be
+     </p>
+<A NAME="abortAlignment"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>abortAlignment</strong> (const char* info = 0)
+<br></td><td align="right"><h3><strong>abortAlignment</strong></h3></td></tr></table><p></p><p>
+ Helper method called when an error was detected
+ Change state to OutOfService and notifys upper layer
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>info</i></TD><TD align="left" valign="top">Debuging purpose, Information about detected error
+     </TD></TR>
+</TABLE></P>
+<A NAME="transmitLS"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>transmitLS</strong> (int streamId = 0)
+<br></td><td align="right"><h3><strong>transmitLS</strong></h3></td></tr></table><p></p><p>
+ Send link status message to inform the peer about ouer curent state
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>streamId</i></TD><TD align="left" valign="top">The id of the stream who should send the message
+     </TD></TR>
+</TABLE></P>
+<A NAME="setHeader"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>setHeader</strong> (DataBlock& data)
+<br></td><td align="right"><h3><strong>setHeader</strong></h3></td></tr></table><p></p><p>
+ Create M2PA header (sequence numbers)
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">The data where the header will be stored
+     </TD></TR>
+</TABLE></P>
+<A NAME="processLinkStatus"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>processLinkStatus</strong> (DataBlock& data, int streamId)
+<br></td><td align="right"><h3><strong>processLinkStatus</strong></h3></td></tr></table><p></p><p>
+ Decode and process link status message
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">The message
+</TD></TR>
+<TR><TD align="left" valign="top"><i>streamId</i></TD><TD align="left" valign="top">The stream id witch received the message
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the message was procesed
+     </p>
+<A NAME="processSLinkStatus"></A><A NAME="ref20"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>processSLinkStatus</strong> (DataBlock& data, int streamId)
+<br></td><td align="right"><h3><strong>processSLinkStatus</strong></h3></td></tr></table><p></p><p>
+ Decode and process link status message in more strict manner
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">The message
+</TD></TR>
+<TR><TD align="left" valign="top"><i>streamId</i></TD><TD align="left" valign="top">The stream id witch received the message
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the message was procesed
+     </p>
+<A NAME="sendAck"></A><A NAME="ref21"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>sendAck</strong> ()
+<br></td><td align="right"><h3><strong>sendAck</strong></h3></td></tr></table><p></p><p>
+ Helper method used to acknowledge the last received message
+ when no data are to transmit
+     </p>
+<A NAME="removeFrame"></A><A NAME="ref22"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>removeFrame</strong> (<A HREF="#u_int32_t">u_int32_t</A> bsn)
+<br></td><td align="right"><h3><strong>removeFrame</strong></h3></td></tr></table><p></p><p>
+ Remove a frame from acknowledgement list
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>bsn</i></TD><TD align="left" valign="top">The sequence number of the frame to be removed
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the frame was found and removed.
+     </p>
+<A NAME="nextBsn"></A><A NAME="ref23"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>nextBsn</strong> (<A HREF="#u_int32_t">u_int32_t</A> bsn)
+<br></td><td align="right"><h3><strong>nextBsn</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Check if a sequence number may be a valid next BSN
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>bsn</i></TD><TD align="left" valign="top">Backward Sequence Number to check
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the provided BSN is in the valid range
+     </p>
+<A NAME="increment"></A><A NAME="ref24"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline <A HREF="#u_int32_t">u_int32_t</A> &nbsp;<strong>increment</strong> (<A HREF="#u_int32_t">u_int32_t</A>& nr)
+<br></td><td align="right"><h3><strong>increment</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Increment the given sequence number
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>nr</i></TD><TD align="left" valign="top">Reference of the number to increment
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The incremented number
+     </p>
+<A NAME="getNext"></A><A NAME="ref25"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline <A HREF="#u_int32_t">u_int32_t</A> &nbsp;<strong>getNext</strong> (<A HREF="#u_int32_t">u_int32_t</A> nr)
+<br></td><td align="right"><h3><strong>getNext</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Obtain next sequence number
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>nr</i></TD><TD align="left" valign="top">The current sequence number
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The next number in sequence
+     </p>
+<A NAME="timerTick"></A><A NAME="ref26"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>timerTick</strong> (const Time& when)
+<br></td><td align="right"><h3><strong>timerTick</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Periodical timer tick used to perform alignment and housekeeping
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>when</i></TD><TD align="left" valign="top">Time to use as computing base for events and timeouts
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer2.html#timerTick">SS7Layer2</A>.</p>
+<A NAME="aligned"></A><A NAME="ref27"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>aligned</strong> ()
+<br></td><td align="right"><h3><strong>aligned</strong></h3></td></tr></table><p> <small>[protected const virtual]</small></p><p>
+ Check if the link is aligned.
+ The link may not be operational, the other side may be still proving.
+</p>
+<p><b>Returns</b>: True if the link is aligned
+     </p>
+<A NAME="operational"></A><A NAME="ref28"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>operational</strong> ()
+<br></td><td align="right"><h3><strong>operational</strong></h3></td></tr></table><p> <small>[protected const virtual]</small></p><p>
+ Check if the link is aligned and operational
+</p>
+<p><b>Returns</b>: True if the link is operational
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer2.html#operational">SS7Layer2</A>.</p>
+<A NAME="processMSG"></A><A NAME="ref29"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>processMSG</strong> (unsigned char msgVersion, unsigned char msgClass,
+	unsigned char msgType, const DataBlock& msg, int streamId)
+<br></td><td align="right"><h3><strong>processMSG</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Process a complete message
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msgVersion</i></TD><TD align="left" valign="top">Version of the protocol
+</TD></TR>
+<TR><TD align="left" valign="top"><i>msgClass</i></TD><TD align="left" valign="top">Class of the message
+</TD></TR>
+<TR><TD align="left" valign="top"><i>msgType</i></TD><TD align="left" valign="top">Type of the message, depends on the class
+</TD></TR>
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">Message data, may be empty
+</TD></TR>
+<TR><TD align="left" valign="top"><i>streamId</i></TD><TD align="left" valign="top">Identifier of the stream the message was received on
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the message was handled
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SIGTRAN.html#processMSG">SIGTRAN</A>.</p>
+<A NAME="startAlignment"></A><A NAME="ref30"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>startAlignment</strong> (bool emergency = false)
+<br></td><td align="right"><h3><strong>startAlignment</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Initiates alignment and proving procedure
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>emergency</i></TD><TD align="left" valign="top">True if emergency alignment is desired
+     </TD></TR>
+</TABLE></P>
+<A NAME="retransData"></A><A NAME="ref31"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>retransData</strong> ()
+<br></td><td align="right"><h3><strong>retransData</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Retransmit unacknowledged data
+     </p>
+<A NAME="destroyed"></A><A NAME="ref32"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>destroyed</strong> ()
+<br></td><td align="right"><h3><strong>destroyed</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#destroyed">SignallingComponent</A>.</p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

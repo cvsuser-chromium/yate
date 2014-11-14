@@ -1,0 +1,210 @@
+<HTML>
+<HEAD>
+<TITLE>class SS7Layer4</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SS7Layer4</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">Abstract SS7 layer 4 (application) protocol. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SS7Layer4</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><i><A HREF="TelEngine__SS7L3User.html">TelEngine::SS7L3User</A></i> <small>[public ]</small></TD></TR>
+<TR><TH>Inherited by</TH><TD><A HREF="TelEngine__SS7BICC.html">SS7BICC</A>, <A HREF="TelEngine__SS7ISUP.html">SS7ISUP</A>, <A HREF="TelEngine__SS7Management.html">SS7Management</A>, <A HREF="TelEngine__SS7SCCP.html">SS7SCCP</A>, <A HREF="TelEngine__SS7TUP.html">SS7TUP</A>, <A HREF="TelEngine__SS7Testing.html">SS7Testing</A></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SS7Layer4.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>virtual  void &nbsp;<b><A HREF="#ref1">destroyed</A></b> () 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref2">initialize</A></b> (const NamedList* config) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref3">attach</A></b> (SS7Layer3* network) 
+</LI>
+<LI>inline SS7Layer3* &nbsp;<b><A HREF="#ref4">network</A></b> ()  const
+</LI>
+<LI>inline unsigned char &nbsp;<b><A HREF="#ref5">sio</A></b> ()  const
+</LI>
+<LI>inline unsigned char &nbsp;<b><A HREF="#ref6">sif</A></b> ()  const
+</LI>
+<LI>inline unsigned char &nbsp;<b><A HREF="#ref7">ssf</A></b> ()  const
+</LI>
+<LI>inline unsigned char &nbsp;<b><A HREF="#ref8">prio</A></b> ()  const
+</LI>
+<LI>inline unsigned char &nbsp;<b><A HREF="#ref9">ni</A></b> ()  const
+</LI>
+<LI>inline unsigned char &nbsp;<b><A HREF="#ref13">getSIO</A></b> (const NamedList& params)  const
+</LI>
+</ul><h4>Public Static Methods</h4><ul><LI>static  unsigned char &nbsp;<b><A HREF="#ref10">getSIO</A></b> (const NamedList& params, unsigned char sif, unsigned char prio, unsigned char ni) 
+</LI>
+<LI>static  inline unsigned char &nbsp;<b><A HREF="#ref11">getSIO</A></b> (const NamedList& params, unsigned char sif, unsigned char ssf) 
+</LI>
+<LI>static  inline unsigned char &nbsp;<b><A HREF="#ref12">getSIO</A></b> (const NamedList& params, unsigned char sio) 
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref14">SS7Layer4</A></b> (unsigned char sio = SS7MSU::National, const NamedList* params = 0) 
+</LI>
+<LI>inline int &nbsp;<b><A HREF="#ref15">transmitMSU</A></b> (const SS7MSU& msu, const SS7Label& label, int sls = -1) 
+</LI>
+</ul><h4>Protected Members</h4><ul><LI>unsigned char <b><A HREF="#ref16">m_sio</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ An interface to a Layer 4 (application) SS7 protocol
+</p>
+<A NAME="destroyed"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>destroyed</strong> ()
+<br></td><td align="right"><h3><strong>destroyed</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ This method is called to clean up and destroy the object after the
+  reference counter becomes zero
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#destroyed">SignallingComponent</A>.</p>
+<A NAME="initialize"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>initialize</strong> (const NamedList* config)
+<br></td><td align="right"><h3><strong>initialize</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Initialize the application layer, connect it to the SS7 router
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>config</i></TD><TD align="left" valign="top">Optional configuration parameters override
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the application was initialized properly
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#initialize">SignallingComponent</A>.</p>
+<A NAME="attach"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>attach</strong> (SS7Layer3* network)
+<br></td><td align="right"><h3><strong>attach</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Attach a SS7 network or router to this service. Detach itself from the old one if valid
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>network</i></TD><TD align="left" valign="top">Pointer to network or router to attach
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SS7L3User.html#attach">SS7L3User</A>.</p>
+<A NAME="network"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline SS7Layer3* &nbsp;<strong>network</strong> ()
+<br></td><td align="right"><h3><strong>network</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the SS7 network or router to which this service is attached
+</p>
+<p><b>Returns</b>: Pointer to the network or router this service is attached to
+     </p>
+<A NAME="sio"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline unsigned char &nbsp;<strong>sio</strong> ()
+<br></td><td align="right"><h3><strong>sio</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the default sending Service Information Octet for this protocol
+</p>
+<p><b>Returns</b>: SIO value
+     </p>
+<A NAME="sif"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline unsigned char &nbsp;<strong>sif</strong> ()
+<br></td><td align="right"><h3><strong>sif</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the Service Information Field (SS7 protocol number)
+</p>
+<p><b>Returns</b>: SIF value used in matching and sending MSUs
+     </p>
+<A NAME="ssf"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline unsigned char &nbsp;<strong>ssf</strong> ()
+<br></td><td align="right"><h3><strong>ssf</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the default sending Service Switching Function bits for this protocol
+</p>
+<p><b>Returns</b>: Combined Priority and Network Indicator bits
+     </p>
+<A NAME="prio"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline unsigned char &nbsp;<strong>prio</strong> ()
+<br></td><td align="right"><h3><strong>prio</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the default sending Priority bits for this protocol
+</p>
+<p><b>Returns</b>: Priority bits
+     </p>
+<A NAME="ni"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline unsigned char &nbsp;<strong>ni</strong> ()
+<br></td><td align="right"><h3><strong>ni</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the default sending Network Indicator bits for this protocol
+</p>
+<p><b>Returns</b>: Network Indicator bits
+     </p>
+<A NAME="getSIO"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td> unsigned char &nbsp;<strong>getSIO</strong> (const NamedList& params, unsigned char sif, unsigned char prio, unsigned char ni)
+<br></td><td align="right"><h3><strong>getSIO</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get a SIO value from a parameters list
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Parameter list to retrieve "service", "priority" and "netindicator"
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sif</i></TD><TD align="left" valign="top">Default Service Information Field to apply parameters to
+</TD></TR>
+<TR><TD align="left" valign="top"><i>prio</i></TD><TD align="left" valign="top">Default Priority Field to apply parameters to
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ni</i></TD><TD align="left" valign="top">Default Network Indicator Field to apply parameters to
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Adjusted SIO value
+     </p>
+<A NAME="getSIO"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline unsigned char &nbsp;<strong>getSIO</strong> (const NamedList& params, unsigned char sif, unsigned char ssf)
+<br></td><td align="right"><h3><strong>getSIO</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get a SIO value from a parameters list
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Parameter list to retrieve "service", "priority" and "netindicator"
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sif</i></TD><TD align="left" valign="top">Default Service Information Field to apply parameters to
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ssf</i></TD><TD align="left" valign="top">Default Subservice Field to apply parameters to
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Adjusted SIO value
+     </p>
+<A NAME="getSIO"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline unsigned char &nbsp;<strong>getSIO</strong> (const NamedList& params, unsigned char sio)
+<br></td><td align="right"><h3><strong>getSIO</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get a SIO value from a parameters list
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Parameter list to retrieve "service", "priority" and "netindicator"
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sio</i></TD><TD align="left" valign="top">Default SIO to apply parameters to
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Adjusted SIO value
+     </p>
+<A NAME="getSIO"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline unsigned char &nbsp;<strong>getSIO</strong> (const NamedList& params)
+<br></td><td align="right"><h3><strong>getSIO</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get a SIO value from a parameters list
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Parameter list to retrieve "service", "priority" and "netindicator"
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Adjusted SIO value
+     </p>
+<A NAME="SS7Layer4"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>SS7Layer4</strong> (unsigned char sio = SS7MSU::National, const NamedList* params = 0)
+<br></td><td align="right"><h3><strong>SS7Layer4</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>sio</i></TD><TD align="left" valign="top">Default value of Service Information Octet
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Optional parameters to alter the value of SIO
+     </TD></TR>
+</TABLE></P>
+<A NAME="transmitMSU"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline int &nbsp;<strong>transmitMSU</strong> (const SS7MSU& msu, const SS7Label& label, int sls = -1)
+<br></td><td align="right"><h3><strong>transmitMSU</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Ask the Layer 3 to push a Message Signal Unit down the protocol stack
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msu</i></TD><TD align="left" valign="top">Message data, starting with Service Indicator Octet
+</TD></TR>
+<TR><TD align="left" valign="top"><i>label</i></TD><TD align="left" valign="top">Routing label of the MSU to use in routing
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sls</i></TD><TD align="left" valign="top">Signalling Link Selection, negative to choose best
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Link the message was successfully queued to, negative for error
+     </p>
+<A NAME="m_sio"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned char  <strong>m_sio</strong>
+</td><td align="right"><h3><strong>m_sio</strong></h3></td></tr></table><p> <small>[protected]</small></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

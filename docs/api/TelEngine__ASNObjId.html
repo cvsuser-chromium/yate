@@ -1,0 +1,152 @@
+<HTML>
+<HEAD>
+<TITLE>class ASNObjId</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class ASNObjId</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">
+ Class for holding only an OID
+  <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::ASNObjId</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yasn___yateasn_h.html">libs/yasn/yateasn.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__GenObject.html">TelEngine::GenObject</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__ASNObjId.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref1">ASNObjId</A></b> () 
+</LI>
+<LI>inline &nbsp;<b><A HREF="#ref2">ASNObjId</A></b> (const ASNObjId& original) 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref3">ASNObjId</A></b> (const String& val) 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref4">ASNObjId</A></b> (const String& name, const String& val) 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref5">ASNObjId</A></b> (AsnMib* mib) 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref6">~ASNObjId</A></b> () 
+</LI>
+<LI>inline ASNObjId& &nbsp;<b><A HREF="#ref7">operator=</A></b> (const ASNObjId& original) 
+</LI>
+<LI>inline ASNObjId& &nbsp;<b><A HREF="#ref8">operator=</A></b> (const String& val) 
+</LI>
+<LI>inline ASNObjId& &nbsp;<b><A HREF="#ref9">operator=</A></b> (const char* val) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref10">toDataBlock</A></b> () 
+</LI>
+<LI>DataBlock &nbsp;<b><A HREF="#ref11">getIds</A></b> () 
+</LI>
+<LI>inline const String& &nbsp;<b><A HREF="#ref12">toString</A></b> ()  const
+</LI>
+<LI>inline const String& &nbsp;<b><A HREF="#ref13">getName</A></b> ()  const
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref14">setValue</A></b> (const String& value) 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ Class for holding only an OID
+ </p>
+<A NAME="ASNObjId"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>ASNObjId</strong> ()
+<br></td><td align="right"><h3><strong>ASNObjId</strong></h3></td></tr></table><p></p><p>
+ Constructor
+     </p>
+<A NAME="ASNObjId"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>ASNObjId</strong> (const ASNObjId& original)
+<br></td><td align="right"><h3><strong>ASNObjId</strong></h3></td></tr></table><p></p><p>
+ Copy constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>original</i></TD><TD align="left" valign="top">OID object to copy
+     </TD></TR>
+</TABLE></P>
+<A NAME="ASNObjId"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>ASNObjId</strong> (const String& val)
+<br></td><td align="right"><h3><strong>ASNObjId</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>val</i></TD><TD align="left" valign="top">OID value in string format
+     </TD></TR>
+</TABLE></P>
+<A NAME="ASNObjId"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>ASNObjId</strong> (const String& name, const String& val)
+<br></td><td align="right"><h3><strong>ASNObjId</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Name of the OID
+</TD></TR>
+<TR><TD align="left" valign="top"><i>val</i></TD><TD align="left" valign="top">OID value in string format
+     </TD></TR>
+</TABLE></P>
+<A NAME="ASNObjId"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>ASNObjId</strong> (AsnMib* mib)
+<br></td><td align="right"><h3><strong>ASNObjId</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>mib</i></TD><TD align="left" valign="top">Mib used for creating this OID
+     </TD></TR>
+</TABLE></P>
+<A NAME="~ASNObjId"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>~ASNObjId</strong> ()
+<br></td><td align="right"><h3><strong>~ASNObjId</strong></h3></td></tr></table><p></p><p>
+ Destructor
+     </p>
+<A NAME="operator="></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline ASNObjId& &nbsp;<strong>operator=</strong> (const ASNObjId& original)
+<br></td><td align="right"><h3><strong>operator=</strong></h3></td></tr></table><p></p><p>
+ Assignment operator from OID
+     </p>
+<A NAME="operator="></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline ASNObjId& &nbsp;<strong>operator=</strong> (const String& val)
+<br></td><td align="right"><h3><strong>operator=</strong></h3></td></tr></table><p></p><p>
+ Assign operator from a string value
+     </p>
+<A NAME="operator="></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline ASNObjId& &nbsp;<strong>operator=</strong> (const char* val)
+<br></td><td align="right"><h3><strong>operator=</strong></h3></td></tr></table><p></p><p>
+ Assign operator from a const char* value
+     </p>
+<A NAME="toDataBlock"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>toDataBlock</strong> ()
+<br></td><td align="right"><h3><strong>toDataBlock</strong></h3></td></tr></table><p></p><p>
+ Transform the value of this OID from a string value to a sequence of numbers
+     </p>
+<A NAME="getIds"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>DataBlock &nbsp;<strong>getIds</strong> ()
+<br></td><td align="right"><h3><strong>getIds</strong></h3></td></tr></table><p></p><p>
+ Get the sequence form of the OID
+</p>
+<p><b>Returns</b>: Datablock sequence of ids
+     </p>
+<A NAME="toString"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const String& &nbsp;<strong>toString</strong> ()
+<br></td><td align="right"><h3><strong>toString</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ String representation of the OID
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__GenObject.html#toString">GenObject</A>.</p>
+<A NAME="getName"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const String& &nbsp;<strong>getName</strong> ()
+<br></td><td align="right"><h3><strong>getName</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the name of the OID
+</p>
+<p><b>Returns</b>: String representation of the name
+     </p>
+<A NAME="setValue"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>setValue</strong> (const String& value)
+<br></td><td align="right"><h3><strong>setValue</strong></h3></td></tr></table><p></p><p>
+ Set the OID value
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>value</i></TD><TD align="left" valign="top">OID value
+     </TD></TR>
+</TABLE></P>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

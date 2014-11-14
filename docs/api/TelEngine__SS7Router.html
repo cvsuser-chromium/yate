@@ -1,0 +1,564 @@
+<HTML>
+<HEAD>
+<TITLE>class SS7Router</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SS7Router</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">Main router for SS7 message transfer and applications. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SS7Router</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__Mutex.html">TelEngine::Mutex</A> <small>[public ]</small>, <i><A HREF="TelEngine__SS7L3User.html">TelEngine::SS7L3User</A></i> <small>[public ]</small>, <i><A HREF="TelEngine__SS7Layer3.html">TelEngine::SS7Layer3</A></i> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SS7Router.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref1">Operation</A> {	Pause     = 0x100,
+	Resume    = 0x200,
+	Restart   = 0x300,
+	Status    = 0x400,
+	Traffic   = 0x500,
+	Advertise = 0x600,
+    }
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref2">SS7Router</A></b> (const NamedList& params) 
+</LI>
+<LI>virtual  &nbsp;<b><A HREF="#ref3">~SS7Router</A></b> () 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref4">initialize</A></b> (const NamedList* config) 
+</LI>
+<LI>virtual  int &nbsp;<b><A HREF="#ref5">transmitMSU</A></b> (const SS7MSU& msu, const SS7Label& label, int sls = -1) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref6">operational</A></b> (int sls = -1)  const
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref7">restart</A></b> () 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref8">attach</A></b> (SS7Layer3* network) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref9">detach</A></b> (SS7Layer3* network) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref10">attach</A></b> (SS7Layer4* service) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref11">detach</A></b> (SS7Layer4* service) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref12">uninhibit</A></b> (SS7Layer3* network, int sls, bool remote) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref13">inhibit</A></b> (const SS7Label& link, int setFlags, int clrFlags = 0, bool notLast = false) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref14">inhibited</A></b> (const SS7Label& link, int flags) 
+</LI>
+<LI>int &nbsp;<b><A HREF="#ref15">getSequence</A></b> (const SS7Label& link) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref16">recoverMSU</A></b> (const SS7Label& link, int sequence) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref17">receivedUPU</A></b> (SS7PointCode::Type type, const SS7PointCode node,
+	SS7MSU::Services part, unsigned char cause, const SS7Label& label, int sls) 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref18">transfer</A></b> ()  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref19">transferring</A></b> ()  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref20">starting</A></b> ()  const
+</LI>
+<LI>inline SS7Management* &nbsp;<b><A HREF="#ref21">getManagement</A></b> ()  const
+</LI>
+<LI>virtual  unsigned char &nbsp;<b><A HREF="#ref22">getNI</A></b> (SS7PointCode::Type pcType, unsigned char defNI)  const
+</LI>
+<LI>virtual  unsigned int &nbsp;<b><A HREF="#ref23">getDefaultLocal</A></b> (SS7PointCode::Type type)  const
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>void &nbsp;<b><A HREF="#ref24">clearView</A></b> (const SS7Layer3* network) 
+</LI>
+<LI>SS7Route::State &nbsp;<b><A HREF="#ref25">getRouteView</A></b> (SS7PointCode::Type type, unsigned int packedPC,
+        unsigned int remotePC = 0, const SS7Layer3* network = 0) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref26">setRouteState</A></b> (SS7PointCode::Type type, unsigned int packedPC, SS7Route::State state,
+        unsigned int remotePC = 0, const SS7Layer3* network = 0) 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref27">setRouteState</A></b> (SS7PointCode::Type type, const SS7PointCode& dest, SS7Route::State state,
+        unsigned int remotePC = 0, const SS7Layer3* network = 0) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref28">loadLocalPC</A></b> (const NamedList& params) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref29">timerTick</A></b> (const Time& when) 
+</LI>
+<LI>virtual  HandledMSU &nbsp;<b><A HREF="#ref30">receivedMSU</A></b> (const SS7MSU& msu, const SS7Label& label, SS7Layer3* network, int sls) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref31">updateRoutes</A></b> (SS7Layer3* network) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref32">removeRoutes</A></b> (SS7Layer3* network) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref33">notifyRoutes</A></b> (SS7Route::State states = SS7Route::AnyState, unsigned int onlyPC = 0) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref34">notifyRoutes</A></b> (SS7Route::State states, const SS7Layer3* network) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref35">routeChanged</A></b> (const SS7Route* route, SS7PointCode::Type type,
+        unsigned int remotePC = 0, const SS7Layer3* network = 0,
+        unsigned int onlyPC = 0, bool forced = false) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref36">notify</A></b> (SS7Layer3* network, int sls) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref37">control</A></b> (NamedList& params) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref38">destroyed</A></b> () 
+</LI>
+</ul><h4>Protected Members</h4><ul><LI>ObjList <b><A HREF="#ref39">m_layer3</A></b></LI>
+<LI>ObjList <b><A HREF="#ref40">m_layer4</A></b></LI>
+<LI>int <b><A HREF="#ref41">m_changes</A></b></LI>
+<LI>bool <b><A HREF="#ref42">m_transfer</A></b></LI>
+<LI>bool <b><A HREF="#ref43">m_phase2</A></b></LI>
+<LI>bool <b><A HREF="#ref44">m_started</A></b></LI>
+<LI>SignallingTimer <b><A HREF="#ref45">m_restart</A></b></LI>
+<LI>SignallingTimer <b><A HREF="#ref46">m_isolate</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ A message router between Transfer and Application layers.
+  Messages are distributed according to the service type.
+</p>
+<A NAME="Operation"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>Operation</strong> {	Pause     = 0x100,
+	Resume    = 0x200,
+	Restart   = 0x300,
+	Status    = 0x400,
+	Traffic   = 0x500,
+	Advertise = 0x600,
+    }
+</td><td align="right"><h3><strong>Operation</strong></h3></td></tr></table><p></p><p>
+ Control primitives
+     </p>
+<A NAME="SS7Router"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>SS7Router</strong> (const NamedList& params)
+<br></td><td align="right"><h3><strong>SS7Router</strong></h3></td></tr></table><p></p><p>
+ Default constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">The list with the parameters
+     </TD></TR>
+</TABLE></P>
+<A NAME="~SS7Router"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~SS7Router</strong> ()
+<br></td><td align="right"><h3><strong>~SS7Router</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor
+     </p>
+<A NAME="initialize"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>initialize</strong> (const NamedList* config)
+<br></td><td align="right"><h3><strong>initialize</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Configure and initialize the router, maintenance and management
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>config</i></TD><TD align="left" valign="top">Optional configuration parameters override
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the router was initialized properly
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#initialize">SignallingComponent</A>.</p>
+<A NAME="transmitMSU"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>transmitMSU</strong> (const SS7MSU& msu, const SS7Label& label, int sls = -1)
+<br></td><td align="right"><h3><strong>transmitMSU</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Push a Message Signal Unit down the protocol stack
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msu</i></TD><TD align="left" valign="top">Message data, starting with Service Indicator Octet
+</TD></TR>
+<TR><TD align="left" valign="top"><i>label</i></TD><TD align="left" valign="top">Routing label of the MSU to use in routing
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sls</i></TD><TD align="left" valign="top">Signalling Link Selection, negative to choose best
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Link the message was successfully queued to, negative for error
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer3.html#transmitMSU">SS7Layer3</A>.</p>
+<A NAME="operational"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>operational</strong> (int sls = -1)
+<br></td><td align="right"><h3><strong>operational</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Check if the router is fully operational
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>sls</i></TD><TD align="left" valign="top">Signalling Link to check, negative to check if any is operational
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the router is enabled and operational
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer3.html#operational">SS7Layer3</A>.</p>
+<A NAME="restart"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>restart</strong> ()
+<br></td><td align="right"><h3><strong>restart</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Initiate a MTP restart procedure
+</p>
+<p><b>Returns</b>: True if a restart was initiated
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer3.html#restart">SS7Layer3</A>.</p>
+<A NAME="attach"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>attach</strong> (SS7Layer3* network)
+<br></td><td align="right"><h3><strong>attach</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Attach a SS7 Layer 3 (network) to the router. Attach the router to the given network
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>network</i></TD><TD align="left" valign="top">Pointer to network to attach
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SS7L3User.html#attach">SS7L3User</A>.</p>
+<A NAME="detach"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>detach</strong> (SS7Layer3* network)
+<br></td><td align="right"><h3><strong>detach</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Detach a SS7 Layer 3 (network) from the router. Detach the router from the given network
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>network</i></TD><TD align="left" valign="top">Pointer to network to detach
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#detach">SignallingComponent</A>.</p>
+<A NAME="attach"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>attach</strong> (SS7Layer4* service)
+<br></td><td align="right"><h3><strong>attach</strong></h3></td></tr></table><p></p><p>
+ Attach a SS7 Layer 4 (service) to the router. Attach itself to the service
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>service</i></TD><TD align="left" valign="top">Pointer to service to attach
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SS7L3User.html#attach">SS7L3User</A>.</p>
+<A NAME="detach"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>detach</strong> (SS7Layer4* service)
+<br></td><td align="right"><h3><strong>detach</strong></h3></td></tr></table><p></p><p>
+ Detach a SS7 Layer 4 (service) from the router. Detach itself from the service
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>service</i></TD><TD align="left" valign="top">Pointer to service to detach
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#detach">SignallingComponent</A>.</p>
+<A NAME="uninhibit"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>uninhibit</strong> (SS7Layer3* network, int sls, bool remote)
+<br></td><td align="right"><h3><strong>uninhibit</strong></h3></td></tr></table><p></p><p>
+ Management request uninhibiting a signaling link
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>network</i></TD><TD align="left" valign="top">SS7 Layer 3 owning the link to uninhibit
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sls</i></TD><TD align="left" valign="top">Signalink Link Selection
+</TD></TR>
+<TR><TD align="left" valign="top"><i>remote</i></TD><TD align="left" valign="top">True to uninhibit the remote side of the link
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if an uninhibition request was sent
+     </p>
+<A NAME="inhibit"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>inhibit</strong> (const SS7Label& link, int setFlags, int clrFlags = 0, bool notLast = false)
+<br></td><td align="right"><h3><strong>inhibit</strong></h3></td></tr></table><p></p><p>
+ Set and clear inhibition flags on a link of an attached network
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>link</i></TD><TD align="left" valign="top">Signalling Link to modify identified by a routing label
+</TD></TR>
+<TR><TD align="left" valign="top"><i>setFlags</i></TD><TD align="left" valign="top">Flag bits to set ORed together
+</TD></TR>
+<TR><TD align="left" valign="top"><i>clrFlags</i></TD><TD align="left" valign="top">Flag bits to clear  ORed together (optional)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>notLast</i></TD><TD align="left" valign="top">Do not apply inhibition to the last usable link
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if inhibition flags were set
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer3.html#inhibit">SS7Layer3</A>.</p>
+<A NAME="inhibited"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>inhibited</strong> (const SS7Label& link, int flags)
+<br></td><td align="right"><h3><strong>inhibited</strong></h3></td></tr></table><p></p><p>
+ Check inhibition flags on a link of a router attached network
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>link</i></TD><TD align="left" valign="top">Signalling Link to check identified by a routing label
+</TD></TR>
+<TR><TD align="left" valign="top"><i>flags</i></TD><TD align="left" valign="top">Flag bits to check ORed together
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if any of the specified inhibition flags are set
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer3.html#inhibited">SS7Layer3</A>.</p>
+<A NAME="getSequence"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>int &nbsp;<strong>getSequence</strong> (const SS7Label& link)
+<br></td><td align="right"><h3><strong>getSequence</strong></h3></td></tr></table><p></p><p>
+ Get the sequence number of the last MSU received on a link
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>link</i></TD><TD align="left" valign="top">Routing label identifying the link to retrieve the sequence from
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Last FSN received, negative if not available
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer3.html#getSequence">SS7Layer3</A>.</p>
+<A NAME="recoverMSU"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>recoverMSU</strong> (const SS7Label& link, int sequence)
+<br></td><td align="right"><h3><strong>recoverMSU</strong></h3></td></tr></table><p></p><p>
+ Remove the MSUs waiting in the transmit queue and return them
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>link</i></TD><TD align="left" valign="top">Routing label identifying the link to recover MSUs
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sequence</i></TD><TD align="left" valign="top">First sequence number to recover, flush earlier packets
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer3.html#recoverMSU">SS7Layer3</A>.</p>
+<A NAME="receivedUPU"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>receivedUPU</strong> (SS7PointCode::Type type, const SS7PointCode node,
+	SS7MSU::Services part, unsigned char cause, const SS7Label& label, int sls)
+<br></td><td align="right"><h3><strong>receivedUPU</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Notification for receiving User Part Unavailable
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Type of Point Code
+</TD></TR>
+<TR><TD align="left" valign="top"><i>node</i></TD><TD align="left" valign="top">Node on which the User Part is unavailable
+</TD></TR>
+<TR><TD align="left" valign="top"><i>part</i></TD><TD align="left" valign="top">User Part (service) reported unavailable
+</TD></TR>
+<TR><TD align="left" valign="top"><i>cause</i></TD><TD align="left" valign="top">Unavailability cause - Q.704 15.17.5
+</TD></TR>
+<TR><TD align="left" valign="top"><i>label</i></TD><TD align="left" valign="top">Routing label of the UPU message
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sls</i></TD><TD align="left" valign="top">Signaling link the UPU was received on
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SS7L3User.html#receivedUPU">SS7L3User</A>.</p>
+<A NAME="transfer"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>transfer</strong> ()
+<br></td><td align="right"><h3><strong>transfer</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Check if the transfer function and STP management is enabled
+</p>
+<p><b>Returns</b>: True if acting as a full STP
+     </p>
+<A NAME="transferring"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>transferring</strong> ()
+<br></td><td align="right"><h3><strong>transferring</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Check if the messages are transferred even if STP management may be disabled
+</p>
+<p><b>Returns</b>: True if messages are transferred between networks
+     </p>
+<A NAME="starting"></A><A NAME="ref20"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>starting</strong> ()
+<br></td><td align="right"><h3><strong>starting</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Check if the MTP is restarting
+</p>
+<p><b>Returns</b>: True if MTP restart procedure is in progress
+     </p>
+<A NAME="getManagement"></A><A NAME="ref21"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline SS7Management* &nbsp;<strong>getManagement</strong> ()
+<br></td><td align="right"><h3><strong>getManagement</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get access to the Management component if available
+</p>
+<p><b>Returns</b>: A pointer to the SS7Management or NULL if not created
+     </p>
+<A NAME="getNI"></A><A NAME="ref22"></A><table width="100%"><tr bgcolor="#eeeeee"><td> unsigned char &nbsp;<strong>getNI</strong> (SS7PointCode::Type pcType, unsigned char defNI)
+<br></td><td align="right"><h3><strong>getNI</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Get the Network Indicator bits that would match a Point Code type
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>pcType</i></TD><TD align="left" valign="top">Point Code type to search for
+</TD></TR>
+<TR><TD align="left" valign="top"><i>defNI</i></TD><TD align="left" valign="top">Default Network Indicator bits to use
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Network Indicator bits matching the Point Code type
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer3.html#getNI">SS7Layer3</A>.</p>
+<A NAME="getDefaultLocal"></A><A NAME="ref23"></A><table width="100%"><tr bgcolor="#eeeeee"><td> unsigned int &nbsp;<strong>getDefaultLocal</strong> (SS7PointCode::Type type)
+<br></td><td align="right"><h3><strong>getDefaultLocal</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Retrieve the default local Point Code for a specific Point Code type
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Desired Point Code type
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Packed local Point Code, zero if not set
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer3.html#getDefaultLocal">SS7Layer3</A>.</p>
+<A NAME="clearView"></A><A NAME="ref24"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>clearView</strong> (const SS7Layer3* network)
+<br></td><td align="right"><h3><strong>clearView</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Reset state of all routes of a network to Unknown
+     </p>
+<A NAME="getRouteView"></A><A NAME="ref25"></A><table width="100%"><tr bgcolor="#eeeeee"><td>SS7Route::State &nbsp;<strong>getRouteView</strong> (SS7PointCode::Type type, unsigned int packedPC,
+        unsigned int remotePC = 0, const SS7Layer3* network = 0)
+<br></td><td align="right"><h3><strong>getRouteView</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Get the state of a route as seen from another network or adjacent point code
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Point Code type to search for
+</TD></TR>
+<TR><TD align="left" valign="top"><i>packedPC</i></TD><TD align="left" valign="top">The packed point code whose state is viewed
+</TD></TR>
+<TR><TD align="left" valign="top"><i>remotePC</i></TD><TD align="left" valign="top">The point code of an adjacent viewer, its network is skipped
+</TD></TR>
+<TR><TD align="left" valign="top"><i>network</i></TD><TD align="left" valign="top">The network that will be not included in the view
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: State of the route as viewed from the specified point code or network
+     </p>
+<A NAME="setRouteState"></A><A NAME="ref26"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>setRouteState</strong> (SS7PointCode::Type type, unsigned int packedPC, SS7Route::State state,
+        unsigned int remotePC = 0, const SS7Layer3* network = 0)
+<br></td><td align="right"><h3><strong>setRouteState</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Set the current state of a route by packed Point Code.
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Destination point code type
+</TD></TR>
+<TR><TD align="left" valign="top"><i>packedPC</i></TD><TD align="left" valign="top">The packed point code
+</TD></TR>
+<TR><TD align="left" valign="top"><i>state</i></TD><TD align="left" valign="top">The new state of the route
+</TD></TR>
+<TR><TD align="left" valign="top"><i>remotePC</i></TD><TD align="left" valign="top">The point code that caused the route change
+</TD></TR>
+<TR><TD align="left" valign="top"><i>network</i></TD><TD align="left" valign="top">The network that caused the route change
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the route was found and its state changed
+     </p>
+<A NAME="setRouteState"></A><A NAME="ref27"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>setRouteState</strong> (SS7PointCode::Type type, const SS7PointCode& dest, SS7Route::State state,
+        unsigned int remotePC = 0, const SS7Layer3* network = 0)
+<br></td><td align="right"><h3><strong>setRouteState</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Set the current state of a route by unpacked Point Code.
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Destination point code type
+</TD></TR>
+<TR><TD align="left" valign="top"><i>dest</i></TD><TD align="left" valign="top">The destination point code
+</TD></TR>
+<TR><TD align="left" valign="top"><i>state</i></TD><TD align="left" valign="top">The new state of the route
+</TD></TR>
+<TR><TD align="left" valign="top"><i>remotePC</i></TD><TD align="left" valign="top">The point code that caused the route change
+</TD></TR>
+<TR><TD align="left" valign="top"><i>network</i></TD><TD align="left" valign="top">The network that caused the route change
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the route was found and its state changed
+     </p>
+<A NAME="loadLocalPC"></A><A NAME="ref28"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>loadLocalPC</strong> (const NamedList& params)
+<br></td><td align="right"><h3><strong>loadLocalPC</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Load the default local Point Codes from a list of parameters
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">List of parameters to load "local=" entries from
+     </TD></TR>
+</TABLE></P>
+<A NAME="timerTick"></A><A NAME="ref29"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>timerTick</strong> (const Time& when)
+<br></td><td align="right"><h3><strong>timerTick</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Periodical timer tick used to perform state transition and housekeeping
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>when</i></TD><TD align="left" valign="top">Time to use as computing base for events and timeouts
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#timerTick">SignallingComponent</A>.</p>
+<A NAME="receivedMSU"></A><A NAME="ref30"></A><table width="100%"><tr bgcolor="#eeeeee"><td> HandledMSU &nbsp;<strong>receivedMSU</strong> (const SS7MSU& msu, const SS7Label& label, SS7Layer3* network, int sls)
+<br></td><td align="right"><h3><strong>receivedMSU</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Process a MSU received from the Layer 3 component
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msu</i></TD><TD align="left" valign="top">Message data, starting with Service Indicator Octet
+</TD></TR>
+<TR><TD align="left" valign="top"><i>label</i></TD><TD align="left" valign="top">Routing label of the received MSU
+</TD></TR>
+<TR><TD align="left" valign="top"><i>network</i></TD><TD align="left" valign="top">Network layer that delivered the MSU
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sls</i></TD><TD align="left" valign="top">Signalling Link the MSU was received from
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Result of MSU processing
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7L3User.html#receivedMSU">SS7L3User</A>.</p>
+<A NAME="updateRoutes"></A><A NAME="ref31"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>updateRoutes</strong> (SS7Layer3* network)
+<br></td><td align="right"><h3><strong>updateRoutes</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Add a network to the routing table. Clear all its routes before appending it to the table
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>network</i></TD><TD align="left" valign="top">The network to add to the routing table
+     </TD></TR>
+</TABLE></P>
+<A NAME="removeRoutes"></A><A NAME="ref32"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>removeRoutes</strong> (SS7Layer3* network)
+<br></td><td align="right"><h3><strong>removeRoutes</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Remove the given network from all destinations in the routing table.
+ Remove the entry in the routing table if empty (no more routes to the point code).
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>network</i></TD><TD align="left" valign="top">The network to remove
+     </TD></TR>
+</TABLE></P>
+<A NAME="notifyRoutes"></A><A NAME="ref33"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>notifyRoutes</strong> (SS7Route::State states = SS7Route::AnyState, unsigned int onlyPC = 0)
+<br></td><td align="right"><h3><strong>notifyRoutes</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Trigger the route changed notification for each route that is not Unknown
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>states</i></TD><TD align="left" valign="top">Mask of required states of the route
+</TD></TR>
+<TR><TD align="left" valign="top"><i>onlyPC</i></TD><TD align="left" valign="top">The only point code that should receive notifications
+     </TD></TR>
+</TABLE></P>
+<A NAME="notifyRoutes"></A><A NAME="ref34"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>notifyRoutes</strong> (SS7Route::State states, const SS7Layer3* network)
+<br></td><td align="right"><h3><strong>notifyRoutes</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Trigger the route changed notification for each route that is not Unknown
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>states</i></TD><TD align="left" valign="top">Mask of required states of the route
+</TD></TR>
+<TR><TD align="left" valign="top"><i>network</i></TD><TD align="left" valign="top">Notify to adjacent nodes of this network
+     </TD></TR>
+</TABLE></P>
+<A NAME="routeChanged"></A><A NAME="ref35"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>routeChanged</strong> (const SS7Route* route, SS7PointCode::Type type,
+        unsigned int remotePC = 0, const SS7Layer3* network = 0,
+        unsigned int onlyPC = 0, bool forced = false)
+<br></td><td align="right"><h3><strong>routeChanged</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Notification callback when a route state changed to other than Unknown.
+ This method is called with the route mutex locked
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>route</i></TD><TD align="left" valign="top">Pointer to the route whose state has changed
+</TD></TR>
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Type of the pointcode of the route
+</TD></TR>
+<TR><TD align="left" valign="top"><i>remotePC</i></TD><TD align="left" valign="top">The point code that caused the route change
+</TD></TR>
+<TR><TD align="left" valign="top"><i>network</i></TD><TD align="left" valign="top">The network that caused the route change
+</TD></TR>
+<TR><TD align="left" valign="top"><i>onlyPC</i></TD><TD align="left" valign="top">If set only advertise to this point code
+</TD></TR>
+<TR><TD align="left" valign="top"><i>forced</i></TD><TD align="left" valign="top">Notify even if the route view didn't change
+     </TD></TR>
+</TABLE></P>
+<A NAME="notify"></A><A NAME="ref36"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>notify</strong> (SS7Layer3* network, int sls)
+<br></td><td align="right"><h3><strong>notify</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Process a notification generated by the attached network layer
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>network</i></TD><TD align="left" valign="top">Network or linkset that generated the notification
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sls</i></TD><TD align="left" valign="top">Signallink Link that generated the notification, negative if none
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if notification was processed
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7L3User.html#notify">SS7L3User</A>.</p>
+<A NAME="control"></A><A NAME="ref37"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>control</strong> (NamedList& params)
+<br></td><td align="right"><h3><strong>control</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Query or modify the management settings or operational parameters
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">The list of parameters to query or change
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the control operation was executed
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#control">SignallingComponent</A>.</p>
+<A NAME="destroyed"></A><A NAME="ref38"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>destroyed</strong> ()
+<br></td><td align="right"><h3><strong>destroyed</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Detach management
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#destroyed">SignallingComponent</A>.</p>
+<A NAME="m_layer3"></A><A NAME="ref39"></A><table width="100%"><tr bgcolor="#eeeeee"><td>ObjList  <strong>m_layer3</strong>
+</td><td align="right"><h3><strong>m_layer3</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_layer4"></A><A NAME="ref40"></A><table width="100%"><tr bgcolor="#eeeeee"><td>ObjList  <strong>m_layer4</strong>
+</td><td align="right"><h3><strong>m_layer4</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_changes"></A><A NAME="ref41"></A><table width="100%"><tr bgcolor="#eeeeee"><td>int  <strong>m_changes</strong>
+</td><td align="right"><h3><strong>m_changes</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_transfer"></A><A NAME="ref42"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool  <strong>m_transfer</strong>
+</td><td align="right"><h3><strong>m_transfer</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_phase2"></A><A NAME="ref43"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool  <strong>m_phase2</strong>
+</td><td align="right"><h3><strong>m_phase2</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_started"></A><A NAME="ref44"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool  <strong>m_started</strong>
+</td><td align="right"><h3><strong>m_started</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_restart"></A><A NAME="ref45"></A><table width="100%"><tr bgcolor="#eeeeee"><td>SignallingTimer  <strong>m_restart</strong>
+</td><td align="right"><h3><strong>m_restart</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_isolate"></A><A NAME="ref46"></A><table width="100%"><tr bgcolor="#eeeeee"><td>SignallingTimer  <strong>m_isolate</strong>
+</td><td align="right"><h3><strong>m_isolate</strong></h3></td></tr></table><p> <small>[protected]</small></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

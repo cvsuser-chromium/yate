@@ -1,0 +1,116 @@
+<HTML>
+<HEAD>
+<TITLE>class SS7Testing</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SS7Testing</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">SS7 MTP Test Traffic implementation. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SS7Testing</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__Mutex.html">TelEngine::Mutex</A> <small>[public ]</small>, <A HREF="TelEngine__SS7Layer4.html">TelEngine::SS7Layer4</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SS7Testing.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>inline &nbsp;<b><A HREF="#ref1">SS7Testing</A></b> (const NamedList& params, unsigned char sio = SS7MSU::MTP_T|SS7MSU::National) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref2">initialize</A></b> (const NamedList* config) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref3">control</A></b> (NamedList& params) 
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>virtual  HandledMSU &nbsp;<b><A HREF="#ref4">receivedMSU</A></b> (const SS7MSU& msu, const SS7Label& label, SS7Layer3* network, int sls) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref5">notify</A></b> (SS7Layer3* link, int sls) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref6">timerTick</A></b> (const Time& when) 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ Implementation of SS7 MTP Test User Part - Q.782 2.3
+</p>
+<A NAME="SS7Testing"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>SS7Testing</strong> (const NamedList& params, unsigned char sio = SS7MSU::MTP_T|SS7MSU::National)
+<br></td><td align="right"><h3><strong>SS7Testing</strong></h3></td></tr></table><p></p><p>
+ Constructor
+     </p>
+<A NAME="initialize"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>initialize</strong> (const NamedList* config)
+<br></td><td align="right"><h3><strong>initialize</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Configure and initialize the user part
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>config</i></TD><TD align="left" valign="top">Configuration parameters
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the component was initialized properly
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer4.html#initialize">SS7Layer4</A>.</p>
+<A NAME="control"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>control</strong> (NamedList& params)
+<br></td><td align="right"><h3><strong>control</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Query or modify the test part settings or operational parameters
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">The list of parameters to query or change
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the control operation was executed
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#control">SignallingComponent</A>.</p>
+<A NAME="receivedMSU"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td> HandledMSU &nbsp;<strong>receivedMSU</strong> (const SS7MSU& msu, const SS7Label& label, SS7Layer3* network, int sls)
+<br></td><td align="right"><h3><strong>receivedMSU</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Process a MSU received from a Layer 3 component
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msu</i></TD><TD align="left" valign="top">Message data, starting with Service Indicator Octet
+</TD></TR>
+<TR><TD align="left" valign="top"><i>label</i></TD><TD align="left" valign="top">Routing label of the received MSU
+</TD></TR>
+<TR><TD align="left" valign="top"><i>network</i></TD><TD align="left" valign="top">Network layer that delivered the MSU
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sls</i></TD><TD align="left" valign="top">Signalling Link the MSU was received from
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Result of MSU processing
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7L3User.html#receivedMSU">SS7L3User</A>.</p>
+<A NAME="notify"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>notify</strong> (SS7Layer3* link, int sls)
+<br></td><td align="right"><h3><strong>notify</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Process a notification generated by the attached network layer
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>link</i></TD><TD align="left" valign="top">Network or linkset that generated the notification
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sls</i></TD><TD align="left" valign="top">Signallink Link that generated the notification, negative if none
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if notification was processed
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7L3User.html#notify">SS7L3User</A>.</p>
+<A NAME="timerTick"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>timerTick</strong> (const Time& when)
+<br></td><td align="right"><h3><strong>timerTick</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Method called periodically by the engine to emit new messages
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>when</i></TD><TD align="left" valign="top">Time to use as computing base for timers
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#timerTick">SignallingComponent</A>.</p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

@@ -1,0 +1,316 @@
+<HTML>
+<HEAD>
+<TITLE>class ExpOperation</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class ExpOperation</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">A single operation in an expression. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::ExpOperation</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yscript___yatescript_h.html">libs/yscript/yatescript.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__NamedString.html">TelEngine::NamedString</A> <small>[public ]</small></TD></TR>
+<TR><TH>Inherited by</TH><TD><A HREF="TelEngine__ExpFunction.html">ExpFunction</A>, <A HREF="TelEngine__ExpWrapper.html">ExpWrapper</A></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__ExpOperation.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>inline &nbsp;<b><A HREF="#ref3">ExpOperation</A></b> (const ExpOperation& original) 
+</LI>
+<LI>inline &nbsp;<b><A HREF="#ref4">ExpOperation</A></b> (const ExpOperation& original, const char* name, bool copyType = true) 
+</LI>
+<LI>inline explicit &nbsp;<b><A HREF="#ref5">ExpOperation</A></b> (const String& value, const char* name = 0, bool autoNum = false) 
+</LI>
+<LI>inline explicit &nbsp;<b><A HREF="#ref6">ExpOperation</A></b> (const char* value, const char* name = 0) 
+</LI>
+<LI>inline explicit &nbsp;<b><A HREF="#ref7">ExpOperation</A></b> (<A HREF="#int64_t">int64_t</A> value, const char* name = 0) 
+</LI>
+<LI>inline explicit &nbsp;<b><A HREF="#ref8">ExpOperation</A></b> (bool value, const char* name = 0) 
+</LI>
+<LI>inline &nbsp;<b><A HREF="#ref9">ExpOperation</A></b> (ExpEvaluator::Opcode oper, const char* name = 0, <A HREF="#int64_t">int64_t</A> value = nonInteger(), bool barrier = false) 
+</LI>
+<LI>inline &nbsp;<b><A HREF="#ref10">ExpOperation</A></b> (ExpEvaluator::Opcode oper, const char* name, const char* value, bool barrier = false) 
+</LI>
+<LI>inline &nbsp;<b><A HREF="#ref11">ExpOperation</A></b> (ExpEvaluator::Opcode oper, const char* name, const char* value, <A HREF="#int64_t">int64_t</A> number, bool barrier) 
+</LI>
+<LI>inline ExpEvaluator::Opcode &nbsp;<b><A HREF="#ref12">opcode</A></b> ()  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref13">isInteger</A></b> ()  const
+</LI>
+<LI>inline <A HREF="#int64_t">int64_t</A> &nbsp;<b><A HREF="#ref14">number</A></b> ()  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref15">isBoolean</A></b> ()  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref16">isNumber</A></b> ()  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref17">barrier</A></b> ()  const
+</LI>
+<LI>inline unsigned int &nbsp;<b><A HREF="#ref18">lineNumber</A></b> ()  const
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref19">lineNumber</A></b> (unsigned int line) 
+</LI>
+<LI>inline <A HREF="#int64_t">int64_t</A> &nbsp;<b><A HREF="#ref20">operator=</A></b> (<A HREF="#int64_t">int64_t</A> num) 
+</LI>
+<LI>virtual  <A HREF="#int64_t">int64_t</A> &nbsp;<b><A HREF="#ref21">valInteger</A></b> ()  const
+</LI>
+<LI>virtual  <A HREF="#int64_t">int64_t</A> &nbsp;<b><A HREF="#ref22">toNumber</A></b> ()  const
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref23">valBoolean</A></b> ()  const
+</LI>
+<LI>virtual  const char* &nbsp;<b><A HREF="#ref24">typeOf</A></b> ()  const
+</LI>
+<LI>virtual  ExpOperation* &nbsp;<b><A HREF="#ref25">clone</A></b> (const char* name)  const
+</LI>
+<LI>inline ExpOperation* &nbsp;<b><A HREF="#ref26">clone</A></b> ()  const
+</LI>
+<LI>virtual  ExpOperation* &nbsp;<b><A HREF="#ref27">copy</A></b> (Mutex* mtx)  const
+</LI>
+</ul><h4>Public Static Methods</h4><ul><LI>static inline  <A HREF="#int64_t">int64_t</A> &nbsp;<b><A HREF="#ref2">nonInteger</A></b> () 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ This class describes a single operation in an expression evaluator
+</p>
+<A NAME="nonInteger"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline  <A HREF="#int64_t">int64_t</A> &nbsp;<strong>nonInteger</strong> ()
+<br></td><td align="right"><h3><strong>nonInteger</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Special value that is not recognized as an integer value
+</p>
+<p><b>Returns</b>: A value that indicates a non-integer value
+     </p>
+<A NAME="ExpOperation"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>ExpOperation</strong> (const ExpOperation& original)
+<br></td><td align="right"><h3><strong>ExpOperation</strong></h3></td></tr></table><p></p><p>
+ Copy constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>original</i></TD><TD align="left" valign="top">Operation to copy
+     </TD></TR>
+</TABLE></P>
+<A NAME="ExpOperation"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>ExpOperation</strong> (const ExpOperation& original, const char* name, bool copyType = true)
+<br></td><td align="right"><h3><strong>ExpOperation</strong></h3></td></tr></table><p></p><p>
+ Copy constructor with renaming, to be used for named results
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>original</i></TD><TD align="left" valign="top">Operation to copy
+</TD></TR>
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Name of the newly created operation
+</TD></TR>
+<TR><TD align="left" valign="top"><i>copyType</i></TD><TD align="left" valign="top">True to copy operation type, false to create an OpcPush
+     </TD></TR>
+</TABLE></P>
+<A NAME="ExpOperation"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline explicit &nbsp;<strong>ExpOperation</strong> (const String& value, const char* name = 0, bool autoNum = false)
+<br></td><td align="right"><h3><strong>ExpOperation</strong></h3></td></tr></table><p></p><p>
+ Push String constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>value</i></TD><TD align="left" valign="top">String constant to push on stack on execution
+</TD></TR>
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Optional of the newly created constant
+</TD></TR>
+<TR><TD align="left" valign="top"><i>autoNum</i></TD><TD align="left" valign="top">Automatically convert to number if possible
+     </TD></TR>
+</TABLE></P>
+<A NAME="ExpOperation"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline explicit &nbsp;<strong>ExpOperation</strong> (const char* value, const char* name = 0)
+<br></td><td align="right"><h3><strong>ExpOperation</strong></h3></td></tr></table><p></p><p>
+ Push literal string constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>value</i></TD><TD align="left" valign="top">String constant to push on stack on execution
+</TD></TR>
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Optional of the newly created constant
+     </TD></TR>
+</TABLE></P>
+<A NAME="ExpOperation"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline explicit &nbsp;<strong>ExpOperation</strong> (<A HREF="#int64_t">int64_t</A> value, const char* name = 0)
+<br></td><td align="right"><h3><strong>ExpOperation</strong></h3></td></tr></table><p></p><p>
+ Push 64 bit Number constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>value</i></TD><TD align="left" valign="top">Integer constant to push on stack on execution
+</TD></TR>
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Optional of the newly created constant
+     </TD></TR>
+</TABLE></P>
+<A NAME="ExpOperation"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline explicit &nbsp;<strong>ExpOperation</strong> (bool value, const char* name = 0)
+<br></td><td align="right"><h3><strong>ExpOperation</strong></h3></td></tr></table><p></p><p>
+ Push Boolean constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>value</i></TD><TD align="left" valign="top">Boolean constant to push on stack on execution
+</TD></TR>
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Optional of the newly created constant
+     </TD></TR>
+</TABLE></P>
+<A NAME="ExpOperation"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>ExpOperation</strong> (ExpEvaluator::Opcode oper, const char* name = 0, <A HREF="#int64_t">int64_t</A> value = nonInteger(), bool barrier = false)
+<br></td><td align="right"><h3><strong>ExpOperation</strong></h3></td></tr></table><p></p><p>
+ Constructor from components
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Operation code
+</TD></TR>
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Optional name of the operation or result
+</TD></TR>
+<TR><TD align="left" valign="top"><i>value</i></TD><TD align="left" valign="top">Optional integer constant used as function parameter count
+</TD></TR>
+<TR><TD align="left" valign="top"><i>barrier</i></TD><TD align="left" valign="top">True if the operation is an expression barrier on the stack
+     </TD></TR>
+</TABLE></P>
+<A NAME="ExpOperation"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>ExpOperation</strong> (ExpEvaluator::Opcode oper, const char* name, const char* value, bool barrier = false)
+<br></td><td align="right"><h3><strong>ExpOperation</strong></h3></td></tr></table><p></p><p>
+ Constructor of non-integer operation from components
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Operation code
+</TD></TR>
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Name of the operation or result
+</TD></TR>
+<TR><TD align="left" valign="top"><i>value</i></TD><TD align="left" valign="top">String value of operation
+</TD></TR>
+<TR><TD align="left" valign="top"><i>barrier</i></TD><TD align="left" valign="top">True if the operation is an expression barrier on the stack
+     </TD></TR>
+</TABLE></P>
+<A NAME="ExpOperation"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>ExpOperation</strong> (ExpEvaluator::Opcode oper, const char* name, const char* value, <A HREF="#int64_t">int64_t</A> number, bool barrier)
+<br></td><td align="right"><h3><strong>ExpOperation</strong></h3></td></tr></table><p></p><p>
+ Constructor from components
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Operation code
+</TD></TR>
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Optional name of the operation or result
+</TD></TR>
+<TR><TD align="left" valign="top"><i>value</i></TD><TD align="left" valign="top">String value of operation
+</TD></TR>
+<TR><TD align="left" valign="top"><i>number</i></TD><TD align="left" valign="top">Integer value
+</TD></TR>
+<TR><TD align="left" valign="top"><i>barrier</i></TD><TD align="left" valign="top">True if the operation is an expression barrier on the stack
+     </TD></TR>
+</TABLE></P>
+<A NAME="opcode"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline ExpEvaluator::Opcode &nbsp;<strong>opcode</strong> ()
+<br></td><td align="right"><h3><strong>opcode</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the code of this operation
+</p>
+<p><b>Returns</b>: Operation code as declared in the expression evaluator
+     </p>
+<A NAME="isInteger"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>isInteger</strong> ()
+<br></td><td align="right"><h3><strong>isInteger</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Check if an integer value is stored
+</p>
+<p><b>Returns</b>: True if an integer value is stored
+     </p>
+<A NAME="number"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline <A HREF="#int64_t">int64_t</A> &nbsp;<strong>number</strong> ()
+<br></td><td align="right"><h3><strong>number</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the number stored in this operation
+</p>
+<p><b>Returns</b>: Stored number
+     </p>
+<A NAME="isBoolean"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>isBoolean</strong> ()
+<br></td><td align="right"><h3><strong>isBoolean</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Check if a boolean value is stored
+</p>
+<p><b>Returns</b>: True if a boolean value is stored
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__String.html#isBoolean">String</A>.</p>
+<A NAME="isNumber"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>isNumber</strong> ()
+<br></td><td align="right"><h3><strong>isNumber</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Check if a number type value is stored
+</p>
+<p><b>Returns</b>: True if a number type value is stored
+     </p>
+<A NAME="barrier"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>barrier</strong> ()
+<br></td><td align="right"><h3><strong>barrier</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Check if this operation acts as an evaluator barrier on the stack
+</p>
+<p><b>Returns</b>: True if an expression should not pop this operation off the stack
+     </p>
+<A NAME="lineNumber"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline unsigned int &nbsp;<strong>lineNumber</strong> ()
+<br></td><td align="right"><h3><strong>lineNumber</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the line number where the operation was compiled from
+</p>
+<p><b>Returns</b>: Line number, zero if unknown
+     </p>
+<A NAME="lineNumber"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>lineNumber</strong> (unsigned int line)
+<br></td><td align="right"><h3><strong>lineNumber</strong></h3></td></tr></table><p></p><p>
+ Set the line number where the operation was compiled from
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>line</i></TD><TD align="left" valign="top">Number of the compiled line
+     </TD></TR>
+</TABLE></P>
+<A NAME="operator="></A><A NAME="ref20"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline <A HREF="#int64_t">int64_t</A> &nbsp;<strong>operator=</strong> (<A HREF="#int64_t">int64_t</A> num)
+<br></td><td align="right"><h3><strong>operator=</strong></h3></td></tr></table><p></p><p>
+ Number assignment operator
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>num</i></TD><TD align="left" valign="top">Numeric value to assign to the operation
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Assigned number
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__NamedString.html#operator=">NamedString</A>.</p>
+<A NAME="valInteger"></A><A NAME="ref21"></A><table width="100%"><tr bgcolor="#eeeeee"><td> <A HREF="#int64_t">int64_t</A> &nbsp;<strong>valInteger</strong> ()
+<br></td><td align="right"><h3><strong>valInteger</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Retrieve the numeric value of the operation
+</p>
+<p><b>Returns</b>: Number contained in operation, zero if not a number
+     </p>
+<A NAME="toNumber"></A><A NAME="ref22"></A><table width="100%"><tr bgcolor="#eeeeee"><td> <A HREF="#int64_t">int64_t</A> &nbsp;<strong>toNumber</strong> ()
+<br></td><td align="right"><h3><strong>toNumber</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Convert to number
+</p>
+<p><b>Returns</b>: Value converted to number, NaN if not possible of if stored value is NaN
+     </p>
+<A NAME="valBoolean"></A><A NAME="ref23"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>valBoolean</strong> ()
+<br></td><td align="right"><h3><strong>valBoolean</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Retrieve the boolean value of the operation
+</p>
+<p><b>Returns</b>: True if the operation is to be interpreted as true value
+     </p>
+<A NAME="typeOf"></A><A NAME="ref24"></A><table width="100%"><tr bgcolor="#eeeeee"><td> const char* &nbsp;<strong>typeOf</strong> ()
+<br></td><td align="right"><h3><strong>typeOf</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Retrieve the name of the type of the value of this operation
+</p>
+<p><b>Returns</b>: Name of the type of the value
+     </p>
+<A NAME="clone"></A><A NAME="ref25"></A><table width="100%"><tr bgcolor="#eeeeee"><td> ExpOperation* &nbsp;<strong>clone</strong> (const char* name)
+<br></td><td align="right"><h3><strong>clone</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Clone and rename method
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Name of the cloned operation
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: New operation instance
+     </p>
+<A NAME="clone"></A><A NAME="ref26"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline ExpOperation* &nbsp;<strong>clone</strong> ()
+<br></td><td align="right"><h3><strong>clone</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Clone method
+</p>
+<p><b>Returns</b>: New operation instance, may keep a reference to the old instance
+     </p>
+<A NAME="copy"></A><A NAME="ref27"></A><table width="100%"><tr bgcolor="#eeeeee"><td> ExpOperation* &nbsp;<strong>copy</strong> (Mutex* mtx)
+<br></td><td align="right"><h3><strong>copy</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Deep copy method
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>mtx</i></TD><TD align="left" valign="top">Pointer to the mutex that serializes the copied object
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: New operation instance
+     </p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

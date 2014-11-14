@@ -1,0 +1,151 @@
+<HTML>
+<HEAD>
+<TITLE>class UDPTLSession</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class UDPTLSession</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">UDPTL session. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH colspan="2">Contains pure virtuals</TH></TR><TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::UDPTLSession</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yrtp___yatertp_h.html">libs/yrtp/yatertp.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__Mutex.html">TelEngine::Mutex</A> <small>[public ]</small>, <A HREF="TelEngine__UDPSession.html">TelEngine::UDPSession</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__UDPTLSession.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref1">~UDPTLSession</A></b> () 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref2">localAddr</A></b> (SocketAddr& addr) 
+</LI>
+<LI>inline <A HREF="#u_int16_t">u_int16_t</A> &nbsp;<b><A HREF="#ref3">maxLen</A></b> ()  const
+</LI>
+<LI>inline <A HREF="#u_int8_t">u_int8_t</A> &nbsp;<b><A HREF="#ref4">maxSec</A></b> ()  const
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref5">rtpData</A></b> (const void* data, int len) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref6">udptlSend</A></b> (const void* data, int len, <A HREF="#u_int16_t">u_int16_t</A> seq) 
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref7">UDPTLSession</A></b> (<A HREF="#u_int16_t">u_int16_t</A> maxLen = 250, <A HREF="#u_int8_t">u_int8_t</A> maxSec = 2) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref8">timerTick</A></b> (const Time& when) 
+</LI>
+<LI>virtual  RTPTransport* &nbsp;<b><A HREF="#ref9">createTransport</A></b> () 
+</LI>
+<LI>virtual  void &nbsp;<b><i><A HREF="#ref10">udptlRecv</A></i></b> (const void* data, int len, <A HREF="#u_int16_t">u_int16_t</A> seq, bool recovered) 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ A bidirectional UDPTL session usable for T.38
+</p>
+<A NAME="~UDPTLSession"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>~UDPTLSession</strong> ()
+<br></td><td align="right"><h3><strong>~UDPTLSession</strong></h3></td></tr></table><p></p><p>
+ Destructor
+     </p>
+<A NAME="localAddr"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>localAddr</strong> (SocketAddr& addr)
+<br></td><td align="right"><h3><strong>localAddr</strong></h3></td></tr></table><p></p><p>
+ Set the local network address of the RTP transport of this session
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>addr</i></TD><TD align="left" valign="top">New local RTP transport address
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if address set, false if a failure occured
+     </p>
+<A NAME="maxLen"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline <A HREF="#u_int16_t">u_int16_t</A> &nbsp;<strong>maxLen</strong> ()
+<br></td><td align="right"><h3><strong>maxLen</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the maximum UDPTL packet length
+</p>
+<p><b>Returns</b>: Maximum length of UDPTL packet length in bytes
+     </p>
+<A NAME="maxSec"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline <A HREF="#u_int8_t">u_int8_t</A> &nbsp;<strong>maxSec</strong> ()
+<br></td><td align="right"><h3><strong>maxSec</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the maximum number of UDPTL secondary IFPs
+</p>
+<p><b>Returns</b>: Maximum number of secondary IFPs, zero if disabled
+     </p>
+<A NAME="rtpData"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>rtpData</strong> (const void* data, int len)
+<br></td><td align="right"><h3><strong>rtpData</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ This method is called to send or process an UDPTL packet
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Pointer to raw UDPTL data
+</TD></TR>
+<TR><TD align="left" valign="top"><i>len</i></TD><TD align="left" valign="top">Length of the data packet
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__RTPProcessor.html#rtpData">RTPProcessor</A>.</p>
+<A NAME="udptlSend"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>udptlSend</strong> (const void* data, int len, <A HREF="#u_int16_t">u_int16_t</A> seq)
+<br></td><td align="right"><h3><strong>udptlSend</strong></h3></td></tr></table><p></p><p>
+ Send UDPTL data over the transport, add older blocks for error recovery
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Pointer to IFP block to send as primary
+</TD></TR>
+<TR><TD align="left" valign="top"><i>len</i></TD><TD align="left" valign="top">Length of primary IFP block
+</TD></TR>
+<TR><TD align="left" valign="top"><i>seq</i></TD><TD align="left" valign="top">Sequence number to incorporate in message
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if data block was sent, false if an error occured
+     </p>
+<A NAME="UDPTLSession"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>UDPTLSession</strong> (<A HREF="#u_int16_t">u_int16_t</A> maxLen = 250, <A HREF="#u_int8_t">u_int8_t</A> maxSec = 2)
+<br></td><td align="right"><h3><strong>UDPTLSession</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ UDPTL Session constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>maxLen</i></TD><TD align="left" valign="top">Maximum length of UDPTL packet, at least longest primary IFP + 5 bytes
+</TD></TR>
+<TR><TD align="left" valign="top"><i>maxSec</i></TD><TD align="left" valign="top">Maximum number of secondary IFPs, set to zero to disable
+     </TD></TR>
+</TABLE></P>
+<A NAME="timerTick"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>timerTick</strong> (const Time& when)
+<br></td><td align="right"><h3><strong>timerTick</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Method called periodically to push any asynchronous data or statistics
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>when</i></TD><TD align="left" valign="top">Time to use as base in all computing
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__RTPProcessor.html#timerTick">RTPProcessor</A>.</p>
+<A NAME="createTransport"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td> RTPTransport* &nbsp;<strong>createTransport</strong> ()
+<br></td><td align="right"><h3><strong>createTransport</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Create a new UDPTL transport for this session.
+ Override this method to create objects derived from RTPTransport.
+</p>
+<p><b>Returns</b>: Pointer to the new transport or NULL on failure
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__UDPSession.html#createTransport">UDPSession</A>.</p>
+<A NAME="udptlRecv"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<i><strong>udptlRecv</strong></i> (const void* data, int len, <A HREF="#u_int16_t">u_int16_t</A> seq, bool recovered)
+<br></td><td align="right"><h3><i><strong>udptlRecv</strong></i></h3></td></tr></table><p> <small>[protected pure virtual]</small></p><p>
+ Method called when UDPTL data is received
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Pointer to IFP block
+</TD></TR>
+<TR><TD align="left" valign="top"><i>len</i></TD><TD align="left" valign="top">Length of the IFP block
+</TD></TR>
+<TR><TD align="left" valign="top"><i>seq</i></TD><TD align="left" valign="top">Sequence number of the block
+</TD></TR>
+<TR><TD align="left" valign="top"><i>recovered</i></TD><TD align="left" valign="top">True if the IFP block was recovered after data loss
+     </TD></TR>
+</TABLE></P>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

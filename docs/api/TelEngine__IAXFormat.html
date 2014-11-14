@@ -1,0 +1,318 @@
+<HTML>
+<HEAD>
+<TITLE>class IAXFormat</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class IAXFormat</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">Wrapper class for audio and video formats. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::IAXFormat</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yiax___yateiax_h.html">libs/yiax/yateiax.h</A>&gt;</code></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__IAXFormat.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref1">Formats</A> {        G723_1 = (1 <<  0),
+        GSM    = (1 <<  1),
+        ULAW   = (1 <<  2),
+        ALAW   = (1 <<  3),
+        G726   = (1 <<  4),
+        ADPCM  = (1 <<  5),
+        SLIN   = (1 <<  6),
+        LPC10  = (1 <<  7),
+        G729   = (1 <<  8),
+        SPEEX  = (1 <<  9),
+        ILBC   = (1 << 10),
+        G726AAL2 = (1 << 11),
+        G722   = (1 << 12),
+        AMR    = (1 << 13),
+        GSM_HR    = (1 << 31),
+        AudioMask = G723_1 | GSM | ULAW | ALAW | G726 | ADPCM | SLIN | LPC10 | G729 | SPEEX |
+            ILBC | G726AAL2 | G722 | AMR | GSM_HR,
+        JPEG   = (1 << 16),
+        PNG    = (1 << 17),
+        ImageMask = JPEG | PNG,
+        H261   = (1 << 18),
+        H263   = (1 << 19),
+        H263p  = (1 << 20),
+        H264   = (1 << 21),
+        VideoMask = H261 | H263 | H263p | H264,
+    }
+</LI>
+<LI>enum <A HREF="#ref2">Media</A> {        Audio = 0,
+        Video,
+        Image,
+        TypeCount
+    }
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>inline &nbsp;<b><A HREF="#ref3">IAXFormat</A></b> (int type = Audio) 
+</LI>
+<LI>inline int &nbsp;<b><A HREF="#ref4">type</A></b> ()  const
+</LI>
+<LI>inline <A HREF="#u_int32_t">u_int32_t</A> &nbsp;<b><A HREF="#ref5">format</A></b> ()  const
+</LI>
+<LI>inline <A HREF="#u_int32_t">u_int32_t</A> &nbsp;<b><A HREF="#ref6">in</A></b> ()  const
+</LI>
+<LI>inline <A HREF="#u_int32_t">u_int32_t</A> &nbsp;<b><A HREF="#ref7">out</A></b> ()  const
+</LI>
+<LI>inline const IAXFormatDesc& &nbsp;<b><A HREF="#ref8">formatDesc</A></b> (bool in)  const
+</LI>
+<LI>inline const char* &nbsp;<b><A HREF="#ref9">formatName</A></b> ()  const
+</LI>
+<LI>inline const char* &nbsp;<b><A HREF="#ref10">typeName</A></b> ()  const
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref11">set</A></b> (<A HREF="#u_int32_t">u_int32_t</A>* fmt, <A HREF="#u_int32_t">u_int32_t</A>* fmtIn, <A HREF="#u_int32_t">u_int32_t</A>* fmtOut) 
+</LI>
+</ul><h4>Public Static Methods</h4><ul><LI>static  void &nbsp;<b><A HREF="#ref12">formatList</A></b> (String& dest, <A HREF="#u_int32_t">u_int32_t</A> formats, const TokenDict* dict = 0,
+	const char* sep = ",") 
+</LI>
+<LI>static  <A HREF="#u_int32_t">u_int32_t</A> &nbsp;<b><A HREF="#ref13">pickFormat</A></b> (<A HREF="#u_int32_t">u_int32_t</A> formats, <A HREF="#u_int32_t">u_int32_t</A> format = 0) 
+</LI>
+<LI>static  <A HREF="#u_int32_t">u_int32_t</A> &nbsp;<b><A HREF="#ref14">encode</A></b> (const String& formats, const TokenDict* dict, char sep = ',') 
+</LI>
+<LI>static  inline <A HREF="#u_int32_t">u_int32_t</A> &nbsp;<b><A HREF="#ref15">mask</A></b> (<A HREF="#u_int32_t">u_int32_t</A> value, int type) 
+</LI>
+<LI>static  inline <A HREF="#u_int32_t">u_int32_t</A> &nbsp;<b><A HREF="#ref16">clear</A></b> (<A HREF="#u_int32_t">u_int32_t</A> value, int type) 
+</LI>
+<LI>static  inline const char* &nbsp;<b><A HREF="#ref17">formatName</A></b> (<A HREF="#u_int32_t">u_int32_t</A> fmt) 
+</LI>
+<LI>static  inline const char* &nbsp;<b><A HREF="#ref18">typeName</A></b> (int type) 
+</LI>
+<LI>static  inline const String& &nbsp;<b><A HREF="#ref19">typeNameStr</A></b> (int type) 
+</LI>
+</ul><h4>Public Members</h4><ul><LI>static const TokenDict <b><A HREF="#ref20">s_formats[]</A></b></LI>
+<LI>static const TokenDict <b><A HREF="#ref21">s_types[]</A></b></LI>
+<LI>static const String <b><A HREF="#ref22">s_typesList[TypeCount]</A></b></LI>
+</ul><h4>Protected Members</h4><ul><LI>int <b><A HREF="#ref23">m_type</A></b></LI>
+<LI>IAXFormatDesc <b><A HREF="#ref24">m_format</A></b></LI>
+<LI>IAXFormatDesc <b><A HREF="#ref25">m_formatIn</A></b></LI>
+<LI>IAXFormatDesc <b><A HREF="#ref26">m_formatOut</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ This class holds the enumeration values for audio and video formats
+</p>
+<A NAME="Formats"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>Formats</strong> {        G723_1 = (1 <<  0),
+        GSM    = (1 <<  1),
+        ULAW   = (1 <<  2),
+        ALAW   = (1 <<  3),
+        G726   = (1 <<  4),
+        ADPCM  = (1 <<  5),
+        SLIN   = (1 <<  6),
+        LPC10  = (1 <<  7),
+        G729   = (1 <<  8),
+        SPEEX  = (1 <<  9),
+        ILBC   = (1 << 10),
+        G726AAL2 = (1 << 11),
+        G722   = (1 << 12),
+        AMR    = (1 << 13),
+        GSM_HR    = (1 << 31),
+        AudioMask = G723_1 | GSM | ULAW | ALAW | G726 | ADPCM | SLIN | LPC10 | G729 | SPEEX |
+            ILBC | G726AAL2 | G722 | AMR | GSM_HR,
+        JPEG   = (1 << 16),
+        PNG    = (1 << 17),
+        ImageMask = JPEG | PNG,
+        H261   = (1 << 18),
+        H263   = (1 << 19),
+        H263p  = (1 << 20),
+        H264   = (1 << 21),
+        VideoMask = H261 | H263 | H263p | H264,
+    }
+</td><td align="right"><h3><strong>Formats</strong></h3></td></tr></table><p></p><p>
+ Format enumeration types
+     </p>
+<A NAME="Media"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>Media</strong> {        Audio = 0,
+        Video,
+        Image,
+        TypeCount
+    }
+</td><td align="right"><h3><strong>Media</strong></h3></td></tr></table><p></p><p>
+ Media type enumeration
+     </p>
+<A NAME="IAXFormat"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>IAXFormat</strong> (int type = Audio)
+<br></td><td align="right"><h3><strong>IAXFormat</strong></h3></td></tr></table><p></p><p>
+ Constructor. Build an audio format
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Media type
+    </TD></TR>
+</TABLE></P>
+<A NAME="type"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline int &nbsp;<strong>type</strong> ()
+<br></td><td align="right"><h3><strong>type</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the media type
+</p>
+<p><b>Returns</b>: Media type
+    </p>
+<A NAME="format"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline <A HREF="#u_int32_t">u_int32_t</A> &nbsp;<strong>format</strong> ()
+<br></td><td align="right"><h3><strong>format</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the format
+</p>
+<p><b>Returns</b>: The format
+    </p>
+<A NAME="in"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline <A HREF="#u_int32_t">u_int32_t</A> &nbsp;<strong>in</strong> ()
+<br></td><td align="right"><h3><strong>in</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the incoming format
+</p>
+<p><b>Returns</b>: The incoming format
+    </p>
+<A NAME="out"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline <A HREF="#u_int32_t">u_int32_t</A> &nbsp;<strong>out</strong> ()
+<br></td><td align="right"><h3><strong>out</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the outgoing format
+</p>
+<p><b>Returns</b>: The outgoing format
+    </p>
+<A NAME="formatDesc"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const IAXFormatDesc& &nbsp;<strong>formatDesc</strong> (bool in)
+<br></td><td align="right"><h3><strong>formatDesc</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the incoming or outgoing format description
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>in</i></TD><TD align="left" valign="top">True to retrieve the incoming format, false to retrieve the outgoing one
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Requested format desc
+    </p>
+<A NAME="formatName"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const char* &nbsp;<strong>formatName</strong> ()
+<br></td><td align="right"><h3><strong>formatName</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the text associated with the format
+</p>
+<p><b>Returns</b>: Format name
+    </p>
+<A NAME="typeName"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const char* &nbsp;<strong>typeName</strong> ()
+<br></td><td align="right"><h3><strong>typeName</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the text associated with the media type
+</p>
+<p><b>Returns</b>: Media name
+    </p>
+<A NAME="set"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>set</strong> (<A HREF="#u_int32_t">u_int32_t</A>* fmt, <A HREF="#u_int32_t">u_int32_t</A>* fmtIn, <A HREF="#u_int32_t">u_int32_t</A>* fmtOut)
+<br></td><td align="right"><h3><strong>set</strong></h3></td></tr></table><p></p><p>
+ Set format
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>fmt</i></TD><TD align="left" valign="top">Optional pointer to format to set
+</TD></TR>
+<TR><TD align="left" valign="top"><i>fmtIn</i></TD><TD align="left" valign="top">Optional pointer to incoming format to set
+</TD></TR>
+<TR><TD align="left" valign="top"><i>fmtOut</i></TD><TD align="left" valign="top">Optional pointer to outgoing format to set
+    </TD></TR>
+</TABLE></P>
+<A NAME="formatList"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>formatList</strong> (String& dest, <A HREF="#u_int32_t">u_int32_t</A> formats, const TokenDict* dict = 0,
+	const char* sep = ",")
+<br></td><td align="right"><h3><strong>formatList</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Create a string list from formats
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>dest</i></TD><TD align="left" valign="top">The destination
+</TD></TR>
+<TR><TD align="left" valign="top"><i>formats</i></TD><TD align="left" valign="top">The formats
+</TD></TR>
+<TR><TD align="left" valign="top"><i>dict</i></TD><TD align="left" valign="top">Optional dictionary to use, 0 to use s_formats
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sep</i></TD><TD align="left" valign="top">The separator to use
+    </TD></TR>
+</TABLE></P>
+<A NAME="pickFormat"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td> <A HREF="#u_int32_t">u_int32_t</A> &nbsp;<strong>pickFormat</strong> (<A HREF="#u_int32_t">u_int32_t</A> formats, <A HREF="#u_int32_t">u_int32_t</A> format = 0)
+<br></td><td align="right"><h3><strong>pickFormat</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Pick a format from a list of capabilities
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>formats</i></TD><TD align="left" valign="top">Capabilities list
+</TD></TR>
+<TR><TD align="left" valign="top"><i>format</i></TD><TD align="left" valign="top">Optional format to pick
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: IAX format, 0 if not found
+    </p>
+<A NAME="encode"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td> <A HREF="#u_int32_t">u_int32_t</A> &nbsp;<strong>encode</strong> (const String& formats, const TokenDict* dict, char sep = ',')
+<br></td><td align="right"><h3><strong>encode</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Encode a formats list
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>formats</i></TD><TD align="left" valign="top">Formats list
+</TD></TR>
+<TR><TD align="left" valign="top"><i>dict</i></TD><TD align="left" valign="top">Dictionary to use
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sep</i></TD><TD align="left" valign="top">Formats list separator
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Encoded formats
+    </p>
+<A NAME="mask"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline <A HREF="#u_int32_t">u_int32_t</A> &nbsp;<strong>mask</strong> (<A HREF="#u_int32_t">u_int32_t</A> value, int type)
+<br></td><td align="right"><h3><strong>mask</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Mask formats by type
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>value</i></TD><TD align="left" valign="top">Input format(s)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Media type to retrieve
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Media format(s) from input
+    </p>
+<A NAME="clear"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline <A HREF="#u_int32_t">u_int32_t</A> &nbsp;<strong>clear</strong> (<A HREF="#u_int32_t">u_int32_t</A> value, int type)
+<br></td><td align="right"><h3><strong>clear</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Clear formats by type
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>value</i></TD><TD align="left" valign="top">Input format(s)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Media type to clear
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Cleared format(s) from input
+    </p>
+<A NAME="formatName"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline const char* &nbsp;<strong>formatName</strong> (<A HREF="#u_int32_t">u_int32_t</A> fmt)
+<br></td><td align="right"><h3><strong>formatName</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get the text associated with a format
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>fmt</i></TD><TD align="left" valign="top">The desired format
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A pointer to the text associated with the format or 0 if the format doesn't exist
+    </p>
+<A NAME="typeName"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline const char* &nbsp;<strong>typeName</strong> (int type)
+<br></td><td align="right"><h3><strong>typeName</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get the text associated with a media type
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">The media type
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A pointer to the text associated with the media type
+    </p>
+<A NAME="typeNameStr"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline const String& &nbsp;<strong>typeNameStr</strong> (int type)
+<br></td><td align="right"><h3><strong>typeNameStr</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get the text associated with a media type
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">The media type
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A string associated with the media type
+    </p>
+<A NAME="s_formats[]"></A><A NAME="ref20"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_formats[]</strong>
+</td><td align="right"><h3><strong>s_formats[]</strong></h3></td></tr></table><p></p><A NAME="s_types[]"></A><A NAME="ref21"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_types[]</strong>
+</td><td align="right"><h3><strong>s_types[]</strong></h3></td></tr></table><p></p><A NAME="s_typesList[TypeCount]"></A><A NAME="ref22"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const String  <strong>s_typesList[TypeCount]</strong>
+</td><td align="right"><h3><strong>s_typesList[TypeCount]</strong></h3></td></tr></table><p></p><A NAME="m_type"></A><A NAME="ref23"></A><table width="100%"><tr bgcolor="#eeeeee"><td>int  <strong>m_type</strong>
+</td><td align="right"><h3><strong>m_type</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_format"></A><A NAME="ref24"></A><table width="100%"><tr bgcolor="#eeeeee"><td>IAXFormatDesc  <strong>m_format</strong>
+</td><td align="right"><h3><strong>m_format</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_formatIn"></A><A NAME="ref25"></A><table width="100%"><tr bgcolor="#eeeeee"><td>IAXFormatDesc  <strong>m_formatIn</strong>
+</td><td align="right"><h3><strong>m_formatIn</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_formatOut"></A><A NAME="ref26"></A><table width="100%"><tr bgcolor="#eeeeee"><td>IAXFormatDesc  <strong>m_formatOut</strong>
+</td><td align="right"><h3><strong>m_formatOut</strong></h3></td></tr></table><p> <small>[protected]</small></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

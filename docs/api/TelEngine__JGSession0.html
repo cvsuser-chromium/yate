@@ -1,0 +1,188 @@
+<HTML>
+<HEAD>
+<TITLE>class JGSession0</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class JGSession0</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">The version 0 of a jingle session. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::JGSession0</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yjabber___yatejingle_h.html">libs/yjabber/yatejingle.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><i><A HREF="TelEngine__JGSession.html">TelEngine::JGSession</A></i> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__JGSession0.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>virtual  &nbsp;<b><A HREF="#ref3">~JGSession0</A></b> () 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref4">accept</A></b> (const ObjList& contents, String* stanzaId = 0) 
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref5">JGSession0</A></b> (JGEngine* engine, const JabberID& caller, const JabberID& called) 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref6">JGSession0</A></b> (JGEngine* engine, const JabberID& caller, const JabberID& called,
+	XmlElement* xml, const String& id) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref7">initiate</A></b> (const ObjList& contents, XmlElement* extra,
+	const char* subject = 0) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref8">sendContent</A></b> (Action action, const ObjList& contents, String* stanzaId = 0) 
+</LI>
+<LI>virtual  JGEvent* &nbsp;<b><A HREF="#ref9">decodeJingle</A></b> (XmlElement*& xml, XmlElement* child) 
+</LI>
+<LI>virtual  XmlElement* &nbsp;<b><A HREF="#ref10">createJingle</A></b> (Action action, XmlElement* element1 = 0,
+	XmlElement* element2 = 0, XmlElement* element3 = 0) 
+</LI>
+<LI>virtual  XmlElement* &nbsp;<b><A HREF="#ref11">createDtmf</A></b> (const char* dtmf, unsigned int msDuration = 0) 
+</LI>
+</ul><h4>Protected Members</h4><ul><LI>String <b><A HREF="#ref12">m_sessContentName</A></b></LI>
+<LI>Action <b><A HREF="#ref13">m_candidatesAction</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ A session implementing the old jingle protocol
+</p>
+<A NAME="~JGSession0"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~JGSession0</strong> ()
+<br></td><td align="right"><h3><strong>~JGSession0</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor
+     </p>
+<A NAME="accept"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>accept</strong> (const ObjList& contents, String* stanzaId = 0)
+<br></td><td align="right"><h3><strong>accept</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Accept a Pending incoming session.
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>contents</i></TD><TD align="left" valign="top">The list of accepted contents
+</TD></TR>
+<TR><TD align="left" valign="top"><i>stanzaId</i></TD><TD align="left" valign="top">Optional string to be filled with sent stanza id (used to track the response)
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if send failed
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__JGSession.html#accept">JGSession</A>.</p>
+<A NAME="JGSession0"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>JGSession0</strong> (JGEngine* engine, const JabberID& caller, const JabberID& called)
+<br></td><td align="right"><h3><strong>JGSession0</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Constructor. Create an outgoing session
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>engine</i></TD><TD align="left" valign="top">The engine owning this session
+</TD></TR>
+<TR><TD align="left" valign="top"><i>caller</i></TD><TD align="left" valign="top">The caller's full JID
+</TD></TR>
+<TR><TD align="left" valign="top"><i>called</i></TD><TD align="left" valign="top">The called party's full JID
+     </TD></TR>
+</TABLE></P>
+<A NAME="JGSession0"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>JGSession0</strong> (JGEngine* engine, const JabberID& caller, const JabberID& called,
+	XmlElement* xml, const String& id)
+<br></td><td align="right"><h3><strong>JGSession0</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Constructor. Create an incoming session.
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>engine</i></TD><TD align="left" valign="top">The engine owning this session
+</TD></TR>
+<TR><TD align="left" valign="top"><i>caller</i></TD><TD align="left" valign="top">The caller's full JID
+</TD></TR>
+<TR><TD align="left" valign="top"><i>called</i></TD><TD align="left" valign="top">The called party's full JID
+</TD></TR>
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">A valid Jabber Jingle xml with action session initiate
+</TD></TR>
+<TR><TD align="left" valign="top"><i>id</i></TD><TD align="left" valign="top">Session id
+     </TD></TR>
+</TABLE></P>
+<A NAME="initiate"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>initiate</strong> (const ObjList& contents, XmlElement* extra,
+	const char* subject = 0)
+<br></td><td align="right"><h3><strong>initiate</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Build and send the initial message on an outgoing session
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>contents</i></TD><TD align="left" valign="top">The session contents to be sent with session initiate element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>extra</i></TD><TD align="left" valign="top">Optional extra child to be added to the session initiate element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>subject</i></TD><TD align="left" valign="top">Optional session subject
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True on success
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__JGSession.html#initiate">JGSession</A>.</p>
+<A NAME="sendContent"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>sendContent</strong> (Action action, const ObjList& contents, String* stanzaId = 0)
+<br></td><td align="right"><h3><strong>sendContent</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Send a stanza with session content(s)
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>action</i></TD><TD align="left" valign="top">Must be a transport- action
+</TD></TR>
+<TR><TD align="left" valign="top"><i>contents</i></TD><TD align="left" valign="top">Non empty list with content(s) to send
+</TD></TR>
+<TR><TD align="left" valign="top"><i>stanzaId</i></TD><TD align="left" valign="top">Optional string to be filled with sent
+  stanza id (used to track the response)
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if send failed
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__JGSession.html#sendContent">JGSession</A>.</p>
+<A NAME="decodeJingle"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td> JGEvent* &nbsp;<strong>decodeJingle</strong> (XmlElement*& xml, XmlElement* child)
+<br></td><td align="right"><h3><strong>decodeJingle</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Decode a jingle element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The element to decode
+</TD></TR>
+<TR><TD align="left" valign="top"><i>child</i></TD><TD align="left" valign="top">The element's first child
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: JGEvent pointer or 0
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__JGSession.html#decodeJingle">JGSession</A>.</p>
+<A NAME="createJingle"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>createJingle</strong> (Action action, XmlElement* element1 = 0,
+	XmlElement* element2 = 0, XmlElement* element3 = 0)
+<br></td><td align="right"><h3><strong>createJingle</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Create an 'iq' of type 'set' with a 'jingle' child
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>action</i></TD><TD align="left" valign="top">The action of the Jingle stanza
+</TD></TR>
+<TR><TD align="left" valign="top"><i>element1</i></TD><TD align="left" valign="top">Optional child element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>element2</i></TD><TD align="left" valign="top">Optional child element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>element3</i></TD><TD align="left" valign="top">Optional child element
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Valid XmlElement pointer
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__JGSession.html#createJingle">JGSession</A>.</p>
+<A NAME="createDtmf"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>createDtmf</strong> (const char* dtmf, unsigned int msDuration = 0)
+<br></td><td align="right"><h3><strong>createDtmf</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Create a dtmf XML element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>dtmf</i></TD><TD align="left" valign="top">The dtmf string
+</TD></TR>
+<TR><TD align="left" valign="top"><i>msDuration</i></TD><TD align="left" valign="top">The tone duration in miliseconds. Ignored if 0
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Valid XmlElement pointer or 0
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__JGSession.html#createDtmf">JGSession</A>.</p>
+<A NAME="m_sessContentName"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_sessContentName</strong>
+</td><td align="right"><h3><strong>m_sessContentName</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_candidatesAction"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>Action  <strong>m_candidatesAction</strong>
+</td><td align="right"><h3><strong>m_candidatesAction</strong></h3></td></tr></table><p> <small>[protected]</small></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

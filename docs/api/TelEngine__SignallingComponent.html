@@ -1,0 +1,245 @@
+<HTML>
+<HEAD>
+<TITLE>class SignallingComponent</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SignallingComponent</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">Abstract signalling component that can be managed by the engine. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SignallingComponent</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__DebugEnabler.html">TelEngine::DebugEnabler</A> <small>[public ]</small>, <A HREF="TelEngine__RefObject.html">TelEngine::RefObject</A> <small>[public ]</small></TD></TR>
+<TR><TH>Inherited by</TH><TD><A HREF="TelEngine__AnalogLineGroup.html">AnalogLineGroup</A>, <A HREF="TelEngine__GTT.html">GTT</A>, <A HREF="TelEngine__ISDNIUA.html">ISDNIUA</A>, <A HREF="TelEngine__ISDNIUAClient.html">ISDNIUAClient</A>, <i><A HREF="TelEngine__ISDNLayer2.html">ISDNLayer2</A></i>, <i><A HREF="TelEngine__ISDNLayer3.html">ISDNLayer3</A></i>, <A HREF="TelEngine__ISDNQ921.html">ISDNQ921</A>, <A HREF="TelEngine__ISDNQ921.html">ISDNQ921</A>, <A HREF="TelEngine__ISDNQ921Management.html">ISDNQ921Management</A>, <A HREF="TelEngine__ISDNQ921Management.html">ISDNQ921Management</A>, <A HREF="TelEngine__ISDNQ921Management.html">ISDNQ921Management</A>, <A HREF="TelEngine__ISDNQ921Passive.html">ISDNQ921Passive</A>, <A HREF="TelEngine__ISDNQ921Passive.html">ISDNQ921Passive</A>, <A HREF="TelEngine__ISDNQ931.html">ISDNQ931</A>, <A HREF="TelEngine__ISDNQ931Monitor.html">ISDNQ931Monitor</A>, <A HREF="TelEngine__SCCP.html">SCCP</A>, <i><A HREF="TelEngine__SCCPManagement.html">SCCPManagement</A></i>, <A HREF="TelEngine__SCCPUser.html">SCCPUser</A>, <A HREF="TelEngine__SIGAdaptClient.html">SIGAdaptClient</A>, <A HREF="TelEngine__SIGAdaptServer.html">SIGAdaptServer</A>, <i><A HREF="TelEngine__SIGAdaptation.html">SIGAdaptation</A></i>, <i><A HREF="TelEngine__SIGTransport.html">SIGTransport</A></i>, <A HREF="TelEngine__SS7AnsiSccpManagement.html">SS7AnsiSccpManagement</A>, <A HREF="TelEngine__SS7BICC.html">SS7BICC</A>, <A HREF="TelEngine__SS7ISUP.html">SS7ISUP</A>, <A HREF="TelEngine__SS7ItuSccpManagement.html">SS7ItuSccpManagement</A>, <i><A HREF="TelEngine__SS7L2User.html">SS7L2User</A></i>, <i><A HREF="TelEngine__SS7L3User.html">SS7L3User</A></i>, <i><A HREF="TelEngine__SS7Layer2.html">SS7Layer2</A></i>, <i><A HREF="TelEngine__SS7Layer3.html">SS7Layer3</A></i>, <A HREF="TelEngine__SS7Layer4.html">SS7Layer4</A>, <A HREF="TelEngine__SS7M2PA.html">SS7M2PA</A>, <A HREF="TelEngine__SS7M2UA.html">SS7M2UA</A>, <A HREF="TelEngine__SS7M2UAClient.html">SS7M2UAClient</A>, <A HREF="TelEngine__SS7M3UA.html">SS7M3UA</A>, <A HREF="TelEngine__SS7MTP2.html">SS7MTP2</A>, <A HREF="TelEngine__SS7MTP2.html">SS7MTP2</A>, <A HREF="TelEngine__SS7MTP3.html">SS7MTP3</A>, <A HREF="TelEngine__SS7MTP3.html">SS7MTP3</A>, <A HREF="TelEngine__SS7Management.html">SS7Management</A>, <A HREF="TelEngine__SS7Router.html">SS7Router</A>, <A HREF="TelEngine__SS7Router.html">SS7Router</A>, <A HREF="TelEngine__SS7SCCP.html">SS7SCCP</A>, <A HREF="TelEngine__SS7SCCP.html">SS7SCCP</A>, <A HREF="TelEngine__SS7SUA.html">SS7SUA</A>, <i><A HREF="TelEngine__SS7TCAP.html">SS7TCAP</A></i>, <A HREF="TelEngine__SS7TCAPANSI.html">SS7TCAPANSI</A>, <A HREF="TelEngine__SS7TCAPITU.html">SS7TCAPITU</A>, <A HREF="TelEngine__SS7TUP.html">SS7TUP</A>, <A HREF="TelEngine__SS7Testing.html">SS7Testing</A>, <A HREF="TelEngine__SignallingCircuitGroup.html">SignallingCircuitGroup</A>, <A HREF="TelEngine__SignallingCircuitSpan.html">SignallingCircuitSpan</A>, <i><A HREF="TelEngine__SignallingInterface.html">SignallingInterface</A></i>, <i><A HREF="TelEngine__SignallingReceiver.html">SignallingReceiver</A></i>, <A HREF="TelEngine__TCAPUser.html">TCAPUser</A></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SignallingComponent.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>virtual  &nbsp;<b><A HREF="#ref2">~SignallingComponent</A></b> () 
+</LI>
+<LI>virtual  const String& &nbsp;<b><A HREF="#ref3">toString</A></b> ()  const
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref4">initialize</A></b> (const NamedList* config) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref6">control</A></b> (NamedList& params) 
+</LI>
+<LI>virtual  NamedList* &nbsp;<b><A HREF="#ref7">controlCreate</A></b> (const char* oper = 0) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref8">controlExecute</A></b> (NamedList* params) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref9">engine</A></b> (SignallingEngine* eng) 
+</LI>
+<LI>inline SignallingEngine* &nbsp;<b><A HREF="#ref10">engine</A></b> ()  const
+</LI>
+<LI>inline int &nbsp;<b><A HREF="#ref11">debugLevel</A></b> (int level) 
+</LI>
+<LI>inline const String& &nbsp;<b><A HREF="#ref12">componentType</A></b> ()  const
+</LI>
+</ul><h4>Public Static Methods</h4><ul><LI>static  bool &nbsp;<b><A HREF="#ref5">resolveConfig</A></b> (const String& cmpName, NamedList& params, const NamedList* config) 
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref13">SignallingComponent</A></b> (const char* name = 0, const NamedList* params = 0, const char* type = "unknown") 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref14">destroyed</A></b> () 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref15">insert</A></b> (SignallingComponent* component) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref16">detach</A></b> () 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref17">timerTick</A></b> (const Time& when) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref18">setName</A></b> (const char* name) 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref19">setCompType</A></b> (const char* type) 
+</LI>
+<LI>unsigned long &nbsp;<b><A HREF="#ref20">tickSleep</A></b> (unsigned long usec = 1000000)  const
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ Interface to an abstract signalling component that is managed by an engine.
+ The engine will periodically poll each component to keep them alive.
+</p>
+<A NAME="~SignallingComponent"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~SignallingComponent</strong> ()
+<br></td><td align="right"><h3><strong>~SignallingComponent</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor, detaches the engine and other components
+     </p>
+<A NAME="toString"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td> const String& &nbsp;<strong>toString</strong> ()
+<br></td><td align="right"><h3><strong>toString</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Get the component's name so it can be used for list searches
+</p>
+<p><b>Returns</b>: A reference to the name by which the component is known to engine
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__GenObject.html#toString">GenObject</A>.</p>
+<A NAME="initialize"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>initialize</strong> (const NamedList* config)
+<br></td><td align="right"><h3><strong>initialize</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Configure and initialize the component and any subcomponents it may have
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>config</i></TD><TD align="left" valign="top">Optional configuration parameters override
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the component was initialized properly
+     </p>
+<A NAME="resolveConfig"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>resolveConfig</strong> (const String& cmpName, NamedList& params, const NamedList* config)
+<br></td><td align="right"><h3><strong>resolveConfig</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Choose parameters that should be used for object initialization
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>cmpName</i></TD><TD align="left" valign="top">The name of the parameter holding the component name
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">The list of parameters used to initialize the component
+</TD></TR>
+<TR><TD align="left" valign="top"><i>config</i></TD><TD align="left" valign="top">The received list of parameters
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the config was resolved
+     </p>
+<A NAME="control"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>control</strong> (NamedList& params)
+<br></td><td align="right"><h3><strong>control</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Query or modify component's settings or operational parameters
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">The list of parameters to query or change
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the control operation was executed
+     </p>
+<A NAME="controlCreate"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> NamedList* &nbsp;<strong>controlCreate</strong> (const char* oper = 0)
+<br></td><td align="right"><h3><strong>controlCreate</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Create a parameter list adequate to control this component
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Optional name of the operation to execute
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A new parameter list or descendant object, NULL if not supported
+     </p>
+<A NAME="controlExecute"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>controlExecute</strong> (NamedList* params)
+<br></td><td align="right"><h3><strong>controlExecute</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Execute or postpone a control command
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Parameter list describing the command, will be destroyed
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the command was accepted (but not necessarily executed)
+     </p>
+<A NAME="engine"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>engine</strong> (SignallingEngine* eng)
+<br></td><td align="right"><h3><strong>engine</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Set the <A HREF="TelEngine__SignallingEngine.html">TelEngine::SignallingEngine</A> that manages this component
+  and any subcomponent of it
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>eng</i></TD><TD align="left" valign="top">Pointer to the engine that will manage this component
+     </TD></TR>
+</TABLE></P>
+<A NAME="engine"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline SignallingEngine* &nbsp;<strong>engine</strong> ()
+<br></td><td align="right"><h3><strong>engine</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the <A HREF="TelEngine__SignallingEngine.html">TelEngine::SignallingEngine</A> that manages this component
+</p>
+<p><b>Returns</b>: Pointer to engine or NULL if not managed by an engine
+     </p>
+<A NAME="debugLevel"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline int &nbsp;<strong>debugLevel</strong> (int level)
+<br></td><td align="right"><h3><strong>debugLevel</strong></h3></td></tr></table><p></p><p>
+ Conditionally set the debug level of the component
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>level</i></TD><TD align="left" valign="top">Desired debug level, negative for no change
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Current debug level
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__DebugEnabler.html#debugLevel">DebugEnabler</A>.</p>
+<A NAME="componentType"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const String& &nbsp;<strong>componentType</strong> ()
+<br></td><td align="right"><h3><strong>componentType</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Return the type of this component
+</p>
+<p><b>Returns</b>: A string version of the component type
+     </p>
+<A NAME="SignallingComponent"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>SignallingComponent</strong> (const char* name = 0, const NamedList* params = 0, const char* type = "unknown")
+<br></td><td align="right"><h3><strong>SignallingComponent</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Constructor with a default empty component name
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Name of this component
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Optional pointer to creation parameters
+</TD></TR>
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Default component type string
+     </TD></TR>
+</TABLE></P>
+<A NAME="destroyed"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>destroyed</strong> ()
+<br></td><td align="right"><h3><strong>destroyed</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ This method is called to clean up and destroy the object after the
+  reference counter becomes zero
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__RefObject.html#destroyed">RefObject</A>.</p>
+<A NAME="insert"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>insert</strong> (SignallingComponent* component)
+<br></td><td align="right"><h3><strong>insert</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Insert another component in the same engine as this one.
+ This method should be called for every component we attach.
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>component</i></TD><TD align="left" valign="top">Pointer to component to insert in engine
+     </TD></TR>
+</TABLE></P>
+<A NAME="detach"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>detach</strong> ()
+<br></td><td align="right"><h3><strong>detach</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Detach this component from all its links - components and engine.
+ Reimplement this method in all components that keep pointers to
+  other components.
+ The default implementation detaches from the engine.
+     </p>
+<A NAME="timerTick"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>timerTick</strong> (const Time& when)
+<br></td><td align="right"><h3><strong>timerTick</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Method called periodically by the engine to keep everything alive
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>when</i></TD><TD align="left" valign="top">Time to use as computing base for events and timeouts
+     </TD></TR>
+</TABLE></P>
+<A NAME="setName"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>setName</strong> (const char* name)
+<br></td><td align="right"><h3><strong>setName</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Change the name of the component after it was constructed
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Name of this component
+     </TD></TR>
+</TABLE></P>
+<A NAME="setCompType"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>setCompType</strong> (const char* type)
+<br></td><td align="right"><h3><strong>setCompType</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Change the type of the component after it was constructed
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Type of this component
+     </TD></TR>
+</TABLE></P>
+<A NAME="tickSleep"></A><A NAME="ref20"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned long &nbsp;<strong>tickSleep</strong> (unsigned long usec = 1000000)
+<br></td><td align="right"><h3><strong>tickSleep</strong></h3></td></tr></table><p> <small>[protected const]</small></p><p>
+ Adjust (decrease only) the desired maximum time until next tick.
+ Can be called only from within timerTick()
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>usec</i></TD><TD align="left" valign="top">Desired time until next engine's timerTick() call in usec
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Timer sleep in usec after applying the current change
+     </p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

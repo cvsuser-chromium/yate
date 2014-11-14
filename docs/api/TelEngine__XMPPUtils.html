@@ -1,0 +1,1688 @@
+<HTML>
+<HEAD>
+<TITLE>class XMPPUtils</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class XMPPUtils</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">General XMPP utilities. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::XMPPUtils</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yjabber___xmpputils_h.html">libs/yjabber/xmpputils.h</A>&gt;</code></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__XMPPUtils.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref1">Presence</A> {	Probe,                           
+	Subscribe,                       
+	Subscribed,                      
+	Unavailable,                     
+	Unsubscribe,                     
+	Unsubscribed,                    
+	PresenceError,                   
+	PresenceNone
+    }
+</LI>
+<LI>enum <A HREF="#ref2">MsgType</A> {	Chat,                            
+	GroupChat,                       
+	HeadLine,                        
+	Normal,                          
+	MsgError,                        
+    }
+</LI>
+<LI>enum <A HREF="#ref3">IqType</A> {	IqSet,                           
+	IqGet,                           
+	IqResult,                        
+	IqError,                         
+	IqCount
+    }
+</LI>
+<LI>enum <A HREF="#ref4">CommandAction</A> {	CommExecute,
+	CommCancel,
+	CommPrev,
+	CommNext,
+	CommComplete,
+    }
+</LI>
+<LI>enum <A HREF="#ref5">CommandStatus</A> {	CommExecuting,
+	CommCompleted,
+	CommCancelled,
+    }
+</LI>
+<LI>enum <A HREF="#ref6">AuthMethod</A> {	AuthNone     = 0x00,             
+	AuthSHA1     = 0x01,             
+	AuthMD5      = 0x02,             
+	AuthPlain    = 0x04,             
+	AuthDialback = 0x08,             
+    }
+</LI>
+</ul><h4>Public Static Methods</h4><ul><LI>static  int &nbsp;<b><A HREF="#ref7">findTag</A></b> (const String& tag, int* tags) 
+</LI>
+<LI>static  inline bool &nbsp;<b><A HREF="#ref8">isResponse</A></b> (const XmlElement& xml) 
+</LI>
+<LI>static  inline void &nbsp;<b><A HREF="#ref9">getJIDTo</A></b> (const NamedList& params, JabberID& jid) 
+</LI>
+<LI>static  inline void &nbsp;<b><A HREF="#ref10">getJIDFrom</A></b> (const NamedList& params, JabberID& jid) 
+</LI>
+<LI>static  inline XmlElement* &nbsp;<b><A HREF="#ref11">createElement</A></b> (const char* name, const char* text = 0,
+	    const String& ns = String::empty()) 
+</LI>
+<LI>static  inline XmlElement* &nbsp;<b><A HREF="#ref12">createElement</A></b> (int type, const char* text = 0) 
+</LI>
+<LI>static  inline XmlElement* &nbsp;<b><A HREF="#ref13">createElement</A></b> (const char* name, int ns,
+	const char* text = 0) 
+</LI>
+<LI>static  inline XmlElement* &nbsp;<b><A HREF="#ref14">createElement</A></b> (int type, int ns, const char* text = 0) 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref15">createElement</A></b> (const XmlElement& src, bool response, bool result) 
+</LI>
+<LI>static  inline XmlElement* &nbsp;<b><A HREF="#ref16">createElementAttr</A></b> (int tag, const String& attrName,
+	const char* attrValue, int ns = XMPPNamespace::Count) 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref17">createIq</A></b> (IqType type, const char* from = 0,
+	const char* to = 0, const char* id = 0) 
+</LI>
+<LI>static  inline XmlElement* &nbsp;<b><A HREF="#ref18">createIqResult</A></b> (const char* from, const char* to,
+	const char* id, XmlElement* child = 0) 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref19">createIqError</A></b> (const char* from, const char* to, XmlElement*& xml,
+	int type, int error, const char* text = 0) 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref20">createPing</A></b> (const char* id = 0, const char* from = 0,
+	const char* to = 0) 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref21">createVCard</A></b> (bool get, const char* from, const char* to, const char* id) 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref22">createCommand</A></b> (CommandAction action, const char* node,
+	const char* sessionId = 0) 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref23">createIqDisco</A></b> (bool info, bool req, const char* from, const char* to,
+	const char* id, const char* node = 0, const char* cap = 0) 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref24">createIqVersionRes</A></b> (const char* from, const char* to,
+	const char* id, const char* name, const char* version, const char* os = 0) 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref25">createError</A></b> (int type, int error, const char* text = 0) 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref26">createError</A></b> (XmlElement* xml, int type, int error,
+	const char* text = 0) 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref27">createStreamError</A></b> (int error, const char* text = 0, const char* content = 0) 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref28">createRegisterQuery</A></b> (IqType type, const char* from,
+	const char* to, const char* id,
+	XmlElement* child1 = 0, XmlElement* child2 = 0, XmlElement* child3 = 0) 
+</LI>
+<LI>static  inline XmlElement* &nbsp;<b><A HREF="#ref29">createIqAuthGet</A></b> (const char* id) 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref30">createIqAuthSet</A></b> (const char* id, const char* username,
+	const char* resource, const char* authStr, bool digest) 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref31">createIqAuthOffer</A></b> (const char* id, bool digest = true,
+	bool plain = false) 
+</LI>
+<LI>static  inline XmlElement* &nbsp;<b><A HREF="#ref32">createRegisterQuery</A></b> (const char* from,
+	const char* to, const char* id,
+	const char* username, const char* password) 
+</LI>
+<LI>static  inline XmlElement* &nbsp;<b><A HREF="#ref33">createFailure</A></b> (XMPPNamespace::Type ns,
+	XMPPError::Type error = XMPPError::NoError) 
+</LI>
+<LI>static  inline XmlElement* &nbsp;<b><A HREF="#ref34">createXOobUrl</A></b> (const char* url, const char* desc = 0) 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref35">createDelay</A></b> (unsigned int timeSec, const char* from = 0,
+	unsigned int fractions = 0, const char* text = 0) 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref36">createFileNsTransfer</A></b> (const char* name = 0) 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref37">createHash</A></b> (const char* name, const char* value) 
+</LI>
+<LI>static  void &nbsp;<b><A HREF="#ref38">decodeHash</A></b> (XmlElement& xml, const char*& name, const char*& value) 
+</LI>
+<LI>static  inline XmlElement* &nbsp;<b><A HREF="#ref39">createFileInfoShareMatch</A></b> (XmlElement* child = 0) 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref40">createRSM</A></b> (const NamedList& params, const String& prefix = "rsm_") 
+</LI>
+<LI>static  void &nbsp;<b><A HREF="#ref41">addRSM</A></b> (XmlElement* rsm, NamedList& params, const String& prefix = "rsm_") 
+</LI>
+<LI>static  inline bool &nbsp;<b><A HREF="#ref42">remove</A></b> (XmlElement& xml) 
+</LI>
+<LI>static  inline bool &nbsp;<b><A HREF="#ref43">required</A></b> (XmlElement& xml) 
+</LI>
+<LI>static  int &nbsp;<b><A HREF="#ref44">priority</A></b> (XmlElement& xml, int defVal = 0) 
+</LI>
+<LI>static  inline void &nbsp;<b><A HREF="#ref45">setPriority</A></b> (XmlElement& xml, const char* prio) 
+</LI>
+<LI>static  inline int &nbsp;<b><A HREF="#ref46">xmlns</A></b> (XmlElement& xml) 
+</LI>
+<LI>static  inline bool &nbsp;<b><A HREF="#ref47">hasDefaultXmlns</A></b> (const XmlElement& xml, int ns) 
+</LI>
+<LI>static  inline bool &nbsp;<b><A HREF="#ref48">hasXmlns</A></b> (const XmlElement& xml, int ns) 
+</LI>
+<LI>static  inline bool &nbsp;<b><A HREF="#ref49">setXmlns</A></b> (XmlElement& xml, const String& name = String::empty(),
+	bool addAttr = false, int ns = XMPPNamespace::Count) 
+</LI>
+<LI>static  inline bool &nbsp;<b><A HREF="#ref50">setStreamXmlns</A></b> (XmlElement& xml, bool addAttr = true) 
+</LI>
+<LI>static  inline bool &nbsp;<b><A HREF="#ref51">setDbXmlns</A></b> (XmlElement& xml) 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref52">findFirstChild</A></b> (const XmlElement& xml, int t = XmlTag::Count,
+	int ns = XMPPNamespace::Count) 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref53">findNextChild</A></b> (const XmlElement& xml, XmlElement* start,
+	int t = XmlTag::Count, int ns = XMPPNamespace::Count) 
+</LI>
+<LI>static  inline const String* &nbsp;<b><A HREF="#ref54">childText</A></b> (XmlElement& xml, int tag, int ns = XMPPNamespace::Count) 
+</LI>
+<LI>static  inline int &nbsp;<b><A HREF="#ref55">childTextInt</A></b> (XmlElement& xml, int tag, int ns = XMPPNamespace::Count,
+	int defVal = 0, int base = 0, int minvalue = INT_MIN, int maxvalue = INT_MAX,
+	bool clamp = true) 
+</LI>
+<LI>static  void &nbsp;<b><A HREF="#ref56">decodeError</A></b> (XmlElement* xml, int ns = XMPPNamespace::Count,
+	String* error = 0, String* text = 0, String* content = 0) 
+</LI>
+<LI>static  void &nbsp;<b><A HREF="#ref57">decodeError</A></b> (XmlElement* xml, String& error, String& text) 
+</LI>
+<LI>static  void &nbsp;<b><A HREF="#ref58">encodeDateTimeSec</A></b> (String& buf, unsigned int timeSec,
+	unsigned int fractions = 0) 
+</LI>
+<LI>static  unsigned int &nbsp;<b><A HREF="#ref59">decodeDateTimeSec</A></b> (const String& time, unsigned int* fractions = 0) 
+</LI>
+<LI>static  unsigned int &nbsp;<b><A HREF="#ref60">decodeDateTimeSecXDelay</A></b> (const String& time) 
+</LI>
+<LI>static  void &nbsp;<b><A HREF="#ref61">print</A></b> (String& xmlStr, XmlChild& xml, bool verbose) 
+</LI>
+<LI>static  void &nbsp;<b><A HREF="#ref62">toList</A></b> (XmlElement& xml, NamedList& dest, const char* prefix) 
+</LI>
+<LI>static  bool &nbsp;<b><A HREF="#ref63">split</A></b> (NamedList& dest, const char* src, const char sep,
+	bool nameFirst) 
+</LI>
+<LI>static  int &nbsp;<b><A HREF="#ref64">decodeFlags</A></b> (const String& src, const TokenDict* dict) 
+</LI>
+<LI>static  void &nbsp;<b><A HREF="#ref65">buildFlags</A></b> (String& dest, int src, const TokenDict* dict) 
+</LI>
+<LI>static  bool &nbsp;<b><A HREF="#ref66">addChidren</A></b> (XmlElement* dest, ObjList& list) 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref67">createEntityCaps</A></b> (const String& hash, const char* node) 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref68">createEntityCapsGTalkV1</A></b> (const char* node = 0,
+	bool muc = false) 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref69">createPresence</A></b> (const char* from,
+	const char* to, Presence type = PresenceNone) 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref70">createMessage</A></b> (const char* type, const char* from,
+	const char* to, const char* id, const char* body) 
+</LI>
+<LI>static  inline XmlElement* &nbsp;<b><A HREF="#ref71">createMessage</A></b> (MsgType type, const char* from,
+	const char* to, const char* id, const char* body) 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref72">createDialbackKey</A></b> (const char* from, const char* to,
+	const char* key) 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref73">createDialbackResult</A></b> (const char* from, const char* to,
+	XMPPError::Type rsp = XMPPError::NoError) 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref74">createDialbackVerify</A></b> (const char* from, const char* to,
+	const char* id, const char* key) 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref75">createDialbackVerifyRsp</A></b> (const char* from, const char* to,
+	const char* id, XMPPError::Type rsp = XMPPError::NoError) 
+</LI>
+<LI>static  int &nbsp;<b><A HREF="#ref76">decodeDbRsp</A></b> (XmlElement* xml) 
+</LI>
+<LI>static  inline XmlElement* &nbsp;<b><A HREF="#ref77">createSubject</A></b> (const char* subject) 
+</LI>
+<LI>static  inline const String& &nbsp;<b><A HREF="#ref78">subject</A></b> (XmlElement& xml) 
+</LI>
+<LI>static  inline XmlElement* &nbsp;<b><A HREF="#ref79">createBody</A></b> (const char* body, int ns = XMPPNamespace::Count) 
+</LI>
+<LI>static  const String& &nbsp;<b><A HREF="#ref80">body</A></b> (XmlElement& xml, int ns = XMPPNamespace::Count) 
+</LI>
+<LI>static  inline XmlElement* &nbsp;<b><A HREF="#ref81">createParameter</A></b> (const char* name, const char* value,
+	const char* tag = "parameter") 
+</LI>
+<LI>static  inline XmlElement* &nbsp;<b><A HREF="#ref82">createParameter</A></b> (const NamedString& pair,
+	const char* tag = "parameter") 
+</LI>
+<LI>static  inline int &nbsp;<b><A HREF="#ref83">ns</A></b> (const XmlElement& xml) 
+</LI>
+<LI>static  inline int &nbsp;<b><A HREF="#ref84">tag</A></b> (const XmlElement& xml) 
+</LI>
+<LI>static  inline bool &nbsp;<b><A HREF="#ref85">getTag</A></b> (const XmlElement& xml, int& tag, int& ns) 
+</LI>
+<LI>static  inline bool &nbsp;<b><A HREF="#ref86">isTag</A></b> (const XmlElement& xml, int tag, int ns) 
+</LI>
+<LI>static  inline bool &nbsp;<b><A HREF="#ref87">isUnprefTag</A></b> (const XmlElement& xml, int tag) 
+</LI>
+<LI>static  inline bool &nbsp;<b><A HREF="#ref88">isStanza</A></b> (const XmlElement& xml) 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref89">getXml</A></b> (GenObject* gen, bool takeOwnerShip = true) 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref90">getXml</A></b> (const String& data) 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref91">getXml</A></b> (NamedList& list, const char* param = "xml",
+	const char* extra = "data") 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref92">getPresenceXml</A></b> (NamedList& list, const char* param = "xml",
+	const char* extra = "data", Presence type = PresenceNone, bool build = true) 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref93">getChatXml</A></b> (NamedList& list, const char* param = "xml",
+	const char* extra = "data", bool build = true) 
+</LI>
+<LI>static  int &nbsp;<b><A HREF="#ref94">cmpBytes</A></b> (const String& s1, const String& s2) 
+</LI>
+<LI>static  inline Presence &nbsp;<b><A HREF="#ref95">presenceType</A></b> (const char* text) 
+</LI>
+<LI>static  inline const char* &nbsp;<b><A HREF="#ref96">presenceText</A></b> (Presence presence) 
+</LI>
+<LI>static  inline MsgType &nbsp;<b><A HREF="#ref97">msgType</A></b> (const char* text) 
+</LI>
+<LI>static  inline const char* &nbsp;<b><A HREF="#ref98">msgText</A></b> (MsgType msg) 
+</LI>
+<LI>static  inline IqType &nbsp;<b><A HREF="#ref99">iqType</A></b> (const char* text) 
+</LI>
+<LI>static  inline int &nbsp;<b><A HREF="#ref100">authMeth</A></b> (const char* text, int defVal = AuthNone) 
+</LI>
+</ul><h4>Public Members</h4><ul><LI>static XMPPNamespace <b><A HREF="#ref101">s_ns</A></b></LI>
+<LI>static XMPPError <b><A HREF="#ref102">s_error</A></b></LI>
+<LI>static XmlTag <b><A HREF="#ref103">s_tag</A></b></LI>
+<LI>static const TokenDict <b><A HREF="#ref104">s_presence[]</A></b></LI>
+<LI>static const TokenDict <b><A HREF="#ref105">s_msg[]</A></b></LI>
+<LI>static const TokenDict <b><A HREF="#ref106">s_iq[]</A></b></LI>
+<LI>static const TokenDict <b><A HREF="#ref107">s_commandAction[]</A></b></LI>
+<LI>static const TokenDict <b><A HREF="#ref108">s_commandStatus[]</A></b></LI>
+<LI>static const TokenDict <b><A HREF="#ref109">s_authMeth[]</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ This class is a general XMPP utilities
+</p>
+<A NAME="Presence"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>Presence</strong> {	Probe,                           
+	Subscribe,                       
+	Subscribed,                      
+	Unavailable,                     
+	Unsubscribe,                     
+	Unsubscribed,                    
+	PresenceError,                   
+	PresenceNone
+    }
+</td><td align="right"><h3><strong>Presence</strong></h3></td></tr></table><p></p><p>
+ Presence type enumeration
+     </p>
+<A NAME="MsgType"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>MsgType</strong> {	Chat,                            
+	GroupChat,                       
+	HeadLine,                        
+	Normal,                          
+	MsgError,                        
+    }
+</td><td align="right"><h3><strong>MsgType</strong></h3></td></tr></table><p></p><p>
+ Message type enumeration
+     </p>
+<A NAME="IqType"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>IqType</strong> {	IqSet,                           
+	IqGet,                           
+	IqResult,                        
+	IqError,                         
+	IqCount
+    }
+</td><td align="right"><h3><strong>IqType</strong></h3></td></tr></table><p></p><p>
+ Iq type enumeration
+     </p>
+<A NAME="CommandAction"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>CommandAction</strong> {	CommExecute,
+	CommCancel,
+	CommPrev,
+	CommNext,
+	CommComplete,
+    }
+</td><td align="right"><h3><strong>CommandAction</strong></h3></td></tr></table><p></p><p>
+ Command action enumeration
+     </p>
+<A NAME="CommandStatus"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>CommandStatus</strong> {	CommExecuting,
+	CommCompleted,
+	CommCancelled,
+    }
+</td><td align="right"><h3><strong>CommandStatus</strong></h3></td></tr></table><p></p><p>
+ Command status enumeration
+     </p>
+<A NAME="AuthMethod"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>AuthMethod</strong> {	AuthNone     = 0x00,             
+	AuthSHA1     = 0x01,             
+	AuthMD5      = 0x02,             
+	AuthPlain    = 0x04,             
+	AuthDialback = 0x08,             
+    }
+</td><td align="right"><h3><strong>AuthMethod</strong></h3></td></tr></table><p></p><p>
+ Authentication methods
+     </p>
+<A NAME="findTag"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>findTag</strong> (const String& tag, int* tags)
+<br></td><td align="right"><h3><strong>findTag</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Find an xml tag in an array terminated with XmlTag::Count
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>tag</i></TD><TD align="left" valign="top">Tag to find
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tags</i></TD><TD align="left" valign="top">Tags list
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: XmlTag value, XmlTag::Count if not found
+     </p>
+<A NAME="isResponse"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline bool &nbsp;<strong>isResponse</strong> (const XmlElement& xml)
+<br></td><td align="right"><h3><strong>isResponse</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Check if an xml element has type 'result' or 'error'
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The element to check
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the element is a response one
+     </p>
+<A NAME="getJIDTo"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline void &nbsp;<strong>getJIDTo</strong> (const NamedList& params, JabberID& jid)
+<br></td><td align="right"><h3><strong>getJIDTo</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Retrieve a JID from 'to' and 'to_instance' parameters
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Parameter list
+</TD></TR>
+<TR><TD align="left" valign="top"><i>jid</i></TD><TD align="left" valign="top">Destination to be set
+     </TD></TR>
+</TABLE></P>
+<A NAME="getJIDFrom"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline void &nbsp;<strong>getJIDFrom</strong> (const NamedList& params, JabberID& jid)
+<br></td><td align="right"><h3><strong>getJIDFrom</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Retrieve a JID from 'from' and 'from_instance' parameters
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Parameter list
+</TD></TR>
+<TR><TD align="left" valign="top"><i>jid</i></TD><TD align="left" valign="top">Destination to be set
+     </TD></TR>
+</TABLE></P>
+<A NAME="createElement"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline XmlElement* &nbsp;<strong>createElement</strong> (const char* name, const char* text = 0,
+	    const String& ns = String::empty())
+<br></td><td align="right"><h3><strong>createElement</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Create an XML element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Element's name
+</TD></TR>
+<TR><TD align="left" valign="top"><i>text</i></TD><TD align="left" valign="top">Optional text for the element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ns</i></TD><TD align="left" valign="top">Optional element namespace
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A valid XmlElement pointer
+     </p>
+<A NAME="createElement"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline XmlElement* &nbsp;<strong>createElement</strong> (int type, const char* text = 0)
+<br></td><td align="right"><h3><strong>createElement</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Create an XML element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Element's type
+</TD></TR>
+<TR><TD align="left" valign="top"><i>text</i></TD><TD align="left" valign="top">Optional text for the element
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A valid XmlElement pointer
+     </p>
+<A NAME="createElement"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline XmlElement* &nbsp;<strong>createElement</strong> (const char* name, int ns,
+	const char* text = 0)
+<br></td><td align="right"><h3><strong>createElement</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Create an XML element with an 'xmlns' attribute
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Element's name
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ns</i></TD><TD align="left" valign="top">Optional 'xmlns' attribute as enumeration
+</TD></TR>
+<TR><TD align="left" valign="top"><i>text</i></TD><TD align="left" valign="top">Optional text for the element
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A valid XmlElement pointer
+     </p>
+<A NAME="createElement"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline XmlElement* &nbsp;<strong>createElement</strong> (int type, int ns, const char* text = 0)
+<br></td><td align="right"><h3><strong>createElement</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Create an XML element with an 'xmlns' attribute
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Element's type
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ns</i></TD><TD align="left" valign="top">'xmlns' attribute as enumeration
+</TD></TR>
+<TR><TD align="left" valign="top"><i>text</i></TD><TD align="left" valign="top">Optional text for the element
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A valid XmlElement pointer
+     </p>
+<A NAME="createElement"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>createElement</strong> (const XmlElement& src, bool response, bool result)
+<br></td><td align="right"><h3><strong>createElement</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Partially build an XML element from another one.
+ Copy tag and 'to', 'from', 'type', 'id' attributes
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>src</i></TD><TD align="left" valign="top">Source element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>response</i></TD><TD align="left" valign="top">True to reverse 'to' and 'from' attributes
+</TD></TR>
+<TR><TD align="left" valign="top"><i>result</i></TD><TD align="left" valign="top">True to set type to "result", false to set it to "error".
+  Ignored if response is false
+     </TD></TR>
+</TABLE></P>
+<A NAME="createElementAttr"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline XmlElement* &nbsp;<strong>createElementAttr</strong> (int tag, const String& attrName,
+	const char* attrValue, int ns = XMPPNamespace::Count)
+<br></td><td align="right"><h3><strong>createElementAttr</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Create an element with an attribute
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>tag</i></TD><TD align="left" valign="top">Element tag
+</TD></TR>
+<TR><TD align="left" valign="top"><i>attrName</i></TD><TD align="left" valign="top">Attribute name
+</TD></TR>
+<TR><TD align="left" valign="top"><i>attrValue</i></TD><TD align="left" valign="top">Attribute value
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ns</i></TD><TD align="left" valign="top">Optional 'xmlns' attribute as enumeration
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A valid XmlElement pointer
+     </p>
+<A NAME="createIq"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>createIq</strong> (IqType type, const char* from = 0,
+	const char* to = 0, const char* id = 0)
+<br></td><td align="right"><h3><strong>createIq</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Create an 'iq' element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Iq type as enumeration
+</TD></TR>
+<TR><TD align="left" valign="top"><i>from</i></TD><TD align="left" valign="top">The 'from' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>to</i></TD><TD align="left" valign="top">The 'to' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>id</i></TD><TD align="left" valign="top">The 'id' attribute
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A valid XmlElement pointer
+     </p>
+<A NAME="createIqResult"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline XmlElement* &nbsp;<strong>createIqResult</strong> (const char* from, const char* to,
+	const char* id, XmlElement* child = 0)
+<br></td><td align="right"><h3><strong>createIqResult</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Create an 'iq' result element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>from</i></TD><TD align="left" valign="top">The 'from' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>to</i></TD><TD align="left" valign="top">The 'to' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>id</i></TD><TD align="left" valign="top">The 'id' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>child</i></TD><TD align="left" valign="top">Optional element child (will be consumed)
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A valid XmlElement pointer
+     </p>
+<A NAME="createIqError"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>createIqError</strong> (const char* from, const char* to, XmlElement*& xml,
+	int type, int error, const char* text = 0)
+<br></td><td align="right"><h3><strong>createIqError</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Create an 'iq' error from a received element. Consume the received element.
+ Add the given element to the error stanza if the 'id' attribute is missing
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>from</i></TD><TD align="left" valign="top">The 'from' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>to</i></TD><TD align="left" valign="top">The 'to' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Received element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Error type
+</TD></TR>
+<TR><TD align="left" valign="top"><i>error</i></TD><TD align="left" valign="top">The error
+</TD></TR>
+<TR><TD align="left" valign="top"><i>text</i></TD><TD align="left" valign="top">Optional text to add to the error element
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A valid XmlElement pointer or 0 if xml
+     </p>
+<A NAME="createPing"></A><A NAME="ref20"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>createPing</strong> (const char* id = 0, const char* from = 0,
+	const char* to = 0)
+<br></td><td align="right"><h3><strong>createPing</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Create an 'iq' element with a ping child
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>id</i></TD><TD align="left" valign="top">The 'id' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>from</i></TD><TD align="left" valign="top">The 'from' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>to</i></TD><TD align="left" valign="top">The 'to' attribute
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A valid XmlElement pointer
+     </p>
+<A NAME="createVCard"></A><A NAME="ref21"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>createVCard</strong> (bool get, const char* from, const char* to, const char* id)
+<br></td><td align="right"><h3><strong>createVCard</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Create an 'iq' element with a 'vcard' child
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>get</i></TD><TD align="left" valign="top">True to set the iq's type to 'get', false to set it to 'set'
+</TD></TR>
+<TR><TD align="left" valign="top"><i>from</i></TD><TD align="left" valign="top">The 'from' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>to</i></TD><TD align="left" valign="top">The 'to' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>id</i></TD><TD align="left" valign="top">The 'id' attribute
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A valid XmlElement pointer
+     </p>
+<A NAME="createCommand"></A><A NAME="ref22"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>createCommand</strong> (CommandAction action, const char* node,
+	const char* sessionId = 0)
+<br></td><td align="right"><h3><strong>createCommand</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Create a 'command' element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>action</i></TD><TD align="left" valign="top">The command action
+</TD></TR>
+<TR><TD align="left" valign="top"><i>node</i></TD><TD align="left" valign="top">The command
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sessionId</i></TD><TD align="left" valign="top">Optional session ID for the command
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A valid XmlElement pointer
+     </p>
+<A NAME="createIqDisco"></A><A NAME="ref23"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>createIqDisco</strong> (bool info, bool req, const char* from, const char* to,
+	const char* id, const char* node = 0, const char* cap = 0)
+<br></td><td align="right"><h3><strong>createIqDisco</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Create a disco info/items 'iq' element with a 'query' child
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>info</i></TD><TD align="left" valign="top">True to create a query info request. False to create a query items request
+</TD></TR>
+<TR><TD align="left" valign="top"><i>req</i></TD><TD align="left" valign="top">True to create a request (type=get), false to create a response (type=result)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>from</i></TD><TD align="left" valign="top">The 'from' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>to</i></TD><TD align="left" valign="top">The 'to' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>id</i></TD><TD align="left" valign="top">The 'id' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>node</i></TD><TD align="left" valign="top">Optional 'node' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>cap</i></TD><TD align="left" valign="top">Optional capability to be set as 'node' suffix
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A valid XmlElement pointer
+     </p>
+<A NAME="createIqVersionRes"></A><A NAME="ref24"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>createIqVersionRes</strong> (const char* from, const char* to,
+	const char* id, const char* name, const char* version, const char* os = 0)
+<br></td><td align="right"><h3><strong>createIqVersionRes</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Create a version 'iq' result as defined in XEP-0092
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>from</i></TD><TD align="left" valign="top">The 'from' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>to</i></TD><TD align="left" valign="top">The 'to' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>id</i></TD><TD align="left" valign="top">The 'id' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Program name
+</TD></TR>
+<TR><TD align="left" valign="top"><i>version</i></TD><TD align="left" valign="top">Program version
+</TD></TR>
+<TR><TD align="left" valign="top"><i>os</i></TD><TD align="left" valign="top">Optional operating system
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A valid XmlElement pointer
+     </p>
+<A NAME="createError"></A><A NAME="ref25"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>createError</strong> (int type, int error, const char* text = 0)
+<br></td><td align="right"><h3><strong>createError</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Create a 'error' element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Error type
+</TD></TR>
+<TR><TD align="left" valign="top"><i>error</i></TD><TD align="left" valign="top">The error
+</TD></TR>
+<TR><TD align="left" valign="top"><i>text</i></TD><TD align="left" valign="top">Optional text to add to the error element
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A valid XmlElement pointer
+     </p>
+<A NAME="createError"></A><A NAME="ref26"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>createError</strong> (XmlElement* xml, int type, int error,
+	const char* text = 0)
+<br></td><td align="right"><h3><strong>createError</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Create an error from a received element. Consume the received element.
+ Reverse 'to' and 'from' attributes
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Received element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Error type
+</TD></TR>
+<TR><TD align="left" valign="top"><i>error</i></TD><TD align="left" valign="top">The error
+</TD></TR>
+<TR><TD align="left" valign="top"><i>text</i></TD><TD align="left" valign="top">Optional text to add to the error element
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A valid XmlElement pointer or 0 if xml is 0
+     </p>
+<A NAME="createStreamError"></A><A NAME="ref27"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>createStreamError</strong> (int error, const char* text = 0, const char* content = 0)
+<br></td><td align="right"><h3><strong>createStreamError</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Create a 'stream:error' element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>error</i></TD><TD align="left" valign="top">The XMPP defined condition
+</TD></TR>
+<TR><TD align="left" valign="top"><i>text</i></TD><TD align="left" valign="top">Optional text to add to the error
+</TD></TR>
+<TR><TD align="left" valign="top"><i>content</i></TD><TD align="left" valign="top">Optional error condition element text
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A valid XmlElement pointer
+     </p>
+<A NAME="createRegisterQuery"></A><A NAME="ref28"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>createRegisterQuery</strong> (IqType type, const char* from,
+	const char* to, const char* id,
+	XmlElement* child1 = 0, XmlElement* child2 = 0, XmlElement* child3 = 0)
+<br></td><td align="right"><h3><strong>createRegisterQuery</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Build a register query element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Iq type as enumeration
+</TD></TR>
+<TR><TD align="left" valign="top"><i>from</i></TD><TD align="left" valign="top">The 'from' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>to</i></TD><TD align="left" valign="top">The 'to' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>id</i></TD><TD align="left" valign="top">The 'id' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>child1</i></TD><TD align="left" valign="top">Optional child of query element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>child2</i></TD><TD align="left" valign="top">Optional child of query element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>child3</i></TD><TD align="left" valign="top">Optional child of query element
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Valid XmlElement pointer
+     </p>
+<A NAME="createIqAuthGet"></A><A NAME="ref29"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline XmlElement* &nbsp;<strong>createIqAuthGet</strong> (const char* id)
+<br></td><td align="right"><h3><strong>createIqAuthGet</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Build a jabber:iq:auth 'iq' get element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>id</i></TD><TD align="left" valign="top">Element 'id' attribute
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A valid XmlElement pointer
+     </p>
+<A NAME="createIqAuthSet"></A><A NAME="ref30"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>createIqAuthSet</strong> (const char* id, const char* username,
+	const char* resource, const char* authStr, bool digest)
+<br></td><td align="right"><h3><strong>createIqAuthSet</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Build a jabber:iq:auth 'iq' set element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>id</i></TD><TD align="left" valign="top">Element 'id' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>username</i></TD><TD align="left" valign="top">The username
+</TD></TR>
+<TR><TD align="left" valign="top"><i>resource</i></TD><TD align="left" valign="top">The resource
+</TD></TR>
+<TR><TD align="left" valign="top"><i>authStr</i></TD><TD align="left" valign="top">Authentication string
+</TD></TR>
+<TR><TD align="left" valign="top"><i>digest</i></TD><TD align="left" valign="top">True if authentication string is a digest, false if it's a plain password
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A valid XmlElement pointer
+     </p>
+<A NAME="createIqAuthOffer"></A><A NAME="ref31"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>createIqAuthOffer</strong> (const char* id, bool digest = true,
+	bool plain = false)
+<br></td><td align="right"><h3><strong>createIqAuthOffer</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Build a jabber:iq:auth 'iq' offer in response to a 'get' request
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>id</i></TD><TD align="left" valign="top">Element 'id' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>digest</i></TD><TD align="left" valign="top">Offer digest authentication
+</TD></TR>
+<TR><TD align="left" valign="top"><i>plain</i></TD><TD align="left" valign="top">Offer plain password authentication
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A valid XmlElement pointer
+     </p>
+<A NAME="createRegisterQuery"></A><A NAME="ref32"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline XmlElement* &nbsp;<strong>createRegisterQuery</strong> (const char* from,
+	const char* to, const char* id,
+	const char* username, const char* password)
+<br></td><td align="right"><h3><strong>createRegisterQuery</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Build an register query element used to create/set username/password
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>from</i></TD><TD align="left" valign="top">The 'from' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>to</i></TD><TD align="left" valign="top">The 'to' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>id</i></TD><TD align="left" valign="top">The 'id' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>username</i></TD><TD align="left" valign="top">The username
+</TD></TR>
+<TR><TD align="left" valign="top"><i>password</i></TD><TD align="left" valign="top">The password
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Valid XmlElement pointer
+     </p>
+<A NAME="createFailure"></A><A NAME="ref33"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline XmlElement* &nbsp;<strong>createFailure</strong> (XMPPNamespace::Type ns,
+	XMPPError::Type error = XMPPError::NoError)
+<br></td><td align="right"><h3><strong>createFailure</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Create a failure element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>ns</i></TD><TD align="left" valign="top">Element namespace
+</TD></TR>
+<TR><TD align="left" valign="top"><i>error</i></TD><TD align="left" valign="top">Optional error
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: XmlElement pointer
+     </p>
+<A NAME="createXOobUrl"></A><A NAME="ref34"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline XmlElement* &nbsp;<strong>createXOobUrl</strong> (const char* url, const char* desc = 0)
+<br></td><td align="right"><h3><strong>createXOobUrl</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Create an 'x' jabber:x:oob url element as described in XEP-0066
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>url</i></TD><TD align="left" valign="top">The URL
+</TD></TR>
+<TR><TD align="left" valign="top"><i>desc</i></TD><TD align="left" valign="top">Optional description
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: XmlElement pointer
+     </p>
+<A NAME="createDelay"></A><A NAME="ref35"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>createDelay</strong> (unsigned int timeSec, const char* from = 0,
+	unsigned int fractions = 0, const char* text = 0)
+<br></td><td align="right"><h3><strong>createDelay</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Create a 'delay' element as defined in XEP-0203
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>timeSec</i></TD><TD align="left" valign="top">The time to encode (in seconds)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>from</i></TD><TD align="left" valign="top">Optional 'from' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>fractions</i></TD><TD align="left" valign="top">Optional second fractions
+</TD></TR>
+<TR><TD align="left" valign="top"><i>text</i></TD><TD align="left" valign="top">Optional xml element text
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: XmlElement pointer
+     </p>
+<A NAME="createFileNsTransfer"></A><A NAME="ref36"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>createFileNsTransfer</strong> (const char* name = 0)
+<br></td><td align="right"><h3><strong>createFileNsTransfer</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Create a 'file' element in file transfer namespace, add the name child if not empty
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Optional file name
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: XmlElement pointer
+     </p>
+<A NAME="createHash"></A><A NAME="ref37"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>createHash</strong> (const char* name, const char* value)
+<br></td><td align="right"><h3><strong>createHash</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Create a 'hash' element as defined in XEP-0300
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Hash name
+</TD></TR>
+<TR><TD align="left" valign="top"><i>value</i></TD><TD align="left" valign="top">Hash value
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: XmlElement pointer
+     </p>
+<A NAME="decodeHash"></A><A NAME="ref38"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>decodeHash</strong> (XmlElement& xml, const char*& name, const char*& value)
+<br></td><td align="right"><h3><strong>decodeHash</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Decode a 'hash' element as defined in XEP-0300
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">XML element to handle
+</TD></TR>
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Hash name
+</TD></TR>
+<TR><TD align="left" valign="top"><i>value</i></TD><TD align="left" valign="top">Hash value
+     </TD></TR>
+</TABLE></P>
+<A NAME="createFileInfoShareMatch"></A><A NAME="ref39"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline XmlElement* &nbsp;<strong>createFileInfoShareMatch</strong> (XmlElement* child = 0)
+<br></td><td align="right"><h3><strong>createFileInfoShareMatch</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Create a 'match' element in FileInfoShare namespace
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>child</i></TD><TD align="left" valign="top">Optional child
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: XmlElement pointer
+     </p>
+<A NAME="createRSM"></A><A NAME="ref40"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>createRSM</strong> (const NamedList& params, const String& prefix = "rsm_")
+<br></td><td align="right"><h3><strong>createRSM</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Build a Result Set Management (XEP-0059) set element from a parameter list
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">List of parameters containing the RSM
+</TD></TR>
+<TR><TD align="left" valign="top"><i>prefix</i></TD><TD align="left" valign="top">Prefix for RSM parameters
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: XmlElement pointer or 0
+     </p>
+<A NAME="addRSM"></A><A NAME="ref41"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>addRSM</strong> (XmlElement* rsm, NamedList& params, const String& prefix = "rsm_")
+<br></td><td align="right"><h3><strong>addRSM</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Add Result Set Management (XEP-0059) set element child data to a parameter list
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>rsm</i></TD><TD align="left" valign="top">The element in RSM namespace
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">List of parameters to add the RSM data
+</TD></TR>
+<TR><TD align="left" valign="top"><i>prefix</i></TD><TD align="left" valign="top">Prefix for RSM parameters
+     </TD></TR>
+</TABLE></P>
+<A NAME="remove"></A><A NAME="ref42"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline bool &nbsp;<strong>remove</strong> (XmlElement& xml)
+<br></td><td align="right"><h3><strong>remove</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Check if an element has a child with 'remove' tag
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The element to check
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the element has a child with 'remove' tag
+     </p>
+<A NAME="required"></A><A NAME="ref43"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline bool &nbsp;<strong>required</strong> (XmlElement& xml)
+<br></td><td align="right"><h3><strong>required</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Check if an element has a child with 'required' tag
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The element to check
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the element has a child with 'required' tag
+     </p>
+<A NAME="priority"></A><A NAME="ref44"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>priority</strong> (XmlElement& xml, int defVal = 0)
+<br></td><td align="right"><h3><strong>priority</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Check if an element has a child with 'priority' tag
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The element to check
+</TD></TR>
+<TR><TD align="left" valign="top"><i>defVal</i></TD><TD align="left" valign="top">Default value to return if not found or invalid integer
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Element priority
+     </p>
+<A NAME="setPriority"></A><A NAME="ref45"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline void &nbsp;<strong>setPriority</strong> (XmlElement& xml, const char* prio)
+<br></td><td align="right"><h3><strong>setPriority</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Add a 'priority' child to an element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The element to set
+</TD></TR>
+<TR><TD align="left" valign="top"><i>prio</i></TD><TD align="left" valign="top">Priority text
+     </TD></TR>
+</TABLE></P>
+<A NAME="xmlns"></A><A NAME="ref46"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline int &nbsp;<strong>xmlns</strong> (XmlElement& xml)
+<br></td><td align="right"><h3><strong>xmlns</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get an element's namespace
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Element
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Element namespace as enumeration
+     </p>
+<A NAME="hasDefaultXmlns"></A><A NAME="ref47"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline bool &nbsp;<strong>hasDefaultXmlns</strong> (const XmlElement& xml, int ns)
+<br></td><td align="right"><h3><strong>hasDefaultXmlns</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Check if the given element has a given default namespace
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Element to check
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ns</i></TD><TD align="left" valign="top">Namespace value to check
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the given element has the requested default namespace
+     </p>
+<A NAME="hasXmlns"></A><A NAME="ref48"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline bool &nbsp;<strong>hasXmlns</strong> (const XmlElement& xml, int ns)
+<br></td><td align="right"><h3><strong>hasXmlns</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Check if the given element has a given namespace
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Element to check
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ns</i></TD><TD align="left" valign="top">Namespace value to check
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the given element is in the requested namespace
+     </p>
+<A NAME="setXmlns"></A><A NAME="ref49"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline bool &nbsp;<strong>setXmlns</strong> (XmlElement& xml, const String& name = String::empty(),
+	bool addAttr = false, int ns = XMPPNamespace::Count)
+<br></td><td align="right"><h3><strong>setXmlns</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Set an element's namespace
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Namespace attribute name
+</TD></TR>
+<TR><TD align="left" valign="top"><i>addAttr</i></TD><TD align="left" valign="top">True to add the namespace attribute value
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ns</i></TD><TD align="left" valign="top">Namespace value as enumeration
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True on success
+     </p>
+<A NAME="setStreamXmlns"></A><A NAME="ref50"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline bool &nbsp;<strong>setStreamXmlns</strong> (XmlElement& xml, bool addAttr = true)
+<br></td><td align="right"><h3><strong>setStreamXmlns</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Set the 'stream' namespace to an element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>addAttr</i></TD><TD align="left" valign="top">True to add the xmlns attribute
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True on success
+     </p>
+<A NAME="setDbXmlns"></A><A NAME="ref51"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline bool &nbsp;<strong>setDbXmlns</strong> (XmlElement& xml)
+<br></td><td align="right"><h3><strong>setDbXmlns</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Set the 'db' namespace to an element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Element
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True on success
+     </p>
+<A NAME="findFirstChild"></A><A NAME="ref52"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>findFirstChild</strong> (const XmlElement& xml, int t = XmlTag::Count,
+	int ns = XMPPNamespace::Count)
+<br></td><td align="right"><h3><strong>findFirstChild</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Find an element's first child element in a given namespace
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>t</i></TD><TD align="left" valign="top">Optional element tag as enumeration
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ns</i></TD><TD align="left" valign="top">Optional element namespace as enumeration
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: XmlElement pointer or 0 if not found
+     </p>
+<A NAME="findNextChild"></A><A NAME="ref53"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>findNextChild</strong> (const XmlElement& xml, XmlElement* start,
+	int t = XmlTag::Count, int ns = XMPPNamespace::Count)
+<br></td><td align="right"><h3><strong>findNextChild</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Find an element's next child element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>start</i></TD><TD align="left" valign="top">Starting child
+</TD></TR>
+<TR><TD align="left" valign="top"><i>t</i></TD><TD align="left" valign="top">Optional element tag as enumeration
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ns</i></TD><TD align="left" valign="top">Optional element namespace as enumeration
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: XmlElement pointer or 0 if not found
+     </p>
+<A NAME="childText"></A><A NAME="ref54"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline const String* &nbsp;<strong>childText</strong> (XmlElement& xml, int tag, int ns = XMPPNamespace::Count)
+<br></td><td align="right"><h3><strong>childText</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Retrieve a child's text
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The xml
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tag</i></TD><TD align="left" valign="top">Child tag
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ns</i></TD><TD align="left" valign="top">Optional child namespace
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Pointer to child's text, 0 if the child was not found
+     </p>
+<A NAME="childTextInt"></A><A NAME="ref55"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline int &nbsp;<strong>childTextInt</strong> (XmlElement& xml, int tag, int ns = XMPPNamespace::Count,
+	int defVal = 0, int base = 0, int minvalue = INT_MIN, int maxvalue = INT_MAX,
+	bool clamp = true)
+<br></td><td align="right"><h3><strong>childTextInt</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Retrieve a child's text converted to integer
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The xml
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tag</i></TD><TD align="left" valign="top">Child tag
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ns</i></TD><TD align="left" valign="top">Optional child namespace
+</TD></TR>
+<TR><TD align="left" valign="top"><i>defVal</i></TD><TD align="left" valign="top">Default to return if not found or the string is not a number
+</TD></TR>
+<TR><TD align="left" valign="top"><i>base</i></TD><TD align="left" valign="top">Numeration base, 0 to autodetect
+</TD></TR>
+<TR><TD align="left" valign="top"><i>minvalue</i></TD><TD align="left" valign="top">Minimum value allowed
+</TD></TR>
+<TR><TD align="left" valign="top"><i>maxvalue</i></TD><TD align="left" valign="top">Maximum value allowed
+</TD></TR>
+<TR><TD align="left" valign="top"><i>clamp</i></TD><TD align="left" valign="top">Control the out of bound values: true to adjust to the nearest
+  bound, false to return the default value
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Integer value
+     </p>
+<A NAME="decodeError"></A><A NAME="ref56"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>decodeError</strong> (XmlElement* xml, int ns = XMPPNamespace::Count,
+	String* error = 0, String* text = 0, String* content = 0)
+<br></td><td align="right"><h3><strong>decodeError</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Find an error child of a given element and decode it
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ns</i></TD><TD align="left" valign="top">Expected error condition namespace. If not set, defaults to stream error
+  namespace if the element is a stream error or to stanza error namespace otherwise
+</TD></TR>
+<TR><TD align="left" valign="top"><i>error</i></TD><TD align="left" valign="top">Optional string to be filled with error tag
+</TD></TR>
+<TR><TD align="left" valign="top"><i>text</i></TD><TD align="left" valign="top">Optional string to be filled with error text
+</TD></TR>
+<TR><TD align="left" valign="top"><i>content</i></TD><TD align="left" valign="top">Optional string to be filled with error condition element text
+     </TD></TR>
+</TABLE></P>
+<A NAME="decodeError"></A><A NAME="ref57"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>decodeError</strong> (XmlElement* xml, String& error, String& text)
+<br></td><td align="right"><h3><strong>decodeError</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Decode a stream error or stanza error
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>error</i></TD><TD align="left" valign="top">The error condition
+</TD></TR>
+<TR><TD align="left" valign="top"><i>text</i></TD><TD align="left" valign="top">The stanza's error or error text
+     </TD></TR>
+</TABLE></P>
+<A NAME="encodeDateTimeSec"></A><A NAME="ref58"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>encodeDateTimeSec</strong> (String& buf, unsigned int timeSec,
+	unsigned int fractions = 0)
+<br></td><td align="right"><h3><strong>encodeDateTimeSec</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Encode EPOCH time given in seconds to a date/time profile as defined in
+  XEP-0082 and XML Schema Part 2: Datatypes Second Edition
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>buf</i></TD><TD align="left" valign="top">Destination string
+</TD></TR>
+<TR><TD align="left" valign="top"><i>timeSec</i></TD><TD align="left" valign="top">The time to encode (in seconds)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>fractions</i></TD><TD align="left" valign="top">Optional second fractions
+     </TD></TR>
+</TABLE></P>
+<A NAME="decodeDateTimeSec"></A><A NAME="ref59"></A><table width="100%"><tr bgcolor="#eeeeee"><td> unsigned int &nbsp;<strong>decodeDateTimeSec</strong> (const String& time, unsigned int* fractions = 0)
+<br></td><td align="right"><h3><strong>decodeDateTimeSec</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Decode a date/time profile as defined in XEP-0082
+  and XML Schema Part 2: Datatypes Second Edition to EPOCH time
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>time</i></TD><TD align="left" valign="top">The date/time string
+</TD></TR>
+<TR><TD align="left" valign="top"><i>fractions</i></TD><TD align="left" valign="top">Pointer to integer to be filled with second fractions, if present
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The decoded time in seconds, -1 on error
+     </p>
+<A NAME="decodeDateTimeSecXDelay"></A><A NAME="ref60"></A><table width="100%"><tr bgcolor="#eeeeee"><td> unsigned int &nbsp;<strong>decodeDateTimeSecXDelay</strong> (const String& time)
+<br></td><td align="right"><h3><strong>decodeDateTimeSecXDelay</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Decode a date/time stamp as defined in XEP-0091 (jabber:x:delay)
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>time</i></TD><TD align="left" valign="top">The date/time string
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The decoded time in seconds, -1 on error
+     </p>
+<A NAME="print"></A><A NAME="ref61"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>print</strong> (String& xmlStr, XmlChild& xml, bool verbose)
+<br></td><td align="right"><h3><strong>print</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Print an XmlElement to a string
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xmlStr</i></TD><TD align="left" valign="top">The destination string
+</TD></TR>
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The xml to print
+</TD></TR>
+<TR><TD align="left" valign="top"><i>verbose</i></TD><TD align="left" valign="top">True to print XML data on multiple lines
+     </TD></TR>
+</TABLE></P>
+<A NAME="toList"></A><A NAME="ref62"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>toList</strong> (XmlElement& xml, NamedList& dest, const char* prefix)
+<br></td><td align="right"><h3><strong>toList</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Put an element's name, text and attributes to a list of parameters
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>dest</i></TD><TD align="left" valign="top">Destination list
+</TD></TR>
+<TR><TD align="left" valign="top"><i>prefix</i></TD><TD align="left" valign="top">Prefix to add to parameters
+     </TD></TR>
+</TABLE></P>
+<A NAME="split"></A><A NAME="ref63"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>split</strong> (NamedList& dest, const char* src, const char sep,
+	bool nameFirst)
+<br></td><td align="right"><h3><strong>split</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Split a string at a delimiter character and fills a named list with its parts
+ Skip empty parts
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>dest</i></TD><TD align="left" valign="top">The destination NamedList
+</TD></TR>
+<TR><TD align="left" valign="top"><i>src</i></TD><TD align="left" valign="top">Pointer to the string
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sep</i></TD><TD align="left" valign="top">The delimiter
+</TD></TR>
+<TR><TD align="left" valign="top"><i>nameFirst</i></TD><TD align="left" valign="top">True to add the parts as name and index as value.
+  False to do the other way
+     </TD></TR>
+</TABLE></P>
+<A NAME="decodeFlags"></A><A NAME="ref64"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>decodeFlags</strong> (const String& src, const TokenDict* dict)
+<br></td><td align="right"><h3><strong>decodeFlags</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Decode a comma separated list of flags and put them into an integer mask
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>src</i></TD><TD align="left" valign="top">Source string
+</TD></TR>
+<TR><TD align="left" valign="top"><i>dict</i></TD><TD align="left" valign="top">Dictionary containing flag names and values
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The mask of found flags
+     </p>
+<A NAME="buildFlags"></A><A NAME="ref65"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>buildFlags</strong> (String& dest, int src, const TokenDict* dict)
+<br></td><td align="right"><h3><strong>buildFlags</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Encode a mask of flags to a comma separated list of names
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>dest</i></TD><TD align="left" valign="top">Destination string
+</TD></TR>
+<TR><TD align="left" valign="top"><i>src</i></TD><TD align="left" valign="top">Source mask
+</TD></TR>
+<TR><TD align="left" valign="top"><i>dict</i></TD><TD align="left" valign="top">Dictionary containing flag names and values
+     </TD></TR>
+</TABLE></P>
+<A NAME="addChidren"></A><A NAME="ref66"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>addChidren</strong> (XmlElement* dest, ObjList& list)
+<br></td><td align="right"><h3><strong>addChidren</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Add child elements from a list to a destination element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>dest</i></TD><TD align="left" valign="top">Destination XmlElement
+</TD></TR>
+<TR><TD align="left" valign="top"><i>list</i></TD><TD align="left" valign="top">A list containing XML elements
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if at least one child was added
+     </p>
+<A NAME="createEntityCaps"></A><A NAME="ref67"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>createEntityCaps</strong> (const String& hash, const char* node)
+<br></td><td align="right"><h3><strong>createEntityCaps</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Create a 'c' entity capability element as defined in XEP 0115
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>hash</i></TD><TD align="left" valign="top">The 'ver' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>node</i></TD><TD align="left" valign="top">The 'node' attribute
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: XmlElement pointer or 0 on failure
+     </p>
+<A NAME="createEntityCapsGTalkV1"></A><A NAME="ref68"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>createEntityCapsGTalkV1</strong> (const char* node = 0,
+	bool muc = false)
+<br></td><td align="right"><h3><strong>createEntityCapsGTalkV1</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Create a 'c' entity capability element as defined by GTalk
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>node</i></TD><TD align="left" valign="top">Optional node attribute, defaults to GTalk's node
+</TD></TR>
+<TR><TD align="left" valign="top"><i>muc</i></TD><TD align="left" valign="top">Advertise MUC capability
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A valid XmlElement pointer
+     </p>
+<A NAME="createPresence"></A><A NAME="ref69"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>createPresence</strong> (const char* from,
+	const char* to, Presence type = PresenceNone)
+<br></td><td align="right"><h3><strong>createPresence</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Create an 'presence' element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>from</i></TD><TD align="left" valign="top">The 'from' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>to</i></TD><TD align="left" valign="top">The 'to' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Presence type as enumeration
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A valid XmlElement pointer
+     </p>
+<A NAME="createMessage"></A><A NAME="ref70"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>createMessage</strong> (const char* type, const char* from,
+	const char* to, const char* id, const char* body)
+<br></td><td align="right"><h3><strong>createMessage</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Create a 'message' element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Message type string
+</TD></TR>
+<TR><TD align="left" valign="top"><i>from</i></TD><TD align="left" valign="top">The 'from' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>to</i></TD><TD align="left" valign="top">The 'to' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>id</i></TD><TD align="left" valign="top">The 'id' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>body</i></TD><TD align="left" valign="top">The message body
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A valid XmlElement pointer
+     </p>
+<A NAME="createMessage"></A><A NAME="ref71"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline XmlElement* &nbsp;<strong>createMessage</strong> (MsgType type, const char* from,
+	const char* to, const char* id, const char* body)
+<br></td><td align="right"><h3><strong>createMessage</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Create a 'message' element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Message type as enumeration
+</TD></TR>
+<TR><TD align="left" valign="top"><i>from</i></TD><TD align="left" valign="top">The 'from' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>to</i></TD><TD align="left" valign="top">The 'to' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>id</i></TD><TD align="left" valign="top">The 'id' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>body</i></TD><TD align="left" valign="top">The message body
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A valid XmlElement pointer
+     </p>
+<A NAME="createDialbackKey"></A><A NAME="ref72"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>createDialbackKey</strong> (const char* from, const char* to,
+	const char* key)
+<br></td><td align="right"><h3><strong>createDialbackKey</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Build a dialback 'db:result' xml element used to send a dialback key
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>from</i></TD><TD align="left" valign="top">The sender
+</TD></TR>
+<TR><TD align="left" valign="top"><i>to</i></TD><TD align="left" valign="top">The recipient
+</TD></TR>
+<TR><TD align="left" valign="top"><i>key</i></TD><TD align="left" valign="top">The dialback key
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: XmlElement pointer
+     </p>
+<A NAME="createDialbackResult"></A><A NAME="ref73"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>createDialbackResult</strong> (const char* from, const char* to,
+	XMPPError::Type rsp = XMPPError::NoError)
+<br></td><td align="right"><h3><strong>createDialbackResult</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Build a dialback 'db:result' xml element used to send a dialback key response
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>from</i></TD><TD align="left" valign="top">The sender
+</TD></TR>
+<TR><TD align="left" valign="top"><i>to</i></TD><TD align="left" valign="top">The recipient
+</TD></TR>
+<TR><TD align="left" valign="top"><i>rsp</i></TD><TD align="left" valign="top">The response as enumeration: set it to NoError if valid,
+  NotAuthorized if invalid or any other error to send a db:result error type
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: XmlElement pointer
+     </p>
+<A NAME="createDialbackVerify"></A><A NAME="ref74"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>createDialbackVerify</strong> (const char* from, const char* to,
+	const char* id, const char* key)
+<br></td><td align="right"><h3><strong>createDialbackVerify</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Build a dialback 'db:verify' xml element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>from</i></TD><TD align="left" valign="top">The sender
+</TD></TR>
+<TR><TD align="left" valign="top"><i>to</i></TD><TD align="left" valign="top">The recipient
+</TD></TR>
+<TR><TD align="left" valign="top"><i>id</i></TD><TD align="left" valign="top">The 'id' attribute (stream id)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>key</i></TD><TD align="left" valign="top">The dialback key
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: XmlElement pointer
+     </p>
+<A NAME="createDialbackVerifyRsp"></A><A NAME="ref75"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>createDialbackVerifyRsp</strong> (const char* from, const char* to,
+	const char* id, XMPPError::Type rsp = XMPPError::NoError)
+<br></td><td align="right"><h3><strong>createDialbackVerifyRsp</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Build a dialback 'db:verify' response xml element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>from</i></TD><TD align="left" valign="top">The sender
+</TD></TR>
+<TR><TD align="left" valign="top"><i>to</i></TD><TD align="left" valign="top">The recipient
+</TD></TR>
+<TR><TD align="left" valign="top"><i>id</i></TD><TD align="left" valign="top">The 'id' attribute (stream id)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>rsp</i></TD><TD align="left" valign="top">The response as enumeration: set it to NoError if valid,
+  NotAuthorized if invalid or any other error to send a db:verify error type
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: XmlElement pointer
+     </p>
+<A NAME="decodeDbRsp"></A><A NAME="ref76"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>decodeDbRsp</strong> (XmlElement* xml)
+<br></td><td align="right"><h3><strong>decodeDbRsp</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Decode a dialback verify or result response element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The element
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The response as enumeration: NoError if valid, NotAuthorized if invalid or
+  any other error if set in the response
+     </p>
+<A NAME="createSubject"></A><A NAME="ref77"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline XmlElement* &nbsp;<strong>createSubject</strong> (const char* subject)
+<br></td><td align="right"><h3><strong>createSubject</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Build a 'subject' xml element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>subject</i></TD><TD align="left" valign="top">Element text
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: XmlElement pointer
+     </p>
+<A NAME="subject"></A><A NAME="ref78"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline const String& &nbsp;<strong>subject</strong> (XmlElement& xml)
+<br></td><td align="right"><h3><strong>subject</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get an element's subject (the text of the first 'subject' child)
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The element
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Element subject or an empty string
+     </p>
+<A NAME="createBody"></A><A NAME="ref79"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline XmlElement* &nbsp;<strong>createBody</strong> (const char* body, int ns = XMPPNamespace::Count)
+<br></td><td align="right"><h3><strong>createBody</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Build a 'body' xml element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>body</i></TD><TD align="left" valign="top">Element text
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ns</i></TD><TD align="left" valign="top">Optional namespace
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: XmlElement pointer
+     </p>
+<A NAME="body"></A><A NAME="ref80"></A><table width="100%"><tr bgcolor="#eeeeee"><td> const String& &nbsp;<strong>body</strong> (XmlElement& xml, int ns = XMPPNamespace::Count)
+<br></td><td align="right"><h3><strong>body</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Retrieve the text of an element's body child
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ns</i></TD><TD align="left" valign="top">Optional body namespace to match (default: match parent's namespace)
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Body or empty string
+     </p>
+<A NAME="createParameter"></A><A NAME="ref81"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline XmlElement* &nbsp;<strong>createParameter</strong> (const char* name, const char* value,
+	const char* tag = "parameter")
+<br></td><td align="right"><h3><strong>createParameter</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Build a name/value parameter xml element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">The 'name' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>value</i></TD><TD align="left" valign="top">The value parameter
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tag</i></TD><TD align="left" valign="top">Optional element tag (defaults to 'parameter')
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: XmlElement pointer
+     </p>
+<A NAME="createParameter"></A><A NAME="ref82"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline XmlElement* &nbsp;<strong>createParameter</strong> (const NamedString& pair,
+	const char* tag = "parameter")
+<br></td><td align="right"><h3><strong>createParameter</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Build a name/value parameter xml element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>pair</i></TD><TD align="left" valign="top">The name/value pair
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tag</i></TD><TD align="left" valign="top">Optional element tag (defaults to 'parameter')
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: XmlElement pointer
+     </p>
+<A NAME="ns"></A><A NAME="ref83"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline int &nbsp;<strong>ns</strong> (const XmlElement& xml)
+<br></td><td align="right"><h3><strong>ns</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get an element's namespace
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The element
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The namespace integer value as XMPPNamespace value
+     </p>
+<A NAME="tag"></A><A NAME="ref84"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline int &nbsp;<strong>tag</strong> (const XmlElement& xml)
+<br></td><td align="right"><h3><strong>tag</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get an XML tag enumeration value associated with an element's tag
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The element to check
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Xml tag as enumeration
+     </p>
+<A NAME="getTag"></A><A NAME="ref85"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline bool &nbsp;<strong>getTag</strong> (const XmlElement& xml, int& tag, int& ns)
+<br></td><td align="right"><h3><strong>getTag</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get an XML element's tag and namespace
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The element to check
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tag</i></TD><TD align="left" valign="top">Element tag as enumeration
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ns</i></TD><TD align="left" valign="top">Element namespace as enumeration
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if data was succesfully retrieved
+     </p>
+<A NAME="isTag"></A><A NAME="ref86"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline bool &nbsp;<strong>isTag</strong> (const XmlElement& xml, int tag, int ns)
+<br></td><td align="right"><h3><strong>isTag</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Check if an xml element has a given tag (without prefix) and namespace
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The element to check
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tag</i></TD><TD align="left" valign="top">Tag to check
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ns</i></TD><TD align="left" valign="top">Namespace to check
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the element has the requested tag and namespace
+     </p>
+<A NAME="isUnprefTag"></A><A NAME="ref87"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline bool &nbsp;<strong>isUnprefTag</strong> (const XmlElement& xml, int tag)
+<br></td><td align="right"><h3><strong>isUnprefTag</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Check if an xml element has a given tag (without prefix)
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The element to check
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tag</i></TD><TD align="left" valign="top">Tag to check
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the element has the requested tag
+     </p>
+<A NAME="isStanza"></A><A NAME="ref88"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline bool &nbsp;<strong>isStanza</strong> (const XmlElement& xml)
+<br></td><td align="right"><h3><strong>isStanza</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Check if a given element is a stanza one ('iq', 'message' or 'presence')
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The element to check
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the element is a stanza
+     </p>
+<A NAME="getXml"></A><A NAME="ref89"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>getXml</strong> (GenObject* gen, bool takeOwnerShip = true)
+<br></td><td align="right"><h3><strong>getXml</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Retrieve an xml element from a NamedPointer.
+ Release NamedPointer ownership if found and requested
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>gen</i></TD><TD align="left" valign="top">The object to be processed
+</TD></TR>
+<TR><TD align="left" valign="top"><i>takeOwnerShip</i></TD><TD align="left" valign="top">Take ownership (defaults to true)
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: XmlElement pointer or 0
+     </p>
+<A NAME="getXml"></A><A NAME="ref90"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>getXml</strong> (const String& data)
+<br></td><td align="right"><h3><strong>getXml</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Parse a string to an XmlElement
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">XML data to parse
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: XmlElement pointer or 0 if the string is an invalid xml or contains more
+  then one element
+     </p>
+<A NAME="getXml"></A><A NAME="ref91"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>getXml</strong> (NamedList& list, const char* param = "xml",
+	const char* extra = "data")
+<br></td><td align="right"><h3><strong>getXml</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Retrieve an xml element from a list parameter.
+ Clear the given parameter from list if an XmlElement is found
+ Try to build (parse) from an extra parameter if not found
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>list</i></TD><TD align="left" valign="top">The list of parameters
+</TD></TR>
+<TR><TD align="left" valign="top"><i>param</i></TD><TD align="left" valign="top">The name of the parameter with the xml element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>extra</i></TD><TD align="left" valign="top">Optional parameter containing xml string data
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: XmlElement pointer or 0
+     </p>
+<A NAME="getPresenceXml"></A><A NAME="ref92"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>getPresenceXml</strong> (NamedList& list, const char* param = "xml",
+	const char* extra = "data", Presence type = PresenceNone, bool build = true)
+<br></td><td align="right"><h3><strong>getPresenceXml</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Retrieve a presence xml element from a list parameter.
+ Clear the given parameter from list if an XmlElement is found.
+ Try to build (parse) from an extra parameter if not found.
+ Build a presence stanza from parameters if an element is not found
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>list</i></TD><TD align="left" valign="top">The list of parameters
+</TD></TR>
+<TR><TD align="left" valign="top"><i>param</i></TD><TD align="left" valign="top">The name of the parameter with the xml element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>extra</i></TD><TD align="left" valign="top">Optional parameter containing xml string data
+</TD></TR>
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Presence type to build
+</TD></TR>
+<TR><TD align="left" valign="top"><i>build</i></TD><TD align="left" valign="top">True to build a message stanza if an element is not found
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: XmlElement pointer or 0
+     </p>
+<A NAME="getChatXml"></A><A NAME="ref93"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>getChatXml</strong> (NamedList& list, const char* param = "xml",
+	const char* extra = "data", bool build = true)
+<br></td><td align="right"><h3><strong>getChatXml</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Retrieve a chat (message) xml element from a list parameter.
+ Clear the given parameter from list if an XmlElement is found.
+ Try to build (parse) from an extra parameter if not found.
+ Build a message stanza from parameters if an element is not found
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>list</i></TD><TD align="left" valign="top">The list of parameters
+</TD></TR>
+<TR><TD align="left" valign="top"><i>param</i></TD><TD align="left" valign="top">The name of the parameter with the xml element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>extra</i></TD><TD align="left" valign="top">Optional parameter containing xml string data
+</TD></TR>
+<TR><TD align="left" valign="top"><i>build</i></TD><TD align="left" valign="top">True to build a message stanza if an element is not found
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: XmlElement pointer or 0
+     </p>
+<A NAME="cmpBytes"></A><A NAME="ref94"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>cmpBytes</strong> (const String& s1, const String& s2)
+<br></td><td align="right"><h3><strong>cmpBytes</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Byte compare 2 strings.
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>s1</i></TD><TD align="left" valign="top">The first string
+</TD></TR>
+<TR><TD align="left" valign="top"><i>s2</i></TD><TD align="left" valign="top">The second string
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Return less then 0 if s1 < s2, greater then 0 if s1 > s2 or
+  0 if the 2 strings are equal
+     </p>
+<A NAME="presenceType"></A><A NAME="ref95"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline Presence &nbsp;<strong>presenceType</strong> (const char* text)
+<br></td><td align="right"><h3><strong>presenceType</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get the type of a 'presence' stanza as enumeration
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>text</i></TD><TD align="left" valign="top">The text to check
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Presence type as enumeration
+     </p>
+<A NAME="presenceText"></A><A NAME="ref96"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline const char* &nbsp;<strong>presenceText</strong> (Presence presence)
+<br></td><td align="right"><h3><strong>presenceText</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get the text from a presence type
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>presence</i></TD><TD align="left" valign="top">The presence type
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The associated text or 0
+     </p>
+<A NAME="msgType"></A><A NAME="ref97"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline MsgType &nbsp;<strong>msgType</strong> (const char* text)
+<br></td><td align="right"><h3><strong>msgType</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get the type of a 'message' stanza
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>text</i></TD><TD align="left" valign="top">The text to check
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Message type as enumeration
+     </p>
+<A NAME="msgText"></A><A NAME="ref98"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline const char* &nbsp;<strong>msgText</strong> (MsgType msg)
+<br></td><td align="right"><h3><strong>msgText</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get the text from a message type
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">The message type
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The associated text or 0
+     </p>
+<A NAME="iqType"></A><A NAME="ref99"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline IqType &nbsp;<strong>iqType</strong> (const char* text)
+<br></td><td align="right"><h3><strong>iqType</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get the type of an 'iq' stanza as enumeration
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>text</i></TD><TD align="left" valign="top">The text to check
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Iq type as enumeration
+     </p>
+<A NAME="authMeth"></A><A NAME="ref100"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline int &nbsp;<strong>authMeth</strong> (const char* text, int defVal = AuthNone)
+<br></td><td align="right"><h3><strong>authMeth</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get the authentication method associated with a given text
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>text</i></TD><TD align="left" valign="top">The text to check
+</TD></TR>
+<TR><TD align="left" valign="top"><i>defVal</i></TD><TD align="left" valign="top">Default value to return if not found
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Authentication method
+     </p>
+<A NAME="s_ns"></A><A NAME="ref101"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static XMPPNamespace  <strong>s_ns</strong>
+</td><td align="right"><h3><strong>s_ns</strong></h3></td></tr></table><p></p><A NAME="s_error"></A><A NAME="ref102"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static XMPPError  <strong>s_error</strong>
+</td><td align="right"><h3><strong>s_error</strong></h3></td></tr></table><p></p><A NAME="s_tag"></A><A NAME="ref103"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static XmlTag  <strong>s_tag</strong>
+</td><td align="right"><h3><strong>s_tag</strong></h3></td></tr></table><p></p><A NAME="s_presence[]"></A><A NAME="ref104"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_presence[]</strong>
+</td><td align="right"><h3><strong>s_presence[]</strong></h3></td></tr></table><p></p><A NAME="s_msg[]"></A><A NAME="ref105"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_msg[]</strong>
+</td><td align="right"><h3><strong>s_msg[]</strong></h3></td></tr></table><p></p><A NAME="s_iq[]"></A><A NAME="ref106"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_iq[]</strong>
+</td><td align="right"><h3><strong>s_iq[]</strong></h3></td></tr></table><p></p><A NAME="s_commandAction[]"></A><A NAME="ref107"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_commandAction[]</strong>
+</td><td align="right"><h3><strong>s_commandAction[]</strong></h3></td></tr></table><p></p><A NAME="s_commandStatus[]"></A><A NAME="ref108"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_commandStatus[]</strong>
+</td><td align="right"><h3><strong>s_commandStatus[]</strong></h3></td></tr></table><p></p><A NAME="s_authMeth[]"></A><A NAME="ref109"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_authMeth[]</strong>
+</td><td align="right"><h3><strong>s_authMeth[]</strong></h3></td></tr></table><p></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

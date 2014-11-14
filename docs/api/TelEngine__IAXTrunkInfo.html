@@ -1,0 +1,137 @@
+<HTML>
+<HEAD>
+<TITLE>class IAXTrunkInfo</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class IAXTrunkInfo</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">Trunk info. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::IAXTrunkInfo</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yiax___yateiax_h.html">libs/yiax/yateiax.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__RefObject.html">TelEngine::RefObject</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__IAXTrunkInfo.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>inline &nbsp;<b><A HREF="#ref1">IAXTrunkInfo</A></b> () 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref2">init</A></b> (const NamedList& params, const String& prefix = String::empty(),
+	const IAXTrunkInfo* def = 0) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref3">initTrunking</A></b> (const NamedList& params, const String& prefix = String::empty(),
+	const IAXTrunkInfo* def = 0, bool out = true, bool in = true) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref4">updateTrunking</A></b> (const NamedList& params, const String& prefix = String::empty(),
+	bool out = true, bool in = true) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref5">dump</A></b> (String& buf, const char* sep = " ", bool out = true, bool in = true,
+	bool other = true) 
+</LI>
+</ul><h4>Public Members</h4><ul><LI>bool <b><A HREF="#ref6">m_timestamps</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref7">m_sendInterval</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref8">m_maxLen</A></b></LI>
+<LI>bool <b><A HREF="#ref9">m_efficientUse</A></b></LI>
+<LI>bool <b><A HREF="#ref10">m_trunkInSyncUsingTs</A></b></LI>
+<LI>u_int32_t <b><A HREF="#ref11">m_trunkInTsDiffRestart</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref12">m_retransCount</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref13">m_retransInterval</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref14">m_pingInterval</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ This class holds trunk description
+</p>
+<A NAME="IAXTrunkInfo"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>IAXTrunkInfo</strong> ()
+<br></td><td align="right"><h3><strong>IAXTrunkInfo</strong></h3></td></tr></table><p></p><p>
+ Constructor
+     </p>
+<A NAME="init"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>init</strong> (const NamedList& params, const String& prefix = String::empty(),
+	const IAXTrunkInfo* def = 0)
+<br></td><td align="right"><h3><strong>init</strong></h3></td></tr></table><p></p><p>
+ Init non trunking related data
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Parameter list
+</TD></TR>
+<TR><TD align="left" valign="top"><i>prefix</i></TD><TD align="left" valign="top">Parameter prefix
+</TD></TR>
+<TR><TD align="left" valign="top"><i>def</i></TD><TD align="left" valign="top">Optional defaults
+     </TD></TR>
+</TABLE></P>
+<A NAME="initTrunking"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>initTrunking</strong> (const NamedList& params, const String& prefix = String::empty(),
+	const IAXTrunkInfo* def = 0, bool out = true, bool in = true)
+<br></td><td align="right"><h3><strong>initTrunking</strong></h3></td></tr></table><p></p><p>
+ Init trunking from parameters
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Parameter list
+</TD></TR>
+<TR><TD align="left" valign="top"><i>prefix</i></TD><TD align="left" valign="top">Parameter prefix
+</TD></TR>
+<TR><TD align="left" valign="top"><i>def</i></TD><TD align="left" valign="top">Optional defaults
+</TD></TR>
+<TR><TD align="left" valign="top"><i>out</i></TD><TD align="left" valign="top">True to init outgoing trunk data
+</TD></TR>
+<TR><TD align="left" valign="top"><i>in</i></TD><TD align="left" valign="top">True to init incoming trunk data
+     </TD></TR>
+</TABLE></P>
+<A NAME="updateTrunking"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>updateTrunking</strong> (const NamedList& params, const String& prefix = String::empty(),
+	bool out = true, bool in = true)
+<br></td><td align="right"><h3><strong>updateTrunking</strong></h3></td></tr></table><p></p><p>
+ Update trunking from parameters. Don't change values not present in list
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Parameter list
+</TD></TR>
+<TR><TD align="left" valign="top"><i>prefix</i></TD><TD align="left" valign="top">Parameter prefix
+</TD></TR>
+<TR><TD align="left" valign="top"><i>out</i></TD><TD align="left" valign="top">True to update outgoing trunk data
+</TD></TR>
+<TR><TD align="left" valign="top"><i>in</i></TD><TD align="left" valign="top">True to update incoming trunk data
+     </TD></TR>
+</TABLE></P>
+<A NAME="dump"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>dump</strong> (String& buf, const char* sep = " ", bool out = true, bool in = true,
+	bool other = true)
+<br></td><td align="right"><h3><strong>dump</strong></h3></td></tr></table><p></p><p>
+ Dump info
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>buf</i></TD><TD align="left" valign="top">Destination buffer
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sep</i></TD><TD align="left" valign="top">Parameters separator
+</TD></TR>
+<TR><TD align="left" valign="top"><i>out</i></TD><TD align="left" valign="top">True to dump outgoing trunking info
+</TD></TR>
+<TR><TD align="left" valign="top"><i>in</i></TD><TD align="left" valign="top">True to dump incoming trunking info
+</TD></TR>
+<TR><TD align="left" valign="top"><i>other</i></TD><TD align="left" valign="top">True to dump non trunking info
+     </TD></TR>
+</TABLE></P>
+<A NAME="m_timestamps"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool  <strong>m_timestamps</strong>
+</td><td align="right"><h3><strong>m_timestamps</strong></h3></td></tr></table><p></p><A NAME="m_sendInterval"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_sendInterval</strong>
+</td><td align="right"><h3><strong>m_sendInterval</strong></h3></td></tr></table><p></p><A NAME="m_maxLen"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_maxLen</strong>
+</td><td align="right"><h3><strong>m_maxLen</strong></h3></td></tr></table><p></p><A NAME="m_efficientUse"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool  <strong>m_efficientUse</strong>
+</td><td align="right"><h3><strong>m_efficientUse</strong></h3></td></tr></table><p></p><A NAME="m_trunkInSyncUsingTs"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool  <strong>m_trunkInSyncUsingTs</strong>
+</td><td align="right"><h3><strong>m_trunkInSyncUsingTs</strong></h3></td></tr></table><p></p><A NAME="m_trunkInTsDiffRestart"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td><A HREF="#u_int32_t">u_int32_t</A>  <strong>m_trunkInTsDiffRestart</strong>
+</td><td align="right"><h3><strong>m_trunkInTsDiffRestart</strong></h3></td></tr></table><p></p><A NAME="m_retransCount"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_retransCount</strong>
+</td><td align="right"><h3><strong>m_retransCount</strong></h3></td></tr></table><p></p><A NAME="m_retransInterval"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_retransInterval</strong>
+</td><td align="right"><h3><strong>m_retransInterval</strong></h3></td></tr></table><p></p><A NAME="m_pingInterval"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_pingInterval</strong>
+</td><td align="right"><h3><strong>m_pingInterval</strong></h3></td></tr></table><p></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

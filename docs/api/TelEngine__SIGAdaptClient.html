@@ -1,0 +1,194 @@
+<HTML>
+<HEAD>
+<TITLE>class SIGAdaptClient</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SIGAdaptClient</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">Client side SIGTRAN User Adaptation component. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SIGAdaptClient</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><i><A HREF="TelEngine__SIGAdaptation.html">TelEngine::SIGAdaptation</A></i> <small>[public ]</small></TD></TR>
+<TR><TH>Inherited by</TH><TD><A HREF="TelEngine__ISDNIUAClient.html">ISDNIUAClient</A>, <A HREF="TelEngine__SS7M2UAClient.html">SS7M2UAClient</A></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SIGAdaptClient.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref2">AspState</A> {	AspDown = 0,
+	AspUpRq,
+	AspUp,
+	AspActRq,
+	AspActive
+    }
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>virtual  void &nbsp;<b><A HREF="#ref3">notifyLayer</A></b> (SignallingInterface::Notification status) 
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>explicit &nbsp;<b><A HREF="#ref4">SIGAdaptClient</A></b> (const char* name = 0, const NamedList* params = 0,
+	<A HREF="#u_int32_t">u_int32_t</A> payload = 0, <A HREF="#u_int16_t">u_int16_t</A> port = 0) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref5">processMgmtMSG</A></b> (unsigned char msgType, const DataBlock& msg, int streamId) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref6">processAspsmMSG</A></b> (unsigned char msgType, const DataBlock& msg, int streamId) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref7">processAsptmMSG</A></b> (unsigned char msgType, const DataBlock& msg, int streamId) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref8">activeChange</A></b> (bool active) 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref9">aspUp</A></b> ()  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref10">aspActive</A></b> ()  const
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref11">activate</A></b> () 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref12">setState</A></b> (AspState state, bool notify = true) 
+</LI>
+<LI>inline ObjList& &nbsp;<b><A HREF="#ref13">users</A></b> () 
+</LI>
+</ul><h4>Protected Members</h4><ul><LI>int32_t <b><A HREF="#ref14">m_aspId</A></b></LI>
+<LI>TrafficMode <b><A HREF="#ref15">m_traffic</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ Generic client side (ASP) Signalling Transport User Adaptation component
+</p>
+<A NAME="AspState"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>AspState</strong> {	AspDown = 0,
+	AspUpRq,
+	AspUp,
+	AspActRq,
+	AspActive
+    }
+</td><td align="right"><h3><strong>AspState</strong></h3></td></tr></table><p></p><p>
+ ASP Client states
+     </p>
+<A NAME="notifyLayer"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>notifyLayer</strong> (SignallingInterface::Notification status)
+<br></td><td align="right"><h3><strong>notifyLayer</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Method called when the transport status has been changed
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>status</i></TD><TD align="left" valign="top">Status of the transport causing the notification
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SIGAdaptation.html#notifyLayer">SIGAdaptation</A>.</p>
+<A NAME="SIGAdaptClient"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>explicit &nbsp;<strong>SIGAdaptClient</strong> (const char* name = 0, const NamedList* params = 0,
+	<A HREF="#u_int32_t">u_int32_t</A> payload = 0, <A HREF="#u_int16_t">u_int16_t</A> port = 0)
+<br></td><td align="right"><h3><strong>SIGAdaptClient</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Constructs an uninitialized User Adaptation client component
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Name of this component
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Optional pointer to creation parameters
+</TD></TR>
+<TR><TD align="left" valign="top"><i>payload</i></TD><TD align="left" valign="top">SCTP payload code, ignored for other transports
+</TD></TR>
+<TR><TD align="left" valign="top"><i>port</i></TD><TD align="left" valign="top">SCTP/TCP/UDP default port used for transport
+     </TD></TR>
+</TABLE></P>
+<A NAME="processMgmtMSG"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>processMgmtMSG</strong> (unsigned char msgType, const DataBlock& msg, int streamId)
+<br></td><td align="right"><h3><strong>processMgmtMSG</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Process Management messages as ASP
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msgType</i></TD><TD align="left" valign="top">Type of the message, depends on the class
+</TD></TR>
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">Message data, may be empty
+</TD></TR>
+<TR><TD align="left" valign="top"><i>streamId</i></TD><TD align="left" valign="top">Identifier of the stream the message was received on
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the message was handled
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SIGAdaptation.html#processMgmtMSG">SIGAdaptation</A>.</p>
+<A NAME="processAspsmMSG"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>processAspsmMSG</strong> (unsigned char msgType, const DataBlock& msg, int streamId)
+<br></td><td align="right"><h3><strong>processAspsmMSG</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Process ASP State Maintenance messages as ASP
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msgType</i></TD><TD align="left" valign="top">Type of the message, depends on the class
+</TD></TR>
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">Message data, may be empty
+</TD></TR>
+<TR><TD align="left" valign="top"><i>streamId</i></TD><TD align="left" valign="top">Identifier of the stream the message was received on
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the message was handled
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SIGAdaptation.html#processAspsmMSG">SIGAdaptation</A>.</p>
+<A NAME="processAsptmMSG"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>processAsptmMSG</strong> (unsigned char msgType, const DataBlock& msg, int streamId)
+<br></td><td align="right"><h3><strong>processAsptmMSG</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Process ASP Traffic Maintenance messages as ASP
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msgType</i></TD><TD align="left" valign="top">Type of the message, depends on the class
+</TD></TR>
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">Message data, may be empty
+</TD></TR>
+<TR><TD align="left" valign="top"><i>streamId</i></TD><TD align="left" valign="top">Identifier of the stream the message was received on
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the message was handled
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SIGAdaptation.html#processAsptmMSG">SIGAdaptation</A>.</p>
+<A NAME="activeChange"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>activeChange</strong> (bool active)
+<br></td><td align="right"><h3><strong>activeChange</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Traffic activity state change notification
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>active</i></TD><TD align="left" valign="top">True if the ASP is active and traffic is allowed
+     </TD></TR>
+</TABLE></P>
+<A NAME="aspUp"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>aspUp</strong> ()
+<br></td><td align="right"><h3><strong>aspUp</strong></h3></td></tr></table><p> <small>[protected const]</small></p><p>
+ Check if the ASP is Up
+</p>
+<p><b>Returns</b>: True if the ASPSM is in UP state
+     </p>
+<A NAME="aspActive"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>aspActive</strong> ()
+<br></td><td align="right"><h3><strong>aspActive</strong></h3></td></tr></table><p> <small>[protected const]</small></p><p>
+ Check if the ASP is Active
+</p>
+<p><b>Returns</b>: True if the ASPTM is in ACTIVE state
+     </p>
+<A NAME="activate"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>activate</strong> ()
+<br></td><td align="right"><h3><strong>activate</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Request activation of the ASP
+</p>
+<p><b>Returns</b>: True if ASP activation started, false on failure
+     </p>
+<A NAME="setState"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>setState</strong> (AspState state, bool notify = true)
+<br></td><td align="right"><h3><strong>setState</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Set the state of the ASP, notify user components of changes
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>state</i></TD><TD align="left" valign="top">New state of the ASP
+</TD></TR>
+<TR><TD align="left" valign="top"><i>notify</i></TD><TD align="left" valign="top">True to notify user layers, false if the changes are internal
+     </TD></TR>
+</TABLE></P>
+<A NAME="users"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline ObjList& &nbsp;<strong>users</strong> ()
+<br></td><td align="right"><h3><strong>users</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Get access to the list of Adaptation Users of this component
+</p>
+<p><b>Returns</b>: Reference to the list of Adaptation Users
+     </p>
+<A NAME="m_aspId"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td><A HREF="#int32_t">int32_t</A>  <strong>m_aspId</strong>
+</td><td align="right"><h3><strong>m_aspId</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_traffic"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>TrafficMode  <strong>m_traffic</strong>
+</td><td align="right"><h3><strong>m_traffic</strong></h3></td></tr></table><p> <small>[protected]</small></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

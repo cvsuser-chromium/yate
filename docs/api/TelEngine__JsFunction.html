@@ -1,0 +1,165 @@
+<HTML>
+<HEAD>
+<TITLE>class JsFunction</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class JsFunction</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">Javascript Function. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::JsFunction</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yscript___yatescript_h.html">libs/yscript/yatescript.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__JsObject.html">TelEngine::JsObject</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__JsFunction.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref1">JsFunction</A></b> (Mutex* mtx = 0) 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref2">JsFunction</A></b> (Mutex* mtx, const char* name, ObjList* args = 0, long int lbl = 0,
+	ScriptCode* code = 0) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref3">runDefined</A></b> (ObjList& stack, const ExpOperation& oper, GenObject* context, JsObject* thisObj = 0) 
+</LI>
+<LI>inline const ExpFunction* &nbsp;<b><A HREF="#ref4">getFunc</A></b> ()  const
+</LI>
+<LI>inline const String& &nbsp;<b><A HREF="#ref5">firstName</A></b> ()  const
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref6">firstName</A></b> (const char* name) 
+</LI>
+<LI>inline const String* &nbsp;<b><A HREF="#ref7">formalName</A></b> (unsigned int index)  const
+</LI>
+<LI>inline long int &nbsp;<b><A HREF="#ref8">label</A></b> ()  const
+</LI>
+<LI>virtual  JsObject* &nbsp;<b><A HREF="#ref9">copy</A></b> (Mutex* mtx)  const
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>virtual  bool &nbsp;<b><A HREF="#ref10">runNative</A></b> (ObjList& stack, const ExpOperation& oper, GenObject* context) 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ Javascript Function class, implements user defined functions
+</p>
+<A NAME="JsFunction"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>JsFunction</strong> (Mutex* mtx = 0)
+<br></td><td align="right"><h3><strong>JsFunction</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>mtx</i></TD><TD align="left" valign="top">Pointer to the mutex that serializes this object
+     </TD></TR>
+</TABLE></P>
+<A NAME="JsFunction"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>JsFunction</strong> (Mutex* mtx, const char* name, ObjList* args = 0, long int lbl = 0,
+	ScriptCode* code = 0)
+<br></td><td align="right"><h3><strong>JsFunction</strong></h3></td></tr></table><p></p><p>
+ Constructor with function name
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>mtx</i></TD><TD align="left" valign="top">Pointer to the mutex that serializes this object
+</TD></TR>
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Name of the function
+</TD></TR>
+<TR><TD align="left" valign="top"><i>args</i></TD><TD align="left" valign="top">Optional list of formal parameter names, will be emptied
+</TD></TR>
+<TR><TD align="left" valign="top"><i>lbl</i></TD><TD align="left" valign="top">Number of the entry point label
+</TD></TR>
+<TR><TD align="left" valign="top"><i>code</i></TD><TD align="left" valign="top">The script code to be used while running the function
+     </TD></TR>
+</TABLE></P>
+<A NAME="runDefined"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>runDefined</strong> (ObjList& stack, const ExpOperation& oper, GenObject* context, JsObject* thisObj = 0)
+<br></td><td align="right"><h3><strong>runDefined</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Try to evaluate a single user defined method
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stack</i></TD><TD align="left" valign="top">Evaluation stack in use, parameters are popped off this stack
+  and results are pushed back on stack
+</TD></TR>
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Function to evaluate
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to arbitrary object passed from evaluation methods
+</TD></TR>
+<TR><TD align="left" valign="top"><i>thisObj</i></TD><TD align="left" valign="top">Object that should act as "this" for the function call
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if evaluation succeeded
+     </p>
+<A NAME="getFunc"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const ExpFunction* &nbsp;<strong>getFunc</strong> ()
+<br></td><td align="right"><h3><strong>getFunc</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the ExpFunction matching this Javascript function
+</p>
+<p><b>Returns</b>: Pointer to ExpFunction representation
+     </p>
+<A NAME="firstName"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const String& &nbsp;<strong>firstName</strong> ()
+<br></td><td align="right"><h3><strong>firstName</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the first name assigned to this function
+</p>
+<p><b>Returns</b>: The name of the property towhich this function was first assigned
+     </p>
+<A NAME="firstName"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>firstName</strong> (const char* name)
+<br></td><td align="right"><h3><strong>firstName</strong></h3></td></tr></table><p></p><p>
+ Set the name of this function if still empty
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Name to set as first assigned name
+     </TD></TR>
+</TABLE></P>
+<A NAME="formalName"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const String* &nbsp;<strong>formalName</strong> (unsigned int index)
+<br></td><td align="right"><h3><strong>formalName</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the name of the N-th formal argument
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>index</i></TD><TD align="left" valign="top">Index of the formal argument
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Pointer to formal argument name, NULL if index too large
+     </p>
+<A NAME="label"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline long int &nbsp;<strong>label</strong> ()
+<br></td><td align="right"><h3><strong>label</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the entry label of the code for this function
+</p>
+<p><b>Returns</b>: Number of the entry point label, zero if no code defined
+     </p>
+<A NAME="copy"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td> JsObject* &nbsp;<strong>copy</strong> (Mutex* mtx)
+<br></td><td align="right"><h3><strong>copy</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Deep copy method
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>mtx</i></TD><TD align="left" valign="top">Pointer to the mutex that serializes the copied array
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: New object instance, does not keep references to old array
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__JsObject.html#copy">JsObject</A>.</p>
+<A NAME="runNative"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>runNative</strong> (ObjList& stack, const ExpOperation& oper, GenObject* context)
+<br></td><td align="right"><h3><strong>runNative</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Try to evaluate a single native method
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stack</i></TD><TD align="left" valign="top">Evaluation stack in use, parameters are popped off this stack
+  and results are pushed back on stack
+</TD></TR>
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Function to evaluate
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to arbitrary object passed from evaluation methods
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if evaluation succeeded
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__JsObject.html#runNative">JsObject</A>.</p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

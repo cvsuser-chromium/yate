@@ -1,0 +1,187 @@
+<HTML>
+<HEAD>
+<TITLE>class XMPPError</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class XMPPError</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">XMPP errors. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::XMPPError</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yjabber___xmpputils_h.html">libs/yjabber/xmpputils.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__StringArray.html">TelEngine::StringArray</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__XMPPError.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref1">Type</A> {	NoError = 0,
+	BadFormat,                       
+	BadNamespace,                    
+	Conflict,                        
+	ConnTimeout,                     
+	HostGone,                        
+	HostUnknown,                     
+	BadAddressing,                   
+	Internal,                        
+	InvalidFrom,                     
+	InvalidId,                       
+	InvalidNamespace,                
+	InvalidXml,                      
+	NotAuth,                         
+	Policy,                          
+	RemoteConn,                      
+	ResConstraint,                   
+	RestrictedXml,                   
+	SeeOther,                        
+	Shutdown,                        
+	UndefinedCondition,              
+	UnsupportedEnc,                  
+	UnsupportedStanza,               
+	UnsupportedVersion,              
+	Xml,                             
+	Aborted,                         
+	AccountDisabled,                 
+	CredentialsExpired,              
+	EncryptionRequired,              
+	IncorrectEnc,                    
+	InvalidAuth,                     
+	InvalidMechanism,                
+	MalformedRequest,                
+	MechanismTooWeak,                
+	NotAuthorized,                   
+	TempAuthFailure,                 
+	TransitionNeeded,                
+	ResourceConstraint,              
+	NotAllowed,                      
+	BadRequest,                      
+	FeatureNotImpl,                  
+	Forbidden,                       
+	Gone,                            
+	ItemNotFound,                    
+	BadJid,                          
+	NotAcceptable,                   
+	Payment,                         
+	Unavailable,                     
+	Redirect,                        
+	Reg,                             
+	NoRemote,                        
+	RemoteTimeout,                   
+	ServiceUnavailable,              
+	Subscription,                    
+	Request,                         
+	SocketError,                     
+	UnsupportedMethod,               
+	SetupFailed,                     
+	TypeCount
+    }
+</LI>
+<LI>enum <A HREF="#ref2">ErrorType</A> {	TypeCancel = TypeCount,          
+	TypeContinue,                    
+	TypeModify,                      
+	TypeAuth,                        
+	TypeWait,                        
+	Count
+    }
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>inline &nbsp;<b><A HREF="#ref3">XMPPError</A></b> () 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ This class holds the XMPP error type, error enumerations and associated strings
+</p>
+<A NAME="Type"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>Type</strong> {	NoError = 0,
+	BadFormat,                       
+	BadNamespace,                    
+	Conflict,                        
+	ConnTimeout,                     
+	HostGone,                        
+	HostUnknown,                     
+	BadAddressing,                   
+	Internal,                        
+	InvalidFrom,                     
+	InvalidId,                       
+	InvalidNamespace,                
+	InvalidXml,                      
+	NotAuth,                         
+	Policy,                          
+	RemoteConn,                      
+	ResConstraint,                   
+	RestrictedXml,                   
+	SeeOther,                        
+	Shutdown,                        
+	UndefinedCondition,              
+	UnsupportedEnc,                  
+	UnsupportedStanza,               
+	UnsupportedVersion,              
+	Xml,                             
+	Aborted,                         
+	AccountDisabled,                 
+	CredentialsExpired,              
+	EncryptionRequired,              
+	IncorrectEnc,                    
+	InvalidAuth,                     
+	InvalidMechanism,                
+	MalformedRequest,                
+	MechanismTooWeak,                
+	NotAuthorized,                   
+	TempAuthFailure,                 
+	TransitionNeeded,                
+	ResourceConstraint,              
+	NotAllowed,                      
+	BadRequest,                      
+	FeatureNotImpl,                  
+	Forbidden,                       
+	Gone,                            
+	ItemNotFound,                    
+	BadJid,                          
+	NotAcceptable,                   
+	Payment,                         
+	Unavailable,                     
+	Redirect,                        
+	Reg,                             
+	NoRemote,                        
+	RemoteTimeout,                   
+	ServiceUnavailable,              
+	Subscription,                    
+	Request,                         
+	SocketError,                     
+	UnsupportedMethod,               
+	SetupFailed,                     
+	TypeCount
+    }
+</td><td align="right"><h3><strong>Type</strong></h3></td></tr></table><p></p><p>
+ Error condition enumeration
+     </p>
+<A NAME="ErrorType"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>ErrorType</strong> {	TypeCancel = TypeCount,          
+	TypeContinue,                    
+	TypeModify,                      
+	TypeAuth,                        
+	TypeWait,                        
+	Count
+    }
+</td><td align="right"><h3><strong>ErrorType</strong></h3></td></tr></table><p></p><p>
+ Error type enumeration
+     </p>
+<A NAME="XMPPError"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>XMPPError</strong> ()
+<br></td><td align="right"><h3><strong>XMPPError</strong></h3></td></tr></table><p></p><p>
+ Constructor
+     </p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

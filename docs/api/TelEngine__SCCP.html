@@ -1,0 +1,240 @@
+<HTML>
+<HEAD>
+<TITLE>class SCCP</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SCCP</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">Abstract SS7 SCCP interface. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SCCP</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__SignallingComponent.html">TelEngine::SignallingComponent</A> <small>[virtual public ]</small></TD></TR>
+<TR><TH>Inherited by</TH><TD><A HREF="TelEngine__SS7SCCP.html">SS7SCCP</A>, <A HREF="TelEngine__SS7SUA.html">SS7SUA</A></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SCCP.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref2">Type</A> {         CoordinateRequest         = 0, 
+         CoordinateConfirm         = 1, 
+         CoordinateIndication      = 2, 
+         CoordinateResponse        = 3, 
+         StatusIndication          = 4, 
+         StatusRequest             = 5, 
+         PointCodeStatusIndication = 6, 
+         TraficIndication          = 7, 
+         SubsystemStatus           = 8, 
+     }
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref3">SCCP</A></b> () 
+</LI>
+<LI>virtual  &nbsp;<b><A HREF="#ref4">~SCCP</A></b> () 
+</LI>
+<LI>virtual  int &nbsp;<b><A HREF="#ref5">sendMessage</A></b> (DataBlock& data, const NamedList& params) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref6">managementStatus</A></b> (Type type, NamedList& params) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref7">attach</A></b> (SCCPUser* user) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref8">detach</A></b> (SCCPUser* user) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref9">attachGTT</A></b> (GTT* gtt) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref11">updateTables</A></b> (const NamedList& params) 
+</LI>
+</ul><h4>Public Static Methods</h4><ul><LI>static  const TokenDict* &nbsp;<b><A HREF="#ref10">notifTypes</A></b> () 
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>NamedList* &nbsp;<b><A HREF="#ref12">translateGT</A></b> (const NamedList& params, const String& prefix,
+	    const String& nextPrefix) 
+</LI>
+<LI>HandledMSU &nbsp;<b><A HREF="#ref13">pushMessage</A></b> (DataBlock& data, NamedList& params, int ssn) 
+</LI>
+<LI>HandledMSU &nbsp;<b><A HREF="#ref14">notifyMessage</A></b> (DataBlock& data, NamedList& params, int ssn) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref15">managementMessage</A></b> (Type type, NamedList& params) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref16">isEndpoint</A></b> () 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref17">resolveGTParams</A></b> (SS7MsgSCCP* msg, const NamedList* gtParams) 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ An interface to a SS7 Signalling Connection Control Part
+</p>
+<A NAME="Type"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>Type</strong> {         CoordinateRequest         = 0, 
+         CoordinateConfirm         = 1, 
+         CoordinateIndication      = 2, 
+         CoordinateResponse        = 3, 
+         StatusIndication          = 4, 
+         StatusRequest             = 5, 
+         PointCodeStatusIndication = 6, 
+         TraficIndication          = 7, 
+         SubsystemStatus           = 8, 
+     }
+</td><td align="right"><h3><strong>Type</strong></h3></td></tr></table><p></p><A NAME="SCCP"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>SCCP</strong> ()
+<br></td><td align="right"><h3><strong>SCCP</strong></h3></td></tr></table><p></p><p>
+ Constructor
+     </p>
+<A NAME="~SCCP"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~SCCP</strong> ()
+<br></td><td align="right"><h3><strong>~SCCP</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor
+     </p>
+<A NAME="sendMessage"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>sendMessage</strong> (DataBlock& data, const NamedList& params)
+<br></td><td align="right"><h3><strong>sendMessage</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Send a message
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Data to be transported trough SCCP protocol
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">SCCP parameters
+ SCCP parameters :
+ MessageReturn : boolean / integer True or 0x08 to return message on error. NOTE int values should me below 0x0f
+ sequenceControl : boolean. True to send messages in sequence
+ LocalPC : integer. Local pointcode
+ RemotePC : integer. Remote pointcode
+ Address Parameter:
+ 	Address parameter starts with : CallingPartyAddress or CalledPartyAddress followed by:
+	    .ssn             : integer (0-255) Subsequence number
+	    .pointcode       : integer Packed pointcode
+	    .gt              : string The digits of the global title
+	    .gt.plan         : integer GT numbering plan
+	    .gt.encoding     : integer GT encoding scheme
+	    .gt.translation  : integer GT Translation type
+	    .gt.nature       : integer Gt nature of address indicator (ITU only)
+ Importance : integer (0-7) Importance of the message! (ITU only)
+     </TD></TR>
+</TABLE></P>
+<A NAME="managementStatus"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>managementStatus</strong> (Type type, NamedList& params)
+<br></td><td align="right"><h3><strong>managementStatus</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Receive management information from attached users.
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">The type of management message
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">List of parameters (Affected subsystem [M])
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the notification was processed
+      </p>
+<A NAME="attach"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>attach</strong> (SCCPUser* user)
+<br></td><td align="right"><h3><strong>attach</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Attach an user to this SS7 SCCP
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>user</i></TD><TD align="left" valign="top">Pointer to the SCCP user
+     </TD></TR>
+</TABLE></P>
+<A NAME="detach"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>detach</strong> (SCCPUser* user)
+<br></td><td align="right"><h3><strong>detach</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Detach an user from this SS7 SCCP
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>user</i></TD><TD align="left" valign="top">Pointer to the SCCP user
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#detach">SignallingComponent</A>.</p>
+<A NAME="attachGTT"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>attachGTT</strong> (GTT* gtt)
+<br></td><td align="right"><h3><strong>attachGTT</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Attach an Global Title Translator to this SS7 SCCP
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>gtt</i></TD><TD align="left" valign="top">Pointer to the Global Title Translator
+     </TD></TR>
+</TABLE></P>
+<A NAME="notifTypes"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td> const TokenDict* &nbsp;<strong>notifTypes</strong> ()
+<br></td><td align="right"><h3><strong>notifTypes</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Obtain the dictionary for notifications types
+</p>
+<p><b>Returns</b>: Pointer to the notification types dictionary
+     </p>
+<A NAME="updateTables"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>updateTables</strong> (const NamedList& params)
+<br></td><td align="right"><h3><strong>updateTables</strong></h3></td></tr></table><p> <small>[virtual]</small></p><A NAME="translateGT"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>NamedList* &nbsp;<strong>translateGT</strong> (const NamedList& params, const String& prefix,
+	    const String& nextPrefix)
+<br></td><td align="right"><h3><strong>translateGT</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Translate a Global Title
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">The Global Title content
+</TD></TR>
+<TR><TD align="left" valign="top"><i>prefix</i></TD><TD align="left" valign="top">The prefix of the global title content parameters
+</TD></TR>
+<TR><TD align="left" valign="top"><i>nextPrefix</i></TD><TD align="left" valign="top">Other prefix of the global title content parameters
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: a new SCCP route or 0 is no route was found
+     </p>
+<A NAME="pushMessage"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>HandledMSU &nbsp;<strong>pushMessage</strong> (DataBlock& data, NamedList& params, int ssn)
+<br></td><td align="right"><h3><strong>pushMessage</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Send a SCCP message to users list for processing
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">The message data
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">The list of parameters
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ssn</i></TD><TD align="left" valign="top">The ssn of the SCCP user
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: HandledMSU enum value
+     </p>
+<A NAME="notifyMessage"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>HandledMSU &nbsp;<strong>notifyMessage</strong> (DataBlock& data, NamedList& params, int ssn)
+<br></td><td align="right"><h3><strong>notifyMessage</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Notify the users that a message failed to be delivered to destination
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">The message data
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">The list of parameters
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ssn</i></TD><TD align="left" valign="top">The ssn of the SCCP user
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: HandledMSU enum value
+     </p>
+<A NAME="managementMessage"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>managementMessage</strong> (Type type, NamedList& params)
+<br></td><td align="right"><h3><strong>managementMessage</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Broadcast a management message to all attached users
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">The type of notification
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">The list of parameters
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if at least one user processed the message
+     </p>
+<A NAME="isEndpoint"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>isEndpoint</strong> ()
+<br></td><td align="right"><h3><strong>isEndpoint</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Check if this sccp is an endpoint
+</p>
+<p><b>Returns</b>: False
+     </p>
+<A NAME="resolveGTParams"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>resolveGTParams</strong> (SS7MsgSCCP* msg, const NamedList* gtParams)
+<br></td><td align="right"><h3><strong>resolveGTParams</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Copy the parameters returned by Global Title Translator in the SCCP Message
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">The SCCP message
+</TD></TR>
+<TR><TD align="left" valign="top"><i>gtParams</i></TD><TD align="left" valign="top">The parameters returned by GTT
+     </TD></TR>
+</TABLE></P>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

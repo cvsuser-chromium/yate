@@ -1,0 +1,197 @@
+<HTML>
+<HEAD>
+<TITLE>class SS7M2UA</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SS7M2UA</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">SIGTRAN MTP2 User Adaptation Layer. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SS7M2UA</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><i><A HREF="TelEngine__SIGAdaptUser.html">TelEngine::SIGAdaptUser</A></i> <small>[public ]</small>, <i><A HREF="TelEngine__SS7Layer2.html">TelEngine::SS7Layer2</A></i> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SS7M2UA.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref2">SS7M2UA</A></b> (const NamedList& params) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref3">initialize</A></b> (const NamedList* config) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref4">control</A></b> (Operation oper, NamedList* params = 0) 
+</LI>
+<LI>virtual  unsigned int &nbsp;<b><A HREF="#ref5">status</A></b> ()  const
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref6">transmitMSU</A></b> (const SS7MSU& msu) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref7">recoverMSU</A></b> (int sequence) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref8">operational</A></b> ()  const
+</LI>
+<LI>virtual  int &nbsp;<b><A HREF="#ref9">getSequence</A></b> () 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref10">activeChange</A></b> (bool active) 
+</LI>
+<LI>inline <A HREF="#int32_t">int32_t</A> &nbsp;<b><A HREF="#ref11">iid</A></b> ()  const
+</LI>
+</ul><h4>Protected Types</h4><ul><LI>enum <A HREF="#ref12">LinkState</A> {	LinkDown,
+	LinkReq,
+	LinkReqEmg,
+	LinkUp,
+	LinkUpEmg,
+    }
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>virtual  void &nbsp;<b><A HREF="#ref13">timerTick</A></b> (const Time& when) 
+</LI>
+<LI>SS7M2UAClient* &nbsp;<b><A HREF="#ref14">client</A></b> ()  const
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref15">processMGMT</A></b> (unsigned char msgType, const DataBlock& msg, int streamId) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref16">processMAUP</A></b> (unsigned char msgType, const DataBlock& msg, int streamId) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref17">postRetrieve</A></b> () 
+</LI>
+</ul><h4>Protected Members</h4><ul><LI>SignallingTimer <b><A HREF="#ref18">m_retrieve</A></b></LI>
+<LI>int32_t <b><A HREF="#ref19">m_iid</A></b></LI>
+<LI>int <b><A HREF="#ref20">m_linkState</A></b></LI>
+<LI>bool <b><A HREF="#ref21">m_rpo</A></b></LI>
+<LI>bool <b><A HREF="#ref22">m_longSeq</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ RFC3331 SS7 Layer 2 implementation over SCTP/IP.
+ M2UA is intended to be used as a Provider-User where real MTP2 runs on a
+  Signalling Gateway and MTP3 runs on an Application Server.
+</p>
+<A NAME="SS7M2UA"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>SS7M2UA</strong> (const NamedList& params)
+<br></td><td align="right"><h3><strong>SS7M2UA</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">List of construction parameters
+     </TD></TR>
+</TABLE></P>
+<A NAME="initialize"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>initialize</strong> (const NamedList* config)
+<br></td><td align="right"><h3><strong>initialize</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Configure and initialize M2UA and its transport
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>config</i></TD><TD align="left" valign="top">Optional configuration parameters override
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if M2UA and the transport were initialized properly
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#initialize">SignallingComponent</A>.</p>
+<A NAME="control"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>control</strong> (Operation oper, NamedList* params = 0)
+<br></td><td align="right"><h3><strong>control</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Execute a control operation. Operations can change the link status or
+  can query the aligned status.
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Operation to execute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Optional parameters for the operation
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the command completed successfully, for query operations
+  also indicates the data link is aligned and operational
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer2.html#control">SS7Layer2</A>.</p>
+<A NAME="status"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td> unsigned int &nbsp;<strong>status</strong> ()
+<br></td><td align="right"><h3><strong>status</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Retrieve the current link status indications
+</p>
+<p><b>Returns</b>: Link status indication bits
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer2.html#status">SS7Layer2</A>.</p>
+<A NAME="transmitMSU"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>transmitMSU</strong> (const SS7MSU& msu)
+<br></td><td align="right"><h3><strong>transmitMSU</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Push a Message Signal Unit down the protocol stack
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msu</i></TD><TD align="left" valign="top">Message data, starting with Service Indicator Octet
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if message was successfully queued
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer2.html#transmitMSU">SS7Layer2</A>.</p>
+<A NAME="recoverMSU"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>recoverMSU</strong> (int sequence)
+<br></td><td align="right"><h3><strong>recoverMSU</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Remove the MSUs waiting in the transmit queue and return them
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>sequence</i></TD><TD align="left" valign="top">First sequence number to recover, flush earlier packets
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer2.html#recoverMSU">SS7Layer2</A>.</p>
+<A NAME="operational"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>operational</strong> ()
+<br></td><td align="right"><h3><strong>operational</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Check if the link is fully operational
+</p>
+<p><b>Returns</b>: True if the link is aligned and operational
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer2.html#operational">SS7Layer2</A>.</p>
+<A NAME="getSequence"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>getSequence</strong> ()
+<br></td><td align="right"><h3><strong>getSequence</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Get the sequence number of the last MSU received, request if not available
+</p>
+<p><b>Returns</b>: Last FSN received, negative if not available
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer2.html#getSequence">SS7Layer2</A>.</p>
+<A NAME="activeChange"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>activeChange</strong> (bool active)
+<br></td><td align="right"><h3><strong>activeChange</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Traffic activity state change notification
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>active</i></TD><TD align="left" valign="top">True if the ASP is active and traffic is allowed
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SIGAdaptUser.html#activeChange">SIGAdaptUser</A>.</p>
+<A NAME="iid"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline <A HREF="#int32_t">int32_t</A> &nbsp;<strong>iid</strong> ()
+<br></td><td align="right"><h3><strong>iid</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the numeric Interface Identifier (if any)
+</p>
+<p><b>Returns</b>: IID value, -1 if not set
+     </p>
+<A NAME="LinkState"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>LinkState</strong> {	LinkDown,
+	LinkReq,
+	LinkReqEmg,
+	LinkUp,
+	LinkUpEmg,
+    }
+</td><td align="right"><h3><strong>LinkState</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="timerTick"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>timerTick</strong> (const Time& when)
+<br></td><td align="right"><h3><strong>timerTick</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Periodical timer tick used to perform alignment and housekeeping
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>when</i></TD><TD align="left" valign="top">Time to use as computing base for events and timeouts
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer2.html#timerTick">SS7Layer2</A>.</p>
+<A NAME="client"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>SS7M2UAClient* &nbsp;<strong>client</strong> ()
+<br></td><td align="right"><h3><strong>client</strong></h3></td></tr></table><p> <small>[protected const]</small></p><A NAME="processMGMT"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>processMGMT</strong> (unsigned char msgType, const DataBlock& msg, int streamId)
+<br></td><td align="right"><h3><strong>processMGMT</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><A NAME="processMAUP"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>processMAUP</strong> (unsigned char msgType, const DataBlock& msg, int streamId)
+<br></td><td align="right"><h3><strong>processMAUP</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><A NAME="postRetrieve"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>postRetrieve</strong> ()
+<br></td><td align="right"><h3><strong>postRetrieve</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_retrieve"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td>SignallingTimer  <strong>m_retrieve</strong>
+</td><td align="right"><h3><strong>m_retrieve</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_iid"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td><A HREF="#int32_t">int32_t</A>  <strong>m_iid</strong>
+</td><td align="right"><h3><strong>m_iid</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_linkState"></A><A NAME="ref20"></A><table width="100%"><tr bgcolor="#eeeeee"><td>int  <strong>m_linkState</strong>
+</td><td align="right"><h3><strong>m_linkState</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_rpo"></A><A NAME="ref21"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool  <strong>m_rpo</strong>
+</td><td align="right"><h3><strong>m_rpo</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_longSeq"></A><A NAME="ref22"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool  <strong>m_longSeq</strong>
+</td><td align="right"><h3><strong>m_longSeq</strong></h3></td></tr></table><p> <small>[protected]</small></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

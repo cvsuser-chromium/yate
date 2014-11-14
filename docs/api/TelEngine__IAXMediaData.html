@@ -1,0 +1,101 @@
+<HTML>
+<HEAD>
+<TITLE>class IAXMediaData</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class IAXMediaData</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">IAX2 transaction media data. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::IAXMediaData</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yiax___yateiax_h.html">libs/yiax/yateiax.h</A>&gt;</code></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__IAXMediaData.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>inline &nbsp;<b><A HREF="#ref2">IAXMediaData</A></b> () 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref3">dropOut</A></b> (unsigned int len) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref4">print</A></b> (String& buf) 
+</LI>
+</ul><h4>Protected Members</h4><ul><LI>Mutex <b><A HREF="#ref5">m_inMutex</A></b></LI>
+<LI>Mutex <b><A HREF="#ref6">m_outMutex</A></b></LI>
+<LI>bool <b><A HREF="#ref7">m_startedIn</A></b></LI>
+<LI>bool <b><A HREF="#ref8">m_startedOut</A></b></LI>
+<LI>int <b><A HREF="#ref9">m_outStartTransTs</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref10">m_outFirstSrcTs</A></b></LI>
+<LI>u_int32_t <b><A HREF="#ref11">m_lastOut</A></b></LI>
+<LI>u_int32_t <b><A HREF="#ref12">m_lastIn</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref13">m_sent</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref14">m_sentBytes</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref15">m_recv</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref16">m_recvBytes</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref17">m_ooPackets</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref18">m_ooBytes</A></b></LI>
+<LI>bool <b><A HREF="#ref19">m_showInNoFmt</A></b></LI>
+<LI>bool <b><A HREF="#ref20">m_showOutOldTs</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref21">m_dropOut</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref22">m_dropOutBytes</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ This class holds data used by transaction to sync media.
+ The mutexes are not reentrant
+</p>
+<A NAME="IAXMediaData"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>IAXMediaData</strong> ()
+<br></td><td align="right"><h3><strong>IAXMediaData</strong></h3></td></tr></table><p></p><p>
+ Constructor
+     </p>
+<A NAME="dropOut"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>dropOut</strong> (unsigned int len)
+<br></td><td align="right"><h3><strong>dropOut</strong></h3></td></tr></table><p></p><p>
+ Increase drop out data
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>len</i></TD><TD align="left" valign="top">The number of dropped bytes
+     </TD></TR>
+</TABLE></P>
+<A NAME="print"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>print</strong> (String& buf)
+<br></td><td align="right"><h3><strong>print</strong></h3></td></tr></table><p></p><p>
+ Print statistics
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>buf</i></TD><TD align="left" valign="top">Destination buffer
+     </TD></TR>
+</TABLE></P>
+<A NAME="m_inMutex"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>Mutex  <strong>m_inMutex</strong>
+</td><td align="right"><h3><strong>m_inMutex</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_outMutex"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>Mutex  <strong>m_outMutex</strong>
+</td><td align="right"><h3><strong>m_outMutex</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_startedIn"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool  <strong>m_startedIn</strong>
+</td><td align="right"><h3><strong>m_startedIn</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_startedOut"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool  <strong>m_startedOut</strong>
+</td><td align="right"><h3><strong>m_startedOut</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_outStartTransTs"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>int  <strong>m_outStartTransTs</strong>
+</td><td align="right"><h3><strong>m_outStartTransTs</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_outFirstSrcTs"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_outFirstSrcTs</strong>
+</td><td align="right"><h3><strong>m_outFirstSrcTs</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_lastOut"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td><A HREF="#u_int32_t">u_int32_t</A>  <strong>m_lastOut</strong>
+</td><td align="right"><h3><strong>m_lastOut</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_lastIn"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td><A HREF="#u_int32_t">u_int32_t</A>  <strong>m_lastIn</strong>
+</td><td align="right"><h3><strong>m_lastIn</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_sent"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_sent</strong>
+</td><td align="right"><h3><strong>m_sent</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_sentBytes"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_sentBytes</strong>
+</td><td align="right"><h3><strong>m_sentBytes</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_recv"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_recv</strong>
+</td><td align="right"><h3><strong>m_recv</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_recvBytes"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_recvBytes</strong>
+</td><td align="right"><h3><strong>m_recvBytes</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_ooPackets"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_ooPackets</strong>
+</td><td align="right"><h3><strong>m_ooPackets</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_ooBytes"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_ooBytes</strong>
+</td><td align="right"><h3><strong>m_ooBytes</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_showInNoFmt"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool  <strong>m_showInNoFmt</strong>
+</td><td align="right"><h3><strong>m_showInNoFmt</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_showOutOldTs"></A><A NAME="ref20"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool  <strong>m_showOutOldTs</strong>
+</td><td align="right"><h3><strong>m_showOutOldTs</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_dropOut"></A><A NAME="ref21"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_dropOut</strong>
+</td><td align="right"><h3><strong>m_dropOut</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_dropOutBytes"></A><A NAME="ref22"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_dropOutBytes</strong>
+</td><td align="right"><h3><strong>m_dropOutBytes</strong></h3></td></tr></table><p> <small>[protected]</small></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

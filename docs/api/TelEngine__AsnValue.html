@@ -1,0 +1,145 @@
+<HTML>
+<HEAD>
+<TITLE>class AsnValue</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class AsnValue</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">An ASN.1 value. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::AsnValue</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yasn___yateasn_h.html">libs/yasn/yateasn.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__GenObject.html">TelEngine::GenObject</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__AsnValue.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref1">ValType</A> {	INTEGER			= 1,
+	STRING			= 2,
+	OBJECT_ID		= 3,
+	IPADDRESS		= 4,
+	COUNTER			= 5,
+	TIMETICKS		= 6,
+	ARBITRARY		= 7,
+	BIG_COUNTER		= 8,
+	UNSIGNED_INTEGER	= 9
+    }
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>inline &nbsp;<b><A HREF="#ref2">AsnValue</A></b> () 
+</LI>
+<LI>inline &nbsp;<b><A HREF="#ref3">AsnValue</A></b> (const AsnValue& original) 
+</LI>
+<LI>inline &nbsp;<b><A HREF="#ref4">AsnValue</A></b> (const String& value, int type = STRING) 
+</LI>
+<LI>virtual  inline &nbsp;<b><A HREF="#ref5">~AsnValue</A></b> () 
+</LI>
+<LI>inline const String& &nbsp;<b><A HREF="#ref6">getValue</A></b> () 
+</LI>
+<LI>inline int &nbsp;<b><A HREF="#ref7">type</A></b> () 
+</LI>
+<LI>inline AsnValue& &nbsp;<b><A HREF="#ref8">operator=</A></b> ( AsnValue* val) 
+</LI>
+<LI>inline AsnValue& &nbsp;<b><A HREF="#ref9">operator=</A></b> ( AsnValue val) 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref10">setValue</A></b> (const String& data) 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref11">setType</A></b> (int type) 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ Class wrapper for different types of ASN.1 values
+</p>
+<A NAME="ValType"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>ValType</strong> {	INTEGER			= 1,
+	STRING			= 2,
+	OBJECT_ID		= 3,
+	IPADDRESS		= 4,
+	COUNTER			= 5,
+	TIMETICKS		= 6,
+	ARBITRARY		= 7,
+	BIG_COUNTER		= 8,
+	UNSIGNED_INTEGER	= 9
+    }
+</td><td align="right"><h3><strong>ValType</strong></h3></td></tr></table><p></p><p>
+ Type of value
+     </p>
+<A NAME="AsnValue"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>AsnValue</strong> ()
+<br></td><td align="right"><h3><strong>AsnValue</strong></h3></td></tr></table><p></p><p>
+ Constructor
+     </p>
+<A NAME="AsnValue"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>AsnValue</strong> (const AsnValue& original)
+<br></td><td align="right"><h3><strong>AsnValue</strong></h3></td></tr></table><p></p><p>
+ Copy constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>original</i></TD><TD align="left" valign="top">Value object to copy
+     </TD></TR>
+</TABLE></P>
+<A NAME="AsnValue"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>AsnValue</strong> (const String& value, int type = STRING)
+<br></td><td align="right"><h3><strong>AsnValue</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>value</i></TD><TD align="left" valign="top">Object value
+</TD></TR>
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">AsnValue type, default is String
+     </TD></TR>
+</TABLE></P>
+<A NAME="~AsnValue"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline &nbsp;<strong>~AsnValue</strong> ()
+<br></td><td align="right"><h3><strong>~AsnValue</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor
+     </p>
+<A NAME="getValue"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const String& &nbsp;<strong>getValue</strong> ()
+<br></td><td align="right"><h3><strong>getValue</strong></h3></td></tr></table><p></p><p>
+ Get the value in the form of a string
+</p>
+<p><b>Returns</b>: String containing the internal data
+     </p>
+<A NAME="type"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline int &nbsp;<strong>type</strong> ()
+<br></td><td align="right"><h3><strong>type</strong></h3></td></tr></table><p></p><p>
+ Get the type of the data so that we know how to interpret it
+</p>
+<p><b>Returns</b>: The type of the data
+     </p>
+<A NAME="operator="></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline AsnValue& &nbsp;<strong>operator=</strong> ( AsnValue* val)
+<br></td><td align="right"><h3><strong>operator=</strong></h3></td></tr></table><p></p><p>
+ Assign operator
+     </p>
+<A NAME="operator="></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline AsnValue& &nbsp;<strong>operator=</strong> ( AsnValue val)
+<br></td><td align="right"><h3><strong>operator=</strong></h3></td></tr></table><p></p><p>
+ Assign operator
+     </p>
+<A NAME="setValue"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>setValue</strong> (const String& data)
+<br></td><td align="right"><h3><strong>setValue</strong></h3></td></tr></table><p></p><p>
+ Set data
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">The data to which the internal data will be set
+     </TD></TR>
+</TABLE></P>
+<A NAME="setType"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>setType</strong> (int type)
+<br></td><td align="right"><h3><strong>setType</strong></h3></td></tr></table><p></p><p>
+ Set data type
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">The type assigned
+     </TD></TR>
+</TABLE></P>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

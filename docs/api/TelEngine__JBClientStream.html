@@ -1,0 +1,261 @@
+<HTML>
+<HEAD>
+<TITLE>class JBClientStream</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class JBClientStream</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">A client to server stream. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::JBClientStream</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yjabber___yatejabber_h.html">libs/yjabber/yatejabber.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__JBStream.html">TelEngine::JBStream</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__JBClientStream.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref2">JBClientStream</A></b> (JBEngine* engine, Socket* socket, bool ssl = false) 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref3">JBClientStream</A></b> (JBEngine* engine, const JabberID& jid, const String& account,
+	const NamedList& params, const char* name = 0, const char* serverHost = 0) 
+</LI>
+<LI>inline const String& &nbsp;<b><A HREF="#ref4">account</A></b> ()  const
+</LI>
+<LI>inline GenObject* &nbsp;<b><A HREF="#ref5">userData</A></b> () 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref6">userData</A></b> (GenObject* data) 
+</LI>
+<LI>virtual  JBClientStream* &nbsp;<b><A HREF="#ref7">clientStream</A></b> () 
+</LI>
+<LI>virtual  XmlElement* &nbsp;<b><A HREF="#ref8">buildPing</A></b> (const String& stanzaId) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref9">bind</A></b> (const String& resource, const char* id,
+	XMPPError::Type error = XMPPError::NoError) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref10">requestRegister</A></b> (bool data, bool set = true,
+	const String& newPass = String::empty()) 
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>virtual  bool &nbsp;<b><A HREF="#ref11">processRunning</A></b> (XmlElement* xml, const JabberID& from,
+	const JabberID& to) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref12">processStart</A></b> (const XmlElement* xml, const JabberID& from,
+	const JabberID& to) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref13">processAuth</A></b> (XmlElement* xml, const JabberID& from,
+	const JabberID& to) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref14">processRegister</A></b> (XmlElement* xml, const JabberID& from,
+	const JabberID& to) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref15">destroyed</A></b> () 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref16">startAuth</A></b> () 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref17">bind</A></b> () 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ This class holds a client to server stream
+</p>
+<A NAME="JBClientStream"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>JBClientStream</strong> (JBEngine* engine, Socket* socket, bool ssl = false)
+<br></td><td align="right"><h3><strong>JBClientStream</strong></h3></td></tr></table><p></p><p>
+ Constructor. Build an incoming stream from a socket
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>engine</i></TD><TD align="left" valign="top">Engine owning this stream
+</TD></TR>
+<TR><TD align="left" valign="top"><i>socket</i></TD><TD align="left" valign="top">The socket
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ssl</i></TD><TD align="left" valign="top">True if the socket is already using SSL/TLS
+     </TD></TR>
+</TABLE></P>
+<A NAME="JBClientStream"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>JBClientStream</strong> (JBEngine* engine, const JabberID& jid, const String& account,
+	const NamedList& params, const char* name = 0, const char* serverHost = 0)
+<br></td><td align="right"><h3><strong>JBClientStream</strong></h3></td></tr></table><p></p><p>
+ Constructor. Build an outgoing stream
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>engine</i></TD><TD align="left" valign="top">Engine owning this stream
+</TD></TR>
+<TR><TD align="left" valign="top"><i>jid</i></TD><TD align="left" valign="top">User jid
+</TD></TR>
+<TR><TD align="left" valign="top"><i>account</i></TD><TD align="left" valign="top">Account (stream) name
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Stream parameters
+</TD></TR>
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Optional stream name
+</TD></TR>
+<TR><TD align="left" valign="top"><i>serverHost</i></TD><TD align="left" valign="top">Optional server host to use instead of jid domain
+     </TD></TR>
+</TABLE></P>
+<A NAME="account"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const String& &nbsp;<strong>account</strong> ()
+<br></td><td align="right"><h3><strong>account</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve stream's account
+</p>
+<p><b>Returns</b>: Stream account
+     </p>
+<A NAME="userData"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline GenObject* &nbsp;<strong>userData</strong> ()
+<br></td><td align="right"><h3><strong>userData</strong></h3></td></tr></table><p></p><p>
+ Retrieve stream's user data
+</p>
+<p><b>Returns</b>: GenObject pointer or 0
+     </p>
+<A NAME="userData"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>userData</strong> (GenObject* data)
+<br></td><td align="right"><h3><strong>userData</strong></h3></td></tr></table><p></p><p>
+ Set stream's user data. Transfer data ownership to the stream
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Data to set
+     </TD></TR>
+</TABLE></P>
+<A NAME="clientStream"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> JBClientStream* &nbsp;<strong>clientStream</strong> ()
+<br></td><td align="right"><h3><strong>clientStream</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Get a client stream from this one
+</p>
+<p><b>Returns</b>: JBClientStream pointer
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__JBStream.html#clientStream">JBStream</A>.</p>
+<A NAME="buildPing"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>buildPing</strong> (const String& stanzaId)
+<br></td><td align="right"><h3><strong>buildPing</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Build a ping iq stanza
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stanzaId</i></TD><TD align="left" valign="top">Stanza id
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Valid XmlElement pointer
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__JBStream.html#buildPing">JBStream</A>.</p>
+<A NAME="bind"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>bind</strong> (const String& resource, const char* id,
+	XMPPError::Type error = XMPPError::NoError)
+<br></td><td align="right"><h3><strong>bind</strong></h3></td></tr></table><p></p><p>
+ Bind a resource to an incoming stream. This method should be called
+ after processing a Bind event
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>resource</i></TD><TD align="left" valign="top">Resource to bind. Empty on error
+</TD></TR>
+<TR><TD align="left" valign="top"><i>id</i></TD><TD align="left" valign="top">Received bind request id
+</TD></TR>
+<TR><TD align="left" valign="top"><i>error</i></TD><TD align="left" valign="top">Failure reason. Ignored on success
+     </TD></TR>
+</TABLE></P>
+<A NAME="requestRegister"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>requestRegister</strong> (bool data, bool set = true,
+	const String& newPass = String::empty())
+<br></td><td align="right"><h3><strong>requestRegister</strong></h3></td></tr></table><p></p><p>
+ Request account register or change on outgoing stream.
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">True to request registration/change, false to request info
+</TD></TR>
+<TR><TD align="left" valign="top"><i>set</i></TD><TD align="left" valign="top">True to request new user registration, false to remove account from server
+</TD></TR>
+<TR><TD align="left" valign="top"><i>newPass</i></TD><TD align="left" valign="top">New password when requesting account setup on an already
+  authenticated stream
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True on success
+     </p>
+<A NAME="processRunning"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>processRunning</strong> (XmlElement* xml, const JabberID& from,
+	const JabberID& to)
+<br></td><td align="right"><h3><strong>processRunning</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Process elements in Running state
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Received element (will be consumed)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>from</i></TD><TD align="left" valign="top">Already parsed source JID
+</TD></TR>
+<TR><TD align="left" valign="top"><i>to</i></TD><TD align="left" valign="top">Already parsed destination JID
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if stream termination was initiated
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__JBStream.html#processRunning">JBStream</A>.</p>
+<A NAME="processStart"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>processStart</strong> (const XmlElement* xml, const JabberID& from,
+	const JabberID& to)
+<br></td><td align="right"><h3><strong>processStart</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Process stream start elements while waiting for them
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Received xml element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>from</i></TD><TD align="left" valign="top">The 'from' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>to</i></TD><TD align="left" valign="top">The 'to' attribute
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if stream termination was initiated
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__JBStream.html#processStart">JBStream</A>.</p>
+<A NAME="processAuth"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>processAuth</strong> (XmlElement* xml, const JabberID& from,
+	const JabberID& to)
+<br></td><td align="right"><h3><strong>processAuth</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Process elements in Auth state
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Received element (will be consumed)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>from</i></TD><TD align="left" valign="top">Already parsed source JID
+</TD></TR>
+<TR><TD align="left" valign="top"><i>to</i></TD><TD align="left" valign="top">Already parsed destination JID
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if stream termination was initiated
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__JBStream.html#processAuth">JBStream</A>.</p>
+<A NAME="processRegister"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>processRegister</strong> (XmlElement* xml, const JabberID& from,
+	const JabberID& to)
+<br></td><td align="right"><h3><strong>processRegister</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Process elements in Register state
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Received element (will be consumed)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>from</i></TD><TD align="left" valign="top">Already parsed source JID
+</TD></TR>
+<TR><TD align="left" valign="top"><i>to</i></TD><TD align="left" valign="top">Already parsed destination JID
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if stream termination was initiated
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__JBStream.html#processRegister">JBStream</A>.</p>
+<A NAME="destroyed"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>destroyed</strong> ()
+<br></td><td align="right"><h3><strong>destroyed</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Release memory
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__JBStream.html#destroyed">JBStream</A>.</p>
+<A NAME="startAuth"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>startAuth</strong> ()
+<br></td><td align="right"><h3><strong>startAuth</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Start outgoing stream authentication
+</p>
+<p><b>Returns</b>: True on success
+     </p>
+<A NAME="bind"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>bind</strong> ()
+<br></td><td align="right"><h3><strong>bind</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Start resource binding on outgoing stream
+</p>
+<p><b>Returns</b>: True on success
+     </p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

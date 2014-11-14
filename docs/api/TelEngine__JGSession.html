@@ -1,0 +1,981 @@
+<HTML>
+<HEAD>
+<TITLE>class JGSession</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class JGSession</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">A basic Jingle session. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH colspan="2">Contains pure virtuals</TH></TR><TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::JGSession</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yjabber___yatejingle_h.html">libs/yjabber/yatejingle.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__Mutex.html">TelEngine::Mutex</A> <small>[public ]</small>, <A HREF="TelEngine__RefObject.html">TelEngine::RefObject</A> <small>[public ]</small></TD></TR>
+<TR><TH>Inherited by</TH><TD><A HREF="TelEngine__JGSession0.html">JGSession0</A>, <A HREF="TelEngine__JGSession1.html">JGSession1</A></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__JGSession.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref3">Version</A> {	Version0 = 0,
+	Version1 = 1,
+	VersionUnknown
+    }
+</LI>
+<LI>enum <A HREF="#ref4">Reason</A> {	ReasonUnknown = 0,
+	ReasonOk,                        
+	ReasonBusy,                      
+	ReasonDecline,                   
+	ReasonCancel,                    
+	ReasonExpired,                   
+	ReasonConn,                      
+	ReasonFailApp,                   
+	ReasonFailTransport,             
+	ReasonGone,                      
+	ReasonParams,                    
+	ReasonMedia,                     
+	ReasonTransport,                 
+	ReasonApp,                       
+	ReasonSecurity,                  
+	ReasonTimeout,                   
+	ReasonGeneral,                   
+	ReasonAltSess,                   
+	Transferred,                     
+	CryptoRequired,                  
+	InvalidCrypto,                   
+    }
+</LI>
+<LI>enum <A HREF="#ref5">RtpInfo</A> {	RtpActive,                       
+	RtpHold,                         
+	RtpMute,                         
+	RtpRinging,                      
+    }
+</LI>
+<LI>enum <A HREF="#ref6">State</A> {	Idle    = 0,                     
+	Pending = 1,                     
+	Active  = 2,                     
+	Ending  = 3,                     
+	Destroy = 4,                     
+    }
+</LI>
+<LI>enum <A HREF="#ref7">Action</A> {	ActAccept,                       
+	ActInitiate,                     
+	ActTerminate,                    
+	ActReject,                       
+	ActInfo,                         
+	ActTransportInfo,                
+	ActTransportAccept,              
+	ActTransportReject,              
+	ActTransportReplace,             
+	ActCandidates,                   
+	ActContentAccept,                
+	ActContentAdd,                   
+	ActContentModify,                
+	ActContentReject,                
+	ActContentRemove,                
+	ActContentInfo,                  
+	ActDescriptionInfo,              
+	ActTransfer,                     
+	ActRinging,                      
+	ActTrying,                       
+	ActReceived,                     
+	ActHold,                         
+	ActActive,                       
+	ActMute,                         
+	ActDtmf,                         
+	ActStreamHost,
+	ActCount,
+    }
+</LI>
+<LI>enum <A HREF="#ref8">SessionFlag</A> {	FlagNoPing = 0x0001,             
+	FlagRingNsRtp = 0x0002,          
+	FlagNoOkInitiate = 0x0004,       
+    }
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>virtual  &nbsp;<b><A HREF="#ref9">~JGSession</A></b> () 
+</LI>
+<LI>inline Version &nbsp;<b><A HREF="#ref10">version</A></b> ()  const
+</LI>
+<LI>inline JGEngine* &nbsp;<b><A HREF="#ref11">engine</A></b> ()  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref12">outgoing</A></b> ()  const
+</LI>
+<LI>inline const String& &nbsp;<b><A HREF="#ref13">sid</A></b> ()  const
+</LI>
+<LI>inline const JabberID& &nbsp;<b><A HREF="#ref14">local</A></b> ()  const
+</LI>
+<LI>inline const JabberID& &nbsp;<b><A HREF="#ref15">remote</A></b> ()  const
+</LI>
+<LI>inline State &nbsp;<b><A HREF="#ref16">state</A></b> ()  const
+</LI>
+<LI>inline int &nbsp;<b><A HREF="#ref17">flag</A></b> (int mask)  const
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref18">setFlags</A></b> (int value) 
+</LI>
+<LI>inline void* &nbsp;<b><A HREF="#ref19">userData</A></b> () 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref20">userData</A></b> (void* userdata) 
+</LI>
+<LI>inline const String& &nbsp;<b><A HREF="#ref21">line</A></b> ()  const
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref22">line</A></b> (const String& acc) 
+</LI>
+<LI>Action &nbsp;<b><A HREF="#ref23">getAction</A></b> (XmlElement* xml) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref24">acceptIq</A></b> (XMPPUtils::IqType type, const JabberID& from, const JabberID& to,
+	const String& id, XmlElement* xml) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref25">confirmResult</A></b> (XmlElement* xml) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref26">confirmError</A></b> (XmlElement*& xml, XMPPError::Type error,
+	const char* text = 0, XMPPError::ErrorType type = XMPPError::TypeModify) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref27">accept</A></b> (const ObjList& contents, String* stanzaId = 0) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref28">hangup</A></b> (XmlElement* reason = 0) 
+</LI>
+<LI>virtual  XmlElement* &nbsp;<b><A HREF="#ref29">createRtpInfoXml</A></b> (RtpInfo info) 
+</LI>
+<LI>virtual  XmlElement* &nbsp;<b><A HREF="#ref30">createReason</A></b> (int reason, const char* text = 0,
+	XmlElement* child = 0) 
+</LI>
+<LI>virtual  XmlElement* &nbsp;<b><A HREF="#ref31">createTransferReason</A></b> (int reason) 
+</LI>
+<LI>virtual  XmlElement* &nbsp;<b><A HREF="#ref32">createRtpSessionReason</A></b> (int reason) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref33">sendContent</A></b> (Action action, const ObjList& contents, String* stanzaId = 0) 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref34">sendContent</A></b> (Action action, const JGSessionContent* content,
+	String* stanzaId = 0) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref35">sendStreamHosts</A></b> (const ObjList& hosts, String* stanzaId = 0) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref36">sendStreamHostUsed</A></b> (const char* jid, const char* stanzaId) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref37">buildSocksDstAddr</A></b> (String& buf) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref38">sendInfo</A></b> (XmlElement* xml, String* stanzaId = 0, XmlElement* extra = 0) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref39">sendDtmf</A></b> (const char* dtmf, unsigned int msDuration = 0, String* stanzaId = 0) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref40">hasFeature</A></b> (XMPPNamespace::Type feature) 
+</LI>
+</ul><h4>Public Static Methods</h4><ul><LI>static  XmlElement* &nbsp;<b><A HREF="#ref41">buildTransfer</A></b> (const String& transferTo, const String& transferFrom,
+	const String& sid = String::empty()) 
+</LI>
+<LI>static  inline Version &nbsp;<b><A HREF="#ref42">lookupVersion</A></b> (const char* value, Version def = VersionUnknown) 
+</LI>
+<LI>static  inline const char* &nbsp;<b><A HREF="#ref43">lookupVersion</A></b> (int value, const char* def = "unknown") 
+</LI>
+<LI>static  inline int &nbsp;<b><A HREF="#ref44">lookupReason</A></b> (const char* value, int def = ReasonOk) 
+</LI>
+<LI>static  inline const char* &nbsp;<b><A HREF="#ref45">lookupReason</A></b> (int value, const char* def = 0) 
+</LI>
+<LI>static  const char* &nbsp;<b><A HREF="#ref46">lookupState</A></b> (int state) 
+</LI>
+<LI>static  const char* &nbsp;<b><A HREF="#ref47">lookupAction</A></b> (int act, Version ver) 
+</LI>
+<LI>static  Action &nbsp;<b><A HREF="#ref48">lookupAction</A></b> (const char* str, Version ver) 
+</LI>
+</ul><h4>Public Members</h4><ul><LI>static const TokenDict <b><A HREF="#ref49">s_versions[]</A></b></LI>
+<LI>static const TokenDict <b><A HREF="#ref50">s_reasons[]</A></b></LI>
+<LI>static const TokenDict <b><A HREF="#ref51">s_rtpInfo[]</A></b></LI>
+<LI>static const TokenDict <b><A HREF="#ref52">s_states[]</A></b></LI>
+<LI>static const TokenDict <b><A HREF="#ref53">s_actions0[]</A></b></LI>
+<LI>static const TokenDict <b><A HREF="#ref54">s_actions1[]</A></b></LI>
+<LI>static const TokenDict <b><A HREF="#ref55">s_flagName[]</A></b></LI>
+</ul><h4>Protected Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref56">JGSession</A></b> (Version ver, JGEngine* engine,
+	const JabberID& caller, const JabberID& called) 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref57">JGSession</A></b> (Version ver, JGEngine* engine, const JabberID& caller,
+	const JabberID& called, XmlElement* xml, const String& id) 
+</LI>
+<LI>virtual  bool &nbsp;<b><i><A HREF="#ref58">initiate</A></i></b> (const ObjList& contents, XmlElement* extra,
+	const char* subject = 0) 
+</LI>
+<LI>virtual  JGEvent* &nbsp;<b><A HREF="#ref59">getEvent</A></b> (<A HREF="#u_int64_t">u_int64_t</A> time) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref60">destroyed</A></b> () 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref61">sendStanza</A></b> (XmlElement* stanza, String* stanzaId = 0, bool confirmation = true,
+	bool ping = false, unsigned int toutMs = 0) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref62">sendPing</A></b> (<A HREF="#u_int64_t">u_int64_t</A> msecNow) 
+</LI>
+<LI>virtual  JGEvent* &nbsp;<b><i><A HREF="#ref63">decodeJingle</A></i></b> (XmlElement*& xml, XmlElement* child) 
+</LI>
+<LI>virtual  XmlElement* &nbsp;<b><i><A HREF="#ref64">createJingle</A></i></b> (Action action, XmlElement* element1 = 0,
+	XmlElement* element2 = 0, XmlElement* element3 = 0) 
+</LI>
+<LI>virtual  XmlElement* &nbsp;<b><i><A HREF="#ref65">createDtmf</A></i></b> (const char* dtmf, unsigned int msDuration = 0) 
+</LI>
+<LI>virtual  JGEvent* &nbsp;<b><A HREF="#ref66">processJingleSetEvent</A></b> (JGEvent*& ev) 
+</LI>
+<LI>virtual  JGEvent* &nbsp;<b><A HREF="#ref67">processJabberIqResponse</A></b> (bool result, XmlElement*& xml) 
+</LI>
+<LI>virtual  JGEvent* &nbsp;<b><A HREF="#ref68">processFileTransfer</A></b> (bool set, XmlElement*& xml, XmlElement* child) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref69">eventTerminated</A></b> (JGEvent* event) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref70">changeState</A></b> (State newState) 
+</LI>
+</ul><h4>Protected Members</h4><ul><LI>Version <b><A HREF="#ref71">m_version</A></b></LI>
+<LI>State <b><A HREF="#ref72">m_state</A></b></LI>
+<LI>int <b><A HREF="#ref73">m_flags</A></b></LI>
+<LI>u_int64_t <b><A HREF="#ref74">m_timeToPing</A></b></LI>
+<LI>JGEngine* <b><A HREF="#ref75">m_engine</A></b></LI>
+<LI>bool <b><A HREF="#ref76">m_outgoing</A></b></LI>
+<LI>String <b><A HREF="#ref77">m_sid</A></b></LI>
+<LI>JabberID <b><A HREF="#ref78">m_local</A></b></LI>
+<LI>JabberID <b><A HREF="#ref79">m_remote</A></b></LI>
+<LI>XmlFragment <b><A HREF="#ref80">m_queue</A></b></LI>
+<LI>JGEvent* <b><A HREF="#ref81">m_lastEvent</A></b></LI>
+<LI>bool <b><A HREF="#ref82">m_recvTerminate</A></b></LI>
+<LI>void* <b><A HREF="#ref83">m_private</A></b></LI>
+<LI>String <b><A HREF="#ref84">m_localSid</A></b></LI>
+<LI>u_int32_t <b><A HREF="#ref85">m_stanzaId</A></b></LI>
+<LI>ObjList <b><A HREF="#ref86">m_sentStanza</A></b></LI>
+<LI>String <b><A HREF="#ref87">m_line</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ This class is a base class for all specific jingle sessions
+</p>
+<A NAME="Version"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>Version</strong> {	Version0 = 0,
+	Version1 = 1,
+	VersionUnknown
+    }
+</td><td align="right"><h3><strong>Version</strong></h3></td></tr></table><p></p><p>
+ Jingle session version
+     </p>
+<A NAME="Reason"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>Reason</strong> {	ReasonUnknown = 0,
+	ReasonOk,                        
+	ReasonBusy,                      
+	ReasonDecline,                   
+	ReasonCancel,                    
+	ReasonExpired,                   
+	ReasonConn,                      
+	ReasonFailApp,                   
+	ReasonFailTransport,             
+	ReasonGone,                      
+	ReasonParams,                    
+	ReasonMedia,                     
+	ReasonTransport,                 
+	ReasonApp,                       
+	ReasonSecurity,                  
+	ReasonTimeout,                   
+	ReasonGeneral,                   
+	ReasonAltSess,                   
+	Transferred,                     
+	CryptoRequired,                  
+	InvalidCrypto,                   
+    }
+</td><td align="right"><h3><strong>Reason</strong></h3></td></tr></table><p></p><p>
+ Jingle defined reasons and errors
+     </p>
+<A NAME="RtpInfo"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>RtpInfo</strong> {	RtpActive,                       
+	RtpHold,                         
+	RtpMute,                         
+	RtpRinging,                      
+    }
+</td><td align="right"><h3><strong>RtpInfo</strong></h3></td></tr></table><p></p><p>
+ RTP session info (XEP 0167)
+     </p>
+<A NAME="State"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>State</strong> {	Idle    = 0,                     
+	Pending = 1,                     
+	Active  = 2,                     
+	Ending  = 3,                     
+	Destroy = 4,                     
+    }
+</td><td align="right"><h3><strong>State</strong></h3></td></tr></table><p></p><p>
+ Session state enumeration
+     </p>
+<A NAME="Action"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>Action</strong> {	ActAccept,                       
+	ActInitiate,                     
+	ActTerminate,                    
+	ActReject,                       
+	ActInfo,                         
+	ActTransportInfo,                
+	ActTransportAccept,              
+	ActTransportReject,              
+	ActTransportReplace,             
+	ActCandidates,                   
+	ActContentAccept,                
+	ActContentAdd,                   
+	ActContentModify,                
+	ActContentReject,                
+	ActContentRemove,                
+	ActContentInfo,                  
+	ActDescriptionInfo,              
+	ActTransfer,                     
+	ActRinging,                      
+	ActTrying,                       
+	ActReceived,                     
+	ActHold,                         
+	ActActive,                       
+	ActMute,                         
+	ActDtmf,                         
+	ActStreamHost,
+	ActCount,
+    }
+</td><td align="right"><h3><strong>Action</strong></h3></td></tr></table><p></p><p>
+ Jingle action enumeration
+     </p>
+<A NAME="SessionFlag"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>SessionFlag</strong> {	FlagNoPing = 0x0001,             
+	FlagRingNsRtp = 0x0002,          
+	FlagNoOkInitiate = 0x0004,       
+    }
+</td><td align="right"><h3><strong>SessionFlag</strong></h3></td></tr></table><p></p><p>
+ Session flags
+     </p>
+<A NAME="~JGSession"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~JGSession</strong> ()
+<br></td><td align="right"><h3><strong>~JGSession</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor
+     </p>
+<A NAME="version"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline Version &nbsp;<strong>version</strong> ()
+<br></td><td align="right"><h3><strong>version</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the session version
+</p>
+<p><b>Returns</b>: The session version
+     </p>
+<A NAME="engine"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline JGEngine* &nbsp;<strong>engine</strong> ()
+<br></td><td align="right"><h3><strong>engine</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the engine owning this session
+</p>
+<p><b>Returns</b>: The engine owning this session
+     </p>
+<A NAME="outgoing"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>outgoing</strong> ()
+<br></td><td align="right"><h3><strong>outgoing</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the session direction
+</p>
+<p><b>Returns</b>: True if it is an outgoing session
+     </p>
+<A NAME="sid"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const String& &nbsp;<strong>sid</strong> ()
+<br></td><td align="right"><h3><strong>sid</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the session id
+</p>
+<p><b>Returns</b>: The session id
+     </p>
+<A NAME="local"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const JabberID& &nbsp;<strong>local</strong> ()
+<br></td><td align="right"><h3><strong>local</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the local peer's JID
+</p>
+<p><b>Returns</b>: The local peer's JID
+     </p>
+<A NAME="remote"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const JabberID& &nbsp;<strong>remote</strong> ()
+<br></td><td align="right"><h3><strong>remote</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the remote peer's JID
+</p>
+<p><b>Returns</b>: The remote peer's JID
+     </p>
+<A NAME="state"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline State &nbsp;<strong>state</strong> ()
+<br></td><td align="right"><h3><strong>state</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the session state.
+</p>
+<p><b>Returns</b>: The session state as enumeration.
+     </p>
+<A NAME="flag"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline int &nbsp;<strong>flag</strong> (int mask)
+<br></td><td align="right"><h3><strong>flag</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve session flags
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>mask</i></TD><TD align="left" valign="top">Mask to retrieve
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Session flags
+     </p>
+<A NAME="setFlags"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>setFlags</strong> (int value)
+<br></td><td align="right"><h3><strong>setFlags</strong></h3></td></tr></table><p></p><p>
+ Replace session flags
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>value</i></TD><TD align="left" valign="top">The new session flags
+     </TD></TR>
+</TABLE></P>
+<A NAME="userData"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void* &nbsp;<strong>userData</strong> ()
+<br></td><td align="right"><h3><strong>userData</strong></h3></td></tr></table><p></p><p>
+ Get the arbitrary user data of this session
+</p>
+<p><b>Returns</b>: The arbitrary user data of this session
+     </p>
+<A NAME="userData"></A><A NAME="ref20"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>userData</strong> (void* userdata)
+<br></td><td align="right"><h3><strong>userData</strong></h3></td></tr></table><p></p><p>
+ Set the arbitrary user data of this session
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>userdata</i></TD><TD align="left" valign="top">The new arbitrary user data's value
+     </TD></TR>
+</TABLE></P>
+<A NAME="line"></A><A NAME="ref21"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const String& &nbsp;<strong>line</strong> ()
+<br></td><td align="right"><h3><strong>line</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the client account used by this session
+</p>
+<p><b>Returns</b>: The client account used by this session
+     </p>
+<A NAME="line"></A><A NAME="ref22"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>line</strong> (const String& acc)
+<br></td><td align="right"><h3><strong>line</strong></h3></td></tr></table><p></p><p>
+ Set the client account used by this session
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>acc</i></TD><TD align="left" valign="top">The client account used by this session
+     </TD></TR>
+</TABLE></P>
+<A NAME="getAction"></A><A NAME="ref23"></A><table width="100%"><tr bgcolor="#eeeeee"><td>Action &nbsp;<strong>getAction</strong> (XmlElement* xml)
+<br></td><td align="right"><h3><strong>getAction</strong></h3></td></tr></table><p></p><p>
+ Get an action (jingle element type) from a jingle element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Element to check
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The found action, ActCount if not found or unknown
+     </p>
+<A NAME="acceptIq"></A><A NAME="ref24"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>acceptIq</strong> (XMPPUtils::IqType type, const JabberID& from, const JabberID& to,
+	const String& id, XmlElement* xml)
+<br></td><td align="right"><h3><strong>acceptIq</strong></h3></td></tr></table><p></p><p>
+ Ask this session to accept an incoming xml 'iq' element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Iq type as enumeration
+</TD></TR>
+<TR><TD align="left" valign="top"><i>from</i></TD><TD align="left" valign="top">The sender
+</TD></TR>
+<TR><TD align="left" valign="top"><i>to</i></TD><TD align="left" valign="top">The recipient
+</TD></TR>
+<TR><TD align="left" valign="top"><i>id</i></TD><TD align="left" valign="top">The session id of this is a request (set/get) or the stanza id
+</TD></TR>
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The received element
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if accepted (the element was enqueued), false if not
+     </p>
+<A NAME="confirmResult"></A><A NAME="ref25"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>confirmResult</strong> (XmlElement* xml)
+<br></td><td align="right"><h3><strong>confirmResult</strong></h3></td></tr></table><p></p><p>
+ Confirm (send result) a received element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The element to confirm
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if send failed or element is 0
+     </p>
+<A NAME="confirmError"></A><A NAME="ref26"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>confirmError</strong> (XmlElement*& xml, XMPPError::Type error,
+	const char* text = 0, XMPPError::ErrorType type = XMPPError::TypeModify)
+<br></td><td align="right"><h3><strong>confirmError</strong></h3></td></tr></table><p></p><p>
+ Confirm (send error) a received element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The element to confirm (will be consumed and zeroed)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>error</i></TD><TD align="left" valign="top">The error condition
+</TD></TR>
+<TR><TD align="left" valign="top"><i>text</i></TD><TD align="left" valign="top">Optional text to add to the error element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Error type
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if send failed or element is 0
+     </p>
+<A NAME="accept"></A><A NAME="ref27"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>accept</strong> (const ObjList& contents, String* stanzaId = 0)
+<br></td><td align="right"><h3><strong>accept</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Accept a Pending incoming session.
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>contents</i></TD><TD align="left" valign="top">The list of accepted contents
+</TD></TR>
+<TR><TD align="left" valign="top"><i>stanzaId</i></TD><TD align="left" valign="top">Optional string to be filled with sent stanza id (used to track the response)
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if send failed
+     </p>
+<A NAME="hangup"></A><A NAME="ref28"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>hangup</strong> (XmlElement* reason = 0)
+<br></td><td align="right"><h3><strong>hangup</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Close a Pending or Active session
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>reason</i></TD><TD align="left" valign="top">Optional termination reason
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if send failed
+     </p>
+<A NAME="createRtpInfoXml"></A><A NAME="ref29"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>createRtpInfoXml</strong> (RtpInfo info)
+<br></td><td align="right"><h3><strong>createRtpInfoXml</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Create a RTP info child to be added to a session-info element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>info</i></TD><TD align="left" valign="top">The informational tag as enumeration
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Valid XmlElement pointer or 0 if not supported
+     </p>
+<A NAME="createReason"></A><A NAME="ref30"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>createReason</strong> (int reason, const char* text = 0,
+	XmlElement* child = 0)
+<br></td><td align="right"><h3><strong>createReason</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Create a termination reason element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>reason</i></TD><TD align="left" valign="top">The reason code
+</TD></TR>
+<TR><TD align="left" valign="top"><i>text</i></TD><TD align="left" valign="top">Optional reason text child
+</TD></TR>
+<TR><TD align="left" valign="top"><i>child</i></TD><TD align="left" valign="top">Optional additional reason child
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Valid XmlElement pointer or 0 if not supported
+     </p>
+<A NAME="createTransferReason"></A><A NAME="ref31"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>createTransferReason</strong> (int reason)
+<br></td><td align="right"><h3><strong>createTransferReason</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Create a transfer reason element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>reason</i></TD><TD align="left" valign="top">The reason code
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Valid XmlElement pointer or 0 if not supported
+     </p>
+<A NAME="createRtpSessionReason"></A><A NAME="ref32"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>createRtpSessionReason</strong> (int reason)
+<br></td><td align="right"><h3><strong>createRtpSessionReason</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Create a RTP session reason element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>reason</i></TD><TD align="left" valign="top">The reason code
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Valid XmlElement pointer or 0 if not supported
+     </p>
+<A NAME="sendContent"></A><A NAME="ref33"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>sendContent</strong> (Action action, const ObjList& contents, String* stanzaId = 0)
+<br></td><td align="right"><h3><strong>sendContent</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Send a stanza with session content(s)
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>action</i></TD><TD align="left" valign="top">Must be a transport- or content- action
+</TD></TR>
+<TR><TD align="left" valign="top"><i>contents</i></TD><TD align="left" valign="top">Non empty list with content(s) to send
+</TD></TR>
+<TR><TD align="left" valign="top"><i>stanzaId</i></TD><TD align="left" valign="top">Optional string to be filled with sent
+  stanza id (used to track the response)
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if send failed
+     </p>
+<A NAME="sendContent"></A><A NAME="ref34"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>sendContent</strong> (Action action, const JGSessionContent* content,
+	String* stanzaId = 0)
+<br></td><td align="right"><h3><strong>sendContent</strong></h3></td></tr></table><p></p><p>
+ Send a stanza with a session content
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>action</i></TD><TD align="left" valign="top">Must be a transport- or content- action
+</TD></TR>
+<TR><TD align="left" valign="top"><i>content</i></TD><TD align="left" valign="top">The content to send
+</TD></TR>
+<TR><TD align="left" valign="top"><i>stanzaId</i></TD><TD align="left" valign="top">Optional string to be filled with sent
+  stanza id (used to track the response)
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if send failed
+     </p>
+<A NAME="sendStreamHosts"></A><A NAME="ref35"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>sendStreamHosts</strong> (const ObjList& hosts, String* stanzaId = 0)
+<br></td><td align="right"><h3><strong>sendStreamHosts</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Send a stanza with stream hosts
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>hosts</i></TD><TD align="left" valign="top">The list of hosts to send
+</TD></TR>
+<TR><TD align="left" valign="top"><i>stanzaId</i></TD><TD align="left" valign="top">Optional string to be filled with sent
+  stanza id (used to track the response)
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if send failed
+     </p>
+<A NAME="sendStreamHostUsed"></A><A NAME="ref36"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>sendStreamHostUsed</strong> (const char* jid, const char* stanzaId)
+<br></td><td align="right"><h3><strong>sendStreamHostUsed</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Send a stanza with a stream host used. If the jid is empty, send an
+  item-not-found error response
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>jid</i></TD><TD align="left" valign="top">The stream host to send
+</TD></TR>
+<TR><TD align="left" valign="top"><i>stanzaId</i></TD><TD align="left" valign="top">The id of the stanza to confirm
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if send failed
+     </p>
+<A NAME="buildSocksDstAddr"></A><A NAME="ref37"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>buildSocksDstAddr</strong> (String& buf)
+<br></td><td align="right"><h3><strong>buildSocksDstAddr</strong></h3></td></tr></table><p></p><p>
+ Build SOCKS SHA1 dst.addr used by file transfer
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>buf</i></TD><TD align="left" valign="top">Destination string
+     </TD></TR>
+</TABLE></P>
+<A NAME="sendInfo"></A><A NAME="ref38"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>sendInfo</strong> (XmlElement* xml, String* stanzaId = 0, XmlElement* extra = 0)
+<br></td><td align="right"><h3><strong>sendInfo</strong></h3></td></tr></table><p></p><p>
+ Send a session info element to the remote peer.
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The XmlElement carried by the session info element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>stanzaId</i></TD><TD align="left" valign="top">Optional string to be filled with sent stanza id (used to track the response)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>extra</i></TD><TD align="left" valign="top">Optional extra child for jingle element
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False on failure
+     </p>
+<A NAME="sendDtmf"></A><A NAME="ref39"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>sendDtmf</strong> (const char* dtmf, unsigned int msDuration = 0, String* stanzaId = 0)
+<br></td><td align="right"><h3><strong>sendDtmf</strong></h3></td></tr></table><p></p><p>
+ Send a dtmf string to remote peer. If the string's length is greater then 1, each
+  character is added as a 'dtmf' child of the jingle element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>dtmf</i></TD><TD align="left" valign="top">The dtmf string
+</TD></TR>
+<TR><TD align="left" valign="top"><i>msDuration</i></TD><TD align="left" valign="top">The tone duration in miliseconds. Ignored if 0
+</TD></TR>
+<TR><TD align="left" valign="top"><i>stanzaId</i></TD><TD align="left" valign="top">Optional string to be filled with sent stanza id (used to track the response)
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if send failed
+     </p>
+<A NAME="hasFeature"></A><A NAME="ref40"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>hasFeature</strong> (XMPPNamespace::Type feature)
+<br></td><td align="right"><h3><strong>hasFeature</strong></h3></td></tr></table><p></p><p>
+ Check if the remote party supports a given feature
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>feature</i></TD><TD align="left" valign="top">The requested feature
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the remote party supports the given feature
+     </p>
+<A NAME="buildTransfer"></A><A NAME="ref41"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>buildTransfer</strong> (const String& transferTo, const String& transferFrom,
+	const String& sid = String::empty())
+<br></td><td align="right"><h3><strong>buildTransfer</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Build a transfer element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>transferTo</i></TD><TD align="left" valign="top">The JID to transfer to
+</TD></TR>
+<TR><TD align="left" valign="top"><i>transferFrom</i></TD><TD align="left" valign="top">The transferror's JID
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sid</i></TD><TD align="left" valign="top">Optional session id used for attended transfer (empty for unattended transfer)
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Valid XmlElement pointer
+     </p>
+<A NAME="lookupVersion"></A><A NAME="ref42"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline Version &nbsp;<strong>lookupVersion</strong> (const char* value, Version def = VersionUnknown)
+<br></td><td align="right"><h3><strong>lookupVersion</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get the session version associated with a text
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>value</i></TD><TD align="left" valign="top">The version text
+</TD></TR>
+<TR><TD align="left" valign="top"><i>def</i></TD><TD align="left" valign="top">Default value to return if not found
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Session Version value
+     </p>
+<A NAME="lookupVersion"></A><A NAME="ref43"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline const char* &nbsp;<strong>lookupVersion</strong> (int value, const char* def = "unknown")
+<br></td><td align="right"><h3><strong>lookupVersion</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get the session version name
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>value</i></TD><TD align="left" valign="top">The version value
+</TD></TR>
+<TR><TD align="left" valign="top"><i>def</i></TD><TD align="left" valign="top">Default value to return if not found
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Session version name or the default value if not found
+     </p>
+<A NAME="lookupReason"></A><A NAME="ref44"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline int &nbsp;<strong>lookupReason</strong> (const char* value, int def = ReasonOk)
+<br></td><td align="right"><h3><strong>lookupReason</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get the termination code associated with a text
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>value</i></TD><TD align="left" valign="top">The termination text
+</TD></TR>
+<TR><TD align="left" valign="top"><i>def</i></TD><TD align="left" valign="top">Default value to return if not found
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Termination code
+     </p>
+<A NAME="lookupReason"></A><A NAME="ref45"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline const char* &nbsp;<strong>lookupReason</strong> (int value, const char* def = 0)
+<br></td><td align="right"><h3><strong>lookupReason</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get the termination code associated with a text
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>value</i></TD><TD align="left" valign="top">The termination code
+</TD></TR>
+<TR><TD align="left" valign="top"><i>def</i></TD><TD align="left" valign="top">Default value to return if not found
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Termination text
+     </p>
+<A NAME="lookupState"></A><A NAME="ref46"></A><table width="100%"><tr bgcolor="#eeeeee"><td> const char* &nbsp;<strong>lookupState</strong> (int state)
+<br></td><td align="right"><h3><strong>lookupState</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get the name of a session state
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>state</i></TD><TD align="left" valign="top">The state to find
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The name of a session state
+     </p>
+<A NAME="lookupAction"></A><A NAME="ref47"></A><table width="100%"><tr bgcolor="#eeeeee"><td> const char* &nbsp;<strong>lookupAction</strong> (int act, Version ver)
+<br></td><td align="right"><h3><strong>lookupAction</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get the name of an action
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>act</i></TD><TD align="left" valign="top">The action to find
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ver</i></TD><TD align="left" valign="top">Session version to use
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The name of an action
+     </p>
+<A NAME="lookupAction"></A><A NAME="ref48"></A><table width="100%"><tr bgcolor="#eeeeee"><td> Action &nbsp;<strong>lookupAction</strong> (const char* str, Version ver)
+<br></td><td align="right"><h3><strong>lookupAction</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get the action associated with a given string
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>str</i></TD><TD align="left" valign="top">The action name
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ver</i></TD><TD align="left" valign="top">Session version to use
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The name of an action
+     </p>
+<A NAME="s_versions[]"></A><A NAME="ref49"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_versions[]</strong>
+</td><td align="right"><h3><strong>s_versions[]</strong></h3></td></tr></table><p></p><A NAME="s_reasons[]"></A><A NAME="ref50"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_reasons[]</strong>
+</td><td align="right"><h3><strong>s_reasons[]</strong></h3></td></tr></table><p></p><A NAME="s_rtpInfo[]"></A><A NAME="ref51"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_rtpInfo[]</strong>
+</td><td align="right"><h3><strong>s_rtpInfo[]</strong></h3></td></tr></table><p></p><A NAME="s_states[]"></A><A NAME="ref52"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_states[]</strong>
+</td><td align="right"><h3><strong>s_states[]</strong></h3></td></tr></table><p></p><A NAME="s_actions0[]"></A><A NAME="ref53"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_actions0[]</strong>
+</td><td align="right"><h3><strong>s_actions0[]</strong></h3></td></tr></table><p></p><A NAME="s_actions1[]"></A><A NAME="ref54"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_actions1[]</strong>
+</td><td align="right"><h3><strong>s_actions1[]</strong></h3></td></tr></table><p></p><A NAME="s_flagName[]"></A><A NAME="ref55"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_flagName[]</strong>
+</td><td align="right"><h3><strong>s_flagName[]</strong></h3></td></tr></table><p></p><A NAME="JGSession"></A><A NAME="ref56"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>JGSession</strong> (Version ver, JGEngine* engine,
+	const JabberID& caller, const JabberID& called)
+<br></td><td align="right"><h3><strong>JGSession</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Constructor. Create an outgoing session
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>ver</i></TD><TD align="left" valign="top">The session version
+</TD></TR>
+<TR><TD align="left" valign="top"><i>engine</i></TD><TD align="left" valign="top">The engine owning this session
+</TD></TR>
+<TR><TD align="left" valign="top"><i>caller</i></TD><TD align="left" valign="top">The caller's full JID
+</TD></TR>
+<TR><TD align="left" valign="top"><i>called</i></TD><TD align="left" valign="top">The called party's full JID
+     </TD></TR>
+</TABLE></P>
+<A NAME="JGSession"></A><A NAME="ref57"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>JGSession</strong> (Version ver, JGEngine* engine, const JabberID& caller,
+	const JabberID& called, XmlElement* xml, const String& id)
+<br></td><td align="right"><h3><strong>JGSession</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Constructor. Create an incoming session.
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>ver</i></TD><TD align="left" valign="top">The session version
+</TD></TR>
+<TR><TD align="left" valign="top"><i>engine</i></TD><TD align="left" valign="top">The engine owning this session
+</TD></TR>
+<TR><TD align="left" valign="top"><i>caller</i></TD><TD align="left" valign="top">The caller's full JID
+</TD></TR>
+<TR><TD align="left" valign="top"><i>called</i></TD><TD align="left" valign="top">The called party's full JID
+</TD></TR>
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">A valid Jabber Jingle xml with action session initiate
+</TD></TR>
+<TR><TD align="left" valign="top"><i>id</i></TD><TD align="left" valign="top">Session id
+     </TD></TR>
+</TABLE></P>
+<A NAME="initiate"></A><A NAME="ref58"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<i><strong>initiate</strong></i> (const ObjList& contents, XmlElement* extra,
+	const char* subject = 0)
+<br></td><td align="right"><h3><i><strong>initiate</strong></i></h3></td></tr></table><p> <small>[protected pure virtual]</small></p><p>
+ Build and send the initial message on an outgoing session
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>contents</i></TD><TD align="left" valign="top">The session contents to be sent with session initiate element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>extra</i></TD><TD align="left" valign="top">Optional extra child to be added to the session initiate element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>subject</i></TD><TD align="left" valign="top">Optional session subject
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True on success
+     </p>
+<A NAME="getEvent"></A><A NAME="ref59"></A><table width="100%"><tr bgcolor="#eeeeee"><td> JGEvent* &nbsp;<strong>getEvent</strong> (<A HREF="#u_int64_t">u_int64_t</A> time)
+<br></td><td align="right"><h3><strong>getEvent</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Get a Jingle event from the queue.
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>time</i></TD><TD align="left" valign="top">Current time in miliseconds
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: JGEvent pointer or 0
+     </p>
+<A NAME="destroyed"></A><A NAME="ref60"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>destroyed</strong> ()
+<br></td><td align="right"><h3><strong>destroyed</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Release this session and its memory
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__RefObject.html#destroyed">RefObject</A>.</p>
+<A NAME="sendStanza"></A><A NAME="ref61"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>sendStanza</strong> (XmlElement* stanza, String* stanzaId = 0, bool confirmation = true,
+	bool ping = false, unsigned int toutMs = 0)
+<br></td><td align="right"><h3><strong>sendStanza</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Send a stanza to the remote peer
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stanza</i></TD><TD align="left" valign="top">The stanza to send
+</TD></TR>
+<TR><TD align="left" valign="top"><i>stanzaId</i></TD><TD align="left" valign="top">Optional string to be filled with sent stanza id (used to track the response)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>confirmation</i></TD><TD align="left" valign="top">True if the stanza needs confirmation (add 'id' attribute)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ping</i></TD><TD align="left" valign="top">True if the stanza is a ping one
+</TD></TR>
+<TR><TD align="left" valign="top"><i>toutMs</i></TD><TD align="left" valign="top">Optional stanza timeout interval in milliseconds
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True on success
+     </p>
+<A NAME="sendPing"></A><A NAME="ref62"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>sendPing</strong> (<A HREF="#u_int64_t">u_int64_t</A> msecNow)
+<br></td><td align="right"><h3><strong>sendPing</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Send a ping (empty session info) stanza to the remote peer if it's time to do it
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msecNow</i></TD><TD align="left" valign="top">The current time
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if a ping was succesfully sent
+     </p>
+<A NAME="decodeJingle"></A><A NAME="ref63"></A><table width="100%"><tr bgcolor="#eeeeee"><td> JGEvent* &nbsp;<i><strong>decodeJingle</strong></i> (XmlElement*& xml, XmlElement* child)
+<br></td><td align="right"><h3><i><strong>decodeJingle</strong></i></h3></td></tr></table><p> <small>[protected pure virtual]</small></p><p>
+ Decode a jingle element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The element to decode
+</TD></TR>
+<TR><TD align="left" valign="top"><i>child</i></TD><TD align="left" valign="top">The element's first child
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: JGEvent pointer or 0
+     </p>
+<A NAME="createJingle"></A><A NAME="ref64"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<i><strong>createJingle</strong></i> (Action action, XmlElement* element1 = 0,
+	XmlElement* element2 = 0, XmlElement* element3 = 0)
+<br></td><td align="right"><h3><i><strong>createJingle</strong></i></h3></td></tr></table><p> <small>[protected pure virtual]</small></p><p>
+ Create an 'iq' of type 'set' with a 'jingle' child
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>action</i></TD><TD align="left" valign="top">The action of the Jingle stanza
+</TD></TR>
+<TR><TD align="left" valign="top"><i>element1</i></TD><TD align="left" valign="top">Optional child element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>element2</i></TD><TD align="left" valign="top">Optional child element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>element3</i></TD><TD align="left" valign="top">Optional child element
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Valid XmlElement pointer
+     </p>
+<A NAME="createDtmf"></A><A NAME="ref65"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<i><strong>createDtmf</strong></i> (const char* dtmf, unsigned int msDuration = 0)
+<br></td><td align="right"><h3><i><strong>createDtmf</strong></i></h3></td></tr></table><p> <small>[protected pure virtual]</small></p><p>
+ Create a dtmf XML element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>dtmf</i></TD><TD align="left" valign="top">The dtmf string
+</TD></TR>
+<TR><TD align="left" valign="top"><i>msDuration</i></TD><TD align="left" valign="top">The tone duration in miliseconds. Ignored if 0
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Valid XmlElement pointer or 0
+     </p>
+<A NAME="processJingleSetEvent"></A><A NAME="ref66"></A><table width="100%"><tr bgcolor="#eeeeee"><td> JGEvent* &nbsp;<strong>processJingleSetEvent</strong> (JGEvent*& ev)
+<br></td><td align="right"><h3><strong>processJingleSetEvent</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Method called in getEvent() to process a last event decoded from a
+  received jingle element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>ev</i></TD><TD align="left" valign="top">The event to process (will be consumed and zeroed)
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: JGEvent pointer or 0
+     </p>
+<A NAME="processJabberIqResponse"></A><A NAME="ref67"></A><table width="100%"><tr bgcolor="#eeeeee"><td> JGEvent* &nbsp;<strong>processJabberIqResponse</strong> (bool result, XmlElement*& xml)
+<br></td><td align="right"><h3><strong>processJabberIqResponse</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Method called in getEvent() to process a jabber event carrying a response
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>result</i></TD><TD align="left" valign="top">True if the element is a result, false if it's an error response
+</TD></TR>
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Xml element to process
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: JGEvent pointer or 0
+     </p>
+<A NAME="processFileTransfer"></A><A NAME="ref68"></A><table width="100%"><tr bgcolor="#eeeeee"><td> JGEvent* &nbsp;<strong>processFileTransfer</strong> (bool set, XmlElement*& xml, XmlElement* child)
+<br></td><td align="right"><h3><strong>processFileTransfer</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Decode a file transfer element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>set</i></TD><TD align="left" valign="top">True if the xml is an iq 'set', false if type is 'get'
+</TD></TR>
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The element to decode
+</TD></TR>
+<TR><TD align="left" valign="top"><i>child</i></TD><TD align="left" valign="top">The element's first child
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: JGEvent pointer or 0
+     </p>
+<A NAME="eventTerminated"></A><A NAME="ref69"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>eventTerminated</strong> (JGEvent* event)
+<br></td><td align="right"><h3><strong>eventTerminated</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Terminate notification from an event. Reset the last generated event
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>event</i></TD><TD align="left" valign="top">Terminated (processed) event
+     </TD></TR>
+</TABLE></P>
+<A NAME="changeState"></A><A NAME="ref70"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>changeState</strong> (State newState)
+<br></td><td align="right"><h3><strong>changeState</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Changed session state
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>newState</i></TD><TD align="left" valign="top">Session new state
+     </TD></TR>
+</TABLE></P>
+<A NAME="m_version"></A><A NAME="ref71"></A><table width="100%"><tr bgcolor="#eeeeee"><td>Version  <strong>m_version</strong>
+</td><td align="right"><h3><strong>m_version</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_state"></A><A NAME="ref72"></A><table width="100%"><tr bgcolor="#eeeeee"><td>State  <strong>m_state</strong>
+</td><td align="right"><h3><strong>m_state</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_flags"></A><A NAME="ref73"></A><table width="100%"><tr bgcolor="#eeeeee"><td>int  <strong>m_flags</strong>
+</td><td align="right"><h3><strong>m_flags</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_timeToPing"></A><A NAME="ref74"></A><table width="100%"><tr bgcolor="#eeeeee"><td><A HREF="#u_int64_t">u_int64_t</A>  <strong>m_timeToPing</strong>
+</td><td align="right"><h3><strong>m_timeToPing</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_engine"></A><A NAME="ref75"></A><table width="100%"><tr bgcolor="#eeeeee"><td>JGEngine*  <strong>m_engine</strong>
+</td><td align="right"><h3><strong>m_engine</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_outgoing"></A><A NAME="ref76"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool  <strong>m_outgoing</strong>
+</td><td align="right"><h3><strong>m_outgoing</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_sid"></A><A NAME="ref77"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_sid</strong>
+</td><td align="right"><h3><strong>m_sid</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_local"></A><A NAME="ref78"></A><table width="100%"><tr bgcolor="#eeeeee"><td>JabberID  <strong>m_local</strong>
+</td><td align="right"><h3><strong>m_local</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_remote"></A><A NAME="ref79"></A><table width="100%"><tr bgcolor="#eeeeee"><td>JabberID  <strong>m_remote</strong>
+</td><td align="right"><h3><strong>m_remote</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_queue"></A><A NAME="ref80"></A><table width="100%"><tr bgcolor="#eeeeee"><td>XmlFragment  <strong>m_queue</strong>
+</td><td align="right"><h3><strong>m_queue</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_lastEvent"></A><A NAME="ref81"></A><table width="100%"><tr bgcolor="#eeeeee"><td>JGEvent*  <strong>m_lastEvent</strong>
+</td><td align="right"><h3><strong>m_lastEvent</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_recvTerminate"></A><A NAME="ref82"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool  <strong>m_recvTerminate</strong>
+</td><td align="right"><h3><strong>m_recvTerminate</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_private"></A><A NAME="ref83"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void*  <strong>m_private</strong>
+</td><td align="right"><h3><strong>m_private</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_localSid"></A><A NAME="ref84"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_localSid</strong>
+</td><td align="right"><h3><strong>m_localSid</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_stanzaId"></A><A NAME="ref85"></A><table width="100%"><tr bgcolor="#eeeeee"><td><A HREF="#u_int32_t">u_int32_t</A>  <strong>m_stanzaId</strong>
+</td><td align="right"><h3><strong>m_stanzaId</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_sentStanza"></A><A NAME="ref86"></A><table width="100%"><tr bgcolor="#eeeeee"><td>ObjList  <strong>m_sentStanza</strong>
+</td><td align="right"><h3><strong>m_sentStanza</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_line"></A><A NAME="ref87"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_line</strong>
+</td><td align="right"><h3><strong>m_line</strong></h3></td></tr></table><p> <small>[protected]</small></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

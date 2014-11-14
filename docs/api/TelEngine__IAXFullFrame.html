@@ -1,0 +1,323 @@
+<HTML>
+<HEAD>
+<TITLE>class IAXFullFrame</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class IAXFullFrame</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">This class holds an IAX full frame. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::IAXFullFrame</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yiax___yateiax_h.html">libs/yiax/yateiax.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__IAXFrame.html">TelEngine::IAXFrame</A> <small>[public ]</small></TD></TR>
+<TR><TH>Inherited by</TH><TD><A HREF="TelEngine__IAXFrameOut.html">IAXFrameOut</A></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__IAXFullFrame.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref1">ControlType</A> {        Hangup = 0x01,
+        Ringing = 0x03,
+        Answer = 0x04,
+        Busy = 0x05,
+        Congestion = 0x08,
+        FlashHook = 0x09,
+        Option = 0x0b,
+        KeyRadio = 0x0c,
+        UnkeyRadio = 0x0d,
+        Progressing = 0x0e,
+        Proceeding = 0x0f,
+        Hold = 0x10,
+        Unhold = 0x11,
+        VidUpdate = 0x12,
+        SrcUpdate = 0x14,
+        StopSounds = 0xff,
+    }
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref2">IAXFullFrame</A></b> (Type type, <A HREF="#u_int32_t">u_int32_t</A> subclass, <A HREF="#u_int16_t">u_int16_t</A> sCallNo, <A HREF="#u_int16_t">u_int16_t</A> dCallNo,
+		 unsigned char oSeqNo, unsigned char iSeqNo,
+		 <A HREF="#u_int32_t">u_int32_t</A> tStamp, bool retrans,
+		 const unsigned char* buf, unsigned int len, bool mark = false) 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref3">IAXFullFrame</A></b> (Type type, <A HREF="#u_int32_t">u_int32_t</A> subclass, <A HREF="#u_int16_t">u_int16_t</A> sCallNo, <A HREF="#u_int16_t">u_int16_t</A> dCallNo,
+		 unsigned char oSeqNo, unsigned char iSeqNo,
+		 <A HREF="#u_int32_t">u_int32_t</A> tStamp,
+		 const unsigned char* buf = 0, unsigned int len = 0, bool mark = false) 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref4">IAXFullFrame</A></b> (Type type, <A HREF="#u_int32_t">u_int32_t</A> subclass, <A HREF="#u_int16_t">u_int16_t</A> sCallNo, <A HREF="#u_int16_t">u_int16_t</A> dCallNo,
+		 unsigned char oSeqNo, unsigned char iSeqNo,
+		 <A HREF="#u_int32_t">u_int32_t</A> tStamp, IAXIEList* ieList, <A HREF="#u_int16_t">u_int16_t</A> maxlen, bool mark = false) 
+</LI>
+<LI>virtual  &nbsp;<b><A HREF="#ref5">~IAXFullFrame</A></b> () 
+</LI>
+<LI>inline <A HREF="#u_int16_t">u_int16_t</A> &nbsp;<b><A HREF="#ref6">destCallNo</A></b> ()  const
+</LI>
+<LI>inline unsigned char &nbsp;<b><A HREF="#ref7">oSeqNo</A></b> ()  const
+</LI>
+<LI>inline unsigned char &nbsp;<b><A HREF="#ref8">iSeqNo</A></b> ()  const
+</LI>
+<LI>inline <A HREF="#u_int32_t">u_int32_t</A> &nbsp;<b><A HREF="#ref9">subclass</A></b> ()  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref10">isAuthReq</A></b> ()  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref11">isInval</A></b> ()  const
+</LI>
+<LI>virtual  IAXFullFrame* &nbsp;<b><A HREF="#ref12">fullFrame</A></b> () 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref13">updateBuffer</A></b> (<A HREF="#u_int16_t">u_int16_t</A> maxlen) 
+</LI>
+<LI>inline IAXIEList* &nbsp;<b><A HREF="#ref14">ieList</A></b> () 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref15">updateIEList</A></b> (bool incoming) 
+</LI>
+<LI>IAXIEList* &nbsp;<b><A HREF="#ref16">removeIEList</A></b> (bool delObj = true) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref17">toString</A></b> (String& dest, const SocketAddr& local, const SocketAddr& remote,
+	bool incoming) 
+</LI>
+</ul><h4>Public Static Methods</h4><ul><LI>static  inline const char* &nbsp;<b><A HREF="#ref18">controlTypeText</A></b> (int type) 
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>virtual  void &nbsp;<b><A HREF="#ref19">destroyed</A></b> () 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ This class holds all data needded to manage an IAX full frame
+</p>
+<A NAME="ControlType"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>ControlType</strong> {        Hangup = 0x01,
+        Ringing = 0x03,
+        Answer = 0x04,
+        Busy = 0x05,
+        Congestion = 0x08,
+        FlashHook = 0x09,
+        Option = 0x0b,
+        KeyRadio = 0x0c,
+        UnkeyRadio = 0x0d,
+        Progressing = 0x0e,
+        Proceeding = 0x0f,
+        Hold = 0x10,
+        Unhold = 0x11,
+        VidUpdate = 0x12,
+        SrcUpdate = 0x14,
+        StopSounds = 0xff,
+    }
+</td><td align="right"><h3><strong>ControlType</strong></h3></td></tr></table><p></p><p>
+ IAX frame subclass enumeration types for frames of type Control
+     </p>
+<A NAME="IAXFullFrame"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>IAXFullFrame</strong> (Type type, <A HREF="#u_int32_t">u_int32_t</A> subclass, <A HREF="#u_int16_t">u_int16_t</A> sCallNo, <A HREF="#u_int16_t">u_int16_t</A> dCallNo,
+		 unsigned char oSeqNo, unsigned char iSeqNo,
+		 <A HREF="#u_int32_t">u_int32_t</A> tStamp, bool retrans,
+		 const unsigned char* buf, unsigned int len, bool mark = false)
+<br></td><td align="right"><h3><strong>IAXFullFrame</strong></h3></td></tr></table><p></p><p>
+ Constructor. Constructs an incoming full frame
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Frame type
+</TD></TR>
+<TR><TD align="left" valign="top"><i>subclass</i></TD><TD align="left" valign="top">Frame subclass
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sCallNo</i></TD><TD align="left" valign="top">Source (remote) call number
+</TD></TR>
+<TR><TD align="left" valign="top"><i>dCallNo</i></TD><TD align="left" valign="top">Destination (local) call number
+</TD></TR>
+<TR><TD align="left" valign="top"><i>oSeqNo</i></TD><TD align="left" valign="top">Outgoing sequence number
+</TD></TR>
+<TR><TD align="left" valign="top"><i>iSeqNo</i></TD><TD align="left" valign="top">Incoming (expected) sequence number
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tStamp</i></TD><TD align="left" valign="top">Frame timestamp
+</TD></TR>
+<TR><TD align="left" valign="top"><i>retrans</i></TD><TD align="left" valign="top">Retransmission flag
+</TD></TR>
+<TR><TD align="left" valign="top"><i>buf</i></TD><TD align="left" valign="top">IE buffer
+</TD></TR>
+<TR><TD align="left" valign="top"><i>len</i></TD><TD align="left" valign="top">IE buffer length
+</TD></TR>
+<TR><TD align="left" valign="top"><i>mark</i></TD><TD align="left" valign="top">Mark flag
+     </TD></TR>
+</TABLE></P>
+<A NAME="IAXFullFrame"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>IAXFullFrame</strong> (Type type, <A HREF="#u_int32_t">u_int32_t</A> subclass, <A HREF="#u_int16_t">u_int16_t</A> sCallNo, <A HREF="#u_int16_t">u_int16_t</A> dCallNo,
+		 unsigned char oSeqNo, unsigned char iSeqNo,
+		 <A HREF="#u_int32_t">u_int32_t</A> tStamp,
+		 const unsigned char* buf = 0, unsigned int len = 0, bool mark = false)
+<br></td><td align="right"><h3><strong>IAXFullFrame</strong></h3></td></tr></table><p></p><p>
+ Constructor. Constructs an outgoing full frame
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Frame type
+</TD></TR>
+<TR><TD align="left" valign="top"><i>subclass</i></TD><TD align="left" valign="top">Frame subclass
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sCallNo</i></TD><TD align="left" valign="top">Source (remote) call number
+</TD></TR>
+<TR><TD align="left" valign="top"><i>dCallNo</i></TD><TD align="left" valign="top">Destination (local) call number
+</TD></TR>
+<TR><TD align="left" valign="top"><i>oSeqNo</i></TD><TD align="left" valign="top">Outgoing sequence number
+</TD></TR>
+<TR><TD align="left" valign="top"><i>iSeqNo</i></TD><TD align="left" valign="top">Incoming (expected) sequence number
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tStamp</i></TD><TD align="left" valign="top">Frame timestamp
+</TD></TR>
+<TR><TD align="left" valign="top"><i>buf</i></TD><TD align="left" valign="top">IE buffer
+</TD></TR>
+<TR><TD align="left" valign="top"><i>len</i></TD><TD align="left" valign="top">IE buffer length
+</TD></TR>
+<TR><TD align="left" valign="top"><i>mark</i></TD><TD align="left" valign="top">Mark flag
+     </TD></TR>
+</TABLE></P>
+<A NAME="IAXFullFrame"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>IAXFullFrame</strong> (Type type, <A HREF="#u_int32_t">u_int32_t</A> subclass, <A HREF="#u_int16_t">u_int16_t</A> sCallNo, <A HREF="#u_int16_t">u_int16_t</A> dCallNo,
+		 unsigned char oSeqNo, unsigned char iSeqNo,
+		 <A HREF="#u_int32_t">u_int32_t</A> tStamp, IAXIEList* ieList, <A HREF="#u_int16_t">u_int16_t</A> maxlen, bool mark = false)
+<br></td><td align="right"><h3><strong>IAXFullFrame</strong></h3></td></tr></table><p></p><p>
+ Constructor. Constructs an outgoing full frame
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Frame type
+</TD></TR>
+<TR><TD align="left" valign="top"><i>subclass</i></TD><TD align="left" valign="top">Frame subclass
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sCallNo</i></TD><TD align="left" valign="top">Source (remote) call number
+</TD></TR>
+<TR><TD align="left" valign="top"><i>dCallNo</i></TD><TD align="left" valign="top">Destination (local) call number
+</TD></TR>
+<TR><TD align="left" valign="top"><i>oSeqNo</i></TD><TD align="left" valign="top">Outgoing sequence number
+</TD></TR>
+<TR><TD align="left" valign="top"><i>iSeqNo</i></TD><TD align="left" valign="top">Incoming (expected) sequence number
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tStamp</i></TD><TD align="left" valign="top">Frame timestamp
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ieList</i></TD><TD align="left" valign="top">List of frame IEs
+</TD></TR>
+<TR><TD align="left" valign="top"><i>maxlen</i></TD><TD align="left" valign="top">Max frame data length
+</TD></TR>
+<TR><TD align="left" valign="top"><i>mark</i></TD><TD align="left" valign="top">Mark flag
+     </TD></TR>
+</TABLE></P>
+<A NAME="~IAXFullFrame"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~IAXFullFrame</strong> ()
+<br></td><td align="right"><h3><strong>~IAXFullFrame</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor
+     </p>
+<A NAME="destCallNo"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline <A HREF="#u_int16_t">u_int16_t</A> &nbsp;<strong>destCallNo</strong> ()
+<br></td><td align="right"><h3><strong>destCallNo</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the destination call number
+</p>
+<p><b>Returns</b>: The destination call number
+     </p>
+<A NAME="oSeqNo"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline unsigned char &nbsp;<strong>oSeqNo</strong> ()
+<br></td><td align="right"><h3><strong>oSeqNo</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the outgoing sequence number
+</p>
+<p><b>Returns</b>: The outgoing sequence number
+     </p>
+<A NAME="iSeqNo"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline unsigned char &nbsp;<strong>iSeqNo</strong> ()
+<br></td><td align="right"><h3><strong>iSeqNo</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the incoming sequence number
+</p>
+<p><b>Returns</b>: The incoming sequence number
+     </p>
+<A NAME="subclass"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline <A HREF="#u_int32_t">u_int32_t</A> &nbsp;<strong>subclass</strong> ()
+<br></td><td align="right"><h3><strong>subclass</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the subclass of this frame
+</p>
+<p><b>Returns</b>: The subclass of this frame
+     </p>
+<A NAME="isAuthReq"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>isAuthReq</strong> ()
+<br></td><td align="right"><h3><strong>isAuthReq</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Check if this frame is used to request authentication
+</p>
+<p><b>Returns</b>: True if this frame is used to request authentication (like RegReq or RegAuth)
+     </p>
+<A NAME="isInval"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>isInval</strong> ()
+<br></td><td align="right"><h3><strong>isInval</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Check if this frame is an INVAL one
+</p>
+<p><b>Returns</b>: True if this frame is INVAL
+     </p>
+<A NAME="fullFrame"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td> IAXFullFrame* &nbsp;<strong>fullFrame</strong> ()
+<br></td><td align="right"><h3><strong>fullFrame</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Get a pointer to this frame if it is a full frame
+</p>
+<p><b>Returns</b>: A pointer to this frame
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__IAXFrame.html#fullFrame">IAXFrame</A>.</p>
+<A NAME="updateBuffer"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>updateBuffer</strong> (<A HREF="#u_int16_t">u_int16_t</A> maxlen)
+<br></td><td align="right"><h3><strong>updateBuffer</strong></h3></td></tr></table><p></p><p>
+ Rebuild frame buffer from the list of IEs
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>maxlen</i></TD><TD align="left" valign="top">Max frame data length
+     </TD></TR>
+</TABLE></P>
+<A NAME="ieList"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline IAXIEList* &nbsp;<strong>ieList</strong> ()
+<br></td><td align="right"><h3><strong>ieList</strong></h3></td></tr></table><p></p><p>
+ Retrieve the IE list
+</p>
+<p><b>Returns</b>: IAXIEList pointer or NULL
+     </p>
+<A NAME="updateIEList"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>updateIEList</strong> (bool incoming)
+<br></td><td align="right"><h3><strong>updateIEList</strong></h3></td></tr></table><p></p><p>
+ Update IE list from buffer if not already done
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>incoming</i></TD><TD align="left" valign="top">True if this is an incoming frame
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the list is valid
+     </p>
+<A NAME="removeIEList"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td>IAXIEList* &nbsp;<strong>removeIEList</strong> (bool delObj = true)
+<br></td><td align="right"><h3><strong>removeIEList</strong></h3></td></tr></table><p></p><p>
+ Remove the IE list
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>delObj</i></TD><TD align="left" valign="top">True to delete it
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: IAXIEList pointer or NULL if requested to delete it or already NULL
+     </p>
+<A NAME="toString"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>toString</strong> (String& dest, const SocketAddr& local, const SocketAddr& remote,
+	bool incoming)
+<br></td><td align="right"><h3><strong>toString</strong></h3></td></tr></table><p></p><p>
+ Fill a string with this frame
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>dest</i></TD><TD align="left" valign="top">The string to fill
+</TD></TR>
+<TR><TD align="left" valign="top"><i>local</i></TD><TD align="left" valign="top">The local address
+</TD></TR>
+<TR><TD align="left" valign="top"><i>remote</i></TD><TD align="left" valign="top">The remote address
+</TD></TR>
+<TR><TD align="left" valign="top"><i>incoming</i></TD><TD align="left" valign="top">True if it is an incoming frame
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__GenObject.html#toString">GenObject</A>.</p>
+<A NAME="controlTypeText"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline const char* &nbsp;<strong>controlTypeText</strong> (int type)
+<br></td><td align="right"><h3><strong>controlTypeText</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get the string associated with the given IAX control type
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">The requested control type
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The text if type is valid or 0
+     </p>
+<A NAME="destroyed"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>destroyed</strong> ()
+<br></td><td align="right"><h3><strong>destroyed</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Destroyed notification. Clear data
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__RefObject.html#destroyed">RefObject</A>.</p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

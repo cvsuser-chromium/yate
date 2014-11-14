@@ -1,0 +1,389 @@
+<HTML>
+<HEAD>
+<TITLE>class ISDNQ921Management</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class ISDNQ921Management</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">ISDN Layer 2 BRI TEI management or PRI with D-channel(s) backup. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::ISDNQ921Management</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><i><A HREF="TelEngine__ISDNLayer2.html">TelEngine::ISDNLayer2</A></i> <small>[public ]</small>, <i><A HREF="TelEngine__ISDNLayer3.html">TelEngine::ISDNLayer3</A></i> <small>[public ]</small>, <A HREF="TelEngine__SignallingDumpable.html">TelEngine::SignallingDumpable</A> <small>[public ]</small>, <i><A HREF="TelEngine__SignallingReceiver.html">TelEngine::SignallingReceiver</A></i> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__ISDNQ921Management.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref1">ISDNQ921Management</A></b> (const NamedList& params, const char* name = 0, bool net = true) 
+</LI>
+<LI>virtual  &nbsp;<b><A HREF="#ref2">~ISDNQ921Management</A></b> () 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref3">initialize</A></b> (const NamedList* config) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref4">engine</A></b> (SignallingEngine* eng) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref5">multipleFrame</A></b> (<A HREF="#u_int8_t">u_int8_t</A> tei, bool establish, bool force) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref6">sendData</A></b> (const DataBlock& data, <A HREF="#u_int8_t">u_int8_t</A> tei, bool ack) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref7">sendFrame</A></b> (const ISDNFrame* frame, const ISDNQ921* q921 = 0) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref8">cleanup</A></b> () 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref9">multipleFrameEstablished</A></b> (<A HREF="#u_int8_t">u_int8_t</A> tei, bool confirm, bool timeout, ISDNLayer2* layer2) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref10">multipleFrameReleased</A></b> (<A HREF="#u_int8_t">u_int8_t</A> tei, bool confirm, bool timeout, ISDNLayer2* layer2) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref11">dataLinkState</A></b> (<A HREF="#u_int8_t">u_int8_t</A> tei, bool cmd, bool value, ISDNLayer2* layer2) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref12">receiveData</A></b> (const DataBlock& data, <A HREF="#u_int8_t">u_int8_t</A> tei, ISDNLayer2* layer2) 
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>virtual  void &nbsp;<b><A HREF="#ref13">timerTick</A></b> (const Time& when) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref14">receivedPacket</A></b> (const DataBlock& packet) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref15">notify</A></b> (SignallingInterface::Notification event) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref16">processTeiManagement</A></b> (ISDNFrame* frame) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref17">sendTeiManagement</A></b> (ISDNFrame::TeiManagement type, <A HREF="#u_int16_t">u_int16_t</A> ri, <A HREF="#u_int8_t">u_int8_t</A> ai, <A HREF="#u_int8_t">u_int8_t</A> tei = 127, bool pf = false) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref18">processTeiRequest</A></b> (<A HREF="#u_int16_t">u_int16_t</A> ri, <A HREF="#u_int8_t">u_int8_t</A> ai, bool pf) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref19">processTeiRemove</A></b> (<A HREF="#u_int8_t">u_int8_t</A> ai) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref20">processTeiCheckRequest</A></b> (<A HREF="#u_int8_t">u_int8_t</A> ai, bool pf) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref21">processTeiCheckResponse</A></b> (<A HREF="#u_int16_t">u_int16_t</A> ri, <A HREF="#u_int8_t">u_int8_t</A> ai) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref22">processTeiAssigned</A></b> (<A HREF="#u_int16_t">u_int16_t</A> ri, <A HREF="#u_int8_t">u_int8_t</A> ai) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref23">processTeiDenied</A></b> (<A HREF="#u_int16_t">u_int16_t</A> ri) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref24">processTeiVerify</A></b> (<A HREF="#u_int8_t">u_int8_t</A> ai, bool pf) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref25">sendTeiReq</A></b> (<A HREF="#u_int8_t">u_int8_t</A> tei) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref26">sendTeiRemove</A></b> () 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ This class is intended to be used as a proxy between an ISDN Layer 3 and multiple
+  Layer 2 objects sharing the same signalling interface.
+ It is used for BRI TEI management or PRI with D-channel backup.
+ It also keeps a list of ISDN Layer 2 object(s) used for the designated purpose
+</p>
+<A NAME="ISDNQ921Management"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>ISDNQ921Management</strong> (const NamedList& params, const char* name = 0, bool net = true)
+<br></td><td align="right"><h3><strong>ISDNQ921Management</strong></h3></td></tr></table><p></p><p>
+ Constructor - initialize this Layer 2 and the component
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Layer's parameters
+</TD></TR>
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Optional name of the component
+</TD></TR>
+<TR><TD align="left" valign="top"><i>net</i></TD><TD align="left" valign="top">True if managing the network side of Q.921
+     </TD></TR>
+</TABLE></P>
+<A NAME="~ISDNQ921Management"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~ISDNQ921Management</strong> ()
+<br></td><td align="right"><h3><strong>~ISDNQ921Management</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor
+     </p>
+<A NAME="initialize"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>initialize</strong> (const NamedList* config)
+<br></td><td align="right"><h3><strong>initialize</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Configure and initialize Q.921 Management and its children
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>config</i></TD><TD align="left" valign="top">Optional configuration parameters override
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if Q.921 management was initialized properly
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#initialize">SignallingComponent</A>.</p>
+<A NAME="engine"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>engine</strong> (SignallingEngine* eng)
+<br></td><td align="right"><h3><strong>engine</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Set the engine for this management and all Layer 2 children
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>eng</i></TD><TD align="left" valign="top">Pointer to the engine that will manage this mangement
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#engine">SignallingComponent</A>.</p>
+<A NAME="multipleFrame"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>multipleFrame</strong> (<A HREF="#u_int8_t">u_int8_t</A> tei, bool establish, bool force)
+<br></td><td align="right"><h3><strong>multipleFrame</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Implements Q.921 DL-ESTABLISH and DL-RELEASE request primitives
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>tei</i></TD><TD align="left" valign="top">This layer TEI (-1 to apply it to all targets this object may have attached)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>establish</i></TD><TD align="left" valign="top">True to establish. False to release
+</TD></TR>
+<TR><TD align="left" valign="top"><i>force</i></TD><TD align="left" valign="top">True to establish even if we already are established.
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the request was accepted
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__ISDNLayer2.html#multipleFrame">ISDNLayer2</A>.</p>
+<A NAME="sendData"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>sendData</strong> (const DataBlock& data, <A HREF="#u_int8_t">u_int8_t</A> tei, bool ack)
+<br></td><td align="right"><h3><strong>sendData</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Implements Q.921 DL-DATA and DL-UNIT DATA request primitives
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Data to send
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tei</i></TD><TD align="left" valign="top">This layer TEI (-1 for broadcast)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ack</i></TD><TD align="left" valign="top">True to send an acknowledged frame, false to send an unacknowledged one
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the request was accepted
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__ISDNLayer2.html#sendData">ISDNLayer2</A>.</p>
+<A NAME="sendFrame"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>sendFrame</strong> (const ISDNFrame* frame, const ISDNQ921* q921 = 0)
+<br></td><td align="right"><h3><strong>sendFrame</strong></h3></td></tr></table><p></p><p>
+ Implements Q.921 send frame to the interface
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>frame</i></TD><TD align="left" valign="top">The frame to be sent
+</TD></TR>
+<TR><TD align="left" valign="top"><i>q921</i></TD><TD align="left" valign="top">Pointer to the Q.921 that sends the frame, if any
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the frame was sent
+     </p>
+<A NAME="cleanup"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>cleanup</strong> ()
+<br></td><td align="right"><h3><strong>cleanup</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Emergency release.
+ Cleanup all Layer 2 objects attached to this Management
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__ISDNLayer2.html#cleanup">ISDNLayer2</A>.</p>
+<A NAME="multipleFrameEstablished"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>multipleFrameEstablished</strong> (<A HREF="#u_int8_t">u_int8_t</A> tei, bool confirm, bool timeout, ISDNLayer2* layer2)
+<br></td><td align="right"><h3><strong>multipleFrameEstablished</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Implements Q.921 DL-ESTABLISH indication/confirmation primitive:
+  'multiple frame acknowledged' mode established
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>tei</i></TD><TD align="left" valign="top">This layer TEI
+</TD></TR>
+<TR><TD align="left" valign="top"><i>confirm</i></TD><TD align="left" valign="top">True if this is a confirmation of a previous request,
+  false if it is an indication of state change on remote request
+</TD></TR>
+<TR><TD align="left" valign="top"><i>timeout</i></TD><TD align="left" valign="top">True if the reason is a timeout
+</TD></TR>
+<TR><TD align="left" valign="top"><i>layer2</i></TD><TD align="left" valign="top">Pointer to the notifier
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__ISDNLayer2.html#multipleFrameEstablished">ISDNLayer2</A>.</p>
+<A NAME="multipleFrameReleased"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>multipleFrameReleased</strong> (<A HREF="#u_int8_t">u_int8_t</A> tei, bool confirm, bool timeout, ISDNLayer2* layer2)
+<br></td><td align="right"><h3><strong>multipleFrameReleased</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Implements Q.921 DL-RELEASE indication/confirmation primitive:
+  'multiple frame acknowledged' mode released
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>tei</i></TD><TD align="left" valign="top">This layer TEI
+</TD></TR>
+<TR><TD align="left" valign="top"><i>confirm</i></TD><TD align="left" valign="top">True if this is a confirmation of a previous request,
+  false if it is an indication of state change on remote request
+</TD></TR>
+<TR><TD align="left" valign="top"><i>timeout</i></TD><TD align="left" valign="top">True if the reason is a timeout.
+</TD></TR>
+<TR><TD align="left" valign="top"><i>layer2</i></TD><TD align="left" valign="top">Pointer to the notifier
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__ISDNLayer2.html#multipleFrameReleased">ISDNLayer2</A>.</p>
+<A NAME="dataLinkState"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>dataLinkState</strong> (<A HREF="#u_int8_t">u_int8_t</A> tei, bool cmd, bool value, ISDNLayer2* layer2)
+<br></td><td align="right"><h3><strong>dataLinkState</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Notification from layer 2 of data link set/release command or response
+ Used for stateless layer 2
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>tei</i></TD><TD align="left" valign="top">This layer TEI
+</TD></TR>
+<TR><TD align="left" valign="top"><i>cmd</i></TD><TD align="left" valign="top">True if received a command, false if received a response
+</TD></TR>
+<TR><TD align="left" valign="top"><i>value</i></TD><TD align="left" valign="top">The value of the notification
+ If 'cmd' is true (command), the value is true if a request to establish data link was received
+   or false if received a request to release data link
+ If 'cmd' is false (response), the value is the response
+</TD></TR>
+<TR><TD align="left" valign="top"><i>layer2</i></TD><TD align="left" valign="top">Pointer to the notifier
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__ISDNLayer2.html#dataLinkState">ISDNLayer2</A>.</p>
+<A NAME="receiveData"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>receiveData</strong> (const DataBlock& data, <A HREF="#u_int8_t">u_int8_t</A> tei, ISDNLayer2* layer2)
+<br></td><td align="right"><h3><strong>receiveData</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Implements Q.921 DL-DATA and DL-UNIT DATA indication primitives
+ Receive data from an encapsulated Layer 2 and send it to the attached Layer 3
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Received data
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tei</i></TD><TD align="left" valign="top">The TEI as received in the packet
+</TD></TR>
+<TR><TD align="left" valign="top"><i>layer2</i></TD><TD align="left" valign="top">Pointer to the sender
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__ISDNLayer2.html#receiveData">ISDNLayer2</A>.</p>
+<A NAME="timerTick"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>timerTick</strong> (const Time& when)
+<br></td><td align="right"><h3><strong>timerTick</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Method called periodically to check timeouts
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>when</i></TD><TD align="left" valign="top">Time to use as computing base for events and timeouts
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#timerTick">SignallingComponent</A>.</p>
+<A NAME="receivedPacket"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>receivedPacket</strong> (const DataBlock& packet)
+<br></td><td align="right"><h3><strong>receivedPacket</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Process a Signalling Packet received by the interface.
+ Parse the data and send all non-UI frames to the appropriate Layer 2.
+ Process UI frames
+</p>
+<p><b>Returns</b>: True if message was successfully processed
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SignallingReceiver.html#receivedPacket">SignallingReceiver</A>.</p>
+<A NAME="notify"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>notify</strong> (SignallingInterface::Notification event)
+<br></td><td align="right"><h3><strong>notify</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Process a notification generated by the attached interface
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>event</i></TD><TD align="left" valign="top">Notification event reported by the interface
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if notification was processed
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SignallingReceiver.html#notify">SignallingReceiver</A>.</p>
+<A NAME="processTeiManagement"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>processTeiManagement</strong> (ISDNFrame* frame)
+<br></td><td align="right"><h3><strong>processTeiManagement</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Process UI frames carrying TEI management messages
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>frame</i></TD><TD align="left" valign="top">The parsed frame
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if the frame is not a TEI management one, true otherwise
+     </p>
+<A NAME="sendTeiManagement"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>sendTeiManagement</strong> (ISDNFrame::TeiManagement type, <A HREF="#u_int16_t">u_int16_t</A> ri, <A HREF="#u_int8_t">u_int8_t</A> ai, <A HREF="#u_int8_t">u_int8_t</A> tei = 127, bool pf = false)
+<br></td><td align="right"><h3><strong>sendTeiManagement</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Send a TEI management frame
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Type of the frame to send
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ri</i></TD><TD align="left" valign="top">Reference number to send in frame
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ai</i></TD><TD align="left" valign="top">Action indicator to send in frame
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tei</i></TD><TD align="left" valign="top">The TEI to send the frame to, default use broadcast
+</TD></TR>
+<TR><TD align="left" valign="top"><i>pf</i></TD><TD align="left" valign="top">The Poll/Final bit to set in the frame
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if frame was sent successfully
+     </p>
+<A NAME="processTeiRequest"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>processTeiRequest</strong> (<A HREF="#u_int16_t">u_int16_t</A> ri, <A HREF="#u_int8_t">u_int8_t</A> ai, bool pf)
+<br></td><td align="right"><h3><strong>processTeiRequest</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Process TEI request message and send back to TE:
+  TEI Assigned message if the request succeeded;
+  TEI Denied message with the received reference number if the
+   reference number is already in use;
+  TEI Denied message with the reference number set to 127 if
+   there is no TEI value available.
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>ri</i></TD><TD align="left" valign="top">The reference number
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ai</i></TD><TD align="left" valign="top">Action indicator
+</TD></TR>
+<TR><TD align="left" valign="top"><i>pf</i></TD><TD align="left" valign="top">The Poll/Final bit in the incoming frame
+     </TD></TR>
+</TABLE></P>
+<A NAME="processTeiRemove"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>processTeiRemove</strong> (<A HREF="#u_int8_t">u_int8_t</A> ai)
+<br></td><td align="right"><h3><strong>processTeiRemove</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Process Tei remove message removing the tei(s) contained by ai
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>ai</i></TD><TD align="left" valign="top">Contains the TEI value to remove or 127 to remove all TEI values
+     </TD></TR>
+</TABLE></P>
+<A NAME="processTeiCheckRequest"></A><A NAME="ref20"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>processTeiCheckRequest</strong> (<A HREF="#u_int8_t">u_int8_t</A> ai, bool pf)
+<br></td><td align="right"><h3><strong>processTeiCheckRequest</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Process TEI Check Request message and send to the NET a message with
+  the TEI and the asociated reference number
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>ai</i></TD><TD align="left" valign="top">Contains the TEI value to check or 127 to check all TEI values
+</TD></TR>
+<TR><TD align="left" valign="top"><i>pf</i></TD><TD align="left" valign="top">The Poll/Final bit in the incoming frame
+     </TD></TR>
+</TABLE></P>
+<A NAME="processTeiCheckResponse"></A><A NAME="ref21"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>processTeiCheckResponse</strong> (<A HREF="#u_int16_t">u_int16_t</A> ri, <A HREF="#u_int8_t">u_int8_t</A> ai)
+<br></td><td align="right"><h3><strong>processTeiCheckResponse</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Process TEI Check Response message and set the check flag to true to know that we have a response for that TEI
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>ri</i></TD><TD align="left" valign="top">The associated reference number to the ai
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ai</i></TD><TD align="left" valign="top">The TEI value as received in the answer
+     </TD></TR>
+</TABLE></P>
+<A NAME="processTeiAssigned"></A><A NAME="ref22"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>processTeiAssigned</strong> (<A HREF="#u_int16_t">u_int16_t</A> ri, <A HREF="#u_int8_t">u_int8_t</A> ai)
+<br></td><td align="right"><h3><strong>processTeiAssigned</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Process TEI Assigned message
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>ri</i></TD><TD align="left" valign="top">The reference number assigned to the ai
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ai</i></TD><TD align="left" valign="top">The TEI value assigned
+     </TD></TR>
+</TABLE></P>
+<A NAME="processTeiDenied"></A><A NAME="ref23"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>processTeiDenied</strong> (<A HREF="#u_int16_t">u_int16_t</A> ri)
+<br></td><td align="right"><h3><strong>processTeiDenied</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Process TEI Denied message
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>ri</i></TD><TD align="left" valign="top">The reference number of the denied request
+     </TD></TR>
+</TABLE></P>
+<A NAME="processTeiVerify"></A><A NAME="ref24"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>processTeiVerify</strong> (<A HREF="#u_int8_t">u_int8_t</A> ai, bool pf)
+<br></td><td align="right"><h3><strong>processTeiVerify</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Process TEI verify
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>ai</i></TD><TD align="left" valign="top">The TEI value of the message initiator
+</TD></TR>
+<TR><TD align="left" valign="top"><i>pf</i></TD><TD align="left" valign="top">The Poll/Final bit in the incoming frame
+     </TD></TR>
+</TABLE></P>
+<A NAME="sendTeiReq"></A><A NAME="ref25"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>sendTeiReq</strong> (<A HREF="#u_int8_t">u_int8_t</A> tei)
+<br></td><td align="right"><h3><strong>sendTeiReq</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Send TEI request message
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>tei</i></TD><TD align="left" valign="top">TEI value to assign
+     </TD></TR>
+</TABLE></P>
+<A NAME="sendTeiRemove"></A><A NAME="ref26"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>sendTeiRemove</strong> ()
+<br></td><td align="right"><h3><strong>sendTeiRemove</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Send a TEI remove frame
+     </p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

@@ -1,0 +1,224 @@
+<HTML>
+<HEAD>
+<TITLE>class JGSessionContent</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class JGSessionContent</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">A Jingle session content. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::JGSessionContent</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yjabber___yatejingle_h.html">libs/yjabber/yatejingle.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__RefObject.html">TelEngine::RefObject</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__JGSessionContent.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref1">Type</A> {	Unknown             = -1,        
+	UnknownFileTransfer = -2,        
+	RtpIceUdp           = 1,         
+	RtpRawUdp,                       
+	RtpP2P,                          
+	RtpGoogleRawUdp,                 
+	FileBSBOffer,                    
+	FileBSBRequest,                  
+    }
+</LI>
+<LI>enum <A HREF="#ref2">Senders</A> {	SendUnknown    = 0,
+	SendBoth       = 1,
+	SendInitiator  = 2,
+	SendResponder  = 3
+    }
+</LI>
+<LI>enum <A HREF="#ref3">Creator</A> {	CreatorUnknown   = 0,
+	CreatorInitiator = 1,
+	CreatorResponder = 2
+    }
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref4">JGSessionContent</A></b> (Type t, const char* name, Senders senders,
+	Creator creator, const char* disposition = 0) 
+</LI>
+<LI>inline Type &nbsp;<b><A HREF="#ref5">type</A></b> ()  const
+</LI>
+<LI>inline Senders &nbsp;<b><A HREF="#ref6">senders</A></b> ()  const
+</LI>
+<LI>inline Creator &nbsp;<b><A HREF="#ref7">creator</A></b> ()  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref8">isValidAudio</A></b> ()  const
+</LI>
+<LI>virtual  const String& &nbsp;<b><A HREF="#ref9">toString</A></b> ()  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref10">isSession</A></b> ()  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref11">isEarlyMedia</A></b> ()  const
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref12">setEarlyMedia</A></b> () 
+</LI>
+<LI>XmlElement* &nbsp;<b><A HREF="#ref13">toXml</A></b> (bool minimum, bool addDesc,
+	bool addTrans, bool addCandidates, bool addAuth)  const
+</LI>
+</ul><h4>Public Static Methods</h4><ul><LI>static  JGSessionContent* &nbsp;<b><A HREF="#ref14">fromXml</A></b> (XmlElement* xml, XMPPError::Type& err,
+	String& error) 
+</LI>
+</ul><h4>Public Members</h4><ul><LI>static const TokenDict <b><A HREF="#ref15">s_senders[]</A></b></LI>
+<LI>static const TokenDict <b><A HREF="#ref16">s_creator[]</A></b></LI>
+<LI>JGRtpMediaList <b><A HREF="#ref17">m_rtpMedia</A></b></LI>
+<LI>JGRtpCandidates <b><A HREF="#ref18">m_rtpLocalCandidates</A></b></LI>
+<LI>JGRtpCandidates <b><A HREF="#ref19">m_rtpRemoteCandidates</A></b></LI>
+<LI>NamedList <b><A HREF="#ref20">m_fileTransfer</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ This class holds a Jingle content negotiated during a session
+ It can be built from a received xml element and
+  it can build an xml element from itself
+</p>
+<A NAME="Type"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>Type</strong> {	Unknown             = -1,        
+	UnknownFileTransfer = -2,        
+	RtpIceUdp           = 1,         
+	RtpRawUdp,                       
+	RtpP2P,                          
+	RtpGoogleRawUdp,                 
+	FileBSBOffer,                    
+	FileBSBRequest,                  
+    }
+</td><td align="right"><h3><strong>Type</strong></h3></td></tr></table><p></p><p>
+ Enumeration of content type
+     </p>
+<A NAME="Senders"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>Senders</strong> {	SendUnknown    = 0,
+	SendBoth       = 1,
+	SendInitiator  = 2,
+	SendResponder  = 3
+    }
+</td><td align="right"><h3><strong>Senders</strong></h3></td></tr></table><p></p><p>
+ Enumeration values for the 'senders' attribute (required)
+     </p>
+<A NAME="Creator"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>Creator</strong> {	CreatorUnknown   = 0,
+	CreatorInitiator = 1,
+	CreatorResponder = 2
+    }
+</td><td align="right"><h3><strong>Creator</strong></h3></td></tr></table><p></p><p>
+ Enumeration values for the 'creator' attribute (required)
+     </p>
+<A NAME="JGSessionContent"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>JGSessionContent</strong> (Type t, const char* name, Senders senders,
+	Creator creator, const char* disposition = 0)
+<br></td><td align="right"><h3><strong>JGSessionContent</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>t</i></TD><TD align="left" valign="top">Content type as enumeration
+</TD></TR>
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Content name
+</TD></TR>
+<TR><TD align="left" valign="top"><i>senders</i></TD><TD align="left" valign="top">Content senders as enumeration
+</TD></TR>
+<TR><TD align="left" valign="top"><i>creator</i></TD><TD align="left" valign="top">Content creator as enumeration
+</TD></TR>
+<TR><TD align="left" valign="top"><i>disposition</i></TD><TD align="left" valign="top">Optional content disposition (defauls to 'session' if empty)
+     </TD></TR>
+</TABLE></P>
+<A NAME="type"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline Type &nbsp;<strong>type</strong> ()
+<br></td><td align="right"><h3><strong>type</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the content type
+</p>
+<p><b>Returns</b>: Content type as enumeration
+     </p>
+<A NAME="senders"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline Senders &nbsp;<strong>senders</strong> ()
+<br></td><td align="right"><h3><strong>senders</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the senders
+</p>
+<p><b>Returns</b>: Senders as enumeration
+     </p>
+<A NAME="creator"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline Creator &nbsp;<strong>creator</strong> ()
+<br></td><td align="right"><h3><strong>creator</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the content creator
+</p>
+<p><b>Returns</b>: Content creator as enumeration
+     </p>
+<A NAME="isValidAudio"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>isValidAudio</strong> ()
+<br></td><td align="right"><h3><strong>isValidAudio</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Check if this content is a valid audio one: it's media list type is Audio
+  and the payload list is not empty
+</p>
+<p><b>Returns</b>: True if this content can be used for audio purposes
+     </p>
+<A NAME="toString"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td> const String& &nbsp;<strong>toString</strong> ()
+<br></td><td align="right"><h3><strong>toString</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Get the name of this content
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__GenObject.html#toString">GenObject</A>.</p>
+<A NAME="isSession"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>isSession</strong> ()
+<br></td><td align="right"><h3><strong>isSession</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Check if the content disposition is session
+ XEP-0166: true if disposition is missing
+</p>
+<p><b>Returns</b>: True if this content should be processed at session level
+     </p>
+<A NAME="isEarlyMedia"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>isEarlyMedia</strong> ()
+<br></td><td align="right"><h3><strong>isEarlyMedia</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Check if the content disposition is early media
+</p>
+<p><b>Returns</b>: True if this content is an early media one
+     </p>
+<A NAME="setEarlyMedia"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>setEarlyMedia</strong> ()
+<br></td><td align="right"><h3><strong>setEarlyMedia</strong></h3></td></tr></table><p></p><p>
+ Set this content's disposition to early media
+     </p>
+<A NAME="toXml"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>XmlElement* &nbsp;<strong>toXml</strong> (bool minimum, bool addDesc,
+	bool addTrans, bool addCandidates, bool addAuth)
+<br></td><td align="right"><h3><strong>toXml</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Build a 'content' XML element from this object
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>minimum</i></TD><TD align="left" valign="top">Minimum data (only creator and name)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>addDesc</i></TD><TD align="left" valign="top">True to add the description child
+</TD></TR>
+<TR><TD align="left" valign="top"><i>addTrans</i></TD><TD align="left" valign="top">True to add the transport child
+</TD></TR>
+<TR><TD align="left" valign="top"><i>addCandidates</i></TD><TD align="left" valign="top">True to add the transport candidate children
+</TD></TR>
+<TR><TD align="left" valign="top"><i>addAuth</i></TD><TD align="left" valign="top">RtpIceUdp only: add auth data
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Valid XmlElement pointer
+     </p>
+<A NAME="fromXml"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td> JGSessionContent* &nbsp;<strong>fromXml</strong> (XmlElement* xml, XMPPError::Type& err,
+	String& error)
+<br></td><td align="right"><h3><strong>fromXml</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Decode 'content' element attributes
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The XML element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>err</i></TD><TD align="left" valign="top">The error on failure
+</TD></TR>
+<TR><TD align="left" valign="top"><i>error</i></TD><TD align="left" valign="top">Error text to be sent on failure
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Valid JGSessionContent pointer on success
+     </p>
+<A NAME="s_senders[]"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_senders[]</strong>
+</td><td align="right"><h3><strong>s_senders[]</strong></h3></td></tr></table><p></p><A NAME="s_creator[]"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_creator[]</strong>
+</td><td align="right"><h3><strong>s_creator[]</strong></h3></td></tr></table><p></p><A NAME="m_rtpMedia"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td>JGRtpMediaList  <strong>m_rtpMedia</strong>
+</td><td align="right"><h3><strong>m_rtpMedia</strong></h3></td></tr></table><p></p><A NAME="m_rtpLocalCandidates"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td>JGRtpCandidates  <strong>m_rtpLocalCandidates</strong>
+</td><td align="right"><h3><strong>m_rtpLocalCandidates</strong></h3></td></tr></table><p></p><A NAME="m_rtpRemoteCandidates"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td>JGRtpCandidates  <strong>m_rtpRemoteCandidates</strong>
+</td><td align="right"><h3><strong>m_rtpRemoteCandidates</strong></h3></td></tr></table><p></p><A NAME="m_fileTransfer"></A><A NAME="ref20"></A><table width="100%"><tr bgcolor="#eeeeee"><td>NamedList  <strong>m_fileTransfer</strong>
+</td><td align="right"><h3><strong>m_fileTransfer</strong></h3></td></tr></table><p></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

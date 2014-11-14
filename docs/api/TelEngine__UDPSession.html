@@ -1,0 +1,181 @@
+<HTML>
+<HEAD>
+<TITLE>class UDPSession</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class UDPSession</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">RTP or UDPTL session. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::UDPSession</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yrtp___yatertp_h.html">libs/yrtp/yatertp.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><i><A HREF="TelEngine__RTPProcessor.html">TelEngine::RTPProcessor</A></i> <small>[public ]</small></TD></TR>
+<TR><TH>Inherited by</TH><TD><A HREF="TelEngine__RTPSession.html">RTPSession</A>, <i><A HREF="TelEngine__UDPTLSession.html">UDPTLSession</A></i></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__UDPSession.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>virtual  &nbsp;<b><A HREF="#ref1">~UDPSession</A></b> () 
+</LI>
+<LI>virtual  RTPTransport* &nbsp;<b><A HREF="#ref2">createTransport</A></b> () 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref3">initTransport</A></b> () 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref4">initGroup</A></b> (int msec = 0, Thread::Priority prio = Thread::Normal) 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref5">remoteAddr</A></b> (SocketAddr& addr, bool sniff = false) 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref6">setBuffer</A></b> (int bufLen = 4096) 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref7">setTOS</A></b> (int tos) 
+</LI>
+<LI>inline Socket* &nbsp;<b><A HREF="#ref8">rtpSock</A></b> () 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref9">drillHole</A></b> () 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref10">setTimeout</A></b> (int interval) 
+</LI>
+<LI>inline RTPTransport* &nbsp;<b><A HREF="#ref11">transport</A></b> ()  const
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref12">transport</A></b> (RTPTransport* trans) 
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref13">UDPSession</A></b> () 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref14">timeout</A></b> (bool initial) 
+</LI>
+</ul><h4>Protected Members</h4><ul><LI>RTPTransport* <b><A HREF="#ref15">m_transport</A></b></LI>
+<LI>u_int64_t <b><A HREF="#ref16">m_timeoutTime</A></b></LI>
+<LI>u_int64_t <b><A HREF="#ref17">m_timeoutInterval</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ A base class for RTP, SRTP or UDPTL sessions
+</p>
+<A NAME="~UDPSession"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~UDPSession</strong> ()
+<br></td><td align="right"><h3><strong>~UDPSession</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor - cleans up any remaining resources
+     </p>
+<A NAME="createTransport"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td> RTPTransport* &nbsp;<strong>createTransport</strong> ()
+<br></td><td align="right"><h3><strong>createTransport</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Create a new RTP or UDP transport for this session.
+ Override this method to create objects derived from RTPTransport.
+</p>
+<p><b>Returns</b>: Pointer to the new transport or NULL on failure
+     </p>
+<A NAME="initTransport"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>initTransport</strong> ()
+<br></td><td align="right"><h3><strong>initTransport</strong></h3></td></tr></table><p></p><p>
+ Initialize the RTP session, attach a transport if there is none
+</p>
+<p><b>Returns</b>: True if initialized, false on some failure
+     </p>
+<A NAME="initGroup"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>initGroup</strong> (int msec = 0, Thread::Priority prio = Thread::Normal)
+<br></td><td align="right"><h3><strong>initGroup</strong></h3></td></tr></table><p></p><p>
+ Initialize the RTP session, attach a group if none is present
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msec</i></TD><TD align="left" valign="top">Minimum time to sleep in group loop in milliseconds
+</TD></TR>
+<TR><TD align="left" valign="top"><i>prio</i></TD><TD align="left" valign="top">Thread priority to run the new group
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if initialized, false on some failure
+     </p>
+<A NAME="remoteAddr"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>remoteAddr</strong> (SocketAddr& addr, bool sniff = false)
+<br></td><td align="right"><h3><strong>remoteAddr</strong></h3></td></tr></table><p></p><p>
+ Set the remote network address of the RTP transport of this session
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>addr</i></TD><TD align="left" valign="top">New remote RTP transport address
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sniff</i></TD><TD align="left" valign="top">Automatically adjust the address from the first incoming packet
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if address set, false if a failure occured
+     </p>
+<A NAME="setBuffer"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>setBuffer</strong> (int bufLen = 4096)
+<br></td><td align="right"><h3><strong>setBuffer</strong></h3></td></tr></table><p></p><p>
+ Set the size of the operating system's buffers for the RTP and RTCP transport sockets
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>bufLen</i></TD><TD align="left" valign="top">Requested length of the buffer
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the buffer length was set
+     </p>
+<A NAME="setTOS"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>setTOS</strong> (int tos)
+<br></td><td align="right"><h3><strong>setTOS</strong></h3></td></tr></table><p></p><p>
+ Set the Type Of Service for the RTP transport socket
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>tos</i></TD><TD align="left" valign="top">Type Of Service bits to set
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if operation was successfull, false if an error occured
+     </p>
+<A NAME="rtpSock"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline Socket* &nbsp;<strong>rtpSock</strong> ()
+<br></td><td align="right"><h3><strong>rtpSock</strong></h3></td></tr></table><p></p><p>
+ Get the main transport socket used by this session
+</p>
+<p><b>Returns</b>: Pointer to the RTP or UDPTL socket, NULL if no transport exists
+     </p>
+<A NAME="drillHole"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>drillHole</strong> ()
+<br></td><td align="right"><h3><strong>drillHole</strong></h3></td></tr></table><p></p><p>
+ Drill a hole in a firewall or NAT for the RTP and RTCP sockets
+</p>
+<p><b>Returns</b>: True if at least a packet was sent for the RTP socket
+     </p>
+<A NAME="setTimeout"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>setTimeout</strong> (int interval)
+<br></td><td align="right"><h3><strong>setTimeout</strong></h3></td></tr></table><p></p><p>
+ Set the interval until receiver timeout is detected
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>interval</i></TD><TD align="left" valign="top">Milliseconds until receiver times out, zero to disable
+     </TD></TR>
+</TABLE></P>
+<A NAME="transport"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline RTPTransport* &nbsp;<strong>transport</strong> ()
+<br></td><td align="right"><h3><strong>transport</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the RTP/RTCP transport of data handled by this session.
+</p>
+<p><b>Returns</b>: A pointer to the RTPTransport of this session
+     </p>
+<A NAME="transport"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>transport</strong> (RTPTransport* trans)
+<br></td><td align="right"><h3><strong>transport</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Set the UDP transport of data handled by this session
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>trans</i></TD><TD align="left" valign="top">A pointer to the new RTPTransport for this session
+     </TD></TR>
+</TABLE></P>
+<A NAME="UDPSession"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>UDPSession</strong> ()
+<br></td><td align="right"><h3><strong>UDPSession</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Default constructor
+     </p>
+<A NAME="timeout"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>timeout</strong> (bool initial)
+<br></td><td align="right"><h3><strong>timeout</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Method called when the receiver timed out
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>initial</i></TD><TD align="left" valign="top">True if no packet was ever received in this session
+     </TD></TR>
+</TABLE></P>
+<A NAME="m_transport"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>RTPTransport*  <strong>m_transport</strong>
+</td><td align="right"><h3><strong>m_transport</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_timeoutTime"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td><A HREF="#u_int64_t">u_int64_t</A>  <strong>m_timeoutTime</strong>
+</td><td align="right"><h3><strong>m_timeoutTime</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_timeoutInterval"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td><A HREF="#u_int64_t">u_int64_t</A>  <strong>m_timeoutInterval</strong>
+</td><td align="right"><h3><strong>m_timeoutInterval</strong></h3></td></tr></table><p> <small>[protected]</small></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

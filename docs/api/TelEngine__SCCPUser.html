@@ -1,0 +1,203 @@
+<HTML>
+<HEAD>
+<TITLE>class SCCPUser</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SCCPUser</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">Abstract SS7 SCCP user interface. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SCCPUser</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__SignallingComponent.html">TelEngine::SignallingComponent</A> <small>[virtual public ]</small></TD></TR>
+<TR><TH>Inherited by</TH><TD><i><A HREF="TelEngine__SS7TCAP.html">SS7TCAP</A></i>, <A HREF="TelEngine__SS7TCAPANSI.html">SS7TCAPANSI</A>, <A HREF="TelEngine__SS7TCAPITU.html">SS7TCAPITU</A></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SCCPUser.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref1">SCCPUser</A></b> (const NamedList& params) 
+</LI>
+<LI>virtual  &nbsp;<b><A HREF="#ref2">~SCCPUser</A></b> () 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref3">initialize</A></b> (const NamedList* config) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref4">sendData</A></b> (DataBlock& data, NamedList& params) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref5">sccpNotify</A></b> (SCCP::Type type, NamedList& params) 
+</LI>
+<LI>virtual  HandledMSU &nbsp;<b><A HREF="#ref6">receivedData</A></b> (DataBlock& data, NamedList& params) 
+</LI>
+<LI>virtual  HandledMSU &nbsp;<b><A HREF="#ref7">notifyData</A></b> (DataBlock& data, NamedList& params) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref8">managementNotify</A></b> (SCCP::Type type, NamedList& params) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref9">attach</A></b> (SCCP* sccp) 
+</LI>
+<LI>inline SCCP* &nbsp;<b><A HREF="#ref10">sccp</A></b> ()  const
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>virtual  void &nbsp;<b><A HREF="#ref11">destroyed</A></b> () 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ An interface to a SS7 Signalling Connection Control Part user
+</p>
+<A NAME="SCCPUser"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>SCCPUser</strong> (const NamedList& params)
+<br></td><td align="right"><h3><strong>SCCPUser</strong></h3></td></tr></table><p></p><p>
+ Constructor
+     </p>
+<A NAME="~SCCPUser"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~SCCPUser</strong> ()
+<br></td><td align="right"><h3><strong>~SCCPUser</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor, detaches from the SCCP implementation
+     </p>
+<A NAME="initialize"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>initialize</strong> (const NamedList* config)
+<br></td><td align="right"><h3><strong>initialize</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Configure and initialize the component and any subcomponents it may have
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>config</i></TD><TD align="left" valign="top">Optional configuration parameters override
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the component was initialized properly
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#initialize">SignallingComponent</A>.</p>
+<A NAME="sendData"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>sendData</strong> (DataBlock& data, NamedList& params)
+<br></td><td align="right"><h3><strong>sendData</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Send a message to SCCP for transport
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">User data
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">SCCP parameters
+ Note! If the request is made with return option set there is no warranty that a notification
+ will be received in case that the message failed to be delivered
+     </TD></TR>
+</TABLE></P>
+<A NAME="sccpNotify"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>sccpNotify</strong> (SCCP::Type type, NamedList& params)
+<br></td><td align="right"><h3><strong>sccpNotify</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Send a request / notification from users to sccp regarding a subsystem status
+</p><table border="0" width="100%">
+<tr>
+<td bgcolor="#BEEAE0">
+<pre>
+
+      Type : CoordinateRequest -> Request from a user to <A HREF="TelEngine__SCCPUser.html#sccp">sccp</A> to go OOS
+           params: "ssn" The ssn to go OOS
+     	           "smi" Subsystem multiplicity indicator
+     		   "backups" The number of backup subsystems
+     		   "backup.N.ssn" The ssn of the backup subsystem number N
+     		   "backup.N.pointcode" The ssn of the backup subsystem number N
+      Type : CoordinateResponse -> Indication from a user to <A HREF="TelEngine__SCCPUser.html#sccp">sccp</A> in response to CoordinateIndication<
+           params: "ssn" The subsystem number that approved the indication
+                   "smi" 0
+      Type : StatusRequest -> Request from user to <A HREF="TelEngine__SCCPUser.html#sccp">sccp</A> to update a subsystem status
+       	   params: "ssn" The affected subsystem number
+       		   "smi" 0;
+      		   "subsystem-status": The requested status: UserOutOfService, UserInService
+
+</pre>
+</td></tr>
+
+</table> <p>
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">The type of request / notification
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">List of parameters
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if sccp management has processed the request / notification.
+     </p>
+<A NAME="receivedData"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td> HandledMSU &nbsp;<strong>receivedData</strong> (DataBlock& data, NamedList& params)
+<br></td><td align="right"><h3><strong>receivedData</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Notification from SCCP that a message has arrived
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Received user data
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">SCCP parameters
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if this user has processed the message, false otherwise
+     </p>
+<A NAME="notifyData"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> HandledMSU &nbsp;<strong>notifyData</strong> (DataBlock& data, NamedList& params)
+<br></td><td align="right"><h3><strong>notifyData</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Notification from SCCP that a message failed to arrive to it's destination
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">User data send.
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">SCCP parameters
+ Note! The data may not contain the full message block previously sent (in case of SCCP segmentation),
+ but it must always must contain the first segment
+     </TD></TR>
+</TABLE></P>
+<A NAME="managementNotify"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>managementNotify</strong> (SCCP::Type type, NamedList& params)
+<br></td><td align="right"><h3><strong>managementNotify</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Notification from SCCP management to a sccp user about pointcodes status, OOS responses/indications, subsystems status
+</p><table border="0" width="100%">
+<tr>
+<td bgcolor="#BEEAE0">
+<pre>
+
+      Type: CoordinateIndication -> Indication from a remote <A HREF="TelEngine__SCCP.html">SCCP</A> User that requires to go OOS
+          params: "ssn" -> The subsystem number of the remote <A HREF="TelEngine__SCCP.html">SCCP</A> User
+      	          "smi" -> Subsystem multiplicity indicator
+      	          "pointcode" -> The pointcode of the remote <A HREF="TelEngine__SCCP.html">SCCP</A> User
+      Type: SubsystemStatus -> Request from <A HREF="TelEngine__SCCP.html">SCCP</A> Management to <A HREF="TelEngine__SCCP.html">SCCP</A> Users to query the specified subsystem status.
+                               This happens when a <A HREF="TelEngine__SubsystemStatusTest.html">SubsystemStatusTest</A>(SST) message is received
+      	  params: "ssn" -> The requested subsystem
+          returned params:
+      	          "subsystem-status" -> The status of the subsystem: UserOutOfService, UserInService
+      	        		        Missing = UserOutOfService
+
+</pre>
+</td></tr>
+
+</table> <p>
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">The type of notification
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">List of parameters
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False on error
+      </p>
+<A NAME="attach"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>attach</strong> (SCCP* sccp)
+<br></td><td align="right"><h3><strong>attach</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Attach as user to a SCCP
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>sccp</i></TD><TD align="left" valign="top">Pointer to the SCCP to use
+ NOTE: This method will deref the pointer if is the same with the one that we already have!!
+ When this method is called the sccp pointer reference counter must be incremented for this
+ SCCPUser.
+     </TD></TR>
+</TABLE></P>
+<A NAME="sccp"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline SCCP* &nbsp;<strong>sccp</strong> ()
+<br></td><td align="right"><h3><strong>sccp</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the SCCP to which this component is attached
+</p>
+<p><b>Returns</b>: Pointer to the attached SCCP or NULL
+     </p>
+<A NAME="destroyed"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>destroyed</strong> ()
+<br></td><td align="right"><h3><strong>destroyed</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#destroyed">SignallingComponent</A>.</p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

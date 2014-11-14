@@ -1,0 +1,544 @@
+<HTML>
+<HEAD>
+<TITLE>class SDPSession</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SDPSession</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">A holder for a SDP session. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH colspan="2">Contains pure virtuals</TH></TR><TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SDPSession</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysdp___yatesdp_h.html">libs/ysdp/yatesdp.h</A>&gt;</code></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SDPSession.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref1"></A> {	MediaMissing,
+	MediaStarted,
+	MediaMuted
+    }
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref2">SDPSession</A></b> (SDPParser* parser) 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref3">SDPSession</A></b> (SDPParser* parser, NamedList& params) 
+</LI>
+<LI>virtual  &nbsp;<b><A HREF="#ref4">~SDPSession</A></b> () 
+</LI>
+<LI>inline const String& &nbsp;<b><A HREF="#ref5">getHost</A></b> ()  const
+</LI>
+<LI>inline const String& &nbsp;<b><A HREF="#ref6">getRtpAddr</A></b> ()  const
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref7">setMedia</A></b> (ObjList* media) 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref9">putMedia</A></b> (NamedList& msg, bool putPort = true) 
+</LI>
+<LI>SDPMedia* &nbsp;<b><A HREF="#ref10">getMedia</A></b> (const String& name)  const
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref11">setRfc2833</A></b> (const String& value) 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref12">setRfc2833</A></b> (const String* value) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref13">dispatchRtp</A></b> (SDPMedia* media, const char* addr,	bool start, bool pick, RefObject* context = 0) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref14">dispatchRtp</A></b> (const char* addr, bool start, RefObject* context = 0) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref15">startRtp</A></b> (RefObject* context = 0) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref16">updateSDP</A></b> (const NamedList& params) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref17">updateRtpSDP</A></b> (const NamedList& params) 
+</LI>
+<LI>MimeSdpBody* &nbsp;<b><A HREF="#ref18">createSDP</A></b> (const char* addr, ObjList* mediaList = 0) 
+</LI>
+<LI>MimeSdpBody* &nbsp;<b><A HREF="#ref19">createSDP</A></b> () 
+</LI>
+<LI>MimeSdpBody* &nbsp;<b><A HREF="#ref20">createPasstroughSDP</A></b> (NamedList& msg, bool update = true,
+	bool allowEmptyAddr = false) 
+</LI>
+<LI>inline MimeSdpBody* &nbsp;<b><A HREF="#ref21">createRtpSDP</A></b> (const char* addr, const NamedList& msg) 
+</LI>
+<LI>inline MimeSdpBody* &nbsp;<b><A HREF="#ref22">createRtpSDP</A></b> (const char* addr, bool start) 
+</LI>
+<LI>inline MimeSdpBody* &nbsp;<b><A HREF="#ref23">createRtpSDP</A></b> (bool start) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref24">updateFormats</A></b> (const NamedList& msg, bool changeMedia = false) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref25">addSdpParams</A></b> (NamedList& msg, const MimeBody* body) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref26">addSdpParams</A></b> (NamedList& msg, const String& rawSdp) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref27">addRtpParams</A></b> (NamedList& msg, const String& natAddr = String::empty(),
+	const MimeBody* body = 0, bool force = false, bool allowEmptyAddr = false) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref28">resetSdp</A></b> (bool all = true) 
+</LI>
+<LI>virtual  Message* &nbsp;<b><A HREF="#ref29">buildChanRtp</A></b> (SDPMedia* media, const char* addr, bool start, RefObject* context) 
+</LI>
+<LI>virtual  Message* &nbsp;<b><i><A HREF="#ref30">buildChanRtp</A></i></b> (RefObject* context) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref31">localRtpChanged</A></b> ()  const
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref32">setLocalRtpChanged</A></b> (bool chg = false) 
+</LI>
+</ul><h4>Public Static Methods</h4><ul><LI>static  void &nbsp;<b><A HREF="#ref8">putMedia</A></b> (NamedList& msg, ObjList* media, bool putPort = true) 
+</LI>
+<LI>static  ObjList* &nbsp;<b><A HREF="#ref33">updateRtpSDP</A></b> (const NamedList& params, String& rtpAddr,
+	ObjList* oldList = 0, bool allowEmptyAddr = false) 
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>virtual  void &nbsp;<b><A HREF="#ref34">mediaChanged</A></b> (const SDPMedia& media) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref35">dispatchingRtp</A></b> (Message*& msg, SDPMedia* media) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref36">setSdpDebug</A></b> (DebugEnabler* enabler = 0, void* ptr = 0) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref37">printRtpMedia</A></b> (const char* reason) 
+</LI>
+</ul><h4>Protected Members</h4><ul><LI>SDPParser* <b><A HREF="#ref38">m_parser</A></b></LI>
+<LI>int <b><A HREF="#ref39">m_mediaStatus</A></b></LI>
+<LI>bool <b><A HREF="#ref40">m_rtpForward</A></b></LI>
+<LI>bool <b><A HREF="#ref41">m_sdpForward</A></b></LI>
+<LI>String <b><A HREF="#ref42">m_originAddr</A></b></LI>
+<LI>String <b><A HREF="#ref43">m_externalAddr</A></b></LI>
+<LI>String <b><A HREF="#ref44">m_rtpAddr</A></b></LI>
+<LI>String <b><A HREF="#ref45">m_rtpLocalAddr</A></b></LI>
+<LI>String <b><A HREF="#ref46">m_rtpNatAddr</A></b></LI>
+<LI>ObjList* <b><A HREF="#ref47">m_rtpMedia</A></b></LI>
+<LI>int <b><A HREF="#ref48">m_sdpSession</A></b></LI>
+<LI>int <b><A HREF="#ref49">m_sdpVersion</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref50">m_sdpHash</A></b></LI>
+<LI>String <b><A HREF="#ref51">m_host</A></b></LI>
+<LI>bool <b><A HREF="#ref52">m_secure</A></b></LI>
+<LI>int <b><A HREF="#ref53">m_rfc2833</A></b></LI>
+<LI>bool <b><A HREF="#ref54">m_ipv6</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ This class holds RTP/SDP data for multiple media types
+ NOTE: The SDPParser pointer held by this class is assumed to be non NULL
+</p>
+<A NAME=""></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong></strong> {	MediaMissing,
+	MediaStarted,
+	MediaMuted
+    }
+</td><td align="right"><h3><strong></strong></h3></td></tr></table><p></p><p>
+ RTP media status enumeration
+     </p>
+<A NAME="SDPSession"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>SDPSession</strong> (SDPParser* parser)
+<br></td><td align="right"><h3><strong>SDPSession</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>parser</i></TD><TD align="left" valign="top">The SDP parser whose data this object will use
+     </TD></TR>
+</TABLE></P>
+<A NAME="SDPSession"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>SDPSession</strong> (SDPParser* parser, NamedList& params)
+<br></td><td align="right"><h3><strong>SDPSession</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>parser</i></TD><TD align="left" valign="top">The SDP parser whose data this object will use
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">SDP session parameters
+     </TD></TR>
+</TABLE></P>
+<A NAME="~SDPSession"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~SDPSession</strong> ()
+<br></td><td align="right"><h3><strong>~SDPSession</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor. Reset the object
+     </p>
+<A NAME="getHost"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const String& &nbsp;<strong>getHost</strong> ()
+<br></td><td align="right"><h3><strong>getHost</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get RTP local host
+</p>
+<p><b>Returns</b>: RTP local host
+     </p>
+<A NAME="getRtpAddr"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const String& &nbsp;<strong>getRtpAddr</strong> ()
+<br></td><td align="right"><h3><strong>getRtpAddr</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get local RTP address
+</p>
+<p><b>Returns</b>: Local RTP address (external or local)
+     </p>
+<A NAME="setMedia"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>setMedia</strong> (ObjList* media)
+<br></td><td align="right"><h3><strong>setMedia</strong></h3></td></tr></table><p></p><p>
+ Set a new media list
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>media</i></TD><TD align="left" valign="top">New media list
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if media changed
+     </p>
+<A NAME="putMedia"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>putMedia</strong> (NamedList& msg, ObjList* media, bool putPort = true)
+<br></td><td align="right"><h3><strong>putMedia</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Put specified media parameters into a list of parameters
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">Destination list
+</TD></TR>
+<TR><TD align="left" valign="top"><i>media</i></TD><TD align="left" valign="top">List of SDP media information
+</TD></TR>
+<TR><TD align="left" valign="top"><i>putPort</i></TD><TD align="left" valign="top">True to add the media port
+     </TD></TR>
+</TABLE></P>
+<A NAME="putMedia"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>putMedia</strong> (NamedList& msg, bool putPort = true)
+<br></td><td align="right"><h3><strong>putMedia</strong></h3></td></tr></table><p></p><p>
+ Put session media parameters into a list of parameters
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">Destination list
+</TD></TR>
+<TR><TD align="left" valign="top"><i>putPort</i></TD><TD align="left" valign="top">True to add the media port
+     </TD></TR>
+</TABLE></P>
+<A NAME="getMedia"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>SDPMedia* &nbsp;<strong>getMedia</strong> (const String& name)
+<br></td><td align="right"><h3><strong>getMedia</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve a single media description
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Name of the media to retrieve
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Pointer to media descriptor, NULL if no such media set
+     </p>
+<A NAME="setRfc2833"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>setRfc2833</strong> (const String& value)
+<br></td><td align="right"><h3><strong>setRfc2833</strong></h3></td></tr></table><p></p><p>
+ Update the RFC 2833 availability and payload
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>value</i></TD><TD align="left" valign="top">String to get payload or availability
+     </TD></TR>
+</TABLE></P>
+<A NAME="setRfc2833"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>setRfc2833</strong> (const String* value)
+<br></td><td align="right"><h3><strong>setRfc2833</strong></h3></td></tr></table><p></p><p>
+ Update the RFC 2833 availability and payload
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>value</i></TD><TD align="left" valign="top">Pointer to string to get payload or availability
+     </TD></TR>
+</TABLE></P>
+<A NAME="dispatchRtp"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>dispatchRtp</strong> (SDPMedia* media, const char* addr,	bool start, bool pick, RefObject* context = 0)
+<br></td><td align="right"><h3><strong>dispatchRtp</strong></h3></td></tr></table><p></p><p>
+ Build and dispatch a chan.rtp message for a given media. Update media on success
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>media</i></TD><TD align="left" valign="top">The media to use
+</TD></TR>
+<TR><TD align="left" valign="top"><i>addr</i></TD><TD align="left" valign="top">Remote RTP address
+</TD></TR>
+<TR><TD align="left" valign="top"><i>start</i></TD><TD align="left" valign="top">True to request RTP start
+</TD></TR>
+<TR><TD align="left" valign="top"><i>pick</i></TD><TD align="left" valign="top">True to update local parameters (other then media) from returned message
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to user provided context, optional
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the message was succesfully handled
+     </p>
+<A NAME="dispatchRtp"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>dispatchRtp</strong> (const char* addr, bool start, RefObject* context = 0)
+<br></td><td align="right"><h3><strong>dispatchRtp</strong></h3></td></tr></table><p></p><p>
+ Calls dispatchRtp() for each media in the list
+ Update it on success. Remove it on failure
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>addr</i></TD><TD align="left" valign="top">Remote RTP address
+</TD></TR>
+<TR><TD align="left" valign="top"><i>start</i></TD><TD align="left" valign="top">True to request RTP start
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to user provided context, optional
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the message was succesfully handled for at least one media
+     </p>
+<A NAME="startRtp"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>startRtp</strong> (RefObject* context = 0)
+<br></td><td align="right"><h3><strong>startRtp</strong></h3></td></tr></table><p></p><p>
+ Try to start RTP (calls dispatchRtp()) for each media in the list
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to user provided context, optional
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if at least one media was started
+     </p>
+<A NAME="updateSDP"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>updateSDP</strong> (const NamedList& params)
+<br></td><td align="right"><h3><strong>updateSDP</strong></h3></td></tr></table><p></p><p>
+ Update from parameters. Build a default SDP from parser formats if no media is found in params
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">List of parameters to update from
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if media changed
+     </p>
+<A NAME="updateRtpSDP"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>updateRtpSDP</strong> (const NamedList& params)
+<br></td><td align="right"><h3><strong>updateRtpSDP</strong></h3></td></tr></table><p></p><p>
+ Update RTP/SDP data from parameters
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">List of parameters to update from
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if media or local address changed
+     </p>
+<A NAME="createSDP"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td>MimeSdpBody* &nbsp;<strong>createSDP</strong> (const char* addr, ObjList* mediaList = 0)
+<br></td><td align="right"><h3><strong>createSDP</strong></h3></td></tr></table><p></p><p>
+ Creates a SDP body from transport address and list of media descriptors
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>addr</i></TD><TD align="left" valign="top">The address to set. Use own host if empty
+</TD></TR>
+<TR><TD align="left" valign="top"><i>mediaList</i></TD><TD align="left" valign="top">Optional media list. Use own list if the given one is 0
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: MimeSdpBody pointer or 0 if there is no media to set
+     </p>
+<A NAME="createSDP"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td>MimeSdpBody* &nbsp;<strong>createSDP</strong> ()
+<br></td><td align="right"><h3><strong>createSDP</strong></h3></td></tr></table><p></p><p>
+ Creates a SDP body for current media status
+</p>
+<p><b>Returns</b>: MimeSdpBody pointer or 0 if media is missing
+     </p>
+<A NAME="createPasstroughSDP"></A><A NAME="ref20"></A><table width="100%"><tr bgcolor="#eeeeee"><td>MimeSdpBody* &nbsp;<strong>createPasstroughSDP</strong> (NamedList& msg, bool update = true,
+	bool allowEmptyAddr = false)
+<br></td><td align="right"><h3><strong>createPasstroughSDP</strong></h3></td></tr></table><p></p><p>
+ Creates a SDP from RTP address data present in message.
+ Use the raw SDP if present.
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">The list of parameters
+</TD></TR>
+<TR><TD align="left" valign="top"><i>update</i></TD><TD align="left" valign="top">True to update RTP/SDP data if raw SDP is not found in the list
+</TD></TR>
+<TR><TD align="left" valign="top"><i>allowEmptyAddr</i></TD><TD align="left" valign="top">Allow empty address in parameters (default: false)
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: MimeSdpBody pointer or 0
+     </p>
+<A NAME="createRtpSDP"></A><A NAME="ref21"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline MimeSdpBody* &nbsp;<strong>createRtpSDP</strong> (const char* addr, const NamedList& msg)
+<br></td><td align="right"><h3><strong>createRtpSDP</strong></h3></td></tr></table><p></p><p>
+ Creates a set of unstarted external RTP channels from remote addr and
+  builds SDP from them
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>addr</i></TD><TD align="left" valign="top">Remote RTP address used when dispatching the chan.rtp message
+</TD></TR>
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">List of parameters used to update data
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: MimeSdpBody pointer or 0
+     </p>
+<A NAME="createRtpSDP"></A><A NAME="ref22"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline MimeSdpBody* &nbsp;<strong>createRtpSDP</strong> (const char* addr, bool start)
+<br></td><td align="right"><h3><strong>createRtpSDP</strong></h3></td></tr></table><p></p><p>
+ Creates a set of RTP channels from address and media info and builds SDP from them
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>addr</i></TD><TD align="left" valign="top">Remote RTP address used when dispatching the chan.rtp message
+</TD></TR>
+<TR><TD align="left" valign="top"><i>start</i></TD><TD align="left" valign="top">True to create a started RTP
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: MimeSdpBody pointer or 0
+     </p>
+<A NAME="createRtpSDP"></A><A NAME="ref23"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline MimeSdpBody* &nbsp;<strong>createRtpSDP</strong> (bool start)
+<br></td><td align="right"><h3><strong>createRtpSDP</strong></h3></td></tr></table><p></p><p>
+ Creates a set of started external RTP channels from remote addr and
+  builds SDP from them
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>start</i></TD><TD align="left" valign="top">True to create a started RTP
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: MimeSdpBody pointer or 0
+     </p>
+<A NAME="updateFormats"></A><A NAME="ref24"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>updateFormats</strong> (const NamedList& msg, bool changeMedia = false)
+<br></td><td align="right"><h3><strong>updateFormats</strong></h3></td></tr></table><p></p><p>
+ Update media format lists from parameters
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">Parameter list
+</TD></TR>
+<TR><TD align="left" valign="top"><i>changeMedia</i></TD><TD align="left" valign="top">True to update media list if required
+     </TD></TR>
+</TABLE></P>
+<A NAME="addSdpParams"></A><A NAME="ref25"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>addSdpParams</strong> (NamedList& msg, const MimeBody* body)
+<br></td><td align="right"><h3><strong>addSdpParams</strong></h3></td></tr></table><p></p><p>
+ Add raw SDP forwarding parameter from body if SDP forward is enabled
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">Destination list
+</TD></TR>
+<TR><TD align="left" valign="top"><i>body</i></TD><TD align="left" valign="top">Mime body to process
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the parameter was added
+     </p>
+<A NAME="addSdpParams"></A><A NAME="ref26"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>addSdpParams</strong> (NamedList& msg, const String& rawSdp)
+<br></td><td align="right"><h3><strong>addSdpParams</strong></h3></td></tr></table><p></p><p>
+ Add raw SDP forwarding parameter if SDP forward is enabled
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">Destination list
+</TD></TR>
+<TR><TD align="left" valign="top"><i>rawSdp</i></TD><TD align="left" valign="top">The raw sdp content
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the parameter was added
+     </p>
+<A NAME="addRtpParams"></A><A NAME="ref27"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>addRtpParams</strong> (NamedList& msg, const String& natAddr = String::empty(),
+	const MimeBody* body = 0, bool force = false, bool allowEmptyAddr = false)
+<br></td><td align="right"><h3><strong>addRtpParams</strong></h3></td></tr></table><p></p><p>
+ Add RTP forwarding parameters to a message (media and address)
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">Destination list
+</TD></TR>
+<TR><TD align="left" valign="top"><i>natAddr</i></TD><TD align="left" valign="top">Optional NAT address if detected
+</TD></TR>
+<TR><TD align="left" valign="top"><i>body</i></TD><TD align="left" valign="top">Pointer to the body to extract raw SDP from
+</TD></TR>
+<TR><TD align="left" valign="top"><i>force</i></TD><TD align="left" valign="top">True to override RTP forward flag
+</TD></TR>
+<TR><TD align="left" valign="top"><i>allowEmptyAddr</i></TD><TD align="left" valign="top">Allow empty address in parameters (default: false)
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if RTP data was added. Media is always added if present and
+  remote address is not empty
+     </p>
+<A NAME="resetSdp"></A><A NAME="ref28"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>resetSdp</strong> (bool all = true)
+<br></td><td align="right"><h3><strong>resetSdp</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Reset this object to default values
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>all</i></TD><TD align="left" valign="top">True to reset all parameters including configuration
+     </TD></TR>
+</TABLE></P>
+<A NAME="buildChanRtp"></A><A NAME="ref29"></A><table width="100%"><tr bgcolor="#eeeeee"><td> Message* &nbsp;<strong>buildChanRtp</strong> (SDPMedia* media, const char* addr, bool start, RefObject* context)
+<br></td><td align="right"><h3><strong>buildChanRtp</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Build a chan.rtp message and populate with media information
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>media</i></TD><TD align="left" valign="top">The media list
+</TD></TR>
+<TR><TD align="left" valign="top"><i>addr</i></TD><TD align="left" valign="top">Remote RTP address
+</TD></TR>
+<TR><TD align="left" valign="top"><i>start</i></TD><TD align="left" valign="top">True to request RTP start
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to reference counted user provided context
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The message with media information, NULL if media or addr are missing
+     </p>
+<A NAME="buildChanRtp"></A><A NAME="ref30"></A><table width="100%"><tr bgcolor="#eeeeee"><td> Message* &nbsp;<i><strong>buildChanRtp</strong></i> (RefObject* context)
+<br></td><td align="right"><h3><i><strong>buildChanRtp</strong></i></h3></td></tr></table><p> <small>[pure virtual]</small></p><p>
+ Build a chan.rtp message without media information
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to reference counted user provided context
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The message with user data set but no media information
+     </p>
+<A NAME="localRtpChanged"></A><A NAME="ref31"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>localRtpChanged</strong> ()
+<br></td><td align="right"><h3><strong>localRtpChanged</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Check if local RTP data changed for at least one media
+</p>
+<p><b>Returns</b>: True if local RTP data changed for at least one media
+     </p>
+<A NAME="setLocalRtpChanged"></A><A NAME="ref32"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>setLocalRtpChanged</strong> (bool chg = false)
+<br></td><td align="right"><h3><strong>setLocalRtpChanged</strong></h3></td></tr></table><p></p><p>
+ Set or reset the local RTP data changed flag for all media
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>chg</i></TD><TD align="left" valign="top">The new value for local RTP data changed flag of all media
+     </TD></TR>
+</TABLE></P>
+<A NAME="updateRtpSDP"></A><A NAME="ref33"></A><table width="100%"><tr bgcolor="#eeeeee"><td> ObjList* &nbsp;<strong>updateRtpSDP</strong> (const NamedList& params, String& rtpAddr,
+	ObjList* oldList = 0, bool allowEmptyAddr = false)
+<br></td><td align="right"><h3><strong>updateRtpSDP</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Update RTP/SDP data from parameters
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Parameter list
+</TD></TR>
+<TR><TD align="left" valign="top"><i>rtpAddr</i></TD><TD align="left" valign="top">String to be filled with rtp address from the list
+</TD></TR>
+<TR><TD align="left" valign="top"><i>oldList</i></TD><TD align="left" valign="top">Optional existing media list (found media will be removed
+  from it and added to the returned list
+</TD></TR>
+<TR><TD align="left" valign="top"><i>allowEmptyAddr</i></TD><TD align="left" valign="top">Allow empty address in parameters (default: false)
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: List of media or 0 if not found or rtpAddr is empty
+     </p>
+<A NAME="mediaChanged"></A><A NAME="ref34"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>mediaChanged</strong> (const SDPMedia& media)
+<br></td><td align="right"><h3><strong>mediaChanged</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Media changed notification.
+ This method is called when setting new media and an old one changed
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>media</i></TD><TD align="left" valign="top">Old media that changed
+     </TD></TR>
+</TABLE></P>
+<A NAME="dispatchingRtp"></A><A NAME="ref35"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>dispatchingRtp</strong> (Message*& msg, SDPMedia* media)
+<br></td><td align="right"><h3><strong>dispatchingRtp</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Dispatch rtp notification.
+ This method is called before dispatching the message.
+ Clear the message to stop dispatch
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">Message to dispatch
+</TD></TR>
+<TR><TD align="left" valign="top"><i>media</i></TD><TD align="left" valign="top">Media for which the message is going to be dispatched
+     </TD></TR>
+</TABLE></P>
+<A NAME="setSdpDebug"></A><A NAME="ref36"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>setSdpDebug</strong> (DebugEnabler* enabler = 0, void* ptr = 0)
+<br></td><td align="right"><h3><strong>setSdpDebug</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Set data used in debug
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>enabler</i></TD><TD align="left" valign="top">The DebugEnabler to use (0 to to use the parser)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ptr</i></TD><TD align="left" valign="top">Pointer to print, 0 to use the session pointer
+     </TD></TR>
+</TABLE></P>
+<A NAME="printRtpMedia"></A><A NAME="ref37"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>printRtpMedia</strong> (const char* reason)
+<br></td><td align="right"><h3><strong>printRtpMedia</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Print current media to output
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>reason</i></TD><TD align="left" valign="top">Reason to print
+     </TD></TR>
+</TABLE></P>
+<A NAME="m_parser"></A><A NAME="ref38"></A><table width="100%"><tr bgcolor="#eeeeee"><td>SDPParser*  <strong>m_parser</strong>
+</td><td align="right"><h3><strong>m_parser</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_mediaStatus"></A><A NAME="ref39"></A><table width="100%"><tr bgcolor="#eeeeee"><td>int  <strong>m_mediaStatus</strong>
+</td><td align="right"><h3><strong>m_mediaStatus</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_rtpForward"></A><A NAME="ref40"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool  <strong>m_rtpForward</strong>
+</td><td align="right"><h3><strong>m_rtpForward</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_sdpForward"></A><A NAME="ref41"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool  <strong>m_sdpForward</strong>
+</td><td align="right"><h3><strong>m_sdpForward</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_originAddr"></A><A NAME="ref42"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_originAddr</strong>
+</td><td align="right"><h3><strong>m_originAddr</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_externalAddr"></A><A NAME="ref43"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_externalAddr</strong>
+</td><td align="right"><h3><strong>m_externalAddr</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_rtpAddr"></A><A NAME="ref44"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_rtpAddr</strong>
+</td><td align="right"><h3><strong>m_rtpAddr</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_rtpLocalAddr"></A><A NAME="ref45"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_rtpLocalAddr</strong>
+</td><td align="right"><h3><strong>m_rtpLocalAddr</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_rtpNatAddr"></A><A NAME="ref46"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_rtpNatAddr</strong>
+</td><td align="right"><h3><strong>m_rtpNatAddr</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_rtpMedia"></A><A NAME="ref47"></A><table width="100%"><tr bgcolor="#eeeeee"><td>ObjList*  <strong>m_rtpMedia</strong>
+</td><td align="right"><h3><strong>m_rtpMedia</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_sdpSession"></A><A NAME="ref48"></A><table width="100%"><tr bgcolor="#eeeeee"><td>int  <strong>m_sdpSession</strong>
+</td><td align="right"><h3><strong>m_sdpSession</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_sdpVersion"></A><A NAME="ref49"></A><table width="100%"><tr bgcolor="#eeeeee"><td>int  <strong>m_sdpVersion</strong>
+</td><td align="right"><h3><strong>m_sdpVersion</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_sdpHash"></A><A NAME="ref50"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_sdpHash</strong>
+</td><td align="right"><h3><strong>m_sdpHash</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_host"></A><A NAME="ref51"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_host</strong>
+</td><td align="right"><h3><strong>m_host</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_secure"></A><A NAME="ref52"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool  <strong>m_secure</strong>
+</td><td align="right"><h3><strong>m_secure</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_rfc2833"></A><A NAME="ref53"></A><table width="100%"><tr bgcolor="#eeeeee"><td>int  <strong>m_rfc2833</strong>
+</td><td align="right"><h3><strong>m_rfc2833</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_ipv6"></A><A NAME="ref54"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool  <strong>m_ipv6</strong>
+</td><td align="right"><h3><strong>m_ipv6</strong></h3></td></tr></table><p> <small>[protected]</small></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

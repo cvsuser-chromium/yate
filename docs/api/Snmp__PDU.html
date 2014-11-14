@@ -1,0 +1,113 @@
+<HTML>
+<HEAD>
+<TITLE>class PDU</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class PDU</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1"></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="Snmp.html">Snmp</A>::PDU</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysnmp___yatesnmp_h.html">libs/ysnmp/yatesnmp.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD>AsnObject <small>(unknown)</small> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-Snmp__PDU.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref29">PDU</A></b> () 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref30">PDU</A></b> (void* data, int len) 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref31">~PDU</A></b> () 
+</LI>
+<LI>int &nbsp;<b><A HREF="#ref32">decode</A></b> (DataBlock& data) 
+</LI>
+<LI>int &nbsp;<b><A HREF="#ref33">encode</A></b> (DataBlock& data) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref34">getParams</A></b> (NamedList* params) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref35">setParams</A></b> (NamedList* params) 
+</LI>
+</ul><h4>Public Members</h4><ul><LI>static const int <b><A HREF="#ref1">s_type </A></b></LI>
+<LI>int32_t <b><A HREF="#ref2">m_request_id</A></b></LI>
+<LI>static const int32_t <b><A HREF="#ref3">s_request_idMinSize </A></b></LI>
+<LI>static const int32_t <b><A HREF="#ref4">s_request_idMaxSize </A></b></LI>
+<LI>int32_t <b><A HREF="#ref5">m_error_status</A></b></LI>
+<LI>static const int32_t <b><A HREF="#ref6">s_noError_error_status </A></b></LI>
+<LI>static const int32_t <b><A HREF="#ref7">s_tooBig_error_status </A></b></LI>
+<LI>static const int32_t <b><A HREF="#ref8">s_noSuchName_error_status </A></b></LI>
+<LI>static const int32_t <b><A HREF="#ref9">s_badValue_error_status </A></b></LI>
+<LI>static const int32_t <b><A HREF="#ref10">s_readOnly_error_status </A></b></LI>
+<LI>static const int32_t <b><A HREF="#ref11">s_genErr_error_status </A></b></LI>
+<LI>static const int32_t <b><A HREF="#ref12">s_noAccess_error_status </A></b></LI>
+<LI>static const int32_t <b><A HREF="#ref13">s_wrongType_error_status </A></b></LI>
+<LI>static const int32_t <b><A HREF="#ref14">s_wrongLength_error_status </A></b></LI>
+<LI>static const int32_t <b><A HREF="#ref15">s_wrongEncoding_error_status </A></b></LI>
+<LI>static const int32_t <b><A HREF="#ref16">s_wrongValue_error_status </A></b></LI>
+<LI>static const int32_t <b><A HREF="#ref17">s_noCreation_error_status </A></b></LI>
+<LI>static const int32_t <b><A HREF="#ref18">s_inconsistentValue_error_status </A></b></LI>
+<LI>static const int32_t <b><A HREF="#ref19">s_resourceUnavailable_error_status </A></b></LI>
+<LI>static const int32_t <b><A HREF="#ref20">s_commitFailed_error_status </A></b></LI>
+<LI>static const int32_t <b><A HREF="#ref21">s_undoFailed_error_status </A></b></LI>
+<LI>static const int32_t <b><A HREF="#ref22">s_authorizationError_error_status </A></b></LI>
+<LI>static const int32_t <b><A HREF="#ref23">s_notWritable_error_status </A></b></LI>
+<LI>static const int32_t <b><A HREF="#ref24">s_inconsistentName_error_status </A></b></LI>
+<LI>int32_t <b><A HREF="#ref25">m_error_index</A></b></LI>
+<LI>static const int32_t <b><A HREF="#ref26">s_error_indexMinSize </A></b></LI>
+<LI>static const int32_t <b><A HREF="#ref27">s_error_indexMaxSize </A></b></LI>
+<LI>VarBindList* <b><A HREF="#ref28">m_variable_bindings</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><A NAME="s_type%20"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const int  <strong>s_type </strong>
+</td><td align="right"><h3><strong>s_type </strong></h3></td></tr></table><p></p><A NAME="m_request_id"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td><A HREF="#int32_t">int32_t</A>  <strong>m_request_id</strong>
+</td><td align="right"><h3><strong>m_request_id</strong></h3></td></tr></table><p></p><A NAME="s_request_idMinSize%20"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const <A HREF="#int32_t">int32_t</A>  <strong>s_request_idMinSize </strong>
+</td><td align="right"><h3><strong>s_request_idMinSize </strong></h3></td></tr></table><p></p><A NAME="s_request_idMaxSize%20"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const <A HREF="#int32_t">int32_t</A>  <strong>s_request_idMaxSize </strong>
+</td><td align="right"><h3><strong>s_request_idMaxSize </strong></h3></td></tr></table><p></p><A NAME="m_error_status"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td><A HREF="#int32_t">int32_t</A>  <strong>m_error_status</strong>
+</td><td align="right"><h3><strong>m_error_status</strong></h3></td></tr></table><p></p><A NAME="s_noError_error_status%20"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const <A HREF="#int32_t">int32_t</A>  <strong>s_noError_error_status </strong>
+</td><td align="right"><h3><strong>s_noError_error_status </strong></h3></td></tr></table><p></p><A NAME="s_tooBig_error_status%20"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const <A HREF="#int32_t">int32_t</A>  <strong>s_tooBig_error_status </strong>
+</td><td align="right"><h3><strong>s_tooBig_error_status </strong></h3></td></tr></table><p></p><A NAME="s_noSuchName_error_status%20"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const <A HREF="#int32_t">int32_t</A>  <strong>s_noSuchName_error_status </strong>
+</td><td align="right"><h3><strong>s_noSuchName_error_status </strong></h3></td></tr></table><p></p><A NAME="s_badValue_error_status%20"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const <A HREF="#int32_t">int32_t</A>  <strong>s_badValue_error_status </strong>
+</td><td align="right"><h3><strong>s_badValue_error_status </strong></h3></td></tr></table><p></p><A NAME="s_readOnly_error_status%20"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const <A HREF="#int32_t">int32_t</A>  <strong>s_readOnly_error_status </strong>
+</td><td align="right"><h3><strong>s_readOnly_error_status </strong></h3></td></tr></table><p></p><A NAME="s_genErr_error_status%20"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const <A HREF="#int32_t">int32_t</A>  <strong>s_genErr_error_status </strong>
+</td><td align="right"><h3><strong>s_genErr_error_status </strong></h3></td></tr></table><p></p><A NAME="s_noAccess_error_status%20"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const <A HREF="#int32_t">int32_t</A>  <strong>s_noAccess_error_status </strong>
+</td><td align="right"><h3><strong>s_noAccess_error_status </strong></h3></td></tr></table><p></p><A NAME="s_wrongType_error_status%20"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const <A HREF="#int32_t">int32_t</A>  <strong>s_wrongType_error_status </strong>
+</td><td align="right"><h3><strong>s_wrongType_error_status </strong></h3></td></tr></table><p></p><A NAME="s_wrongLength_error_status%20"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const <A HREF="#int32_t">int32_t</A>  <strong>s_wrongLength_error_status </strong>
+</td><td align="right"><h3><strong>s_wrongLength_error_status </strong></h3></td></tr></table><p></p><A NAME="s_wrongEncoding_error_status%20"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const <A HREF="#int32_t">int32_t</A>  <strong>s_wrongEncoding_error_status </strong>
+</td><td align="right"><h3><strong>s_wrongEncoding_error_status </strong></h3></td></tr></table><p></p><A NAME="s_wrongValue_error_status%20"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const <A HREF="#int32_t">int32_t</A>  <strong>s_wrongValue_error_status </strong>
+</td><td align="right"><h3><strong>s_wrongValue_error_status </strong></h3></td></tr></table><p></p><A NAME="s_noCreation_error_status%20"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const <A HREF="#int32_t">int32_t</A>  <strong>s_noCreation_error_status </strong>
+</td><td align="right"><h3><strong>s_noCreation_error_status </strong></h3></td></tr></table><p></p><A NAME="s_inconsistentValue_error_status%20"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const <A HREF="#int32_t">int32_t</A>  <strong>s_inconsistentValue_error_status </strong>
+</td><td align="right"><h3><strong>s_inconsistentValue_error_status </strong></h3></td></tr></table><p></p><A NAME="s_resourceUnavailable_error_status%20"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const <A HREF="#int32_t">int32_t</A>  <strong>s_resourceUnavailable_error_status </strong>
+</td><td align="right"><h3><strong>s_resourceUnavailable_error_status </strong></h3></td></tr></table><p></p><A NAME="s_commitFailed_error_status%20"></A><A NAME="ref20"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const <A HREF="#int32_t">int32_t</A>  <strong>s_commitFailed_error_status </strong>
+</td><td align="right"><h3><strong>s_commitFailed_error_status </strong></h3></td></tr></table><p></p><A NAME="s_undoFailed_error_status%20"></A><A NAME="ref21"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const <A HREF="#int32_t">int32_t</A>  <strong>s_undoFailed_error_status </strong>
+</td><td align="right"><h3><strong>s_undoFailed_error_status </strong></h3></td></tr></table><p></p><A NAME="s_authorizationError_error_status%20"></A><A NAME="ref22"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const <A HREF="#int32_t">int32_t</A>  <strong>s_authorizationError_error_status </strong>
+</td><td align="right"><h3><strong>s_authorizationError_error_status </strong></h3></td></tr></table><p></p><A NAME="s_notWritable_error_status%20"></A><A NAME="ref23"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const <A HREF="#int32_t">int32_t</A>  <strong>s_notWritable_error_status </strong>
+</td><td align="right"><h3><strong>s_notWritable_error_status </strong></h3></td></tr></table><p></p><A NAME="s_inconsistentName_error_status%20"></A><A NAME="ref24"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const <A HREF="#int32_t">int32_t</A>  <strong>s_inconsistentName_error_status </strong>
+</td><td align="right"><h3><strong>s_inconsistentName_error_status </strong></h3></td></tr></table><p></p><A NAME="m_error_index"></A><A NAME="ref25"></A><table width="100%"><tr bgcolor="#eeeeee"><td><A HREF="#int32_t">int32_t</A>  <strong>m_error_index</strong>
+</td><td align="right"><h3><strong>m_error_index</strong></h3></td></tr></table><p></p><A NAME="s_error_indexMinSize%20"></A><A NAME="ref26"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const <A HREF="#int32_t">int32_t</A>  <strong>s_error_indexMinSize </strong>
+</td><td align="right"><h3><strong>s_error_indexMinSize </strong></h3></td></tr></table><p></p><A NAME="s_error_indexMaxSize%20"></A><A NAME="ref27"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const <A HREF="#int32_t">int32_t</A>  <strong>s_error_indexMaxSize </strong>
+</td><td align="right"><h3><strong>s_error_indexMaxSize </strong></h3></td></tr></table><p></p><A NAME="m_variable_bindings"></A><A NAME="ref28"></A><table width="100%"><tr bgcolor="#eeeeee"><td>VarBindList*  <strong>m_variable_bindings</strong>
+</td><td align="right"><h3><strong>m_variable_bindings</strong></h3></td></tr></table><p></p><A NAME="PDU"></A><A NAME="ref29"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>PDU</strong> ()
+<br></td><td align="right"><h3><strong>PDU</strong></h3></td></tr></table><p></p><A NAME="PDU"></A><A NAME="ref30"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>PDU</strong> (void* data, int len)
+<br></td><td align="right"><h3><strong>PDU</strong></h3></td></tr></table><p></p><A NAME="~PDU"></A><A NAME="ref31"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>~PDU</strong> ()
+<br></td><td align="right"><h3><strong>~PDU</strong></h3></td></tr></table><p></p><A NAME="decode"></A><A NAME="ref32"></A><table width="100%"><tr bgcolor="#eeeeee"><td>int &nbsp;<strong>decode</strong> (DataBlock& data)
+<br></td><td align="right"><h3><strong>decode</strong></h3></td></tr></table><p></p><A NAME="encode"></A><A NAME="ref33"></A><table width="100%"><tr bgcolor="#eeeeee"><td>int &nbsp;<strong>encode</strong> (DataBlock& data)
+<br></td><td align="right"><h3><strong>encode</strong></h3></td></tr></table><p></p><A NAME="getParams"></A><A NAME="ref34"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>getParams</strong> (NamedList* params)
+<br></td><td align="right"><h3><strong>getParams</strong></h3></td></tr></table><p></p><A NAME="setParams"></A><A NAME="ref35"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>setParams</strong> (NamedList* params)
+<br></td><td align="right"><h3><strong>setParams</strong></h3></td></tr></table><p></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

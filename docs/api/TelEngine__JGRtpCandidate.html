@@ -1,0 +1,100 @@
+<HTML>
+<HEAD>
+<TITLE>class JGRtpCandidate</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class JGRtpCandidate</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">A RTP transport candidate. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::JGRtpCandidate</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yjabber___yatejingle_h.html">libs/yjabber/yatejingle.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__String.html">TelEngine::String</A> <small>[public ]</small></TD></TR>
+<TR><TH>Inherited by</TH><TD><A HREF="TelEngine__JGRtpCandidateP2P.html">JGRtpCandidateP2P</A></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__JGRtpCandidate.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>inline &nbsp;<b><A HREF="#ref1">JGRtpCandidate</A></b> (const char* id, const char* component = "1",
+	unsigned int generation = 0, unsigned int net = 0, int prio = 0) 
+</LI>
+<LI>inline &nbsp;<b><A HREF="#ref2">JGRtpCandidate</A></b> (XmlElement* xml, const JGRtpCandidates& container) 
+</LI>
+<LI>virtual  XmlElement* &nbsp;<b><A HREF="#ref3">toXml</A></b> (const JGRtpCandidates& container)  const
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref4">fromXml</A></b> (XmlElement* xml, const JGRtpCandidates& container) 
+</LI>
+</ul><h4>Public Members</h4><ul><LI>String <b><A HREF="#ref5">m_address</A></b></LI>
+<LI>String <b><A HREF="#ref6">m_port</A></b></LI>
+<LI>String <b><A HREF="#ref7">m_component</A></b></LI>
+<LI>String <b><A HREF="#ref8">m_generation</A></b></LI>
+<LI>String <b><A HREF="#ref9">m_network</A></b></LI>
+<LI>String <b><A HREF="#ref10">m_priority</A></b></LI>
+<LI>String <b><A HREF="#ref11">m_protocol</A></b></LI>
+<LI>String <b><A HREF="#ref12">m_type</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ This class holds a RTP transport candidate
+</p>
+<A NAME="JGRtpCandidate"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>JGRtpCandidate</strong> (const char* id, const char* component = "1",
+	unsigned int generation = 0, unsigned int net = 0, int prio = 0)
+<br></td><td align="right"><h3><strong>JGRtpCandidate</strong></h3></td></tr></table><p></p><p>
+ Constructor
+     </p>
+<A NAME="JGRtpCandidate"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>JGRtpCandidate</strong> (XmlElement* xml, const JGRtpCandidates& container)
+<br></td><td align="right"><h3><strong>JGRtpCandidate</strong></h3></td></tr></table><p></p><p>
+ Constructor. Build a candidate from received data
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Received xml element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>container</i></TD><TD align="left" valign="top">The transport container
+     </TD></TR>
+</TABLE></P>
+<A NAME="toXml"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>toXml</strong> (const JGRtpCandidates& container)
+<br></td><td align="right"><h3><strong>toXml</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Create a 'candidate' element from this object using local address/port
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>container</i></TD><TD align="left" valign="top">The transport container
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Valid XmlElement pointer if type is a known one
+     </p>
+<A NAME="fromXml"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>fromXml</strong> (XmlElement* xml, const JGRtpCandidates& container)
+<br></td><td align="right"><h3><strong>fromXml</strong></h3></td></tr></table><p></p><p>
+ Fill this object from a candidate element using remote address/port
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Received xml element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>container</i></TD><TD align="left" valign="top">The transport container
+     </TD></TR>
+</TABLE></P>
+<A NAME="m_address"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_address</strong>
+</td><td align="right"><h3><strong>m_address</strong></h3></td></tr></table><p></p><A NAME="m_port"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_port</strong>
+</td><td align="right"><h3><strong>m_port</strong></h3></td></tr></table><p></p><A NAME="m_component"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_component</strong>
+</td><td align="right"><h3><strong>m_component</strong></h3></td></tr></table><p></p><A NAME="m_generation"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_generation</strong>
+</td><td align="right"><h3><strong>m_generation</strong></h3></td></tr></table><p></p><A NAME="m_network"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_network</strong>
+</td><td align="right"><h3><strong>m_network</strong></h3></td></tr></table><p></p><A NAME="m_priority"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_priority</strong>
+</td><td align="right"><h3><strong>m_priority</strong></h3></td></tr></table><p></p><A NAME="m_protocol"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_protocol</strong>
+</td><td align="right"><h3><strong>m_protocol</strong></h3></td></tr></table><p></p><A NAME="m_type"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_type</strong>
+</td><td align="right"><h3><strong>m_type</strong></h3></td></tr></table><p></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

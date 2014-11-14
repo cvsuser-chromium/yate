@@ -1,0 +1,257 @@
+<HTML>
+<HEAD>
+<TITLE>class SIGTransport</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SIGTransport</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">An abstract SIGTRAN transport layer. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH colspan="2">Contains pure virtuals</TH></TR><TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SIGTransport</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__SignallingComponent.html">TelEngine::SignallingComponent</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SIGTransport.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref2">Transport</A> {	None = 0,
+	Sctp,
+	Tcp,
+	Udp,
+	Unix,
+    }
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>inline SIGTRAN* &nbsp;<b><A HREF="#ref3">sigtran</A></b> ()  const
+</LI>
+<LI><A HREF="#u_int32_t">u_int32_t</A> &nbsp;<b><A HREF="#ref4">defPort</A></b> ()  const
+</LI>
+<LI>virtual  bool &nbsp;<b><i><A HREF="#ref5">reliable</A></i></b> ()  const
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref6">notifyLayer</A></b> (SignallingInterface::Notification status) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref7">initialize</A></b> (const NamedList* config) 
+</LI>
+<LI>virtual  bool &nbsp;<b><i><A HREF="#ref8">connected</A></i></b> (int streamId)  const
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref9">attach</A></b> (SIGTRAN* sigtran) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref10">processMSG</A></b> (unsigned char msgVersion, unsigned char msgClass,
+	unsigned char msgType, const DataBlock& msg, int streamId)  const
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref11">reconnect</A></b> (bool force = false) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref12">getSocketParams</A></b> (const String& params, NamedList& result) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref13">transportNotify</A></b> (SIGTransport* newTransport, const SocketAddr& addr) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref14">hasThread</A></b> () 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref15">stopThread</A></b> () 
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>inline explicit &nbsp;<b><A HREF="#ref16">SIGTransport</A></b> (const char* name = 0) 
+</LI>
+<LI>virtual  void &nbsp;<b><i><A HREF="#ref17">attached</A></i></b> (bool hasUAL) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref18">transmitMSG</A></b> (unsigned char msgVersion, unsigned char msgClass,
+	unsigned char msgType, const DataBlock& msg, int streamId = 0) 
+</LI>
+<LI>virtual  bool &nbsp;<b><i><A HREF="#ref19">transmitMSG</A></i></b> (const DataBlock& header, const DataBlock& msg, int streamId = 0) 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ A an abstraction offering connectivity to a SIGTRAN transport
+</p>
+<A NAME="Transport"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>Transport</strong> {	None = 0,
+	Sctp,
+	Tcp,
+	Udp,
+	Unix,
+    }
+</td><td align="right"><h3><strong>Transport</strong></h3></td></tr></table><p></p><p>
+ Type of transport used
+     </p>
+<A NAME="sigtran"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline SIGTRAN* &nbsp;<strong>sigtran</strong> ()
+<br></td><td align="right"><h3><strong>sigtran</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the SIGTRAN component attached to this transport
+</p>
+<p><b>Returns</b>: Pointer to adaptation layer or NULL
+     </p>
+<A NAME="defPort"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td><A HREF="#u_int32_t">u_int32_t</A> &nbsp;<strong>defPort</strong> ()
+<br></td><td align="right"><h3><strong>defPort</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the default SCTP/TCP/UDP port used
+</p>
+<p><b>Returns</b>: Default protocol port, 0 if unknown, not set or no SIGTRAN attached
+     </p>
+<A NAME="reliable"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<i><strong>reliable</strong></i> ()
+<br></td><td align="right"><h3><i><strong>reliable</strong></i></h3></td></tr></table><p> <small>[const pure virtual]</small></p><p>
+ Check if transport layer is reliable
+</p>
+<p><b>Returns</b>: true if transport is reliable
+     </p>
+<A NAME="notifyLayer"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>notifyLayer</strong> (SignallingInterface::Notification status)
+<br></td><td align="right"><h3><strong>notifyLayer</strong></h3></td></tr></table><p></p><p>
+ Notify the SIGTRAN layer about transport status changes
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>status</i></TD><TD align="left" valign="top">Status to notify
+     </TD></TR>
+</TABLE></P>
+<A NAME="initialize"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>initialize</strong> (const NamedList* config)
+<br></td><td align="right"><h3><strong>initialize</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Configure and initialize the component and any subcomponents it may have
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>config</i></TD><TD align="left" valign="top">Optional configuration parameters override
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the component was initialized properly
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#initialize">SignallingComponent</A>.</p>
+<A NAME="connected"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<i><strong>connected</strong></i> (int streamId)
+<br></td><td align="right"><h3><i><strong>connected</strong></i></h3></td></tr></table><p> <small>[const pure virtual]</small></p><p>
+ Check if the network transport layer is connected
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>streamId</i></TD><TD align="left" valign="top">Identifier of the stream to check if applicable
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the transport (and stream if applicable) is connected
+     </p>
+<A NAME="attach"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>attach</strong> (SIGTRAN* sigtran)
+<br></td><td align="right"><h3><strong>attach</strong></h3></td></tr></table><p></p><p>
+ Attach an user adaptation layer
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>sigtran</i></TD><TD align="left" valign="top">SIGTRAN component to attach, can be NULL
+     </TD></TR>
+</TABLE></P>
+<A NAME="processMSG"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>processMSG</strong> (unsigned char msgVersion, unsigned char msgClass,
+	unsigned char msgType, const DataBlock& msg, int streamId)
+<br></td><td align="right"><h3><strong>processMSG</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Send a complete message to the adaptation layer for processing
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msgVersion</i></TD><TD align="left" valign="top">Version of the protocol
+</TD></TR>
+<TR><TD align="left" valign="top"><i>msgClass</i></TD><TD align="left" valign="top">Class of the message
+</TD></TR>
+<TR><TD align="left" valign="top"><i>msgType</i></TD><TD align="left" valign="top">Type of the message, depends on the class
+</TD></TR>
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">Message data, may be empty
+</TD></TR>
+<TR><TD align="left" valign="top"><i>streamId</i></TD><TD align="left" valign="top">Identifier of the stream the message was received on
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the message was handled
+     </p>
+<A NAME="reconnect"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>reconnect</strong> (bool force = false)
+<br></td><td align="right"><h3><strong>reconnect</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Force the underlaying transport to reconnect
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>force</i></TD><TD align="left" valign="top">True to force transport socket reconnection
+     </TD></TR>
+</TABLE></P>
+<A NAME="getSocketParams"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>getSocketParams</strong> (const String& params, NamedList& result)
+<br></td><td align="right"><h3><strong>getSocketParams</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Get sctp socket parameters.
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">List of parameters to obtain
+</TD></TR>
+<TR><TD align="left" valign="top"><i>result</i></TD><TD align="left" valign="top">List of parameters to fill
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if operation was successful, false if an error occurred
+     </p>
+<A NAME="transportNotify"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>transportNotify</strong> (SIGTransport* newTransport, const SocketAddr& addr)
+<br></td><td align="right"><h3><strong>transportNotify</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Notification that a new incomming connection has been made
+ NOTE newTransport needs to be destroyed if will not be used
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>newTransport</i></TD><TD align="left" valign="top">The new created transport
+</TD></TR>
+<TR><TD align="left" valign="top"><i>addr</i></TD><TD align="left" valign="top">The newly created transport socket address
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the newTransport will be used.
+     </p>
+<A NAME="hasThread"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>hasThread</strong> ()
+<br></td><td align="right"><h3><strong>hasThread</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Check if the transport thread is still running
+</p>
+<p><b>Returns</b>: True if the thread is still running.
+     </p>
+<A NAME="stopThread"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>stopThread</strong> ()
+<br></td><td align="right"><h3><strong>stopThread</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Stop the transport thread
+     </p>
+<A NAME="SIGTransport"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline explicit &nbsp;<strong>SIGTransport</strong> (const char* name = 0)
+<br></td><td align="right"><h3><strong>SIGTransport</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Default empty component name
+     </TD></TR>
+</TABLE></P>
+<A NAME="attached"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<i><strong>attached</strong></i> (bool hasUAL)
+<br></td><td align="right"><h3><i><strong>attached</strong></i></h3></td></tr></table><p> <small>[protected pure virtual]</small></p><p>
+ Notification if the attached state changed
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>hasUAL</i></TD><TD align="left" valign="top">True if an User Adaptation Layer is now attached
+     </TD></TR>
+</TABLE></P>
+<A NAME="transmitMSG"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>transmitMSG</strong> (unsigned char msgVersion, unsigned char msgClass,
+	unsigned char msgType, const DataBlock& msg, int streamId = 0)
+<br></td><td align="right"><h3><strong>transmitMSG</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Transmit a message to the network
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msgVersion</i></TD><TD align="left" valign="top">Version of the protocol
+</TD></TR>
+<TR><TD align="left" valign="top"><i>msgClass</i></TD><TD align="left" valign="top">Class of the message
+</TD></TR>
+<TR><TD align="left" valign="top"><i>msgType</i></TD><TD align="left" valign="top">Type of the message, depends on the class
+</TD></TR>
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">Message data, may be empty
+</TD></TR>
+<TR><TD align="left" valign="top"><i>streamId</i></TD><TD align="left" valign="top">Identifier of the stream to send the data over
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the message was transmitted to network
+     </p>
+<A NAME="transmitMSG"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<i><strong>transmitMSG</strong></i> (const DataBlock& header, const DataBlock& msg, int streamId = 0)
+<br></td><td align="right"><h3><i><strong>transmitMSG</strong></i></h3></td></tr></table><p> <small>[protected pure virtual]</small></p><p>
+ Transmit a prepared message to the network
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>header</i></TD><TD align="left" valign="top">Message header, typically 8 octets
+</TD></TR>
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">Message data, may be empty
+</TD></TR>
+<TR><TD align="left" valign="top"><i>streamId</i></TD><TD align="left" valign="top">Identifier of the stream to send the data over
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the message was transmitted to network
+     </p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

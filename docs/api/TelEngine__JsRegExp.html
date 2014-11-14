@@ -1,0 +1,149 @@
+<HTML>
+<HEAD>
+<TITLE>class JsRegExp</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class JsRegExp</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">Javascript RegExp. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::JsRegExp</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yscript___yatescript_h.html">libs/yscript/yatescript.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__JsObject.html">TelEngine::JsObject</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__JsRegExp.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref1">JsRegExp</A></b> (Mutex* mtx = 0) 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref2">JsRegExp</A></b> (Mutex* mtx, const char* name, const char* rexp = 0, bool insensitive = false,
+	bool extended = true, bool frozen = false) 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref3">JsRegExp</A></b> (Mutex* mtx, const Regexp& rexp, bool frozen = false) 
+</LI>
+<LI>inline const Regexp& &nbsp;<b><A HREF="#ref4">regexp</A></b> ()  const
+</LI>
+<LI>inline Regexp& &nbsp;<b><A HREF="#ref5">regexp</A></b> () 
+</LI>
+<LI>virtual  JsObject* &nbsp;<b><A HREF="#ref6">runConstructor</A></b> (ObjList& stack, const ExpOperation& oper, GenObject* context) 
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>virtual  JsObject* &nbsp;<b><A HREF="#ref7">clone</A></b> (const char* name)  const
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref8">runNative</A></b> (ObjList& stack, const ExpOperation& oper, GenObject* context) 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ Javascript RegExp class, implements regular expression matching
+</p>
+<A NAME="JsRegExp"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>JsRegExp</strong> (Mutex* mtx = 0)
+<br></td><td align="right"><h3><strong>JsRegExp</strong></h3></td></tr></table><p></p><p>
+ Constructor for a RegExp constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>mtx</i></TD><TD align="left" valign="top">Pointer to the mutex that serializes this object
+     </TD></TR>
+</TABLE></P>
+<A NAME="JsRegExp"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>JsRegExp</strong> (Mutex* mtx, const char* name, const char* rexp = 0, bool insensitive = false,
+	bool extended = true, bool frozen = false)
+<br></td><td align="right"><h3><strong>JsRegExp</strong></h3></td></tr></table><p></p><p>
+ Constructor for a RegExp object
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>mtx</i></TD><TD align="left" valign="top">Pointer to the mutex that serializes this object
+</TD></TR>
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Full name of the object
+</TD></TR>
+<TR><TD align="left" valign="top"><i>rexp</i></TD><TD align="left" valign="top">Regular expression text
+</TD></TR>
+<TR><TD align="left" valign="top"><i>insensitive</i></TD><TD align="left" valign="top">True to not differentiate case
+</TD></TR>
+<TR><TD align="left" valign="top"><i>extended</i></TD><TD align="left" valign="top">True to use POSIX Extended Regular Expression syntax
+</TD></TR>
+<TR><TD align="left" valign="top"><i>frozen</i></TD><TD align="left" valign="top">True to create an initially frozen object
+     </TD></TR>
+</TABLE></P>
+<A NAME="JsRegExp"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>JsRegExp</strong> (Mutex* mtx, const Regexp& rexp, bool frozen = false)
+<br></td><td align="right"><h3><strong>JsRegExp</strong></h3></td></tr></table><p></p><p>
+ Constructor from existing Regexp
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>mtx</i></TD><TD align="left" valign="top">Pointer to the mutex that serializes this object
+</TD></TR>
+<TR><TD align="left" valign="top"><i>rexp</i></TD><TD align="left" valign="top">Regular expression to copy
+</TD></TR>
+<TR><TD align="left" valign="top"><i>frozen</i></TD><TD align="left" valign="top">True to create an initially frozen object
+     </TD></TR>
+</TABLE></P>
+<A NAME="regexp"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const Regexp& &nbsp;<strong>regexp</strong> ()
+<br></td><td align="right"><h3><strong>regexp</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Access the internal Regexp object that does the matching
+</p>
+<p><b>Returns</b>: Const reference to the internal Regexp object
+     </p>
+<A NAME="regexp"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline Regexp& &nbsp;<strong>regexp</strong> ()
+<br></td><td align="right"><h3><strong>regexp</strong></h3></td></tr></table><p></p><p>
+ Access the internal Regexp object that does the matching
+</p>
+<p><b>Returns</b>: Reference to the internal Regexp object
+     </p>
+<A NAME="runConstructor"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td> JsObject* &nbsp;<strong>runConstructor</strong> (ObjList& stack, const ExpOperation& oper, GenObject* context)
+<br></td><td align="right"><h3><strong>runConstructor</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ RegExp object constructor, it's run on the prototype
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stack</i></TD><TD align="left" valign="top">Evaluation stack in use
+</TD></TR>
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Constructor function to evaluate
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to arbitrary object passed from evaluation methods
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: New created and populated Javascript RegExp object
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__JsObject.html#runConstructor">JsObject</A>.</p>
+<A NAME="clone"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> JsObject* &nbsp;<strong>clone</strong> (const char* name)
+<br></td><td align="right"><h3><strong>clone</strong></h3></td></tr></table><p> <small>[protected const virtual]</small></p><p>
+ Clone and rename method
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Name of the cloned object
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: New object instance
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__JsObject.html#clone">JsObject</A>.</p>
+<A NAME="runNative"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>runNative</strong> (ObjList& stack, const ExpOperation& oper, GenObject* context)
+<br></td><td align="right"><h3><strong>runNative</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Try to evaluate a single native method
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stack</i></TD><TD align="left" valign="top">Evaluation stack in use, parameters are popped off this stack
+  and results are pushed back on stack
+</TD></TR>
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Function to evaluate
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to arbitrary object passed from evaluation methods
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if evaluation succeeded
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__JsObject.html#runNative">JsObject</A>.</p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

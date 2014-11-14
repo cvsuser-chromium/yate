@@ -1,0 +1,79 @@
+<HTML>
+<HEAD>
+<TITLE>class BulkPDU</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class BulkPDU</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1"></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="Snmp.html">Snmp</A>::BulkPDU</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysnmp___yatesnmp_h.html">libs/ysnmp/yatesnmp.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD>AsnObject <small>(unknown)</small> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-Snmp__BulkPDU.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref12">BulkPDU</A></b> () 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref13">BulkPDU</A></b> (void* data, int len) 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref14">~BulkPDU</A></b> () 
+</LI>
+<LI>int &nbsp;<b><A HREF="#ref15">decode</A></b> (DataBlock& data) 
+</LI>
+<LI>int &nbsp;<b><A HREF="#ref16">encode</A></b> (DataBlock& data) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref17">getParams</A></b> (NamedList* params) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref18">setParams</A></b> (NamedList* params) 
+</LI>
+</ul><h4>Public Members</h4><ul><LI>static const int <b><A HREF="#ref1">s_type </A></b></LI>
+<LI>int32_t <b><A HREF="#ref2">m_request_id</A></b></LI>
+<LI>static const int32_t <b><A HREF="#ref3">s_request_idMinSize </A></b></LI>
+<LI>static const int32_t <b><A HREF="#ref4">s_request_idMaxSize </A></b></LI>
+<LI>int32_t <b><A HREF="#ref5">m_non_repeaters</A></b></LI>
+<LI>static const int32_t <b><A HREF="#ref6">s_non_repeatersMinSize </A></b></LI>
+<LI>static const int32_t <b><A HREF="#ref7">s_non_repeatersMaxSize </A></b></LI>
+<LI>int32_t <b><A HREF="#ref8">m_max_repetitions</A></b></LI>
+<LI>static const int32_t <b><A HREF="#ref9">s_max_repetitionsMinSize </A></b></LI>
+<LI>static const int32_t <b><A HREF="#ref10">s_max_repetitionsMaxSize </A></b></LI>
+<LI>VarBindList* <b><A HREF="#ref11">m_variable_bindings</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><A NAME="s_type%20"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const int  <strong>s_type </strong>
+</td><td align="right"><h3><strong>s_type </strong></h3></td></tr></table><p></p><A NAME="m_request_id"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td><A HREF="#int32_t">int32_t</A>  <strong>m_request_id</strong>
+</td><td align="right"><h3><strong>m_request_id</strong></h3></td></tr></table><p></p><A NAME="s_request_idMinSize%20"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const <A HREF="#int32_t">int32_t</A>  <strong>s_request_idMinSize </strong>
+</td><td align="right"><h3><strong>s_request_idMinSize </strong></h3></td></tr></table><p></p><A NAME="s_request_idMaxSize%20"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const <A HREF="#int32_t">int32_t</A>  <strong>s_request_idMaxSize </strong>
+</td><td align="right"><h3><strong>s_request_idMaxSize </strong></h3></td></tr></table><p></p><A NAME="m_non_repeaters"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td><A HREF="#int32_t">int32_t</A>  <strong>m_non_repeaters</strong>
+</td><td align="right"><h3><strong>m_non_repeaters</strong></h3></td></tr></table><p></p><A NAME="s_non_repeatersMinSize%20"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const <A HREF="#int32_t">int32_t</A>  <strong>s_non_repeatersMinSize </strong>
+</td><td align="right"><h3><strong>s_non_repeatersMinSize </strong></h3></td></tr></table><p></p><A NAME="s_non_repeatersMaxSize%20"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const <A HREF="#int32_t">int32_t</A>  <strong>s_non_repeatersMaxSize </strong>
+</td><td align="right"><h3><strong>s_non_repeatersMaxSize </strong></h3></td></tr></table><p></p><A NAME="m_max_repetitions"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td><A HREF="#int32_t">int32_t</A>  <strong>m_max_repetitions</strong>
+</td><td align="right"><h3><strong>m_max_repetitions</strong></h3></td></tr></table><p></p><A NAME="s_max_repetitionsMinSize%20"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const <A HREF="#int32_t">int32_t</A>  <strong>s_max_repetitionsMinSize </strong>
+</td><td align="right"><h3><strong>s_max_repetitionsMinSize </strong></h3></td></tr></table><p></p><A NAME="s_max_repetitionsMaxSize%20"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const <A HREF="#int32_t">int32_t</A>  <strong>s_max_repetitionsMaxSize </strong>
+</td><td align="right"><h3><strong>s_max_repetitionsMaxSize </strong></h3></td></tr></table><p></p><A NAME="m_variable_bindings"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>VarBindList*  <strong>m_variable_bindings</strong>
+</td><td align="right"><h3><strong>m_variable_bindings</strong></h3></td></tr></table><p></p><A NAME="BulkPDU"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>BulkPDU</strong> ()
+<br></td><td align="right"><h3><strong>BulkPDU</strong></h3></td></tr></table><p></p><A NAME="BulkPDU"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>BulkPDU</strong> (void* data, int len)
+<br></td><td align="right"><h3><strong>BulkPDU</strong></h3></td></tr></table><p></p><A NAME="~BulkPDU"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>~BulkPDU</strong> ()
+<br></td><td align="right"><h3><strong>~BulkPDU</strong></h3></td></tr></table><p></p><A NAME="decode"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>int &nbsp;<strong>decode</strong> (DataBlock& data)
+<br></td><td align="right"><h3><strong>decode</strong></h3></td></tr></table><p></p><A NAME="encode"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td>int &nbsp;<strong>encode</strong> (DataBlock& data)
+<br></td><td align="right"><h3><strong>encode</strong></h3></td></tr></table><p></p><A NAME="getParams"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>getParams</strong> (NamedList* params)
+<br></td><td align="right"><h3><strong>getParams</strong></h3></td></tr></table><p></p><A NAME="setParams"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>setParams</strong> (NamedList* params)
+<br></td><td align="right"><h3><strong>setParams</strong></h3></td></tr></table><p></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

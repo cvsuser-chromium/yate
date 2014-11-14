@@ -1,0 +1,107 @@
+<HTML>
+<HEAD>
+<TITLE>class JIDIdentity</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class JIDIdentity</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">A JID identity. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::JIDIdentity</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yjabber___xmpputils_h.html">libs/yjabber/xmpputils.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__GenObject.html">TelEngine::GenObject</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__JIDIdentity.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>inline &nbsp;<b><A HREF="#ref1">JIDIdentity</A></b> (const char* c, const char* t, const char* name = 0) 
+</LI>
+<LI>inline &nbsp;<b><A HREF="#ref2">JIDIdentity</A></b> (XmlElement* identity) 
+</LI>
+<LI>inline XmlElement* &nbsp;<b><A HREF="#ref3">toXml</A></b> ()  const
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref4">fromXml</A></b> (XmlElement* identity) 
+</LI>
+</ul><h4>Public Static Methods</h4><ul><LI>static  XmlElement* &nbsp;<b><A HREF="#ref5">createIdentity</A></b> (const char* category,
+	const char* type, const char* name) 
+</LI>
+</ul><h4>Public Members</h4><ul><LI>String <b><A HREF="#ref6">m_category</A></b></LI>
+<LI>String <b><A HREF="#ref7">m_type</A></b></LI>
+<LI>String <b><A HREF="#ref8">m_name</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ This class holds an identity for a JID
+ See http://xmpp.org/registrar/disco-categories.html for identity categories
+  and associated types
+</p>
+<A NAME="JIDIdentity"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>JIDIdentity</strong> (const char* c, const char* t, const char* name = 0)
+<br></td><td align="right"><h3><strong>JIDIdentity</strong></h3></td></tr></table><p></p><p>
+ Constructor. Build a JID identity
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>c</i></TD><TD align="left" valign="top">The JID's category
+</TD></TR>
+<TR><TD align="left" valign="top"><i>t</i></TD><TD align="left" valign="top">The JID's type
+</TD></TR>
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Optional identity (JID) name
+     </TD></TR>
+</TABLE></P>
+<A NAME="JIDIdentity"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>JIDIdentity</strong> (XmlElement* identity)
+<br></td><td align="right"><h3><strong>JIDIdentity</strong></h3></td></tr></table><p></p><p>
+ Constructor. Build a JID identity from xml
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>identity</i></TD><TD align="left" valign="top">The identity element
+     </TD></TR>
+</TABLE></P>
+<A NAME="toXml"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline XmlElement* &nbsp;<strong>toXml</strong> ()
+<br></td><td align="right"><h3><strong>toXml</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Build an XML element from this identity
+</p>
+<p><b>Returns</b>: XmlElement pointer or 0 if category or type are empty
+     </p>
+<A NAME="fromXml"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>fromXml</strong> (XmlElement* identity)
+<br></td><td align="right"><h3><strong>fromXml</strong></h3></td></tr></table><p></p><p>
+ Update this identity from an XML element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>identity</i></TD><TD align="left" valign="top">The source element
+     </TD></TR>
+</TABLE></P>
+<A NAME="createIdentity"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>createIdentity</strong> (const char* category,
+	const char* type, const char* name)
+<br></td><td align="right"><h3><strong>createIdentity</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Create an 'identity' element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>category</i></TD><TD align="left" valign="top">The 'category' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">The 'type' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">The 'name' attribute
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A valid XmlElement pointer
+     </p>
+<A NAME="m_category"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_category</strong>
+</td><td align="right"><h3><strong>m_category</strong></h3></td></tr></table><p></p><A NAME="m_type"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_type</strong>
+</td><td align="right"><h3><strong>m_type</strong></h3></td></tr></table><p></p><A NAME="m_name"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_name</strong>
+</td><td align="right"><h3><strong>m_name</strong></h3></td></tr></table><p></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

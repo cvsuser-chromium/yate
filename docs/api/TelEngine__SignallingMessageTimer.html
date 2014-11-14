@@ -1,0 +1,104 @@
+<HTML>
+<HEAD>
+<TITLE>class SignallingMessageTimer</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SignallingMessageTimer</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">A pending signalling message. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SignallingMessageTimer</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__GenObject.html">TelEngine::GenObject</A> <small>[public ]</small>, <A HREF="TelEngine__SignallingTimer.html">TelEngine::SignallingTimer</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SignallingMessageTimer.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>inline &nbsp;<b><A HREF="#ref1">SignallingMessageTimer</A></b> (<A HREF="#u_int64_t">u_int64_t</A> interval, <A HREF="#u_int64_t">u_int64_t</A> global = 0) 
+</LI>
+<LI>virtual  &nbsp;<b><A HREF="#ref2">~SignallingMessageTimer</A></b> () 
+</LI>
+<LI>inline SignallingMessage* &nbsp;<b><A HREF="#ref3">message</A></b> ()  const
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref4">message</A></b> (SignallingMessage* msg) 
+</LI>
+<LI>inline SignallingTimer& &nbsp;<b><A HREF="#ref5">global</A></b> () 
+</LI>
+<LI>inline const SignallingTimer& &nbsp;<b><A HREF="#ref6">global</A></b> ()  const
+</LI>
+<LI>inline <A HREF="#u_int64_t">u_int64_t</A> &nbsp;<b><A HREF="#ref7">fireTime</A></b> ()  const
+</LI>
+</ul><h4>Protected Members</h4><ul><LI>SignallingTimer <b><A HREF="#ref8">m_globalTimer</A></b></LI>
+<LI>SignallingMessage* <b><A HREF="#ref9">m_msg</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ This class holds a signalling message along with timeout value(s)
+</p>
+<A NAME="SignallingMessageTimer"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>SignallingMessageTimer</strong> (<A HREF="#u_int64_t">u_int64_t</A> interval, <A HREF="#u_int64_t">u_int64_t</A> global = 0)
+<br></td><td align="right"><h3><strong>SignallingMessageTimer</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>interval</i></TD><TD align="left" valign="top">Operation timeout interval
+</TD></TR>
+<TR><TD align="left" valign="top"><i>global</i></TD><TD align="left" valign="top">Operation global timeout interval
+     </TD></TR>
+</TABLE></P>
+<A NAME="~SignallingMessageTimer"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~SignallingMessageTimer</strong> ()
+<br></td><td align="right"><h3><strong>~SignallingMessageTimer</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor. Release data
+     </p>
+<A NAME="message"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline SignallingMessage* &nbsp;<strong>message</strong> ()
+<br></td><td align="right"><h3><strong>message</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve stored signaling message
+</p>
+<p><b>Returns</b>: Pointer to the stored message
+     </p>
+<A NAME="message"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>message</strong> (SignallingMessage* msg)
+<br></td><td align="right"><h3><strong>message</strong></h3></td></tr></table><p></p><p>
+ Set a new message
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">Message to store in the timer
+     </TD></TR>
+</TABLE></P>
+<A NAME="global"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline SignallingTimer& &nbsp;<strong>global</strong> ()
+<br></td><td align="right"><h3><strong>global</strong></h3></td></tr></table><p></p><p>
+ Get access to the global timer
+</p>
+<p><b>Returns</b>: A reference to the global timer
+     </p>
+<A NAME="global"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const SignallingTimer& &nbsp;<strong>global</strong> ()
+<br></td><td align="right"><h3><strong>global</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get const access to the global timer
+</p>
+<p><b>Returns</b>: A const reference to the global timer
+     </p>
+<A NAME="fireTime"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline <A HREF="#u_int64_t">u_int64_t</A> &nbsp;<strong>fireTime</strong> ()
+<br></td><td align="right"><h3><strong>fireTime</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the time this message timer will timeout
+</p>
+<p><b>Returns</b>: The time this message timer will timeout
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SignallingTimer.html#fireTime">SignallingTimer</A>.</p>
+<A NAME="m_globalTimer"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>SignallingTimer  <strong>m_globalTimer</strong>
+</td><td align="right"><h3><strong>m_globalTimer</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_msg"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>SignallingMessage*  <strong>m_msg</strong>
+</td><td align="right"><h3><strong>m_msg</strong></h3></td></tr></table><p> <small>[protected]</small></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

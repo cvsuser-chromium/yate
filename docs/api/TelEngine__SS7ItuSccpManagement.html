@@ -1,0 +1,121 @@
+<HTML>
+<HEAD>
+<TITLE>class SS7ItuSccpManagement</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SS7ItuSccpManagement</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1"></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SS7ItuSccpManagement</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><i><A HREF="TelEngine__SCCPManagement.html">TelEngine::SCCPManagement</A></i> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SS7ItuSccpManagement.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref1">SS7ItuSccpManagement</A></b> (const NamedList& params) 
+</LI>
+<LI>virtual  &nbsp;<b><A HREF="#ref2">~SS7ItuSccpManagement</A></b> () 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref3">processMessage</A></b> (SS7MsgSCCP* message) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref4">sendMessage</A></b> (MsgType msgType, const NamedList& params) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref5">manageSccpRemoteStatus</A></b> (SccpRemote* rsccp, SS7Route::State newState) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref6">handleMessage</A></b> (int msgType, NamedList& params) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref7">handleSubsystemStatus</A></b> (SccpSubsystem* subsystem, bool allowed, SccpRemote* remote, int smi) 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><A NAME="SS7ItuSccpManagement"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>SS7ItuSccpManagement</strong> (const NamedList& params)
+<br></td><td align="right"><h3><strong>SS7ItuSccpManagement</strong></h3></td></tr></table><p></p><p>
+ Constructor
+     </p>
+<A NAME="~SS7ItuSccpManagement"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~SS7ItuSccpManagement</strong> ()
+<br></td><td align="right"><h3><strong>~SS7ItuSccpManagement</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor
+     </p>
+<A NAME="processMessage"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>processMessage</strong> (SS7MsgSCCP* message)
+<br></td><td align="right"><h3><strong>processMessage</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Process a management message received from sccp
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>message</i></TD><TD align="left" valign="top">The message to process
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the message was processed successfully
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SCCPManagement.html#processMessage">SCCPManagement</A>.</p>
+<A NAME="sendMessage"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>sendMessage</strong> (MsgType msgType, const NamedList& params)
+<br></td><td align="right"><h3><strong>sendMessage</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Encode and send a SCCP ITU management message
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msgType</i></TD><TD align="left" valign="top">The type of sccp management message
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">List of parameters
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the message was successfully sent
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SCCPManagement.html#sendMessage">SCCPManagement</A>.</p>
+<A NAME="manageSccpRemoteStatus"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>manageSccpRemoteStatus</strong> (SccpRemote* rsccp, SS7Route::State newState)
+<br></td><td align="right"><h3><strong>manageSccpRemoteStatus</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Handle notifications received from remote concerned sccp's
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>rsccp</i></TD><TD align="left" valign="top">Remote SCCP pointcode
+</TD></TR>
+<TR><TD align="left" valign="top"><i>newState</i></TD><TD align="left" valign="top">The new state of the remote SCCP
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SCCPManagement.html#manageSccpRemoteStatus">SCCPManagement</A>.</p>
+<A NAME="handleMessage"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>handleMessage</strong> (int msgType, NamedList& params)
+<br></td><td align="right"><h3><strong>handleMessage</strong></h3></td></tr></table><p></p><p>
+ Handle a SCCP Management message
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msgType</i></TD><TD align="left" valign="top">The message type
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">List of message parameters
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the message was handled
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SCCPManagement.html#handleMessage">SCCPManagement</A>.</p>
+<A NAME="handleSubsystemStatus"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>handleSubsystemStatus</strong> (SccpSubsystem* subsystem, bool allowed, SccpRemote* remote, int smi)
+<br></td><td align="right"><h3><strong>handleSubsystemStatus</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Process the status of subsystems
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>subsystem</i></TD><TD align="left" valign="top">The subsystem who's status has changed
+</TD></TR>
+<TR><TD align="left" valign="top"><i>allowed</i></TD><TD align="left" valign="top">True if the subsystem status is Allowed false for Prohibited
+</TD></TR>
+<TR><TD align="left" valign="top"><i>remote</i></TD><TD align="left" valign="top">The remote sccp pointcode where the subsystem is located
+</TD></TR>
+<TR><TD align="left" valign="top"><i>smi</i></TD><TD align="left" valign="top">Subsystem Multiplicity Indicator
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SCCPManagement.html#handleSubsystemStatus">SCCPManagement</A>.</p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

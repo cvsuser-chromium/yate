@@ -1,0 +1,286 @@
+<HTML>
+<HEAD>
+<TITLE>class JsParser</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class JsParser</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">Javascript parser. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::JsParser</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yscript___yatescript_h.html">libs/yscript/yatescript.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><i><A HREF="TelEngine__ScriptParser.html">TelEngine::ScriptParser</A></i> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__JsParser.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>inline &nbsp;<b><A HREF="#ref1">JsParser</A></b> (bool allowLink = true, bool allowTrace = false) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref2">parse</A></b> (const char* text, bool fragment = false, const char* file = 0, int len = -1) 
+</LI>
+<LI>virtual  ScriptContext* &nbsp;<b><A HREF="#ref3">createContext</A></b> ()  const
+</LI>
+<LI>virtual  ScriptRun* &nbsp;<b><A HREF="#ref4">createRunner</A></b> (ScriptCode* code, ScriptContext* context = 0, const char* title = 0)  const
+</LI>
+<LI>inline ScriptRun* &nbsp;<b><A HREF="#ref5">createRunner</A></b> (ScriptContext* context = 0, const char* title = 0)  const
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref6">callable</A></b> (const String& name) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref7">adjustPath</A></b> (String& script, bool extraInc = false)  const
+</LI>
+<LI>inline const String& &nbsp;<b><A HREF="#ref8">basePath</A></b> ()  const
+</LI>
+<LI>inline const String& &nbsp;<b><A HREF="#ref9">includePath</A></b> ()  const
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref10">basePath</A></b> (const char* path, const char* incPath = 0) 
+</LI>
+<LI>inline const String& &nbsp;<b><A HREF="#ref11">parsedFile</A></b> ()  const
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref12">scriptChanged</A></b> (const char* file)  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref13">scriptChanged</A></b> (const char* file, const String& path, const String& incPath = String::empty())  const
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref14">link</A></b> (bool allowed = true) 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref15">trace</A></b> (bool allowed = true) 
+</LI>
+</ul><h4>Public Static Methods</h4><ul><LI>static  ScriptRun::Status &nbsp;<b><A HREF="#ref16">eval</A></b> (const String& text, ExpOperation** result = 0, ScriptContext* context = 0) 
+</LI>
+<LI>static  ExpOperation* &nbsp;<b><A HREF="#ref17">parseJSON</A></b> (const char* text, Mutex* mtx = 0) 
+</LI>
+<LI>static  ExpOperation* &nbsp;<b><A HREF="#ref18">nullClone</A></b> (const char* name = 0) 
+</LI>
+<LI>static  JsObject* &nbsp;<b><A HREF="#ref19">nullObject</A></b> () 
+</LI>
+<LI>static  bool &nbsp;<b><A HREF="#ref20">isNull</A></b> (const ExpOperation& oper) 
+</LI>
+<LI>static  bool &nbsp;<b><A HREF="#ref21">isUndefined</A></b> (const ExpOperation& oper) 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ Javascript parser, takes source code and generates preparsed code
+</p>
+<A NAME="JsParser"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>JsParser</strong> (bool allowLink = true, bool allowTrace = false)
+<br></td><td align="right"><h3><strong>JsParser</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>allowLink</i></TD><TD align="left" valign="top">True to allow linking of the code, false otherwise.
+</TD></TR>
+<TR><TD align="left" valign="top"><i>allowTrace</i></TD><TD align="left" valign="top">True to allow the script to enable performance tracing
+     </TD></TR>
+</TABLE></P>
+<A NAME="parse"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>parse</strong> (const char* text, bool fragment = false, const char* file = 0, int len = -1)
+<br></td><td align="right"><h3><strong>parse</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Parse a string as Javascript source code
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>text</i></TD><TD align="left" valign="top">Source code text
+</TD></TR>
+<TR><TD align="left" valign="top"><i>fragment</i></TD><TD align="left" valign="top">True if the code is just an included fragment
+</TD></TR>
+<TR><TD align="left" valign="top"><i>file</i></TD><TD align="left" valign="top">Name of the file that is being parsed
+</TD></TR>
+<TR><TD align="left" valign="top"><i>len</i></TD><TD align="left" valign="top">Length of text, negative if unknown
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the text was successfully parsed
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__ScriptParser.html#parse">ScriptParser</A>.</p>
+<A NAME="createContext"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td> ScriptContext* &nbsp;<strong>createContext</strong> ()
+<br></td><td align="right"><h3><strong>createContext</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Create a context adequate for Javascript code
+</p>
+<p><b>Returns</b>: A new Javascript context
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__ScriptParser.html#createContext">ScriptParser</A>.</p>
+<A NAME="createRunner"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td> ScriptRun* &nbsp;<strong>createRunner</strong> (ScriptCode* code, ScriptContext* context = 0, const char* title = 0)
+<br></td><td align="right"><h3><strong>createRunner</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Create a runner adequate for a block of parsed Javascript code
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>code</i></TD><TD align="left" valign="top">Parsed code block
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Javascript context, an empty one will be allocated if NULL
+</TD></TR>
+<TR><TD align="left" valign="top"><i>title</i></TD><TD align="left" valign="top">An optional name for the runner
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A new Javascript runner, NULL if code is NULL
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__ScriptParser.html#createRunner">ScriptParser</A>.</p>
+<A NAME="createRunner"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline ScriptRun* &nbsp;<strong>createRunner</strong> (ScriptContext* context = 0, const char* title = 0)
+<br></td><td align="right"><h3><strong>createRunner</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Create a runner adequate for the parsed Javascript code
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Javascript context, an empty one will be allocated if NULL
+</TD></TR>
+<TR><TD align="left" valign="top"><i>title</i></TD><TD align="left" valign="top">An optional name for the runner
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A new Javascript runner, NULL if code is not yet parsed
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__ScriptParser.html#createRunner">ScriptParser</A>.</p>
+<A NAME="callable"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>callable</strong> (const String& name)
+<br></td><td align="right"><h3><strong>callable</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Check if a script has a certain function or method
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Name of the function to check
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if function exists in code
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__ScriptParser.html#callable">ScriptParser</A>.</p>
+<A NAME="adjustPath"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>adjustPath</strong> (String& script, bool extraInc = false)
+<br></td><td align="right"><h3><strong>adjustPath</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Adjust a file script path to include default if needed
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>script</i></TD><TD align="left" valign="top">File path to adjust
+</TD></TR>
+<TR><TD align="left" valign="top"><i>extraInc</i></TD><TD align="left" valign="top">True to check the extra include path first
+     </TD></TR>
+</TABLE></P>
+<A NAME="basePath"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const String& &nbsp;<strong>basePath</strong> ()
+<br></td><td align="right"><h3><strong>basePath</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the base script path
+</p>
+<p><b>Returns</b>: Base path added to relative script paths
+     </p>
+<A NAME="includePath"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const String& &nbsp;<strong>includePath</strong> ()
+<br></td><td align="right"><h3><strong>includePath</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the extra include script path
+</p>
+<p><b>Returns</b>: Include path added to relative script paths
+     </p>
+<A NAME="basePath"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>basePath</strong> (const char* path, const char* incPath = 0)
+<br></td><td align="right"><h3><strong>basePath</strong></h3></td></tr></table><p></p><p>
+ Set the base script path
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>path</i></TD><TD align="left" valign="top">Base path to add to relative script paths
+</TD></TR>
+<TR><TD align="left" valign="top"><i>incPath</i></TD><TD align="left" valign="top">Extra include path to add to relative script paths
+     </TD></TR>
+</TABLE></P>
+<A NAME="parsedFile"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const String& &nbsp;<strong>parsedFile</strong> ()
+<br></td><td align="right"><h3><strong>parsedFile</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the last parsed file name
+</p>
+<p><b>Returns</b>: Name of the successfully parsed file or an empty String
+     </p>
+<A NAME="scriptChanged"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>scriptChanged</strong> (const char* file)
+<br></td><td align="right"><h3><strong>scriptChanged</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Check if the script or any includes have changed
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>file</i></TD><TD align="left" valign="top">Name of the file to check
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the script may have changed, false if not changed
+     </p>
+<A NAME="scriptChanged"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>scriptChanged</strong> (const char* file, const String& path, const String& incPath = String::empty())
+<br></td><td align="right"><h3><strong>scriptChanged</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Check if the script or any includes have changed
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>file</i></TD><TD align="left" valign="top">Name of the file to check
+</TD></TR>
+<TR><TD align="left" valign="top"><i>path</i></TD><TD align="left" valign="top">New base path to check
+</TD></TR>
+<TR><TD align="left" valign="top"><i>incPath</i></TD><TD align="left" valign="top">New extra include path to check
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the script may have changed, false if not changed
+     </p>
+<A NAME="link"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>link</strong> (bool allowed = true)
+<br></td><td align="right"><h3><strong>link</strong></h3></td></tr></table><p></p><p>
+ Set whether the Javascript code should be linked or not
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>allowed</i></TD><TD align="left" valign="top">True to allow linking, false otherwise
+     </TD></TR>
+</TABLE></P>
+<A NAME="trace"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>trace</strong> (bool allowed = true)
+<br></td><td align="right"><h3><strong>trace</strong></h3></td></tr></table><p></p><p>
+ Set whether the Javascript code can be traced or not
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>allowed</i></TD><TD align="left" valign="top">True to allow tracing, false otherwise
+     </TD></TR>
+</TABLE></P>
+<A NAME="eval"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td> ScriptRun::Status &nbsp;<strong>eval</strong> (const String& text, ExpOperation** result = 0, ScriptContext* context = 0)
+<br></td><td align="right"><h3><strong>eval</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Parse and run a piece of Javascript code
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>text</i></TD><TD align="left" valign="top">Source code fragment to execute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>result</i></TD><TD align="left" valign="top">Pointer to an optional pointer to store returned value
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Script context, an empty one will be allocated if NULL
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Status of the runtime after code execution
+     </p>
+<A NAME="parseJSON"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td> ExpOperation* &nbsp;<strong>parseJSON</strong> (const char* text, Mutex* mtx = 0)
+<br></td><td align="right"><h3><strong>parseJSON</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Parse a complete block of JSON text
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>text</i></TD><TD align="left" valign="top">JSON text to parse
+</TD></TR>
+<TR><TD align="left" valign="top"><i>mtx</i></TD><TD align="left" valign="top">Pointer to the mutex that serializes this object
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: ExpOperation holding the content of JSON, must be dereferenced after use, NULL if parse error
+     </p>
+<A NAME="nullClone"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td> ExpOperation* &nbsp;<strong>nullClone</strong> (const char* name = 0)
+<br></td><td align="right"><h3><strong>nullClone</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get a "null" object wrapper that will identity match another "null"
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Name of the new wrapper, "null" if empty
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: ExpWrapper for the "null" object
+     </p>
+<A NAME="nullObject"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td> JsObject* &nbsp;<strong>nullObject</strong> ()
+<br></td><td align="right"><h3><strong>nullObject</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Obtain the "null" object
+</p>
+<p><b>Returns</b>: Referenced "null" object (0 if ref() fails)
+     </p>
+<A NAME="isNull"></A><A NAME="ref20"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>isNull</strong> (const ExpOperation& oper)
+<br></td><td align="right"><h3><strong>isNull</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Check if an operation holds a null value
+</p>
+<p><b>Returns</b>: True if the operation holds a null object
+     </p>
+<A NAME="isUndefined"></A><A NAME="ref21"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>isUndefined</strong> (const ExpOperation& oper)
+<br></td><td align="right"><h3><strong>isUndefined</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Check if an operation holds an undefined value
+</p>
+<p><b>Returns</b>: True if the operation holds an undefined value
+     </p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

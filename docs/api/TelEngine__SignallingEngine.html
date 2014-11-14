@@ -1,0 +1,296 @@
+<HTML>
+<HEAD>
+<TITLE>class SignallingEngine</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SignallingEngine</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">Main signalling component holder. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SignallingEngine</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__DebugEnabler.html">TelEngine::DebugEnabler</A> <small>[public ]</small>, <A HREF="TelEngine__Mutex.html">TelEngine::Mutex</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SignallingEngine.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref3">SignallingEngine</A></b> (const char* name = "signalling") 
+</LI>
+<LI>virtual  &nbsp;<b><A HREF="#ref4">~SignallingEngine</A></b> () 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref6">insert</A></b> (SignallingComponent* component) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref7">remove</A></b> (SignallingComponent* component) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref8">remove</A></b> (const String& name) 
+</LI>
+<LI>SignallingComponent* &nbsp;<b><A HREF="#ref9">find</A></b> (const String& name) 
+</LI>
+<LI>SignallingComponent* &nbsp;<b><A HREF="#ref10">find</A></b> (const String& name, const String& type, const SignallingComponent* start = 0) 
+</LI>
+<LI>SignallingComponent* &nbsp;<b><A HREF="#ref11">build</A></b> (const String& type, NamedList& params, bool init = false, bool ref = true) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref12">control</A></b> (NamedList& params) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref13">find</A></b> (const SignallingComponent* component) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref14">notify</A></b> (SignallingComponent* component, NamedList notifs) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref15">start</A></b> (const char* name = "Sig Engine", Thread::Priority prio = Thread::Normal, unsigned long usec = 0) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref16">stop</A></b> () 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref17">setNotifier</A></b> (SignallingNotifier* notifier) 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref18">removeNotifier</A></b> (SignallingNotifier* notifier) 
+</LI>
+<LI>Thread* &nbsp;<b><A HREF="#ref19">thread</A></b> ()  const
+</LI>
+<LI>unsigned long &nbsp;<b><A HREF="#ref20">tickSleep</A></b> (unsigned long usec = 1000000) 
+</LI>
+<LI>inline unsigned long &nbsp;<b><A HREF="#ref21">tickDefault</A></b> ()  const
+</LI>
+</ul><h4>Public Static Methods</h4><ul><LI>static  SignallingEngine* &nbsp;<b><A HREF="#ref5">self</A></b> (bool create = false) 
+</LI>
+<LI>static inline  long &nbsp;<b><A HREF="#ref22">maxLockWait</A></b> () 
+</LI>
+<LI>static  void &nbsp;<b><A HREF="#ref23">maxLockWait</A></b> (long maxWait) 
+</LI>
+<LI>static template <class Obj>  inline void &nbsp;<b><A HREF="#ref24">destruct</A></b> (Obj*& obj) 
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>virtual  unsigned long &nbsp;<b><A HREF="#ref25">timerTick</A></b> (const Time& when) 
+</LI>
+</ul><h4>Protected Members</h4><ul><LI>ObjList <b><A HREF="#ref26">m_components</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ The engine is the center of all SS7 or ISDN applications.
+ It is used as a base to build the protocol stack from components.
+</p>
+<A NAME="SignallingEngine"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>SignallingEngine</strong> (const char* name = "signalling")
+<br></td><td align="right"><h3><strong>SignallingEngine</strong></h3></td></tr></table><p></p><p>
+ Constructor of an empty engine
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">The debug name of this engine
+     </TD></TR>
+</TABLE></P>
+<A NAME="~SignallingEngine"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~SignallingEngine</strong> ()
+<br></td><td align="right"><h3><strong>~SignallingEngine</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor, removes all components
+     </p>
+<A NAME="self"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td> SignallingEngine* &nbsp;<strong>self</strong> (bool create = false)
+<br></td><td align="right"><h3><strong>self</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get a pointer to the first (and usually only) instance created
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>create</i></TD><TD align="left" valign="top">Create the instance if it doesn't exist
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Pointer to first engine, NULL if not created
+     </p>
+<A NAME="insert"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>insert</strong> (SignallingComponent* component)
+<br></td><td align="right"><h3><strong>insert</strong></h3></td></tr></table><p></p><p>
+ Insert a component in the engine, lock the list while doing so
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>component</i></TD><TD align="left" valign="top">Pointer to component to insert in engine
+     </TD></TR>
+</TABLE></P>
+<A NAME="remove"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>remove</strong> (SignallingComponent* component)
+<br></td><td align="right"><h3><strong>remove</strong></h3></td></tr></table><p></p><p>
+ Remove a component from the engine, lock the list while doing so
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>component</i></TD><TD align="left" valign="top">Pointer to component to remove from engine
+     </TD></TR>
+</TABLE></P>
+<A NAME="remove"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>remove</strong> (const String& name)
+<br></td><td align="right"><h3><strong>remove</strong></h3></td></tr></table><p></p><p>
+ Remove and destroy a component from the engine by name
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Name of component to remove from engine
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if a component was found and destroyed
+     </p>
+<A NAME="find"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>SignallingComponent* &nbsp;<strong>find</strong> (const String& name)
+<br></td><td align="right"><h3><strong>find</strong></h3></td></tr></table><p></p><p>
+ Retrieve a component by name, lock the list while searching for it
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Name of the component to find
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Pointer to component found or NULL
+     </p>
+<A NAME="find"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>SignallingComponent* &nbsp;<strong>find</strong> (const String& name, const String& type, const SignallingComponent* start = 0)
+<br></td><td align="right"><h3><strong>find</strong></h3></td></tr></table><p></p><p>
+ Retrieve a component by name and class, lock the list while searching for it
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Name of the component to find, empty to find any of the type
+</TD></TR>
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Class or base class of the component to find, empty to match any
+</TD></TR>
+<TR><TD align="left" valign="top"><i>start</i></TD><TD align="left" valign="top">Component to start searching from, search all list if NULL
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Pointer to component found or NULL
+     </p>
+<A NAME="build"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>SignallingComponent* &nbsp;<strong>build</strong> (const String& type, NamedList& params, bool init = false, bool ref = true)
+<br></td><td align="right"><h3><strong>build</strong></h3></td></tr></table><p></p><p>
+ Retrieve and reference an existing component, create by factory if not present
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Class or base class of the component to find or create
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Name of component to find or create and creation parameters
+</TD></TR>
+<TR><TD align="left" valign="top"><i>init</i></TD><TD align="left" valign="top">Set to true to initialize a newly created component
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ref</i></TD><TD align="left" valign="top">True to add a reference when returning existing component
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Pointer to component found or created, NULL on failure
+     </p>
+<A NAME="control"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>control</strong> (NamedList& params)
+<br></td><td align="right"><h3><strong>control</strong></h3></td></tr></table><p></p><p>
+ Apply a control operation to all components in the engine
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">The list of parameters to query or change
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the control operation was executed by at least one component
+     </p>
+<A NAME="find"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>find</strong> (const SignallingComponent* component)
+<br></td><td align="right"><h3><strong>find</strong></h3></td></tr></table><p></p><p>
+ Check if a component is in the engine's list
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>component</i></TD><TD align="left" valign="top">Pointer to component to check
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the component is in the engine's list
+     </p>
+<A NAME="notify"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>notify</strong> (SignallingComponent* component, NamedList notifs)
+<br></td><td align="right"><h3><strong>notify</strong></h3></td></tr></table><p></p><p>
+ Handle notifications from a SignallingComponent
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>component</i></TD><TD align="left" valign="top">The SignallingComponent from which the notifications were received
+</TD></TR>
+<TR><TD align="left" valign="top"><i>notifs</i></TD><TD align="left" valign="top">The notifications sent by this SignallingComponent
+     </TD></TR>
+</TABLE></P>
+<A NAME="start"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>start</strong> (const char* name = "Sig Engine", Thread::Priority prio = Thread::Normal, unsigned long usec = 0)
+<br></td><td align="right"><h3><strong>start</strong></h3></td></tr></table><p></p><p>
+ Starts the worker thread that keeps components alive
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Static name of the thread
+</TD></TR>
+<TR><TD align="left" valign="top"><i>prio</i></TD><TD align="left" valign="top">Thread's priority
+</TD></TR>
+<TR><TD align="left" valign="top"><i>usec</i></TD><TD align="left" valign="top">How long to sleep between iterations in usec, 0 to use library default
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if (already) started, false if an error occured
+     </p>
+<A NAME="stop"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>stop</strong> ()
+<br></td><td align="right"><h3><strong>stop</strong></h3></td></tr></table><p></p><p>
+ Stops and destroys the worker thread if running
+     </p>
+<A NAME="setNotifier"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>setNotifier</strong> (SignallingNotifier* notifier)
+<br></td><td align="right"><h3><strong>setNotifier</strong></h3></td></tr></table><p></p><p>
+ Add to this engine a notifier object
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>notifier</i></TD><TD align="left" valign="top">The SignallingNotifier object to be added to the engine
+     </TD></TR>
+</TABLE></P>
+<A NAME="removeNotifier"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>removeNotifier</strong> (SignallingNotifier* notifier)
+<br></td><td align="right"><h3><strong>removeNotifier</strong></h3></td></tr></table><p></p><p>
+ Remove from this engine a notifier object
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>notifier</i></TD><TD align="left" valign="top">The SignallingNotifier object to be removed from the engine
+     </TD></TR>
+</TABLE></P>
+<A NAME="thread"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td>Thread* &nbsp;<strong>thread</strong> ()
+<br></td><td align="right"><h3><strong>thread</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Return a pointer to the worker thread
+</p>
+<p><b>Returns</b>: Pointer to running worker thread or NULL
+     </p>
+<A NAME="tickSleep"></A><A NAME="ref20"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned long &nbsp;<strong>tickSleep</strong> (unsigned long usec = 1000000)
+<br></td><td align="right"><h3><strong>tickSleep</strong></h3></td></tr></table><p></p><p>
+ Adjust (decrease only) the desired maximum time until next tick.
+ Can be called only from within timerTick()
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>usec</i></TD><TD align="left" valign="top">Desired time until next timerTick() call in usec
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Timer sleep in usec after applying the current change
+     </p>
+<A NAME="tickDefault"></A><A NAME="ref21"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline unsigned long &nbsp;<strong>tickDefault</strong> ()
+<br></td><td align="right"><h3><strong>tickDefault</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the default engine tick sleep time in microseconds
+</p>
+<p><b>Returns</b>: Default timer sleep in usec
+     </p>
+<A NAME="maxLockWait"></A><A NAME="ref22"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline  long &nbsp;<strong>maxLockWait</strong> ()
+<br></td><td align="right"><h3><strong>maxLockWait</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get the maximum time we should spend acquiring a non-critical Mutex
+</p>
+<p><b>Returns</b>: Maximum non-critical lock wait in usec, -1 to wait forever
+     </p>
+<A NAME="maxLockWait"></A><A NAME="ref23"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>maxLockWait</strong> (long maxWait)
+<br></td><td align="right"><h3><strong>maxLockWait</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Set the maximum time we should spend acquiring a non-critical Mutex
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>maxWait</i></TD><TD align="left" valign="top">New maximum non-critical lock wait in usec, negative to wait forever
+     </TD></TR>
+</TABLE></P>
+<A NAME="destruct"></A><A NAME="ref24"></A><table width="100%"><tr bgcolor="#eeeeee"><td>template <class Obj>  inline void &nbsp;<strong>destruct</strong> (Obj*& obj)
+<br></td><td align="right"><h3><strong>destruct</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Helper template used to remove a component descendant from its engine,
+  destroy it and set the received pointer to 0
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>obj</i></TD><TD align="left" valign="top">Reference to pointer (lvalue) to the object to remove and destroy
+     </TD></TR>
+</TABLE></P>
+<A NAME="timerTick"></A><A NAME="ref25"></A><table width="100%"><tr bgcolor="#eeeeee"><td> unsigned long &nbsp;<strong>timerTick</strong> (const Time& when)
+<br></td><td align="right"><h3><strong>timerTick</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Method called periodically by the worker thread to keep everything alive
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>when</i></TD><TD align="left" valign="top">Time to use as computing base for events and timeouts
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Desired sleep (in usec) until thread's next tick interval
+     </p>
+<A NAME="m_components"></A><A NAME="ref26"></A><table width="100%"><tr bgcolor="#eeeeee"><td>ObjList  <strong>m_components</strong>
+</td><td align="right"><h3><strong>m_components</strong></h3></td></tr></table><p> <small>[protected]</small></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

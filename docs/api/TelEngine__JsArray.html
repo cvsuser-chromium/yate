@@ -1,0 +1,200 @@
+<HTML>
+<HEAD>
+<TITLE>class JsArray</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class JsArray</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">Javascript Array. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::JsArray</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yscript___yatescript_h.html">libs/yscript/yatescript.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__JsObject.html">TelEngine::JsObject</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__JsArray.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref2">JsArray</A></b> (GenObject* context, Mutex* mtx = 0) 
+</LI>
+<LI>inline &nbsp;<b><A HREF="#ref3">JsArray</A></b> (Mutex* mtx, const char* name, bool frozen = false) 
+</LI>
+<LI>inline <A HREF="#int32_t">int32_t</A> &nbsp;<b><A HREF="#ref4">length</A></b> ()  const
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref5">setLength</A></b> (<A HREF="#int32_t">int32_t</A> len) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref6">push</A></b> (ExpOperation* item) 
+</LI>
+<LI>virtual  JsObject* &nbsp;<b><A HREF="#ref7">copy</A></b> (Mutex* mtx)  const
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref8">runAssign</A></b> (ObjList& stack, const ExpOperation& oper, GenObject* context) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref9">runField</A></b> (ObjList& stack, const ExpOperation& oper, GenObject* context) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref10">initConstructor</A></b> (JsFunction* construct) 
+</LI>
+<LI>virtual  JsObject* &nbsp;<b><A HREF="#ref11">runConstructor</A></b> (ObjList& stack, const ExpOperation& oper, GenObject* context) 
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>virtual  JsObject* &nbsp;<b><A HREF="#ref12">clone</A></b> (const char* name)  const
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref13">runNative</A></b> (ObjList& stack, const ExpOperation& oper, GenObject* context) 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ Javascript Array class, implements arrays of items
+</p>
+<A NAME="JsArray"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>JsArray</strong> (GenObject* context, Mutex* mtx = 0)
+<br></td><td align="right"><h3><strong>JsArray</strong></h3></td></tr></table><p></p><p>
+ Constructor for an empty array with prototype
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Script context from which Array prototype is obtainend
+</TD></TR>
+<TR><TD align="left" valign="top"><i>mtx</i></TD><TD align="left" valign="top">Pointer to the mutex that serializes this object
+     </TD></TR>
+</TABLE></P>
+<A NAME="JsArray"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>JsArray</strong> (Mutex* mtx, const char* name, bool frozen = false)
+<br></td><td align="right"><h3><strong>JsArray</strong></h3></td></tr></table><p></p><p>
+ Constructor for an empty array
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>mtx</i></TD><TD align="left" valign="top">Pointer to the mutex that serializes this object
+</TD></TR>
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Full name of the object
+</TD></TR>
+<TR><TD align="left" valign="top"><i>frozen</i></TD><TD align="left" valign="top">True if the object is to be frozen from creation
+     </TD></TR>
+</TABLE></P>
+<A NAME="length"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline <A HREF="#int32_t">int32_t</A> &nbsp;<strong>length</strong> ()
+<br></td><td align="right"><h3><strong>length</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the length of the array
+</p>
+<p><b>Returns</b>: Number of numerically indexed objects in array
+     </p>
+<A NAME="setLength"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>setLength</strong> (<A HREF="#int32_t">int32_t</A> len)
+<br></td><td align="right"><h3><strong>setLength</strong></h3></td></tr></table><p></p><p>
+ Set the internal length to a specific value
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>len</i></TD><TD align="left" valign="top">Length of array to set
+     </TD></TR>
+</TABLE></P>
+<A NAME="push"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>push</strong> (ExpOperation* item)
+<br></td><td align="right"><h3><strong>push</strong></h3></td></tr></table><p></p><p>
+ Add an item at the end of the array
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>item</i></TD><TD align="left" valign="top">Item to add to array
+     </TD></TR>
+</TABLE></P>
+<A NAME="copy"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> JsObject* &nbsp;<strong>copy</strong> (Mutex* mtx)
+<br></td><td align="right"><h3><strong>copy</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Deep copy method
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>mtx</i></TD><TD align="left" valign="top">Pointer to the mutex that serializes the copied array
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: New object instance, does not keep references to old array
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__JsObject.html#copy">JsObject</A>.</p>
+<A NAME="runAssign"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>runAssign</strong> (ObjList& stack, const ExpOperation& oper, GenObject* context)
+<br></td><td align="right"><h3><strong>runAssign</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Try to assign a value to a single field if object is not frozen and update array length.
+ Reimplemented from JsObject
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stack</i></TD><TD align="left" valign="top">Evaluation stack in use
+</TD></TR>
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Field to assign to, contains the field name and new value
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to arbitrary object passed from evaluation methods
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if assignment succeeded
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__JsObject.html#runAssign">JsObject</A>.</p>
+<A NAME="runField"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>runField</strong> (ObjList& stack, const ExpOperation& oper, GenObject* context)
+<br></td><td align="right"><h3><strong>runField</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Try to evaluate a single field
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stack</i></TD><TD align="left" valign="top">Evaluation stack in use, field value must be pushed on it
+</TD></TR>
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Field to evaluate
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to arbitrary object passed from evaluation methods
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if evaluation succeeded
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__JsObject.html#runField">JsObject</A>.</p>
+<A NAME="initConstructor"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>initConstructor</strong> (JsFunction* construct)
+<br></td><td align="right"><h3><strong>initConstructor</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Array constructor initialization
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>construct</i></TD><TD align="left" valign="top">The Array function
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__JsObject.html#initConstructor">JsObject</A>.</p>
+<A NAME="runConstructor"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td> JsObject* &nbsp;<strong>runConstructor</strong> (ObjList& stack, const ExpOperation& oper, GenObject* context)
+<br></td><td align="right"><h3><strong>runConstructor</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Array object constructor, it's run on the prototype
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stack</i></TD><TD align="left" valign="top">Evaluation stack in use
+</TD></TR>
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Constructor function to evaluate
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to arbitrary object passed from evaluation methods
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: New created and populated Javascript Array object
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__JsObject.html#runConstructor">JsObject</A>.</p>
+<A NAME="clone"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td> JsObject* &nbsp;<strong>clone</strong> (const char* name)
+<br></td><td align="right"><h3><strong>clone</strong></h3></td></tr></table><p> <small>[protected const virtual]</small></p><p>
+ Clone and rename method
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Name of the cloned object
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: New object instance
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__JsObject.html#clone">JsObject</A>.</p>
+<A NAME="runNative"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>runNative</strong> (ObjList& stack, const ExpOperation& oper, GenObject* context)
+<br></td><td align="right"><h3><strong>runNative</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Try to evaluate a single native method
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stack</i></TD><TD align="left" valign="top">Evaluation stack in use, parameters are popped off this stack
+  and results are pushed back on stack
+</TD></TR>
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Function to evaluate
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to arbitrary object passed from evaluation methods
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if evaluation succeeded
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__JsObject.html#runNative">JsObject</A>.</p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

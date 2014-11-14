@@ -1,0 +1,111 @@
+<HTML>
+<HEAD>
+<TITLE>class SS7MsgSccpReassemble</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SS7MsgSccpReassemble</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1"></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SS7MsgSccpReassemble</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__SS7MsgSCCP.html">TelEngine::SS7MsgSCCP</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SS7MsgSccpReassemble.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref1">Return</A> {	Rejected,
+	Accepted,
+	Error,
+	Finished,
+    }
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref2">SS7MsgSccpReassemble</A></b> (SS7MsgSCCP* msg, const SS7Label& label, unsigned int timeToLive) 
+</LI>
+<LI>virtual  &nbsp;<b><A HREF="#ref3">~SS7MsgSccpReassemble</A></b> () 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref4">canProcess</A></b> (const SS7MsgSCCP* msg, const SS7Label& label) 
+</LI>
+<LI>Return &nbsp;<b><A HREF="#ref5">appendSegment</A></b> (SS7MsgSCCP* msg, const SS7Label& label) 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref6">timeout</A></b> () 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref7">haveAllSegments</A></b> () 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><A NAME="Return"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>Return</strong> {	Rejected,
+	Accepted,
+	Error,
+	Finished,
+    }
+</td><td align="right"><h3><strong>Return</strong></h3></td></tr></table><p></p><A NAME="SS7MsgSccpReassemble"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>SS7MsgSccpReassemble</strong> (SS7MsgSCCP* msg, const SS7Label& label, unsigned int timeToLive)
+<br></td><td align="right"><h3><strong>SS7MsgSccpReassemble</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">The first message segment
+</TD></TR>
+<TR><TD align="left" valign="top"><i>label</i></TD><TD align="left" valign="top">The MTP routing label
+</TD></TR>
+<TR><TD align="left" valign="top"><i>timeToLive</i></TD><TD align="left" valign="top">The time internal in milliseconds that we wait to reassemble the message
+     </TD></TR>
+</TABLE></P>
+<A NAME="~SS7MsgSccpReassemble"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~SS7MsgSccpReassemble</strong> ()
+<br></td><td align="right"><h3><strong>~SS7MsgSccpReassemble</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor
+     </p>
+<A NAME="canProcess"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>canProcess</strong> (const SS7MsgSCCP* msg, const SS7Label& label)
+<br></td><td align="right"><h3><strong>canProcess</strong></h3></td></tr></table><p></p><p>
+ Helper method used to check if the given message is part of this reassembling process
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">The message to verify
+</TD></TR>
+<TR><TD align="left" valign="top"><i>label</i></TD><TD align="left" valign="top">The SS7 routing label
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if msg is a part of this reassembling process
+     </p>
+<A NAME="appendSegment"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>Return &nbsp;<strong>appendSegment</strong> (SS7MsgSCCP* msg, const SS7Label& label)
+<br></td><td align="right"><h3><strong>appendSegment</strong></h3></td></tr></table><p></p><p>
+ Append a sccp message segment to the main message
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">The message segment
+</TD></TR>
+<TR><TD align="left" valign="top"><i>label</i></TD><TD align="left" valign="top">The SS7 routing label
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: One of the Return enum options
+     </p>
+<A NAME="timeout"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>timeout</strong> ()
+<br></td><td align="right"><h3><strong>timeout</strong></h3></td></tr></table><p></p><p>
+ Check if this reassemble process has expired
+</p>
+<p><b>Returns</b>: True if this reassemble process has expired
+     </p>
+<A NAME="haveAllSegments"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>haveAllSegments</strong> ()
+<br></td><td align="right"><h3><strong>haveAllSegments</strong></h3></td></tr></table><p></p><p>
+ Helper method to verify if all segments have arrived
+</p>
+<p><b>Returns</b>: True if all segments arrived
+     </p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

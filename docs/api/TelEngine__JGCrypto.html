@@ -1,0 +1,120 @@
+<HTML>
+<HEAD>
+<TITLE>class JGCrypto</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class JGCrypto</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">Content crypto data. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::JGCrypto</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yjabber___yatejingle_h.html">libs/yjabber/yatejingle.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__String.html">TelEngine::String</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__JGCrypto.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>inline &nbsp;<b><A HREF="#ref1">JGCrypto</A></b> (const char* tag = "1", const char* suite = 0,
+	const char* key = 0, const char* session = 0) 
+</LI>
+<LI>inline &nbsp;<b><A HREF="#ref2">JGCrypto</A></b> (const XmlElement* xml) 
+</LI>
+<LI>XmlElement* &nbsp;<b><A HREF="#ref3">toXml</A></b> ()  const
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref4">fromXml</A></b> (const XmlElement* xml) 
+</LI>
+</ul><h4>Public Static Methods</h4><ul><LI>static  XmlElement* &nbsp;<b><A HREF="#ref5">buildEncryption</A></b> (const ObjList& list, bool required) 
+</LI>
+<LI>static  void &nbsp;<b><A HREF="#ref6">decodeEncryption</A></b> (const XmlElement* xml, ObjList& list, bool& required) 
+</LI>
+</ul><h4>Public Members</h4><ul><LI>String <b><A HREF="#ref7">m_suite</A></b></LI>
+<LI>String <b><A HREF="#ref8">m_keyParams</A></b></LI>
+<LI>String <b><A HREF="#ref9">m_sessionParams</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ This class holds a content description's crypto data.
+ The tag is kept in the String component
+</p>
+<A NAME="JGCrypto"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>JGCrypto</strong> (const char* tag = "1", const char* suite = 0,
+	const char* key = 0, const char* session = 0)
+<br></td><td align="right"><h3><strong>JGCrypto</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>tag</i></TD><TD align="left" valign="top">The tag parameter
+</TD></TR>
+<TR><TD align="left" valign="top"><i>suite</i></TD><TD align="left" valign="top">The crypto-suite paramter
+</TD></TR>
+<TR><TD align="left" valign="top"><i>key</i></TD><TD align="left" valign="top">The key-params parameter
+</TD></TR>
+<TR><TD align="left" valign="top"><i>session</i></TD><TD align="left" valign="top">The session-param parameter
+     </TD></TR>
+</TABLE></P>
+<A NAME="JGCrypto"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>JGCrypto</strong> (const XmlElement* xml)
+<br></td><td align="right"><h3><strong>JGCrypto</strong></h3></td></tr></table><p></p><p>
+ Constructor. Build this element from a received element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The received xml element
+     </TD></TR>
+</TABLE></P>
+<A NAME="toXml"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>XmlElement* &nbsp;<strong>toXml</strong> ()
+<br></td><td align="right"><h3><strong>toXml</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Create a 'crypto' element from this object
+</p>
+<p><b>Returns</b>: Valid XmlElement pointer
+     </p>
+<A NAME="fromXml"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>fromXml</strong> (const XmlElement* xml)
+<br></td><td align="right"><h3><strong>fromXml</strong></h3></td></tr></table><p></p><p>
+ Build this element from a received element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The received xml element
+     </TD></TR>
+</TABLE></P>
+<A NAME="buildEncryption"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>buildEncryption</strong> (const ObjList& list, bool required)
+<br></td><td align="right"><h3><strong>buildEncryption</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Build an 'encryption' element from a list of crypto objects
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>list</i></TD><TD align="left" valign="top">The list of crypto objects
+</TD></TR>
+<TR><TD align="left" valign="top"><i>required</i></TD><TD align="left" valign="top">True if encryption is required
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: XmlElement pointer or 0 if the list is empty
+     </p>
+<A NAME="decodeEncryption"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>decodeEncryption</strong> (const XmlElement* xml, ObjList& list, bool& required)
+<br></td><td align="right"><h3><strong>decodeEncryption</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Decode an 'encryption' element. Clear the list before starting
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The element to decode
+</TD></TR>
+<TR><TD align="left" valign="top"><i>list</i></TD><TD align="left" valign="top">The list to be filled with crypto objects
+</TD></TR>
+<TR><TD align="left" valign="top"><i>required</i></TD><TD align="left" valign="top">Variable to be filled with the value of the 'required' attribute
+     </TD></TR>
+</TABLE></P>
+<A NAME="m_suite"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_suite</strong>
+</td><td align="right"><h3><strong>m_suite</strong></h3></td></tr></table><p></p><A NAME="m_keyParams"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_keyParams</strong>
+</td><td align="right"><h3><strong>m_keyParams</strong></h3></td></tr></table><p></p><A NAME="m_sessionParams"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_sessionParams</strong>
+</td><td align="right"><h3><strong>m_sessionParams</strong></h3></td></tr></table><p></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

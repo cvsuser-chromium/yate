@@ -1,0 +1,213 @@
+<HTML>
+<HEAD>
+<TITLE>class SS7TCAPTransactionANSI</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SS7TCAPTransactionANSI</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">ANSI SS7 TCAP transaction implementation. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SS7TCAPTransactionANSI</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><i><A HREF="TelEngine__SS7TCAPTransaction.html">TelEngine::SS7TCAPTransaction</A></i> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SS7TCAPTransactionANSI.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref1">TCAPANSIComponentType</A> {	CompUnknown         = 0x0,
+	Local               = 0x1,
+	InvokeLast          = 0xe9,
+	ReturnResultLast    = 0xea,
+	ReturnError         = 0xeb,
+	Reject              = 0xec,
+	InvokeNotLast       = 0xed,
+	ReturnResultNotLast = 0xee,
+    }
+</LI>
+<LI>enum <A HREF="#ref2">ANSITransactionType</A> {	Unknown                         = 0x0,
+	Unidirectional                  = 0xe1,
+	QueryWithPermission             = 0xe2,
+	QueryWithoutPermission          = 0xe3,
+	Response                        = 0xe4,
+	ConversationWithPermission      = 0xe5,
+	ConversationWithoutPermission   = 0xe6,
+	Abort                           = 0xf6,
+    }
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref3">SS7TCAPTransactionANSI</A></b> (SS7TCAP* tcap, SS7TCAP::TCAPUserTransActions type, const String& transactID, NamedList& params,
+	<A HREF="#u_int64_t">u_int64_t</A> timeout, bool initLocal = true) 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref4">~SS7TCAPTransactionANSI</A></b> () 
+</LI>
+<LI>virtual  SS7TCAPError &nbsp;<b><A HREF="#ref5">handleData</A></b> (NamedList& params, DataBlock& data) 
+</LI>
+<LI>virtual  SS7TCAPError &nbsp;<b><A HREF="#ref6">update</A></b> (SS7TCAP::TCAPUserTransActions type, NamedList& params, bool updateByUser = true) 
+</LI>
+<LI>virtual  SS7TCAPError &nbsp;<b><A HREF="#ref7">handleDialogPortion</A></b> (NamedList& params, bool byUser = true) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref10">updateToEnd</A></b> () 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref11">updateState</A></b> (bool byUser) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref12">requestContent</A></b> (NamedList& params, DataBlock& data) 
+</LI>
+</ul><h4>Public Static Methods</h4><ul><LI>static  void &nbsp;<b><A HREF="#ref8">encodePAbort</A></b> (SS7TCAPTransaction* tr, NamedList& params, DataBlock& data) 
+</LI>
+<LI>static  SS7TCAPError &nbsp;<b><A HREF="#ref9">decodePAbort</A></b> (SS7TCAPTransaction* tr, NamedList& params, DataBlock& data) 
+</LI>
+</ul><h4>Public Members</h4><ul><LI>static const TokenDict <b><A HREF="#ref13">s_ansiTransactTypes[]</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ Implementation of SS7 Transactional Capabilities Application Part Transaction - specification ANSI
+</p>
+<A NAME="TCAPANSIComponentType"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>TCAPANSIComponentType</strong> {	CompUnknown         = 0x0,
+	Local               = 0x1,
+	InvokeLast          = 0xe9,
+	ReturnResultLast    = 0xea,
+	ReturnError         = 0xeb,
+	Reject              = 0xec,
+	InvokeNotLast       = 0xed,
+	ReturnResultNotLast = 0xee,
+    }
+</td><td align="right"><h3><strong>TCAPANSIComponentType</strong></h3></td></tr></table><p></p><A NAME="ANSITransactionType"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>ANSITransactionType</strong> {	Unknown                         = 0x0,
+	Unidirectional                  = 0xe1,
+	QueryWithPermission             = 0xe2,
+	QueryWithoutPermission          = 0xe3,
+	Response                        = 0xe4,
+	ConversationWithPermission      = 0xe5,
+	ConversationWithoutPermission   = 0xe6,
+	Abort                           = 0xf6,
+    }
+</td><td align="right"><h3><strong>ANSITransactionType</strong></h3></td></tr></table><p></p><A NAME="SS7TCAPTransactionANSI"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>SS7TCAPTransactionANSI</strong> (SS7TCAP* tcap, SS7TCAP::TCAPUserTransActions type, const String& transactID, NamedList& params,
+	<A HREF="#u_int64_t">u_int64_t</A> timeout, bool initLocal = true)
+<br></td><td align="right"><h3><strong>SS7TCAPTransactionANSI</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>tcap</i></TD><TD align="left" valign="top">TCAP holding this transaction
+</TD></TR>
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Initiating type for transaction
+</TD></TR>
+<TR><TD align="left" valign="top"><i>transactID</i></TD><TD align="left" valign="top">Transaction ID
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Decoded TCAP parameters for building the transaction
+</TD></TR>
+<TR><TD align="left" valign="top"><i>timeout</i></TD><TD align="left" valign="top">Transaction timeout
+</TD></TR>
+<TR><TD align="left" valign="top"><i>initLocal</i></TD><TD align="left" valign="top">True if the transaction was initiated locally, false if not
+     </TD></TR>
+</TABLE></P>
+<A NAME="~SS7TCAPTransactionANSI"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>~SS7TCAPTransactionANSI</strong> ()
+<br></td><td align="right"><h3><strong>~SS7TCAPTransactionANSI</strong></h3></td></tr></table><p></p><p>
+ Destructor
+     </p>
+<A NAME="handleData"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td> SS7TCAPError &nbsp;<strong>handleData</strong> (NamedList& params, DataBlock& data)
+<br></td><td align="right"><h3><strong>handleData</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Process transaction data and fill the NamedList with the decoded data
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">NamedList to fill with decoded data
+</TD></TR>
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Data to decode
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A TCAP error encountered whilst decoding
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7TCAPTransaction.html#handleData">SS7TCAPTransaction</A>.</p>
+<A NAME="update"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td> SS7TCAPError &nbsp;<strong>update</strong> (SS7TCAP::TCAPUserTransActions type, NamedList& params, bool updateByUser = true)
+<br></td><td align="right"><h3><strong>update</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ An update request for this transaction
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">The type of transaction to which this transaction should be updated
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Update parameter
+</TD></TR>
+<TR><TD align="left" valign="top"><i>updateByUser</i></TD><TD align="left" valign="top">True if the update is made by the local user, false if it's made by the remote end
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A TCAP Error
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7TCAPTransaction.html#update">SS7TCAPTransaction</A>.</p>
+<A NAME="handleDialogPortion"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> SS7TCAPError &nbsp;<strong>handleDialogPortion</strong> (NamedList& params, bool byUser = true)
+<br></td><td align="right"><h3><strong>handleDialogPortion</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Handle TCAP relevant dialog data
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">NamedList containing (if present) dialog information
+</TD></TR>
+<TR><TD align="left" valign="top"><i>byUser</i></TD><TD align="left" valign="top">True if the dialog information is provided by the local user, false otherwise
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A report error
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7TCAPTransaction.html#handleDialogPortion">SS7TCAPTransaction</A>.</p>
+<A NAME="encodePAbort"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>encodePAbort</strong> (SS7TCAPTransaction* tr, NamedList& params, DataBlock& data)
+<br></td><td align="right"><h3><strong>encodePAbort</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Encode P-Abort information
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>tr</i></TD><TD align="left" valign="top">The transaction on which the abort was signalled
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">NamedList reference from which to get the P-Abort information
+</TD></TR>
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">DataBlock reference in which to insert the encoded P-Abort information
+     </TD></TR>
+</TABLE></P>
+<A NAME="decodePAbort"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td> SS7TCAPError &nbsp;<strong>decodePAbort</strong> (SS7TCAPTransaction* tr, NamedList& params, DataBlock& data)
+<br></td><td align="right"><h3><strong>decodePAbort</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Decode P-Abort TCAP message portion
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>tr</i></TD><TD align="left" valign="top">The transaction on which the abort was signalled
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">NamedList reference to fill with the decoded P-Abort information
+</TD></TR>
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">DataBlock reference from which to decode P-Abort information
+     </TD></TR>
+</TABLE></P>
+<A NAME="updateToEnd"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>updateToEnd</strong> ()
+<br></td><td align="right"><h3><strong>updateToEnd</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Update the state of this transaction to end the transaction
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7TCAPTransaction.html#updateToEnd">SS7TCAPTransaction</A>.</p>
+<A NAME="updateState"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>updateState</strong> (bool byUser)
+<br></td><td align="right"><h3><strong>updateState</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Update transaction state
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>byUser</i></TD><TD align="left" valign="top">True if update is requested by user, false if by remote
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SS7TCAPTransaction.html#updateState">SS7TCAPTransaction</A>.</p>
+<A NAME="requestContent"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>requestContent</strong> (NamedList& params, DataBlock& data)
+<br></td><td align="right"><h3><strong>requestContent</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Request content for this transaction
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">List of parameters of this tranaction
+</TD></TR>
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Data block to fill with encoded content
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SS7TCAPTransaction.html#requestContent">SS7TCAPTransaction</A>.</p>
+<A NAME="s_ansiTransactTypes[]"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_ansiTransactTypes[]</strong>
+</td><td align="right"><h3><strong>s_ansiTransactTypes[]</strong></h3></td></tr></table><p></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

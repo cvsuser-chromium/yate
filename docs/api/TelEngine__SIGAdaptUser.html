@@ -1,0 +1,123 @@
+<HTML>
+<HEAD>
+<TITLE>class SIGAdaptUser</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SIGAdaptUser</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">Abstract SIGTRAN Adaptation user. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH colspan="2">Contains pure virtuals</TH></TR><TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SIGAdaptUser</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherited by</TH><TD><A HREF="TelEngine__ISDNIUA.html">ISDNIUA</A>, <A HREF="TelEngine__SS7M2UA.html">SS7M2UA</A>, <A HREF="TelEngine__SS7M3UA.html">SS7M3UA</A>, <A HREF="TelEngine__SS7SUA.html">SS7SUA</A></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SIGAdaptUser.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>virtual  &nbsp;<b><A HREF="#ref2">~SIGAdaptUser</A></b> () 
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>inline &nbsp;<b><A HREF="#ref3">SIGAdaptUser</A></b> () 
+</LI>
+<LI>inline SIGAdaptClient* &nbsp;<b><A HREF="#ref4">adaptation</A></b> ()  const
+</LI>
+<LI>inline SIGTransport* &nbsp;<b><A HREF="#ref5">transport</A></b> ()  const
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref6">adaptation</A></b> (SIGAdaptClient* adapt) 
+</LI>
+<LI>virtual  void &nbsp;<b><i><A HREF="#ref7">activeChange</A></i></b> (bool active) 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref8">activate</A></b> () 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref9">aspUp</A></b> ()  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref10">aspActive</A></b> ()  const
+</LI>
+<LI>inline unsigned char &nbsp;<b><A HREF="#ref11">getStreamId</A></b> () 
+</LI>
+</ul><h4>Protected Members</h4><ul><LI>bool <b><A HREF="#ref12">m_autostart</A></b></LI>
+<LI>unsigned char <b><A HREF="#ref13">m_streamId</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ An interface to a Signalling Transport Adaptation user
+</p>
+<A NAME="~SIGAdaptUser"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~SIGAdaptUser</strong> ()
+<br></td><td align="right"><h3><strong>~SIGAdaptUser</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor
+     </p>
+<A NAME="SIGAdaptUser"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>SIGAdaptUser</strong> ()
+<br></td><td align="right"><h3><strong>SIGAdaptUser</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Default constructor
+     </p>
+<A NAME="adaptation"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline SIGAdaptClient* &nbsp;<strong>adaptation</strong> ()
+<br></td><td align="right"><h3><strong>adaptation</strong></h3></td></tr></table><p> <small>[protected const]</small></p><p>
+ Get the User Adaptation to which this component belongs
+</p>
+<p><b>Returns</b>: Pointer to the User Adaptation layer
+     </p>
+<A NAME="transport"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline SIGTransport* &nbsp;<strong>transport</strong> ()
+<br></td><td align="right"><h3><strong>transport</strong></h3></td></tr></table><p> <small>[protected const]</small></p><p>
+ Get the transport of the user adaptation component
+</p>
+<p><b>Returns</b>: Pointer to the transport layer or NULL
+     </p>
+<A NAME="adaptation"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>adaptation</strong> (SIGAdaptClient* adapt)
+<br></td><td align="right"><h3><strong>adaptation</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Set the User Adaptation to which this component belongs
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>adapt</i></TD><TD align="left" valign="top">Pointer to the new User Adaptation layer
+     </TD></TR>
+</TABLE></P>
+<A NAME="activeChange"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<i><strong>activeChange</strong></i> (bool active)
+<br></td><td align="right"><h3><i><strong>activeChange</strong></i></h3></td></tr></table><p> <small>[protected pure virtual]</small></p><p>
+ Traffic activity state change notification
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>active</i></TD><TD align="left" valign="top">True if the ASP is active and traffic is allowed
+     </TD></TR>
+</TABLE></P>
+<A NAME="activate"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>activate</strong> ()
+<br></td><td align="right"><h3><strong>activate</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Request activation of the ASP
+</p>
+<p><b>Returns</b>: True if ASP activation started, false on failure
+     </p>
+<A NAME="aspUp"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>aspUp</strong> ()
+<br></td><td align="right"><h3><strong>aspUp</strong></h3></td></tr></table><p> <small>[protected const]</small></p><p>
+ Check if the ASP is Up
+</p>
+<p><b>Returns</b>: True if the ASPSM is in UP state
+     </p>
+<A NAME="aspActive"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>aspActive</strong> ()
+<br></td><td align="right"><h3><strong>aspActive</strong></h3></td></tr></table><p> <small>[protected const]</small></p><p>
+ Check if the ASP is Active
+</p>
+<p><b>Returns</b>: True if the ASPTM is in ACTIVE state
+     </p>
+<A NAME="getStreamId"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline unsigned char &nbsp;<strong>getStreamId</strong> ()
+<br></td><td align="right"><h3><strong>getStreamId</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Obtain the stream id to use for data messages
+</p>
+<p><b>Returns</b>: The stream id
+     </p>
+<A NAME="m_autostart"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool  <strong>m_autostart</strong>
+</td><td align="right"><h3><strong>m_autostart</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_streamId"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned char  <strong>m_streamId</strong>
+</td><td align="right"><h3><strong>m_streamId</strong></h3></td></tr></table><p> <small>[protected]</small></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

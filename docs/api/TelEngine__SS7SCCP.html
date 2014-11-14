@@ -1,0 +1,412 @@
+<HTML>
+<HEAD>
+<TITLE>class SS7SCCP</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SS7SCCP</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">SS7 SCCP implementation. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SS7SCCP</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__Mutex.html">TelEngine::Mutex</A> <small>[public ]</small>, <A HREF="TelEngine__SCCP.html">TelEngine::SCCP</A> <small>[public ]</small>, <A HREF="TelEngine__SS7Layer4.html">TelEngine::SS7Layer4</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SS7SCCP.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref2">ReturnCauses</A> {	NoTranslationAddressNature         = 0x00,
+	NoTranslationSpecificAddress       = 0x01,
+	SubsystemCongestion                = 0x02,
+	SubsystemFailure                   = 0x03,
+	UnequippedUser                     = 0x04,
+	MtpFailure                         = 0x05,
+	NetworkCongestion                  = 0x06,
+	Unqualified                        = 0x07,
+	ErrorInMessageTransport            = 0x08,
+	ErrorInLocalProcessing             = 0x09,
+	DestinationCanNotPerformReassembly = 0x0a,
+	SccpFailure                        = 0x0b,
+	HopCounterViolation                = 0x0c,
+	SegmentationNotSupported           = 0x0d,
+	SegmentationFailure                = 0x0e,
+	MessageChangeFailure               = 0xf7,
+	InvalidINSRoutingRequest           = 0xf8,
+	InvalidISNIRoutingRequest          = 0xf9,
+	UnauthorizedMessage                = 0xfa,
+	MessageIncompatibility             = 0xfb,
+	NotSupportedISNIRouting            = 0xfc,
+	RedundantISNIConstrainedRouting    = 0xfd,
+	ISNIIdentificationFailed           = 0xfe,
+    }
+</LI>
+<LI>enum <A HREF="#ref3">Control</A> {	Status                    = 0x01,
+	FullStatus                = 0x02,
+	EnableExtendedMonitoring  = 0x03,
+	DisableExtendedMonitoring = 0x04,
+	EnablePrintMsg            = 0x05,
+	DisablePrintMsg           = 0x06,
+    }
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref4">SS7SCCP</A></b> (const NamedList& config) 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref5">~SS7SCCP</A></b> () 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref6">initialize</A></b> (const NamedList* config) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref7">attach</A></b> (SS7Layer3* network) 
+</LI>
+<LI>int &nbsp;<b><A HREF="#ref8">transmitMessage</A></b> (SS7MsgSCCP* msg, bool local = false) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref9">managementStatus</A></b> (Type type, NamedList& params) 
+</LI>
+<LI>virtual  int &nbsp;<b><A HREF="#ref10">sendMessage</A></b> (DataBlock& data, const NamedList& params) 
+</LI>
+<LI>virtual  HandledMSU &nbsp;<b><A HREF="#ref11">receivedMSU</A></b> (const SS7MSU& msu, const SS7Label& label, SS7Layer3* network, int sls) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref12">receivedUPU</A></b> (SS7PointCode::Type type, const SS7PointCode node,
+	SS7MSU::Services part, unsigned char cause, const SS7Label& label, int sls) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref13">control</A></b> (NamedList& params) 
+</LI>
+<LI>int &nbsp;<b><A HREF="#ref14">segmentMessage</A></b> (SS7MsgSCCP* origMsg, const SS7Label& label, bool local) 
+</LI>
+<LI>inline const bool &nbsp;<b><A HREF="#ref15">ITU</A></b> ()  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref16">ignoreUnknownAddrSignals</A></b> ()  const
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref17">notify</A></b> (SS7Layer3* link, int sls) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref18">routeStatusChanged</A></b> (SS7PointCode::Type type, const SS7PointCode& node, SS7Route::State state) 
+</LI>
+<LI>inline unsigned int &nbsp;<b><A HREF="#ref19">messagesSend</A></b> () 
+</LI>
+<LI>inline unsigned int &nbsp;<b><A HREF="#ref20">messagesReceived</A></b> () 
+</LI>
+<LI>inline unsigned int &nbsp;<b><A HREF="#ref21">errors</A></b> () 
+</LI>
+<LI>inline unsigned int &nbsp;<b><A HREF="#ref22">translations</A></b> () 
+</LI>
+<LI>inline const SS7PointCode* &nbsp;<b><A HREF="#ref23">getLocalPointCode</A></b> ()  const
+</LI>
+<LI>inline SS7PointCode::Type &nbsp;<b><A HREF="#ref24">getLocalPointCodeType</A></b> () 
+</LI>
+<LI>inline int &nbsp;<b><A HREF="#ref25">getPackedPointCode</A></b> () 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref26">isLayer3Up</A></b> () 
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>virtual  void  &nbsp;<b><A HREF="#ref27">destroyed</A></b> () 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref28">extendedMonitoring</A></b> () 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref29">timerTick</A></b> (const Time& when) 
+</LI>
+<LI>SS7MsgSccpReassemble::Return &nbsp;<b><A HREF="#ref30">reassembleSegment</A></b> (SS7MsgSCCP* segment, const SS7Label& label, SS7MsgSCCP*& msg) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref31">isEndpoint</A></b> () 
+</LI>
+<LI>int &nbsp;<b><A HREF="#ref32">routeLocal</A></b> (SS7MsgSCCP* msg) 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ Implementation of SS7 Signalling Connection Control Part
+</p>
+<A NAME="ReturnCauses"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>ReturnCauses</strong> {	NoTranslationAddressNature         = 0x00,
+	NoTranslationSpecificAddress       = 0x01,
+	SubsystemCongestion                = 0x02,
+	SubsystemFailure                   = 0x03,
+	UnequippedUser                     = 0x04,
+	MtpFailure                         = 0x05,
+	NetworkCongestion                  = 0x06,
+	Unqualified                        = 0x07,
+	ErrorInMessageTransport            = 0x08,
+	ErrorInLocalProcessing             = 0x09,
+	DestinationCanNotPerformReassembly = 0x0a,
+	SccpFailure                        = 0x0b,
+	HopCounterViolation                = 0x0c,
+	SegmentationNotSupported           = 0x0d,
+	SegmentationFailure                = 0x0e,
+	MessageChangeFailure               = 0xf7,
+	InvalidINSRoutingRequest           = 0xf8,
+	InvalidISNIRoutingRequest          = 0xf9,
+	UnauthorizedMessage                = 0xfa,
+	MessageIncompatibility             = 0xfb,
+	NotSupportedISNIRouting            = 0xfc,
+	RedundantISNIConstrainedRouting    = 0xfd,
+	ISNIIdentificationFailed           = 0xfe,
+    }
+</td><td align="right"><h3><strong>ReturnCauses</strong></h3></td></tr></table><p></p><A NAME="Control"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>Control</strong> {	Status                    = 0x01,
+	FullStatus                = 0x02,
+	EnableExtendedMonitoring  = 0x03,
+	DisableExtendedMonitoring = 0x04,
+	EnablePrintMsg            = 0x05,
+	DisablePrintMsg           = 0x06,
+    }
+</td><td align="right"><h3><strong>Control</strong></h3></td></tr></table><p></p><A NAME="SS7SCCP"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>SS7SCCP</strong> (const NamedList& config)
+<br></td><td align="right"><h3><strong>SS7SCCP</strong></h3></td></tr></table><p></p><p>
+ Constructor
+     </p>
+<A NAME="~SS7SCCP"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>~SS7SCCP</strong> ()
+<br></td><td align="right"><h3><strong>~SS7SCCP</strong></h3></td></tr></table><p></p><p>
+ Destructor
+      </p>
+<A NAME="initialize"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>initialize</strong> (const NamedList* config)
+<br></td><td align="right"><h3><strong>initialize</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Configure and initialize the Signalling connection control part
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>config</i></TD><TD align="left" valign="top">Optional configuration parameters override
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if SCCP was initialized properly
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer4.html#initialize">SS7Layer4</A>.</p>
+<A NAME="attach"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>attach</strong> (SS7Layer3* network)
+<br></td><td align="right"><h3><strong>attach</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Attach a SS7 network or router to this service. Detach itself from the old one
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>network</i></TD><TD align="left" valign="top">Pointer to network or router to attach
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer4.html#attach">SS7Layer4</A>.</p>
+<A NAME="transmitMessage"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>int &nbsp;<strong>transmitMessage</strong> (SS7MsgSCCP* msg, bool local = false)
+<br></td><td align="right"><h3><strong>transmitMessage</strong></h3></td></tr></table><p></p><p>
+ Converts an SCCP message to a Message Signal Unit and push it down the protocol stack.
+ The given message is consumed
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">The message to send
+</TD></TR>
+<TR><TD align="left" valign="top"><i>local</i></TD><TD align="left" valign="top">True if the message is local initiated
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Link the message was successfully queued to, negative for error
+     </p>
+<A NAME="managementStatus"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>managementStatus</strong> (Type type, NamedList& params)
+<br></td><td align="right"><h3><strong>managementStatus</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Receive management information from attached users.
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">The type of management message
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">List of parameters (Affected subsystem [M])
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the notification was processed
+      </p>
+<p>Reimplemented from <A HREF="TelEngine__SCCP.html#managementStatus">SCCP</A>.</p>
+<A NAME="sendMessage"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>sendMessage</strong> (DataBlock& data, const NamedList& params)
+<br></td><td align="right"><h3><strong>sendMessage</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Send a message
+ Reimplemented from SCCP
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Data to be transported trough SCCP protocol
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">SCCP parameters
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SCCP.html#sendMessage">SCCP</A>.</p>
+<A NAME="receivedMSU"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td> HandledMSU &nbsp;<strong>receivedMSU</strong> (const SS7MSU& msu, const SS7Label& label, SS7Layer3* network, int sls)
+<br></td><td align="right"><h3><strong>receivedMSU</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Process a MSU received from the Layer 3 component
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msu</i></TD><TD align="left" valign="top">Message data, starting with Service Indicator Octet
+</TD></TR>
+<TR><TD align="left" valign="top"><i>label</i></TD><TD align="left" valign="top">Routing label of the received MSU
+</TD></TR>
+<TR><TD align="left" valign="top"><i>network</i></TD><TD align="left" valign="top">Network layer that delivered the MSU
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sls</i></TD><TD align="left" valign="top">Signalling Link the MSU was received from
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Result of MSU processing
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7L3User.html#receivedMSU">SS7L3User</A>.</p>
+<A NAME="receivedUPU"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>receivedUPU</strong> (SS7PointCode::Type type, const SS7PointCode node,
+	SS7MSU::Services part, unsigned char cause, const SS7Label& label, int sls)
+<br></td><td align="right"><h3><strong>receivedUPU</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Notification for receiving User Part Unavailable
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Type of Point Code
+</TD></TR>
+<TR><TD align="left" valign="top"><i>node</i></TD><TD align="left" valign="top">Node on which the User Part is unavailable
+</TD></TR>
+<TR><TD align="left" valign="top"><i>part</i></TD><TD align="left" valign="top">User Part (service) reported unavailable
+</TD></TR>
+<TR><TD align="left" valign="top"><i>cause</i></TD><TD align="left" valign="top">Unavailability cause - Q.704 15.17.5
+</TD></TR>
+<TR><TD align="left" valign="top"><i>label</i></TD><TD align="left" valign="top">Routing label of the UPU message
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sls</i></TD><TD align="left" valign="top">Signaling link the UPU was received on
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SS7L3User.html#receivedUPU">SS7L3User</A>.</p>
+<A NAME="control"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>control</strong> (NamedList& params)
+<br></td><td align="right"><h3><strong>control</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#control">SignallingComponent</A>.</p>
+<A NAME="segmentMessage"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>int &nbsp;<strong>segmentMessage</strong> (SS7MsgSCCP* origMsg, const SS7Label& label, bool local)
+<br></td><td align="right"><h3><strong>segmentMessage</strong></h3></td></tr></table><p></p><p>
+ Message changeover procedure for segmentation purpose
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>origMsg</i></TD><TD align="left" valign="top">The original message
+</TD></TR>
+<TR><TD align="left" valign="top"><i>label</i></TD><TD align="left" valign="top">MTP3 routing label
+</TD></TR>
+<TR><TD align="left" valign="top"><i>local</i></TD><TD align="left" valign="top">True if the origMsg is local initiated
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Negative value if the message failed to be sent
+     </p>
+<A NAME="ITU"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const bool &nbsp;<strong>ITU</strong> ()
+<br></td><td align="right"><h3><strong>ITU</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Helper method to know if we use ITU or ANSI
+     </p>
+<A NAME="ignoreUnknownAddrSignals"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>ignoreUnknownAddrSignals</strong> ()
+<br></td><td align="right"><h3><strong>ignoreUnknownAddrSignals</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Check if GT digit parser of should ignore unknown digits encoding
+</p>
+<p><b>Returns</b>: True if unknown digits are ignored
+     </p>
+<A NAME="notify"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>notify</strong> (SS7Layer3* link, int sls)
+<br></td><td align="right"><h3><strong>notify</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Process a notification generated by the attached network layer
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>link</i></TD><TD align="left" valign="top">Network or linkset that generated the notification
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sls</i></TD><TD align="left" valign="top">Signalling Link that generated the notification, negative if none
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SS7L3User.html#notify">SS7L3User</A>.</p>
+<A NAME="routeStatusChanged"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>routeStatusChanged</strong> (SS7PointCode::Type type, const SS7PointCode& node, SS7Route::State state)
+<br></td><td align="right"><h3><strong>routeStatusChanged</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Process route status changed notifications
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Type of Point Code
+</TD></TR>
+<TR><TD align="left" valign="top"><i>node</i></TD><TD align="left" valign="top">Destination node witch communication status has changed
+</TD></TR>
+<TR><TD align="left" valign="top"><i>state</i></TD><TD align="left" valign="top">The new route state
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SS7L3User.html#routeStatusChanged">SS7L3User</A>.</p>
+<A NAME="messagesSend"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline unsigned int &nbsp;<strong>messagesSend</strong> ()
+<br></td><td align="right"><h3><strong>messagesSend</strong></h3></td></tr></table><p></p><p>
+ Obtain the number of messages send by this SCCP instance
+</p>
+<p><b>Returns</b>: The number of messages send
+     </p>
+<A NAME="messagesReceived"></A><A NAME="ref20"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline unsigned int &nbsp;<strong>messagesReceived</strong> ()
+<br></td><td align="right"><h3><strong>messagesReceived</strong></h3></td></tr></table><p></p><p>
+ Obtain the number of messages received by this SCCP instance
+</p>
+<p><b>Returns</b>: The number of messsages received
+     </p>
+<A NAME="errors"></A><A NAME="ref21"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline unsigned int &nbsp;<strong>errors</strong> ()
+<br></td><td align="right"><h3><strong>errors</strong></h3></td></tr></table><p></p><p>
+ Obtain the number of errors found by this SCCP instance
+</p>
+<p><b>Returns</b>: The number of errors found
+     </p>
+<A NAME="translations"></A><A NAME="ref22"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline unsigned int &nbsp;<strong>translations</strong> ()
+<br></td><td align="right"><h3><strong>translations</strong></h3></td></tr></table><p></p><p>
+ Obtain the number of GT translations made by this SCCP instance
+</p>
+<p><b>Returns</b>: The number of translations made
+     </p>
+<A NAME="getLocalPointCode"></A><A NAME="ref23"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const SS7PointCode* &nbsp;<strong>getLocalPointCode</strong> ()
+<br></td><td align="right"><h3><strong>getLocalPointCode</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Obtain the local SCCP point code
+</p>
+<p><b>Returns</b>: Pointer to local point code or 0 if no pointcode was configured
+     </p>
+<A NAME="getLocalPointCodeType"></A><A NAME="ref24"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline SS7PointCode::Type &nbsp;<strong>getLocalPointCodeType</strong> ()
+<br></td><td align="right"><h3><strong>getLocalPointCodeType</strong></h3></td></tr></table><p></p><p>
+ Obtain local pointcode type
+</p>
+<p><b>Returns</b>: Local pointcode type
+     </p>
+<A NAME="getPackedPointCode"></A><A NAME="ref25"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline int &nbsp;<strong>getPackedPointCode</strong> ()
+<br></td><td align="right"><h3><strong>getPackedPointCode</strong></h3></td></tr></table><p></p><p>
+ Helper method to obtain the packed pointcode
+</p>
+<p><b>Returns</b>: Packed pointcode or 0 if local pointcode is not set
+     </p>
+<A NAME="isLayer3Up"></A><A NAME="ref26"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>isLayer3Up</strong> ()
+<br></td><td align="right"><h3><strong>isLayer3Up</strong></h3></td></tr></table><p></p><p>
+ Helper method to check if attached layer 3 is up
+</p>
+<p><b>Returns</b>: True if attached layer3 is up
+     </p>
+<A NAME="destroyed"></A><A NAME="ref27"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void  &nbsp;<strong>destroyed</strong> ()
+<br></td><td align="right"><h3><strong>destroyed</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ This method is called to clean up and destroy the object after the
+  reference counter becomes zero
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer4.html#destroyed">SS7Layer4</A>.</p>
+<A NAME="extendedMonitoring"></A><A NAME="ref28"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>extendedMonitoring</strong> ()
+<br></td><td align="right"><h3><strong>extendedMonitoring</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Helper method to check if this sccp needs extended monitoring
+</p>
+<p><b>Returns</b>: True if extended monitoring is needed
+     </p>
+<A NAME="timerTick"></A><A NAME="ref29"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>timerTick</strong> (const Time& when)
+<br></td><td align="right"><h3><strong>timerTick</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Method called periodically to check for timeouts
+ Reimplemented from SignallingComponent
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#timerTick">SignallingComponent</A>.</p>
+<A NAME="reassembleSegment"></A><A NAME="ref30"></A><table width="100%"><tr bgcolor="#eeeeee"><td>SS7MsgSccpReassemble::Return &nbsp;<strong>reassembleSegment</strong> (SS7MsgSCCP* segment, const SS7Label& label, SS7MsgSCCP*& msg)
+<br></td><td align="right"><h3><strong>reassembleSegment</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Reassemble a message segment
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>segment</i></TD><TD align="left" valign="top">The message segment
+</TD></TR>
+<TR><TD align="left" valign="top"><i>label</i></TD><TD align="left" valign="top">The MTP routing label
+</TD></TR>
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">Pointer to fill with the SS7MsgSccpReassemble who processed the message
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: SS7MsgSccpReassemble::Return enum value
+     </p>
+<A NAME="isEndpoint"></A><A NAME="ref31"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>isEndpoint</strong> ()
+<br></td><td align="right"><h3><strong>isEndpoint</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Check if this sccp is an endpoint
+</p>
+<p><b>Returns</b>: True if this sccp is an endpoint
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SCCP.html#isEndpoint">SCCP</A>.</p>
+<A NAME="routeLocal"></A><A NAME="ref32"></A><table width="100%"><tr bgcolor="#eeeeee"><td>int &nbsp;<strong>routeLocal</strong> (SS7MsgSCCP* msg)
+<br></td><td align="right"><h3><strong>routeLocal</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Route a SCCP Message to other SCCP component.
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">The sccp message.
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: -1 if the message failed to be routed
+     </p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

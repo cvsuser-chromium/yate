@@ -1,0 +1,184 @@
+<HTML>
+<HEAD>
+<TITLE>class SccpLocalSubsystem</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SccpLocalSubsystem</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1"></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SccpLocalSubsystem</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__Mutex.html">TelEngine::Mutex</A> <small>[public ]</small>, <A HREF="TelEngine__RefObject.html">TelEngine::RefObject</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SccpLocalSubsystem.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref2">SccpLocalSubsystem</A></b> (unsigned char ssn, <A HREF="#u_int64_t">u_int64_t</A> coordInterval, <A HREF="#u_int64_t">u_int64_t</A> istInterval, unsigned char smi = 0) 
+</LI>
+<LI>virtual  &nbsp;<b><A HREF="#ref3">~SccpLocalSubsystem</A></b> () 
+</LI>
+<LI>inline unsigned char &nbsp;<b><A HREF="#ref4">getSSN</A></b> () 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref5">setState</A></b> (SCCPManagement::SccpStates newState) 
+</LI>
+<LI>inline SCCPManagement::SccpStates &nbsp;<b><A HREF="#ref6">getState</A></b> () 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref7">startCoord</A></b> () 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref8">ignoreTests</A></b> () 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref9">setIgnoreTests</A></b> (bool ignore) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref10">timeout</A></b> () 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref11">manageTimeout</A></b> (SCCPManagement* mgm) 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref12">stopCoordTimer</A></b> () 
+</LI>
+<LI>inline unsigned char &nbsp;<b><A HREF="#ref13">getSmi</A></b> () 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref14">dump</A></b> (String& dest) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref15">receivedSOG</A></b> (unsigned char ssn, int pointcode) 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref16">resetTimers</A></b> () 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref17">clearBackups</A></b> () 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref18">appendBackup</A></b> (RemoteBackupSubsystem* backup) 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><A NAME="SccpLocalSubsystem"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>SccpLocalSubsystem</strong> (unsigned char ssn, <A HREF="#u_int64_t">u_int64_t</A> coordInterval, <A HREF="#u_int64_t">u_int64_t</A> istInterval, unsigned char smi = 0)
+<br></td><td align="right"><h3><strong>SccpLocalSubsystem</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>ssn</i></TD><TD align="left" valign="top">The subsystem number
+</TD></TR>
+<TR><TD align="left" valign="top"><i>coordInterval</i></TD><TD align="left" valign="top">The time interval for coordinate changed timer
+</TD></TR>
+<TR><TD align="left" valign="top"><i>istInterval</i></TD><TD align="left" valign="top">The time interval for ignore status test timer
+</TD></TR>
+<TR><TD align="left" valign="top"><i>smi</i></TD><TD align="left" valign="top">Subsystem multiplicity indicator
+     </TD></TR>
+</TABLE></P>
+<A NAME="~SccpLocalSubsystem"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~SccpLocalSubsystem</strong> ()
+<br></td><td align="right"><h3><strong>~SccpLocalSubsystem</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor
+     </p>
+<A NAME="getSSN"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline unsigned char &nbsp;<strong>getSSN</strong> ()
+<br></td><td align="right"><h3><strong>getSSN</strong></h3></td></tr></table><p></p><p>
+ Obtain the subsystem number number of this sccp subsystem
+</p>
+<p><b>Returns</b>: The ssn associated with this subsystem
+     </p>
+<A NAME="setState"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>setState</strong> (SCCPManagement::SccpStates newState)
+<br></td><td align="right"><h3><strong>setState</strong></h3></td></tr></table><p></p><p>
+ Set a new state of this SCCP subsystem
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>newState</i></TD><TD align="left" valign="top">Thew new state to set
+     </TD></TR>
+</TABLE></P>
+<A NAME="getState"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline SCCPManagement::SccpStates &nbsp;<strong>getState</strong> ()
+<br></td><td align="right"><h3><strong>getState</strong></h3></td></tr></table><p></p><p>
+ Obtain the state associated with this sccp subsystem
+</p>
+<p><b>Returns</b>: The state of this SCCP subsystem
+     </p>
+<A NAME="startCoord"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>startCoord</strong> ()
+<br></td><td align="right"><h3><strong>startCoord</strong></h3></td></tr></table><p></p><p>
+ Start coordinate change timer
+     </p>
+<A NAME="ignoreTests"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>ignoreTests</strong> ()
+<br></td><td align="right"><h3><strong>ignoreTests</strong></h3></td></tr></table><p></p><p>
+ Check if this subsystem should ignore SST (Subsystem status test)
+     </p>
+<A NAME="setIgnoreTests"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>setIgnoreTests</strong> (bool ignore)
+<br></td><td align="right"><h3><strong>setIgnoreTests</strong></h3></td></tr></table><p></p><p>
+ Inform this subsystem if should ignore subsystem status tests
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>ignore</i></TD><TD align="left" valign="top">True to ignore subsystem status tests
+     </TD></TR>
+</TABLE></P>
+<A NAME="timeout"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>timeout</strong> ()
+<br></td><td align="right"><h3><strong>timeout</strong></h3></td></tr></table><p></p><p>
+ Check if coordinate change timer has timed out
+</p>
+<p><b>Returns</b>: True if coordinate change timer has timed out
+     </p>
+<A NAME="manageTimeout"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>manageTimeout</strong> (SCCPManagement* mgm)
+<br></td><td align="right"><h3><strong>manageTimeout</strong></h3></td></tr></table><p></p><p>
+ Handle coord timer timeout
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>mgm</i></TD><TD align="left" valign="top">Pointer to sccp management who owns this sccp local subsystem
+     </TD></TR>
+</TABLE></P>
+<A NAME="stopCoordTimer"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>stopCoordTimer</strong> ()
+<br></td><td align="right"><h3><strong>stopCoordTimer</strong></h3></td></tr></table><p></p><p>
+ Stop coordinate change timer
+     </p>
+<A NAME="getSmi"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline unsigned char &nbsp;<strong>getSmi</strong> ()
+<br></td><td align="right"><h3><strong>getSmi</strong></h3></td></tr></table><p></p><p>
+ Obtain the subsystem multiplicity indicator of this subsystem
+</p>
+<p><b>Returns</b>: The Subsystem multiplicity indicator
+     </p>
+<A NAME="dump"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>dump</strong> (String& dest)
+<br></td><td align="right"><h3><strong>dump</strong></h3></td></tr></table><p></p><p>
+ Dump this sccp subsystem status
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>dest</i></TD><TD align="left" valign="top">Destination string
+     </TD></TR>
+</TABLE></P>
+<A NAME="receivedSOG"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>receivedSOG</strong> (unsigned char ssn, int pointcode)
+<br></td><td align="right"><h3><strong>receivedSOG</strong></h3></td></tr></table><p></p><p>
+ Process a subsystem out of service grant message
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>ssn</i></TD><TD align="left" valign="top">The remote ssn
+</TD></TR>
+<TR><TD align="left" valign="top"><i>pointcode</i></TD><TD align="left" valign="top">The remote pointcode
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the message was procesed
+     </p>
+<A NAME="resetTimers"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>resetTimers</strong> ()
+<br></td><td align="right"><h3><strong>resetTimers</strong></h3></td></tr></table><p></p><p>
+ Helper method used to reset timers
+     </p>
+<A NAME="clearBackups"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>clearBackups</strong> ()
+<br></td><td align="right"><h3><strong>clearBackups</strong></h3></td></tr></table><p></p><p>
+ Clear remote backup subsystems
+     </p>
+<A NAME="appendBackup"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>appendBackup</strong> (RemoteBackupSubsystem* backup)
+<br></td><td align="right"><h3><strong>appendBackup</strong></h3></td></tr></table><p></p><p>
+ Append new backup subsystem
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>backup</i></TD><TD align="left" valign="top">The backup subsystem to append
+     </TD></TR>
+</TABLE></P>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

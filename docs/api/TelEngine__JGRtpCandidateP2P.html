@@ -1,0 +1,87 @@
+<HTML>
+<HEAD>
+<TITLE>class JGRtpCandidateP2P</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class JGRtpCandidateP2P</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">A RTP transport candidate. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::JGRtpCandidateP2P</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yjabber___yatejingle_h.html">libs/yjabber/yatejingle.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__JGRtpCandidate.html">TelEngine::JGRtpCandidate</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__JGRtpCandidateP2P.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>inline &nbsp;<b><A HREF="#ref1">JGRtpCandidateP2P</A></b> () 
+</LI>
+<LI>inline &nbsp;<b><A HREF="#ref2">JGRtpCandidateP2P</A></b> (XmlElement* xml, const JGRtpCandidates& container) 
+</LI>
+<LI>virtual  XmlElement* &nbsp;<b><A HREF="#ref3">toXml</A></b> (const JGRtpCandidates& container)  const
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref4">fromXml</A></b> (XmlElement* xml, const JGRtpCandidates& container) 
+</LI>
+</ul><h4>Public Members</h4><ul><LI>String <b><A HREF="#ref5">m_username</A></b></LI>
+<LI>String <b><A HREF="#ref6">m_password</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ This class holds a RTP transport candidate
+</p>
+<A NAME="JGRtpCandidateP2P"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>JGRtpCandidateP2P</strong> ()
+<br></td><td align="right"><h3><strong>JGRtpCandidateP2P</strong></h3></td></tr></table><p></p><p>
+ Constructor
+     </p>
+<A NAME="JGRtpCandidateP2P"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>JGRtpCandidateP2P</strong> (XmlElement* xml, const JGRtpCandidates& container)
+<br></td><td align="right"><h3><strong>JGRtpCandidateP2P</strong></h3></td></tr></table><p></p><p>
+ Constructor. Build a candidate from received data
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Received xml element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>container</i></TD><TD align="left" valign="top">The transport container
+     </TD></TR>
+</TABLE></P>
+<A NAME="toXml"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>toXml</strong> (const JGRtpCandidates& container)
+<br></td><td align="right"><h3><strong>toXml</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Create a 'candidate' element from this object using local address/port
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>container</i></TD><TD align="left" valign="top">The transport container
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Valid XmlElement pointer if type is a known one
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__JGRtpCandidate.html#toXml">JGRtpCandidate</A>.</p>
+<A NAME="fromXml"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>fromXml</strong> (XmlElement* xml, const JGRtpCandidates& container)
+<br></td><td align="right"><h3><strong>fromXml</strong></h3></td></tr></table><p></p><p>
+ Fill this object from a candidate element using remote address/port
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Received xml element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>container</i></TD><TD align="left" valign="top">The transport container
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__JGRtpCandidate.html#fromXml">JGRtpCandidate</A>.</p>
+<A NAME="m_username"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_username</strong>
+</td><td align="right"><h3><strong>m_username</strong></h3></td></tr></table><p></p><A NAME="m_password"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_password</strong>
+</td><td align="right"><h3><strong>m_password</strong></h3></td></tr></table><p></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

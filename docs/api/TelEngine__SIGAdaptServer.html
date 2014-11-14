@@ -1,0 +1,108 @@
+<HTML>
+<HEAD>
+<TITLE>class SIGAdaptServer</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SIGAdaptServer</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">Server side SIGTRAN User Adaptation component. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SIGAdaptServer</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><i><A HREF="TelEngine__SIGAdaptation.html">TelEngine::SIGAdaptation</A></i> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SIGAdaptServer.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Protected Methods</h4><ul><LI>inline explicit &nbsp;<b><A HREF="#ref1">SIGAdaptServer</A></b> (const char* name = 0, const NamedList* params = 0,
+	<A HREF="#u_int32_t">u_int32_t</A> payload = 0, <A HREF="#u_int16_t">u_int16_t</A> port = 0) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref2">processMgmtMSG</A></b> (unsigned char msgType, const DataBlock& msg, int streamId) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref3">processAspsmMSG</A></b> (unsigned char msgType, const DataBlock& msg, int streamId) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref4">processAsptmMSG</A></b> (unsigned char msgType, const DataBlock& msg, int streamId) 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ Generic server side (SG) Signalling Transport User Adaptation component
+</p>
+<A NAME="SIGAdaptServer"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline explicit &nbsp;<strong>SIGAdaptServer</strong> (const char* name = 0, const NamedList* params = 0,
+	<A HREF="#u_int32_t">u_int32_t</A> payload = 0, <A HREF="#u_int16_t">u_int16_t</A> port = 0)
+<br></td><td align="right"><h3><strong>SIGAdaptServer</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Constructs an uninitialized User Adaptation server component
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Name of this component
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Optional pointer to creation parameters
+</TD></TR>
+<TR><TD align="left" valign="top"><i>payload</i></TD><TD align="left" valign="top">SCTP payload code, ignored for other transports
+</TD></TR>
+<TR><TD align="left" valign="top"><i>port</i></TD><TD align="left" valign="top">SCTP/TCP/UDP default port used for transport
+     </TD></TR>
+</TABLE></P>
+<A NAME="processMgmtMSG"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>processMgmtMSG</strong> (unsigned char msgType, const DataBlock& msg, int streamId)
+<br></td><td align="right"><h3><strong>processMgmtMSG</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Process Management messages as SG
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msgType</i></TD><TD align="left" valign="top">Type of the message, depends on the class
+</TD></TR>
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">Message data, may be empty
+</TD></TR>
+<TR><TD align="left" valign="top"><i>streamId</i></TD><TD align="left" valign="top">Identifier of the stream the message was received on
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the message was handled
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SIGAdaptation.html#processMgmtMSG">SIGAdaptation</A>.</p>
+<A NAME="processAspsmMSG"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>processAspsmMSG</strong> (unsigned char msgType, const DataBlock& msg, int streamId)
+<br></td><td align="right"><h3><strong>processAspsmMSG</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Process ASP State Maintenance messages as SG
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msgType</i></TD><TD align="left" valign="top">Type of the message, depends on the class
+</TD></TR>
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">Message data, may be empty
+</TD></TR>
+<TR><TD align="left" valign="top"><i>streamId</i></TD><TD align="left" valign="top">Identifier of the stream the message was received on
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the message was handled
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SIGAdaptation.html#processAspsmMSG">SIGAdaptation</A>.</p>
+<A NAME="processAsptmMSG"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>processAsptmMSG</strong> (unsigned char msgType, const DataBlock& msg, int streamId)
+<br></td><td align="right"><h3><strong>processAsptmMSG</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Process ASP Traffic Maintenance messages as SG
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msgType</i></TD><TD align="left" valign="top">Type of the message, depends on the class
+</TD></TR>
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">Message data, may be empty
+</TD></TR>
+<TR><TD align="left" valign="top"><i>streamId</i></TD><TD align="left" valign="top">Identifier of the stream the message was received on
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the message was handled
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SIGAdaptation.html#processAsptmMSG">SIGAdaptation</A>.</p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

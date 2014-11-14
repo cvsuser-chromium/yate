@@ -1,0 +1,254 @@
+<HTML>
+<HEAD>
+<TITLE>class ScriptContext</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class ScriptContext</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">Script execution context. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH colspan="2">Contains pure virtuals</TH></TR><TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::ScriptContext</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yscript___yatescript_h.html">libs/yscript/yatescript.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__ExpExtender.html">TelEngine::ExpExtender</A> <small>[public ]</small>, <A HREF="TelEngine__RefObject.html">TelEngine::RefObject</A> <small>[public ]</small></TD></TR>
+<TR><TH>Inherited by</TH><TD><A HREF="TelEngine__JsArray.html">JsArray</A>, <A HREF="TelEngine__JsFunction.html">JsFunction</A>, <A HREF="TelEngine__JsObject.html">JsObject</A>, <A HREF="TelEngine__JsRegExp.html">JsRegExp</A></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__ScriptContext.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>inline explicit &nbsp;<b><A HREF="#ref1">ScriptContext</A></b> (const char* name = 0) 
+</LI>
+<LI>inline NamedList& &nbsp;<b><A HREF="#ref2">params</A></b> () 
+</LI>
+<LI>inline const NamedList& &nbsp;<b><A HREF="#ref3">params</A></b> ()  const
+</LI>
+<LI>virtual  NamedList* &nbsp;<b><A HREF="#ref4">nativeParams</A></b> ()  const
+</LI>
+<LI>virtual  const String& &nbsp;<b><A HREF="#ref5">toString</A></b> ()  const
+</LI>
+<LI>virtual  void* &nbsp;<b><A HREF="#ref6">getObject</A></b> (const String& name)  const
+</LI>
+<LI>virtual  RefObject* &nbsp;<b><A HREF="#ref7">refObj</A></b> () 
+</LI>
+<LI>virtual  Mutex* &nbsp;<b><i><A HREF="#ref8">mutex</A></i></b> () 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref9">hasField</A></b> (ObjList& stack, const String& name, GenObject* context)  const
+</LI>
+<LI>virtual  NamedString* &nbsp;<b><A HREF="#ref10">getField</A></b> (ObjList& stack, const String& name, GenObject* context)  const
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref11">fillFieldNames</A></b> (ObjList& names) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref13">runFunction</A></b> (ObjList& stack, const ExpOperation& oper, GenObject* context) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref14">runField</A></b> (ObjList& stack, const ExpOperation& oper, GenObject* context) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref15">runAssign</A></b> (ObjList& stack, const ExpOperation& oper, GenObject* context) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref16">copyFields</A></b> (ObjList& stack, const ScriptContext& original, GenObject* context) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref17">runMatchingField</A></b> (ObjList& stack, const ExpOperation& oper, GenObject* context) 
+</LI>
+</ul><h4>Public Static Methods</h4><ul><LI>static  void &nbsp;<b><A HREF="#ref12">fillFieldNames</A></b> (ObjList& names, const NamedList& list, const char* skip = 0) 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ A script execution context, holds global variables and objects
+</p>
+<A NAME="ScriptContext"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline explicit &nbsp;<strong>ScriptContext</strong> (const char* name = 0)
+<br></td><td align="right"><h3><strong>ScriptContext</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Name of the context
+     </TD></TR>
+</TABLE></P>
+<A NAME="params"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline NamedList& &nbsp;<strong>params</strong> ()
+<br></td><td align="right"><h3><strong>params</strong></h3></td></tr></table><p></p><p>
+ Access to the NamedList operator
+</p>
+<p><b>Returns</b>: Reference to the internal named list
+     </p>
+<A NAME="params"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const NamedList& &nbsp;<strong>params</strong> ()
+<br></td><td align="right"><h3><strong>params</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Const access to the NamedList operator
+</p>
+<p><b>Returns</b>: Reference to the internal named list
+     </p>
+<A NAME="nativeParams"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td> NamedList* &nbsp;<strong>nativeParams</strong> ()
+<br></td><td align="right"><h3><strong>nativeParams</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Access any native NamedList hold by the context
+</p>
+<p><b>Returns</b>: Pointer to a native named list
+     </p>
+<A NAME="toString"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td> const String& &nbsp;<strong>toString</strong> ()
+<br></td><td align="right"><h3><strong>toString</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Override GenObject's method to return the internal name of the named list
+</p>
+<p><b>Returns</b>: A reference to the context name
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__GenObject.html#toString">GenObject</A>.</p>
+<A NAME="getObject"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void* &nbsp;<strong>getObject</strong> (const String& name)
+<br></td><td align="right"><h3><strong>getObject</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Get a pointer to a derived class given that class name
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Name of the class we are asking for
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Pointer to the requested class or NULL if this object doesn't implement it
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__RefObject.html#getObject">RefObject</A>.</p>
+<A NAME="refObj"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> RefObject* &nbsp;<strong>refObj</strong> ()
+<br></td><td align="right"><h3><strong>refObj</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Retrieve the reference counted object owning this interface
+</p>
+<p><b>Returns</b>: Pointer to this script context
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__ExpExtender.html#refObj">ExpExtender</A>.</p>
+<A NAME="mutex"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td> Mutex* &nbsp;<i><strong>mutex</strong></i> ()
+<br></td><td align="right"><h3><i><strong>mutex</strong></i></h3></td></tr></table><p> <small>[pure virtual]</small></p><p>
+ Retrieve the Mutex object used to serialize object access, if any
+</p>
+<p><b>Returns</b>: Pointer to the mutex or NULL if none applies
+     </p>
+<A NAME="hasField"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>hasField</strong> (ObjList& stack, const String& name, GenObject* context)
+<br></td><td align="right"><h3><strong>hasField</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Check if a certain field is assigned in context
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stack</i></TD><TD align="left" valign="top">Evaluation stack in use
+</TD></TR>
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Name of the field to test
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to arbitrary object passed from evaluation methods
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the field is present
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__ExpExtender.html#hasField">ExpExtender</A>.</p>
+<A NAME="getField"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td> NamedString* &nbsp;<strong>getField</strong> (ObjList& stack, const String& name, GenObject* context)
+<br></td><td align="right"><h3><strong>getField</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Get a pointer to a field in the context
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stack</i></TD><TD align="left" valign="top">Evaluation stack in use
+</TD></TR>
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Name of the field to retrieve
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to arbitrary object passed from evaluation methods
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Pointer to field, NULL if not present
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__ExpExtender.html#getField">ExpExtender</A>.</p>
+<A NAME="fillFieldNames"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>fillFieldNames</strong> (ObjList& names)
+<br></td><td align="right"><h3><strong>fillFieldNames</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Fill a list with the unique names of all fields
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>names</i></TD><TD align="left" valign="top">List to which key names must be added
+     </TD></TR>
+</TABLE></P>
+<A NAME="fillFieldNames"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>fillFieldNames</strong> (ObjList& names, const NamedList& list, const char* skip = 0)
+<br></td><td align="right"><h3><strong>fillFieldNames</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Fill a list with the unique names of all fields
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>names</i></TD><TD align="left" valign="top">List to which key names must be added
+</TD></TR>
+<TR><TD align="left" valign="top"><i>list</i></TD><TD align="left" valign="top">List of parameters whose names to be added
+</TD></TR>
+<TR><TD align="left" valign="top"><i>skip</i></TD><TD align="left" valign="top">Parameters starting with this prefix will not be added
+     </TD></TR>
+</TABLE></P>
+<A NAME="runFunction"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>runFunction</strong> (ObjList& stack, const ExpOperation& oper, GenObject* context)
+<br></td><td align="right"><h3><strong>runFunction</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Try to evaluate a single function in the context
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stack</i></TD><TD align="left" valign="top">Evaluation stack in use, parameters are popped off this stack and results are pushed back on stack
+</TD></TR>
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Function to evaluate
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to context data passed from evaluation methods
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if evaluation succeeded
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__ExpExtender.html#runFunction">ExpExtender</A>.</p>
+<A NAME="runField"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>runField</strong> (ObjList& stack, const ExpOperation& oper, GenObject* context)
+<br></td><td align="right"><h3><strong>runField</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Try to evaluate a single field in the context
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stack</i></TD><TD align="left" valign="top">Evaluation stack in use, field value must be pushed on it
+</TD></TR>
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Field to evaluate
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to context data passed from evaluation methods
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if evaluation succeeded
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__ExpExtender.html#runField">ExpExtender</A>.</p>
+<A NAME="runAssign"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>runAssign</strong> (ObjList& stack, const ExpOperation& oper, GenObject* context)
+<br></td><td align="right"><h3><strong>runAssign</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Try to assign a value to a single field
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stack</i></TD><TD align="left" valign="top">Evaluation stack in use
+</TD></TR>
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Field to assign to, contains the field name and new value
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to context data passed from evaluation methods
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if assignment succeeded
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__ExpExtender.html#runAssign">ExpExtender</A>.</p>
+<A NAME="copyFields"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>copyFields</strong> (ObjList& stack, const ScriptContext& original, GenObject* context)
+<br></td><td align="right"><h3><strong>copyFields</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Copy all fields from another context
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stack</i></TD><TD align="left" valign="top">Evaluation stack in use
+</TD></TR>
+<TR><TD align="left" valign="top"><i>original</i></TD><TD align="left" valign="top">Script context to copy from
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to context data passed from evaluation methods
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if all fields were copied
+     </p>
+<A NAME="runMatchingField"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>runMatchingField</strong> (ObjList& stack, const ExpOperation& oper, GenObject* context)
+<br></td><td align="right"><h3><strong>runMatchingField</strong></h3></td></tr></table><p></p><p>
+ Try to evaluate a single field searching for a matching context
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stack</i></TD><TD align="left" valign="top">Evaluation stack in use, field value must be pushed on it
+</TD></TR>
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Field to evaluate
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to context data passed from evaluation methods
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if evaluation succeeded
+     </p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

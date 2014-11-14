@@ -1,0 +1,581 @@
+<HTML>
+<HEAD>
+<TITLE>class SS7TCAP</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SS7TCAP</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">SS7 TCAP implementation. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH colspan="2">Contains pure virtuals</TH></TR><TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SS7TCAP</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__SCCPUser.html">TelEngine::SCCPUser</A> <small>[public ]</small></TD></TR>
+<TR><TH>Inherited by</TH><TD><A HREF="TelEngine__SS7TCAPANSI.html">SS7TCAPANSI</A>, <A HREF="TelEngine__SS7TCAPITU.html">SS7TCAPITU</A></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SS7TCAP.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref1">TCAPType</A> {	UnknownTCAP,
+	ITUTCAP,
+	ANSITCAP,
+    }
+</LI>
+<LI>enum <A HREF="#ref2">TCAPUserCompActions</A> {	TC_Invoke         = 1,        
+	TC_ResultLast     = 2,        
+	TC_U_Error        = 3,        
+	TC_U_Reject       = 4,        
+	TC_R_Reject       = 5,        
+	TC_L_Reject       = 6,        
+	TC_InvokeNotLast  = 7,        
+	TC_ResultNotLast  = 8,        
+	TC_L_Cancel       = 9,        
+	TC_U_Cancel       = 10,       
+	TC_TimerReset     = 11,       
+    }
+</LI>
+<LI>enum <A HREF="#ref3">TCAPUserTransActions</A> {	TC_Unknown         = 0,
+	TC_Unidirectional  = 1,          
+	TC_Begin,                   
+	TC_QueryWithPerm,           
+	TC_QueryWithoutPerm,        
+	TC_Continue,                
+	TC_ConversationWithPerm,    
+	TC_ConversationWithoutPerm, 
+	TC_End,                     
+	TC_Response,                
+	TC_U_Abort,                 
+	TC_P_Abort,                 
+	TC_Notice,                  
+    }
+</LI>
+<LI>enum <A HREF="#ref4">TCAPComponentOperationClass</A> {	SuccessOrFailureReport    = 1,
+	FailureOnlyReport         = 2,
+	SuccessOnlyReport         = 3,
+	NoReport                  = 4,
+    }
+</LI>
+<LI>enum <A HREF="#ref5">TCAPCounter</A> {	IncomingMsgs,
+	OutgoingMsgs,
+	DiscardedMsgs,
+	NormalMsgs,
+	AbnormalMsgs,
+    }
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref6">SS7TCAP</A></b> (const NamedList& params) 
+</LI>
+<LI>virtual  &nbsp;<b><A HREF="#ref7">~SS7TCAP</A></b> () 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref8">initialize</A></b> (const NamedList* config) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref9">sendData</A></b> (DataBlock& data, NamedList& params) 
+</LI>
+<LI>virtual  HandledMSU &nbsp;<b><A HREF="#ref10">receivedData</A></b> (DataBlock& data, NamedList& params) 
+</LI>
+<LI>virtual  HandledMSU &nbsp;<b><A HREF="#ref11">notifyData</A></b> (DataBlock& data, NamedList& params) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref12">managementNotify</A></b> (SCCP::Type type, NamedList& params) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref13">attach</A></b> (TCAPUser* user) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref14">detach</A></b> (TCAPUser* user) 
+</LI>
+<LI>virtual  SS7TCAPError &nbsp;<b><A HREF="#ref15">userRequest</A></b> (NamedList& requestParams) 
+</LI>
+<LI>virtual  HandledMSU &nbsp;<b><A HREF="#ref16">processSCCPData</A></b> (SS7TCAPMessage* sccpData) 
+</LI>
+<LI>inline TCAPType &nbsp;<b><A HREF="#ref17">tcapType</A></b> () 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref18">setTCAPType</A></b> (TCAPType type) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref19">enqueue</A></b> (SS7TCAPMessage* msg) 
+</LI>
+<LI>virtual  SS7TCAPMessage* &nbsp;<b><A HREF="#ref20">dequeue</A></b> () 
+</LI>
+<LI>virtual  const String &nbsp;<b><A HREF="#ref21">allocTransactionID</A></b> () 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref22">allocTransactionID</A></b> (String& str) 
+</LI>
+<LI>virtual  SS7TCAPTransaction* &nbsp;<b><i><A HREF="#ref27">buildTransaction</A></i></b> (SS7TCAP::TCAPUserTransActions type, const String& transactID, NamedList& params,
+	bool initLocal = true) 
+</LI>
+<LI>SS7TCAPTransaction* &nbsp;<b><A HREF="#ref28">getTransaction</A></b> (const String& tid) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref29">removeTransaction</A></b> (SS7TCAPTransaction* tr) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref30">timerTick</A></b> (const Time& when) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref31">sendToUser</A></b> (NamedList& params) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref32">buildSCCPData</A></b> (NamedList& params, SS7TCAPTransaction* tr) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref33">status</A></b> (NamedList& status) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref34">userStatus</A></b> (NamedList& status) 
+</LI>
+<LI>virtual  HandledMSU &nbsp;<b><A HREF="#ref35">handleError</A></b> (SS7TCAPError& error, NamedList& params, DataBlock& data, SS7TCAPTransaction* tr = 0) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref36">updateUserStatus</A></b> (TCAPUser* user, SCCPManagement::LocalBroadcast status, NamedList& params) 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref37">incCounter</A></b> (TCAPCounter counterType) 
+</LI>
+<LI>inline unsigned int &nbsp;<b><A HREF="#ref38">count</A></b> (TCAPCounter counterType) 
+</LI>
+</ul><h4>Public Static Methods</h4><ul><LI>static  inline const char* &nbsp;<b><A HREF="#ref39">lookupTransaction</A></b> (int tr) 
+</LI>
+<LI>static  inline int &nbsp;<b><A HREF="#ref40">lookupTransaction</A></b> (const char* tr) 
+</LI>
+<LI>static  inline const char* &nbsp;<b><A HREF="#ref41">lookupComponent</A></b> (int comp) 
+</LI>
+<LI>static  inline int &nbsp;<b><A HREF="#ref42">lookupComponent</A></b> (const char* comp) 
+</LI>
+</ul><h4>Public Members</h4><ul><LI>static const TokenDict <b><A HREF="#ref23">s_tcapVersion[]</A></b></LI>
+<LI>static const TokenDict <b><A HREF="#ref24">s_compPrimitives[]</A></b></LI>
+<LI>static const TokenDict <b><A HREF="#ref25">s_transPrimitives[]</A></b></LI>
+<LI>static const TokenDict <b><A HREF="#ref26">s_compOperClasses[]</A></b></LI>
+</ul><h4>Protected Methods</h4><ul><LI>virtual  SS7TCAPError &nbsp;<b><i><A HREF="#ref43">decodeTransactionPart</A></i></b> (NamedList& params, DataBlock& data) 
+</LI>
+<LI>virtual  void &nbsp;<b><i><A HREF="#ref44">encodeTransactionPart</A></i></b> (NamedList& params, DataBlock& data) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref45">sendSCCPNotify</A></b> (NamedList& params) 
+</LI>
+</ul><h4>Protected Members</h4><ul><LI>ObjList <b><A HREF="#ref46">m_users</A></b></LI>
+<LI>Mutex <b><A HREF="#ref47">m_usersMtx</A></b></LI>
+<LI>ObjList <b><A HREF="#ref48">m_inQueue</A></b></LI>
+<LI>Mutex <b><A HREF="#ref49">m_inQueueMtx</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref50">m_SSN</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref51">m_defaultRemoteSSN</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref52">m_defaultHopCounter</A></b></LI>
+<LI>SS7PointCode <b><A HREF="#ref53">m_defaultRemotePC</A></b></LI>
+<LI>SS7PointCode::Type <b><A HREF="#ref54">m_remoteTypePC</A></b></LI>
+<LI>u_int64_t <b><A HREF="#ref55">m_trTimeout</A></b></LI>
+<LI>Mutex <b><A HREF="#ref56">m_transactionsMtx</A></b></LI>
+<LI>ObjList <b><A HREF="#ref57">m_transactions</A></b></LI>
+<LI>TCAPType <b><A HREF="#ref58">m_tcapType</A></b></LI>
+<LI>u_int32_t <b><A HREF="#ref59">m_idsPool</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref60">m_recvMsgs</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref61">m_sentMsgs</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref62">m_discardMsgs</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref63">m_normalMsgs</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref64">m_abnormalMsgs</A></b></LI>
+<LI>SCCPManagement::LocalBroadcast <b><A HREF="#ref65">m_ssnStatus</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ Implementation of SS7 Transactional Capabilities Application Part
+</p>
+<A NAME="TCAPType"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>TCAPType</strong> {	UnknownTCAP,
+	ITUTCAP,
+	ANSITCAP,
+    }
+</td><td align="right"><h3><strong>TCAPType</strong></h3></td></tr></table><p></p><p>
+ TCAP implementation variant
+     </p>
+<A NAME="TCAPUserCompActions"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>TCAPUserCompActions</strong> {	TC_Invoke         = 1,        
+	TC_ResultLast     = 2,        
+	TC_U_Error        = 3,        
+	TC_U_Reject       = 4,        
+	TC_R_Reject       = 5,        
+	TC_L_Reject       = 6,        
+	TC_InvokeNotLast  = 7,        
+	TC_ResultNotLast  = 8,        
+	TC_L_Cancel       = 9,        
+	TC_U_Cancel       = 10,       
+	TC_TimerReset     = 11,       
+    }
+</td><td align="right"><h3><strong>TCAPUserCompActions</strong></h3></td></tr></table><p></p><p>
+ Component handling primitives between TCAP and TCAP user (TC-user)
+     </p>
+<A NAME="TCAPUserTransActions"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>TCAPUserTransActions</strong> {	TC_Unknown         = 0,
+	TC_Unidirectional  = 1,          
+	TC_Begin,                   
+	TC_QueryWithPerm,           
+	TC_QueryWithoutPerm,        
+	TC_Continue,                
+	TC_ConversationWithPerm,    
+	TC_ConversationWithoutPerm, 
+	TC_End,                     
+	TC_Response,                
+	TC_U_Abort,                 
+	TC_P_Abort,                 
+	TC_Notice,                  
+    }
+</td><td align="right"><h3><strong>TCAPUserTransActions</strong></h3></td></tr></table><p></p><p>
+ TCAP message primitives
+     </p>
+<A NAME="TCAPComponentOperationClass"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>TCAPComponentOperationClass</strong> {	SuccessOrFailureReport    = 1,
+	FailureOnlyReport         = 2,
+	SuccessOnlyReport         = 3,
+	NoReport                  = 4,
+    }
+</td><td align="right"><h3><strong>TCAPComponentOperationClass</strong></h3></td></tr></table><p></p><p>
+ Component Operation Classes
+     </p>
+<A NAME="TCAPCounter"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>TCAPCounter</strong> {	IncomingMsgs,
+	OutgoingMsgs,
+	DiscardedMsgs,
+	NormalMsgs,
+	AbnormalMsgs,
+    }
+</td><td align="right"><h3><strong>TCAPCounter</strong></h3></td></tr></table><p></p><p>
+ Type of message counters
+     </p>
+<A NAME="SS7TCAP"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>SS7TCAP</strong> (const NamedList& params)
+<br></td><td align="right"><h3><strong>SS7TCAP</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Parameters for building this TCAP
+     </TD></TR>
+</TABLE></P>
+<A NAME="~SS7TCAP"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~SS7TCAP</strong> ()
+<br></td><td align="right"><h3><strong>~SS7TCAP</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor
+     </p>
+<A NAME="initialize"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>initialize</strong> (const NamedList* config)
+<br></td><td align="right"><h3><strong>initialize</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Configure and initialize the component and any subcomponents it may have
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>config</i></TD><TD align="left" valign="top">Optional configuration parameters override
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the component was initialized properly
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SCCPUser.html#initialize">SCCPUser</A>.</p>
+<A NAME="sendData"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>sendData</strong> (DataBlock& data, NamedList& params)
+<br></td><td align="right"><h3><strong>sendData</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Send a message to SCCP for transport, inherited from SCCPUser
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">User data
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">SCCP parameters
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SCCPUser.html#sendData">SCCPUser</A>.</p>
+<A NAME="receivedData"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td> HandledMSU &nbsp;<strong>receivedData</strong> (DataBlock& data, NamedList& params)
+<br></td><td align="right"><h3><strong>receivedData</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Notification from SCCP that a message has arrived, inherited from SCCPUser
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Received user data
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">SCCP parameters
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if this user has processed the message, false otherwise
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SCCPUser.html#receivedData">SCCPUser</A>.</p>
+<A NAME="notifyData"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td> HandledMSU &nbsp;<strong>notifyData</strong> (DataBlock& data, NamedList& params)
+<br></td><td align="right"><h3><strong>notifyData</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Notification from SCCP that a message failed to arrive to its destination, inherited from SCCPUser
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">User data sent.
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">SCCP parameters
+ Note! The data may not contain the full message block previously sent (in case of SCCP segmentation),
+ but it must always must contain the first segment
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SCCPUser.html#notifyData">SCCPUser</A>.</p>
+<A NAME="managementNotify"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>managementNotify</strong> (SCCP::Type type, NamedList& params)
+<br></td><td align="right"><h3><strong>managementNotify</strong></h3></td></tr></table><p></p><p>
+ Notification from SCCP layer about management status
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Type of management notification
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Notification params
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SCCPUser.html#managementNotify">SCCPUser</A>.</p>
+<A NAME="attach"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>attach</strong> (TCAPUser* user)
+<br></td><td align="right"><h3><strong>attach</strong></h3></td></tr></table><p></p><p>
+ Attach a SS7 TCAP user
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>user</i></TD><TD align="left" valign="top">Pointer to the TCAP user to attach
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SCCPUser.html#attach">SCCPUser</A>.</p>
+<A NAME="detach"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>detach</strong> (TCAPUser* user)
+<br></td><td align="right"><h3><strong>detach</strong></h3></td></tr></table><p></p><p>
+ Detach a SS7 TCAP user
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>user</i></TD><TD align="left" valign="top">TCAP user to detach
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#detach">SignallingComponent</A>.</p>
+<A NAME="userRequest"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td> SS7TCAPError &nbsp;<strong>userRequest</strong> (NamedList& requestParams)
+<br></td><td align="right"><h3><strong>userRequest</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ A TCAP user made a request
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>requestParams</i></TD><TD align="left" valign="top">NamedList containing all the necessary data for the TCAP request
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A SS7TCAPError reporting the status of the request
+     </p>
+<A NAME="processSCCPData"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td> HandledMSU &nbsp;<strong>processSCCPData</strong> (SS7TCAPMessage* sccpData)
+<br></td><td align="right"><h3><strong>processSCCPData</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Process received SCCP data
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>sccpData</i></TD><TD align="left" valign="top">A TCAP message received from SCCP to process
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A code specifying if this message was handled
+     </p>
+<A NAME="tcapType"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline TCAPType &nbsp;<strong>tcapType</strong> ()
+<br></td><td align="right"><h3><strong>tcapType</strong></h3></td></tr></table><p></p><p>
+ Report which TCAP implementation is in use
+     </p>
+<A NAME="setTCAPType"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>setTCAPType</strong> (TCAPType type)
+<br></td><td align="right"><h3><strong>setTCAPType</strong></h3></td></tr></table><p></p><p>
+ Set TCAP version
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">TCAP version
+     </TD></TR>
+</TABLE></P>
+<A NAME="enqueue"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>enqueue</strong> (SS7TCAPMessage* msg)
+<br></td><td align="right"><h3><strong>enqueue</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Enqueue data received from SCCP as a TCAP message, kept in a processing queue
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">A SS7TCAPMessage pointer containing all data received from SSCP
+     </TD></TR>
+</TABLE></P>
+<A NAME="dequeue"></A><A NAME="ref20"></A><table width="100%"><tr bgcolor="#eeeeee"><td> SS7TCAPMessage* &nbsp;<strong>dequeue</strong> ()
+<br></td><td align="right"><h3><strong>dequeue</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Dequeue a TCAP message when ready to process it
+</p>
+<p><b>Returns</b>: A SS7TCAPMessage pointer dequeued from the queue
+     </p>
+<A NAME="allocTransactionID"></A><A NAME="ref21"></A><table width="100%"><tr bgcolor="#eeeeee"><td> const String &nbsp;<strong>allocTransactionID</strong> ()
+<br></td><td align="right"><h3><strong>allocTransactionID</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Get a new transaction ID
+</p>
+<p><b>Returns</b>: A transaction ID
+     </p>
+<A NAME="allocTransactionID"></A><A NAME="ref22"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>allocTransactionID</strong> (String& str)
+<br></td><td align="right"><h3><strong>allocTransactionID</strong></h3></td></tr></table><p></p><p>
+ Get a new transaction ID
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>str</i></TD><TD align="left" valign="top">String into which to put the id
+     </TD></TR>
+</TABLE></P>
+<A NAME="s_tcapVersion[]"></A><A NAME="ref23"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_tcapVersion[]</strong>
+</td><td align="right"><h3><strong>s_tcapVersion[]</strong></h3></td></tr></table><p></p><A NAME="s_compPrimitives[]"></A><A NAME="ref24"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_compPrimitives[]</strong>
+</td><td align="right"><h3><strong>s_compPrimitives[]</strong></h3></td></tr></table><p></p><A NAME="s_transPrimitives[]"></A><A NAME="ref25"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_transPrimitives[]</strong>
+</td><td align="right"><h3><strong>s_transPrimitives[]</strong></h3></td></tr></table><p></p><A NAME="s_compOperClasses[]"></A><A NAME="ref26"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_compOperClasses[]</strong>
+</td><td align="right"><h3><strong>s_compOperClasses[]</strong></h3></td></tr></table><p></p><A NAME="buildTransaction"></A><A NAME="ref27"></A><table width="100%"><tr bgcolor="#eeeeee"><td> SS7TCAPTransaction* &nbsp;<i><strong>buildTransaction</strong></i> (SS7TCAP::TCAPUserTransActions type, const String& transactID, NamedList& params,
+	bool initLocal = true)
+<br></td><td align="right"><h3><i><strong>buildTransaction</strong></i></h3></td></tr></table><p> <small>[pure virtual]</small></p><p>
+ Build a transaction
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Type with which to build the transactions
+</TD></TR>
+<TR><TD align="left" valign="top"><i>transactID</i></TD><TD align="left" valign="top">ID for the transaction
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Parameters for building the transaction
+</TD></TR>
+<TR><TD align="left" valign="top"><i>initLocal</i></TD><TD align="left" valign="top">True if built by user, false if by remote end
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A transaction
+     </p>
+<A NAME="getTransaction"></A><A NAME="ref28"></A><table width="100%"><tr bgcolor="#eeeeee"><td>SS7TCAPTransaction* &nbsp;<strong>getTransaction</strong> (const String& tid)
+<br></td><td align="right"><h3><strong>getTransaction</strong></h3></td></tr></table><p></p><p>
+ Find the transaction with the given id
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>tid</i></TD><TD align="left" valign="top">Searched local id
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A pointer to the transaction or null if not found
+     </p>
+<A NAME="removeTransaction"></A><A NAME="ref29"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>removeTransaction</strong> (SS7TCAPTransaction* tr)
+<br></td><td align="right"><h3><strong>removeTransaction</strong></h3></td></tr></table><p></p><p>
+ Remove transaction
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>tr</i></TD><TD align="left" valign="top">The transaction to remove
+     </TD></TR>
+</TABLE></P>
+<A NAME="timerTick"></A><A NAME="ref30"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>timerTick</strong> (const Time& when)
+<br></td><td align="right"><h3><strong>timerTick</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Method called periodically to do processing and timeout checks
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>when</i></TD><TD align="left" valign="top">Time to use as computing base for events and timeouts
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#timerTick">SignallingComponent</A>.</p>
+<A NAME="sendToUser"></A><A NAME="ref31"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>sendToUser</strong> (NamedList& params)
+<br></td><td align="right"><h3><strong>sendToUser</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Send to TCAP users a decode message
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Message in NamedList form
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the message was handled by a user, false otherwise
+     </p>
+<A NAME="buildSCCPData"></A><A NAME="ref32"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>buildSCCPData</strong> (NamedList& params, SS7TCAPTransaction* tr)
+<br></td><td align="right"><h3><strong>buildSCCPData</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Build SCCP data
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">NamedList containing the parameters to be given to SCCP
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tr</i></TD><TD align="left" valign="top">Transaction for which to build SCCP data
+     </TD></TR>
+</TABLE></P>
+<A NAME="status"></A><A NAME="ref33"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>status</strong> (NamedList& status)
+<br></td><td align="right"><h3><strong>status</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Status of TCAP
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>status</i></TD><TD align="left" valign="top">NamedList to fill with status information
+     </TD></TR>
+</TABLE></P>
+<A NAME="userStatus"></A><A NAME="ref34"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>userStatus</strong> (NamedList& status)
+<br></td><td align="right"><h3><strong>userStatus</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Status of TCAP users
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>status</i></TD><TD align="left" valign="top">NamedList to fill with user status information
+     </TD></TR>
+</TABLE></P>
+<A NAME="handleError"></A><A NAME="ref35"></A><table width="100%"><tr bgcolor="#eeeeee"><td> HandledMSU &nbsp;<strong>handleError</strong> (SS7TCAPError& error, NamedList& params, DataBlock& data, SS7TCAPTransaction* tr = 0)
+<br></td><td align="right"><h3><strong>handleError</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Handle an decoding error
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>error</i></TD><TD align="left" valign="top">The encoutered error
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">TCAP message parameters which where successfully decoded until the error was encoutered
+</TD></TR>
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Data block containing the rest of the message
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tr</i></TD><TD align="left" valign="top">Transaction to which this message belongs to
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Status if the error was handled or not
+     </p>
+<A NAME="updateUserStatus"></A><A NAME="ref36"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>updateUserStatus</strong> (TCAPUser* user, SCCPManagement::LocalBroadcast status, NamedList& params)
+<br></td><td align="right"><h3><strong>updateUserStatus</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Update the SCCP Management state for this SSN when requested by a user
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>user</i></TD><TD align="left" valign="top">The TCAP user which changed its state
+</TD></TR>
+<TR><TD align="left" valign="top"><i>status</i></TD><TD align="left" valign="top">The state of the TCAP user
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Additional parameters to be transmitted to the SCPP
+     </TD></TR>
+</TABLE></P>
+<A NAME="incCounter"></A><A NAME="ref37"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>incCounter</strong> (TCAPCounter counterType)
+<br></td><td align="right"><h3><strong>incCounter</strong></h3></td></tr></table><p></p><p>
+ Increment one of the status counters
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>counterType</i></TD><TD align="left" valign="top">The type of the counter to increment
+     </TD></TR>
+</TABLE></P>
+<A NAME="count"></A><A NAME="ref38"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline unsigned int &nbsp;<strong>count</strong> (TCAPCounter counterType)
+<br></td><td align="right"><h3><strong>count</strong></h3></td></tr></table><p></p><p>
+ Retrieve one of the status counters
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>counterType</i></TD><TD align="left" valign="top">The type of the counter to increment
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The value of the counter
+     </p>
+<A NAME="lookupTransaction"></A><A NAME="ref39"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline const char* &nbsp;<strong>lookupTransaction</strong> (int tr)
+<br></td><td align="right"><h3><strong>lookupTransaction</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get the type of transaction in string form
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>tr</i></TD><TD align="left" valign="top">Type of transaction
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A string containing the string form of that type of transaction
+     </p>
+<A NAME="lookupTransaction"></A><A NAME="ref40"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline int &nbsp;<strong>lookupTransaction</strong> (const char* tr)
+<br></td><td align="right"><h3><strong>lookupTransaction</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get the type of transaction from string form
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>tr</i></TD><TD align="left" valign="top">Type of transaction in string form
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The type of transaction
+     </p>
+<A NAME="lookupComponent"></A><A NAME="ref41"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline const char* &nbsp;<strong>lookupComponent</strong> (int comp)
+<br></td><td align="right"><h3><strong>lookupComponent</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get the type of component in string form
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>comp</i></TD><TD align="left" valign="top">Type of component
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A string containing the string form of that type of component
+     </p>
+<A NAME="lookupComponent"></A><A NAME="ref42"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline int &nbsp;<strong>lookupComponent</strong> (const char* comp)
+<br></td><td align="right"><h3><strong>lookupComponent</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get the type of component from string form
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>comp</i></TD><TD align="left" valign="top">Type of component
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The type of component
+     </p>
+<A NAME="decodeTransactionPart"></A><A NAME="ref43"></A><table width="100%"><tr bgcolor="#eeeeee"><td> SS7TCAPError &nbsp;<i><strong>decodeTransactionPart</strong></i> (NamedList& params, DataBlock& data)
+<br></td><td align="right"><h3><i><strong>decodeTransactionPart</strong></i></h3></td></tr></table><p> <small>[protected pure virtual]</small></p><A NAME="encodeTransactionPart"></A><A NAME="ref44"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<i><strong>encodeTransactionPart</strong></i> (NamedList& params, DataBlock& data)
+<br></td><td align="right"><h3><i><strong>encodeTransactionPart</strong></i></h3></td></tr></table><p> <small>[protected pure virtual]</small></p><A NAME="sendSCCPNotify"></A><A NAME="ref45"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>sendSCCPNotify</strong> (NamedList& params)
+<br></td><td align="right"><h3><strong>sendSCCPNotify</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_users"></A><A NAME="ref46"></A><table width="100%"><tr bgcolor="#eeeeee"><td>ObjList  <strong>m_users</strong>
+</td><td align="right"><h3><strong>m_users</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_usersMtx"></A><A NAME="ref47"></A><table width="100%"><tr bgcolor="#eeeeee"><td>Mutex  <strong>m_usersMtx</strong>
+</td><td align="right"><h3><strong>m_usersMtx</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_inQueue"></A><A NAME="ref48"></A><table width="100%"><tr bgcolor="#eeeeee"><td>ObjList  <strong>m_inQueue</strong>
+</td><td align="right"><h3><strong>m_inQueue</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_inQueueMtx"></A><A NAME="ref49"></A><table width="100%"><tr bgcolor="#eeeeee"><td>Mutex  <strong>m_inQueueMtx</strong>
+</td><td align="right"><h3><strong>m_inQueueMtx</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_SSN"></A><A NAME="ref50"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_SSN</strong>
+</td><td align="right"><h3><strong>m_SSN</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_defaultRemoteSSN"></A><A NAME="ref51"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_defaultRemoteSSN</strong>
+</td><td align="right"><h3><strong>m_defaultRemoteSSN</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_defaultHopCounter"></A><A NAME="ref52"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_defaultHopCounter</strong>
+</td><td align="right"><h3><strong>m_defaultHopCounter</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_defaultRemotePC"></A><A NAME="ref53"></A><table width="100%"><tr bgcolor="#eeeeee"><td>SS7PointCode  <strong>m_defaultRemotePC</strong>
+</td><td align="right"><h3><strong>m_defaultRemotePC</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_remoteTypePC"></A><A NAME="ref54"></A><table width="100%"><tr bgcolor="#eeeeee"><td>SS7PointCode::Type  <strong>m_remoteTypePC</strong>
+</td><td align="right"><h3><strong>m_remoteTypePC</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_trTimeout"></A><A NAME="ref55"></A><table width="100%"><tr bgcolor="#eeeeee"><td><A HREF="#u_int64_t">u_int64_t</A>  <strong>m_trTimeout</strong>
+</td><td align="right"><h3><strong>m_trTimeout</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_transactionsMtx"></A><A NAME="ref56"></A><table width="100%"><tr bgcolor="#eeeeee"><td>Mutex  <strong>m_transactionsMtx</strong>
+</td><td align="right"><h3><strong>m_transactionsMtx</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_transactions"></A><A NAME="ref57"></A><table width="100%"><tr bgcolor="#eeeeee"><td>ObjList  <strong>m_transactions</strong>
+</td><td align="right"><h3><strong>m_transactions</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_tcapType"></A><A NAME="ref58"></A><table width="100%"><tr bgcolor="#eeeeee"><td>TCAPType  <strong>m_tcapType</strong>
+</td><td align="right"><h3><strong>m_tcapType</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_idsPool"></A><A NAME="ref59"></A><table width="100%"><tr bgcolor="#eeeeee"><td><A HREF="#u_int32_t">u_int32_t</A>  <strong>m_idsPool</strong>
+</td><td align="right"><h3><strong>m_idsPool</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_recvMsgs"></A><A NAME="ref60"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_recvMsgs</strong>
+</td><td align="right"><h3><strong>m_recvMsgs</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_sentMsgs"></A><A NAME="ref61"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_sentMsgs</strong>
+</td><td align="right"><h3><strong>m_sentMsgs</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_discardMsgs"></A><A NAME="ref62"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_discardMsgs</strong>
+</td><td align="right"><h3><strong>m_discardMsgs</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_normalMsgs"></A><A NAME="ref63"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_normalMsgs</strong>
+</td><td align="right"><h3><strong>m_normalMsgs</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_abnormalMsgs"></A><A NAME="ref64"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_abnormalMsgs</strong>
+</td><td align="right"><h3><strong>m_abnormalMsgs</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_ssnStatus"></A><A NAME="ref65"></A><table width="100%"><tr bgcolor="#eeeeee"><td>SCCPManagement::LocalBroadcast  <strong>m_ssnStatus</strong>
+</td><td align="right"><h3><strong>m_ssnStatus</strong></h3></td></tr></table><p> <small>[protected]</small></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

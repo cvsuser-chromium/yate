@@ -1,0 +1,156 @@
+<HTML>
+<HEAD>
+<TITLE>class JGRtpMedia</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class JGRtpMedia</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">A Jingle data payload. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::JGRtpMedia</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yjabber___yatejingle_h.html">libs/yjabber/yatejingle.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__GenObject.html">TelEngine::GenObject</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__JGRtpMedia.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>inline &nbsp;<b><A HREF="#ref1">JGRtpMedia</A></b> (const char* id, const char* name, const char* clockrate,
+	const char* synonym, const char* channels = 0,
+	const char* pTime = 0, const char* maxPTime = 0, const char* bitRate = 0) 
+</LI>
+<LI>inline &nbsp;<b><A HREF="#ref2">JGRtpMedia</A></b> (XmlElement* xml) 
+</LI>
+<LI>inline &nbsp;<b><A HREF="#ref3">JGRtpMedia</A></b> (const JGRtpMedia& src) 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref4">set</A></b> (const char* id, const char* name, const char* clockrate,
+	const char* synonym = 0, const char* channels = 0,
+	const char* pTime = 0, const char* maxPTime = 0, const char* bitRate = 0) 
+</LI>
+<LI>virtual  const String& &nbsp;<b><A HREF="#ref5">toString</A></b> ()  const
+</LI>
+<LI>XmlElement* &nbsp;<b><A HREF="#ref6">toXml</A></b> ()  const
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref7">fromXml</A></b> (XmlElement* xml) 
+</LI>
+</ul><h4>Public Members</h4><ul><LI>String <b><A HREF="#ref8">m_id</A></b></LI>
+<LI>String <b><A HREF="#ref9">m_name</A></b></LI>
+<LI>String <b><A HREF="#ref10">m_clockrate</A></b></LI>
+<LI>String <b><A HREF="#ref11">m_synonym</A></b></LI>
+<LI>String <b><A HREF="#ref12">m_channels</A></b></LI>
+<LI>String <b><A HREF="#ref13">m_pTime</A></b></LI>
+<LI>String <b><A HREF="#ref14">m_maxPTime</A></b></LI>
+<LI>String <b><A HREF="#ref15">m_bitRate</A></b></LI>
+<LI>NamedList <b><A HREF="#ref16">m_params</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ This class holds a Jingle data payload description
+</p>
+<A NAME="JGRtpMedia"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>JGRtpMedia</strong> (const char* id, const char* name, const char* clockrate,
+	const char* synonym, const char* channels = 0,
+	const char* pTime = 0, const char* maxPTime = 0, const char* bitRate = 0)
+<br></td><td align="right"><h3><strong>JGRtpMedia</strong></h3></td></tr></table><p></p><p>
+ Constructor. Fill this object from the given attributes
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>id</i></TD><TD align="left" valign="top">The 'id' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">The 'name' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>clockrate</i></TD><TD align="left" valign="top">The 'clockrate' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>synonym</i></TD><TD align="left" valign="top">Application synonym for this payload
+</TD></TR>
+<TR><TD align="left" valign="top"><i>channels</i></TD><TD align="left" valign="top">Optional 'channels' attribute (the number of channels)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>pTime</i></TD><TD align="left" valign="top">Optional "ptime" attribute (packet time)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>maxPTime</i></TD><TD align="left" valign="top">Optional "maxptime" attribute (maximum packet time)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>bitRate</i></TD><TD align="left" valign="top">Optional "bitrate" attribute
+     </TD></TR>
+</TABLE></P>
+<A NAME="JGRtpMedia"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>JGRtpMedia</strong> (XmlElement* xml)
+<br></td><td align="right"><h3><strong>JGRtpMedia</strong></h3></td></tr></table><p></p><p>
+ Constructor. Fill this object from an XML element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The element to fill from
+     </TD></TR>
+</TABLE></P>
+<A NAME="JGRtpMedia"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>JGRtpMedia</strong> (const JGRtpMedia& src)
+<br></td><td align="right"><h3><strong>JGRtpMedia</strong></h3></td></tr></table><p></p><p>
+ Copy constructor
+     </p>
+<A NAME="set"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>set</strong> (const char* id, const char* name, const char* clockrate,
+	const char* synonym = 0, const char* channels = 0,
+	const char* pTime = 0, const char* maxPTime = 0, const char* bitRate = 0)
+<br></td><td align="right"><h3><strong>set</strong></h3></td></tr></table><p></p><p>
+ Set the data
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>id</i></TD><TD align="left" valign="top">The 'id' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">The 'name' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>clockrate</i></TD><TD align="left" valign="top">The 'clockrate' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>synonym</i></TD><TD align="left" valign="top">Application synonym for this payload
+</TD></TR>
+<TR><TD align="left" valign="top"><i>channels</i></TD><TD align="left" valign="top">Optional 'channels' attribute (the number of channels)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>pTime</i></TD><TD align="left" valign="top">Optional "ptime" attribute (packet time)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>maxPTime</i></TD><TD align="left" valign="top">Optional "maxptime" attribute (maximum packet time)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>bitRate</i></TD><TD align="left" valign="top">Optional "bitrate" attribute
+     </TD></TR>
+</TABLE></P>
+<A NAME="toString"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td> const String& &nbsp;<strong>toString</strong> ()
+<br></td><td align="right"><h3><strong>toString</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Get the string repreasentation (id) of this payload
+</p>
+<p><b>Returns</b>: The string repreasentation (id) of this payload
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__GenObject.html#toString">GenObject</A>.</p>
+<A NAME="toXml"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>XmlElement* &nbsp;<strong>toXml</strong> ()
+<br></td><td align="right"><h3><strong>toXml</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Create a 'payload-type' element from this object
+</p>
+<p><b>Returns</b>: Valid XmlElement pointer
+     </p>
+<A NAME="fromXml"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>fromXml</strong> (XmlElement* xml)
+<br></td><td align="right"><h3><strong>fromXml</strong></h3></td></tr></table><p></p><p>
+ Fill this object from a given element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The element
+     </TD></TR>
+</TABLE></P>
+<A NAME="m_id"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_id</strong>
+</td><td align="right"><h3><strong>m_id</strong></h3></td></tr></table><p></p><A NAME="m_name"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_name</strong>
+</td><td align="right"><h3><strong>m_name</strong></h3></td></tr></table><p></p><A NAME="m_clockrate"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_clockrate</strong>
+</td><td align="right"><h3><strong>m_clockrate</strong></h3></td></tr></table><p></p><A NAME="m_synonym"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_synonym</strong>
+</td><td align="right"><h3><strong>m_synonym</strong></h3></td></tr></table><p></p><A NAME="m_channels"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_channels</strong>
+</td><td align="right"><h3><strong>m_channels</strong></h3></td></tr></table><p></p><A NAME="m_pTime"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_pTime</strong>
+</td><td align="right"><h3><strong>m_pTime</strong></h3></td></tr></table><p></p><A NAME="m_maxPTime"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_maxPTime</strong>
+</td><td align="right"><h3><strong>m_maxPTime</strong></h3></td></tr></table><p></p><A NAME="m_bitRate"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_bitRate</strong>
+</td><td align="right"><h3><strong>m_bitRate</strong></h3></td></tr></table><p></p><A NAME="m_params"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td>NamedList  <strong>m_params</strong>
+</td><td align="right"><h3><strong>m_params</strong></h3></td></tr></table><p></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

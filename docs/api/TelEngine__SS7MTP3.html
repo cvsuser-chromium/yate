@@ -1,0 +1,374 @@
+<HTML>
+<HEAD>
+<TITLE>class SS7MTP3</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SS7MTP3</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">SS7 Layer 3 implementation on top of Layer 2. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SS7MTP3</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__Mutex.html">TelEngine::Mutex</A> <small>[public ]</small>, <i><A HREF="TelEngine__SS7L2User.html">TelEngine::SS7L2User</A></i> <small>[public ]</small>, <i><A HREF="TelEngine__SS7Layer3.html">TelEngine::SS7Layer3</A></i> <small>[public ]</small>, <A HREF="TelEngine__SignallingDumpable.html">TelEngine::SignallingDumpable</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SS7MTP3.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref1">Operation</A> {	Pause   = 0x100,
+	Resume  = 0x200,
+	Restart = 0x300,
+	Status  = 0x400,
+    }
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref2">SS7MTP3</A></b> (const NamedList& params) 
+</LI>
+<LI>virtual  &nbsp;<b><A HREF="#ref3">~SS7MTP3</A></b> () 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref4">initialize</A></b> (const NamedList* config) 
+</LI>
+<LI>virtual  int &nbsp;<b><A HREF="#ref5">transmitMSU</A></b> (const SS7MSU& msu, const SS7Label& label, int sls = -1) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref6">operational</A></b> (int sls = -1)  const
+</LI>
+<LI>virtual  int &nbsp;<b><A HREF="#ref7">inhibited</A></b> (int sls)  const
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref8">inhibit</A></b> (int sls, int setFlags, int clrFlags = 0) 
+</LI>
+<LI>virtual  unsigned int &nbsp;<b><A HREF="#ref9">congestion</A></b> (int sls) 
+</LI>
+<LI>virtual  int &nbsp;<b><A HREF="#ref10">getSequence</A></b> (int sls)  const
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref11">recoverMSU</A></b> (int sls, int sequence) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref12">control</A></b> (Operation oper, NamedList* params = 0) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref13">attach</A></b> (SS7Layer2* link) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref14">detach</A></b> (SS7Layer2* link) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref15">control</A></b> (NamedList& params) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref16">allowedTo</A></b> (SS7PointCode::Type type, unsigned int packedPC)  const
+</LI>
+<LI>inline unsigned int &nbsp;<b><A HREF="#ref17">linksTotal</A></b> ()  const
+</LI>
+<LI>inline unsigned int &nbsp;<b><A HREF="#ref18">linksChecked</A></b> ()  const
+</LI>
+<LI>inline unsigned int &nbsp;<b><A HREF="#ref19">linksActive</A></b> ()  const
+</LI>
+<LI>inline const ObjList* &nbsp;<b><A HREF="#ref20">links</A></b> ()  const
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>virtual  void &nbsp;<b><A HREF="#ref21">destroyed</A></b> () 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref22">timerTick</A></b> (const Time& when) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref23">linkChecked</A></b> (int sls, bool remote) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref24">responder</A></b> ()  const
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref25">receivedMSU</A></b> (const SS7MSU& msu, SS7Layer2* link, int sls) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref26">recoveredMSU</A></b> (const SS7MSU& msu, SS7Layer2* link, int sls) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref27">notify</A></b> (SS7Layer2* link) 
+</LI>
+<LI>unsigned int &nbsp;<b><A HREF="#ref28">countLinks</A></b> () 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ Q.704 SS7 Layer 3 (Network) implementation on top of SS7 Layer 2
+</p>
+<A NAME="Operation"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>Operation</strong> {	Pause   = 0x100,
+	Resume  = 0x200,
+	Restart = 0x300,
+	Status  = 0x400,
+    }
+</td><td align="right"><h3><strong>Operation</strong></h3></td></tr></table><p></p><p>
+ Control primitives
+     </p>
+<A NAME="SS7MTP3"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>SS7MTP3</strong> (const NamedList& params)
+<br></td><td align="right"><h3><strong>SS7MTP3</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Layer's parameters
+     </TD></TR>
+</TABLE></P>
+<A NAME="~SS7MTP3"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~SS7MTP3</strong> ()
+<br></td><td align="right"><h3><strong>~SS7MTP3</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor
+     </p>
+<A NAME="initialize"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>initialize</strong> (const NamedList* config)
+<br></td><td align="right"><h3><strong>initialize</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Configure and initialize the MTP3 and all its links
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>config</i></TD><TD align="left" valign="top">Optional configuration parameters override
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if MTP3 and at least one link were initialized properly
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer3.html#initialize">SS7Layer3</A>.</p>
+<A NAME="transmitMSU"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>transmitMSU</strong> (const SS7MSU& msu, const SS7Label& label, int sls = -1)
+<br></td><td align="right"><h3><strong>transmitMSU</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Push a Message Signal Unit down the protocol stack
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msu</i></TD><TD align="left" valign="top">Message data, starting with Service Indicator Octet
+</TD></TR>
+<TR><TD align="left" valign="top"><i>label</i></TD><TD align="left" valign="top">Routing label of the MSU used in routing
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sls</i></TD><TD align="left" valign="top">Signalling Link Selection, negative to choose best
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Link the message was successfully queued to, negative for error
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer3.html#transmitMSU">SS7Layer3</A>.</p>
+<A NAME="operational"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>operational</strong> (int sls = -1)
+<br></td><td align="right"><h3><strong>operational</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Check if the network/linkset is fully operational
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>sls</i></TD><TD align="left" valign="top">Signalling Link to check, negative to check if any is operational
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the linkset is enabled and operational
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer3.html#operational">SS7Layer3</A>.</p>
+<A NAME="inhibited"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>inhibited</strong> (int sls)
+<br></td><td align="right"><h3><strong>inhibited</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Retrieve inhibition flags of a specific link
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>sls</i></TD><TD align="left" valign="top">Signalling Link to check
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Inhibitions of the specified link, zero if not inhibited
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer3.html#inhibited">SS7Layer3</A>.</p>
+<A NAME="inhibit"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>inhibit</strong> (int sls, int setFlags, int clrFlags = 0)
+<br></td><td align="right"><h3><strong>inhibit</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Set and clear inhibition flags on the links
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>sls</i></TD><TD align="left" valign="top">Signalling Link to modify
+</TD></TR>
+<TR><TD align="left" valign="top"><i>setFlags</i></TD><TD align="left" valign="top">Flag bits to set ORed together
+</TD></TR>
+<TR><TD align="left" valign="top"><i>clrFlags</i></TD><TD align="left" valign="top">Flag bits to clear  ORed together (optional)
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if inhibition flags were set
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer3.html#inhibit">SS7Layer3</A>.</p>
+<A NAME="congestion"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td> unsigned int &nbsp;<strong>congestion</strong> (int sls)
+<br></td><td align="right"><h3><strong>congestion</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Get the current congestion level of a link
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>sls</i></TD><TD align="left" valign="top">Signalling Link to check for congestion, -1 for maximum
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Congestion level, 0 if not congested, 3 if maximum congestion
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer3.html#congestion">SS7Layer3</A>.</p>
+<A NAME="getSequence"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>getSequence</strong> (int sls)
+<br></td><td align="right"><h3><strong>getSequence</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Get the sequence number of the last MSU received on a link
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>sls</i></TD><TD align="left" valign="top">Signalling Link to retrieve MSU number from
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Last FSN received, negative if not available
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer3.html#getSequence">SS7Layer3</A>.</p>
+<A NAME="recoverMSU"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>recoverMSU</strong> (int sls, int sequence)
+<br></td><td align="right"><h3><strong>recoverMSU</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Remove the MSUs waiting in the transmit queue and return them
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>sls</i></TD><TD align="left" valign="top">Signalling Link to recover MSUs from
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sequence</i></TD><TD align="left" valign="top">First sequence number to recover, flush earlier packets
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer3.html#recoverMSU">SS7Layer3</A>.</p>
+<A NAME="control"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>control</strong> (Operation oper, NamedList* params = 0)
+<br></td><td align="right"><h3><strong>control</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Execute a control operation on the linkset
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Operation to execute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Optional parameters for the operation
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the command completed successfully, for query operations
+  also indicates the linkset is enabled and operational
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#control">SignallingComponent</A>.</p>
+<A NAME="attach"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>attach</strong> (SS7Layer2* link)
+<br></td><td align="right"><h3><strong>attach</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Attach a SS7 Layer 2 (data link) to the network transport. Attach itself to the link
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>link</i></TD><TD align="left" valign="top">Pointer to data link to attach
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer3.html#attach">SS7Layer3</A>.</p>
+<A NAME="detach"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>detach</strong> (SS7Layer2* link)
+<br></td><td align="right"><h3><strong>detach</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Detach a SS7 Layer 2 (data link) from the network transport. Remove the link's L2 user
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>link</i></TD><TD align="left" valign="top">Pointer to data link to detach
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#detach">SignallingComponent</A>.</p>
+<A NAME="control"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>control</strong> (NamedList& params)
+<br></td><td align="right"><h3><strong>control</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Query or modify layer's settings or operational parameters
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">The list of parameters to query or change
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the control operation was executed
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#control">SignallingComponent</A>.</p>
+<A NAME="allowedTo"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>allowedTo</strong> (SS7PointCode::Type type, unsigned int packedPC)
+<br></td><td align="right"><h3><strong>allowedTo</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Check if access to a specific Point Code is allowed from this network
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Destination point code type
+</TD></TR>
+<TR><TD align="left" valign="top"><i>packedPC</i></TD><TD align="left" valign="top">The destination point code
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if access to the specified Point Code is allowed
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer3.html#allowedTo">SS7Layer3</A>.</p>
+<A NAME="linksTotal"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline unsigned int &nbsp;<strong>linksTotal</strong> ()
+<br></td><td align="right"><h3><strong>linksTotal</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the total number of links attached
+</p>
+<p><b>Returns</b>: Number of attached data links
+     </p>
+<A NAME="linksChecked"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline unsigned int &nbsp;<strong>linksChecked</strong> ()
+<br></td><td align="right"><h3><strong>linksChecked</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the number of links that are checked by maintenance
+</p>
+<p><b>Returns</b>: Number of MTN checked data links
+     </p>
+<A NAME="linksActive"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline unsigned int &nbsp;<strong>linksActive</strong> ()
+<br></td><td align="right"><h3><strong>linksActive</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the number of links that are currently operational
+</p>
+<p><b>Returns</b>: Number of operational data links
+     </p>
+<A NAME="links"></A><A NAME="ref20"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const ObjList* &nbsp;<strong>links</strong> ()
+<br></td><td align="right"><h3><strong>links</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get a list of the links held by this linkset
+</p>
+<p><b>Returns</b>: A list containing the links
+     </p>
+<A NAME="destroyed"></A><A NAME="ref21"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>destroyed</strong> ()
+<br></td><td align="right"><h3><strong>destroyed</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Detach all links and user. Destroys the object, disposes the memory
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#destroyed">SignallingComponent</A>.</p>
+<A NAME="timerTick"></A><A NAME="ref22"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>timerTick</strong> (const Time& when)
+<br></td><td align="right"><h3><strong>timerTick</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Periodical timer tick used to perform housekeeping and link checking
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>when</i></TD><TD align="left" valign="top">Time to use as computing base for events and timeouts
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#timerTick">SignallingComponent</A>.</p>
+<A NAME="linkChecked"></A><A NAME="ref23"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>linkChecked</strong> (int sls, bool remote)
+<br></td><td align="right"><h3><strong>linkChecked</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Callback called from maintenance when valid SLTA or SLTM are received
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>sls</i></TD><TD align="left" valign="top">Link that was checked by maintenance
+</TD></TR>
+<TR><TD align="left" valign="top"><i>remote</i></TD><TD align="left" valign="top">True if remote checked the link, false if local success
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer3.html#linkChecked">SS7Layer3</A>.</p>
+<A NAME="responder"></A><A NAME="ref24"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>responder</strong> ()
+<br></td><td align="right"><h3><strong>responder</strong></h3></td></tr></table><p> <small>[protected const virtual]</small></p><p>
+ Check if we should answer with SLTA to received SLTM in maintenance()
+</p>
+<p><b>Returns</b>: True to send a SLTA for each good received SLTM
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer3.html#responder">SS7Layer3</A>.</p>
+<A NAME="receivedMSU"></A><A NAME="ref25"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>receivedMSU</strong> (const SS7MSU& msu, SS7Layer2* link, int sls)
+<br></td><td align="right"><h3><strong>receivedMSU</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Process a MSU received from the Layer 2 component
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msu</i></TD><TD align="left" valign="top">Message data, starting with Service Indicator Octet
+</TD></TR>
+<TR><TD align="left" valign="top"><i>link</i></TD><TD align="left" valign="top">Data link that delivered the MSU
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sls</i></TD><TD align="left" valign="top">Signalling Link the MSU was received from
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the MSU was processed
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer3.html#receivedMSU">SS7Layer3</A>.</p>
+<A NAME="recoveredMSU"></A><A NAME="ref26"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>recoveredMSU</strong> (const SS7MSU& msu, SS7Layer2* link, int sls)
+<br></td><td align="right"><h3><strong>recoveredMSU</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Process a MSU recovered from the Layer 2 component after failure
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msu</i></TD><TD align="left" valign="top">Message data, starting with Service Indicator Octet
+</TD></TR>
+<TR><TD align="left" valign="top"><i>link</i></TD><TD align="left" valign="top">Data link from where the MSU was recovered
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sls</i></TD><TD align="left" valign="top">Signalling Link the MSU was recovered from
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the MSU was processed
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer3.html#recoveredMSU">SS7Layer3</A>.</p>
+<A NAME="notify"></A><A NAME="ref27"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>notify</strong> (SS7Layer2* link)
+<br></td><td align="right"><h3><strong>notify</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Process a notification generated by the attached data link
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>link</i></TD><TD align="left" valign="top">Data link that generated the notification
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if notification was processed
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7Layer3.html#notify">SS7Layer3</A>.</p>
+<A NAME="countLinks"></A><A NAME="ref28"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int &nbsp;<strong>countLinks</strong> ()
+<br></td><td align="right"><h3><strong>countLinks</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Count the total and active number of links
+</p>
+<p><b>Returns</b>: Number of active links
+     </p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

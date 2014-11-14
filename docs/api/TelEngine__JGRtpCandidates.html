@@ -1,0 +1,168 @@
+<HTML>
+<HEAD>
+<TITLE>class JGRtpCandidates</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class JGRtpCandidates</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">A list of RTP transport candidates. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::JGRtpCandidates</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yjabber___yatejingle_h.html">libs/yjabber/yatejingle.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__ObjList.html">TelEngine::ObjList</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__JGRtpCandidates.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref1">Type</A> {	Unknown   = -1,
+	RtpIceUdp = 1,
+	RtpRawUdp,
+	RtpP2P,
+	RtpGoogleRawUdp,
+    }
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>inline &nbsp;<b><A HREF="#ref2">JGRtpCandidates</A></b> (Type t = Unknown) 
+</LI>
+<LI>inline const char* &nbsp;<b><A HREF="#ref3">typeName</A></b> ()  const
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref4">generateIceAuth</A></b> () 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref5">generateOldIceAuth</A></b> () 
+</LI>
+<LI>JGRtpCandidate* &nbsp;<b><A HREF="#ref6">findByComponent</A></b> (unsigned int component) 
+</LI>
+<LI>XmlElement* &nbsp;<b><A HREF="#ref7">toXml</A></b> (bool addCandidates, bool addAuth)  const
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref8">fromXml</A></b> (XmlElement* element) 
+</LI>
+</ul><h4>Public Static Methods</h4><ul><LI>static  void &nbsp;<b><A HREF="#ref9">generateIceToken</A></b> (String& dest, bool pwd, unsigned int max = 0) 
+</LI>
+<LI>static  void &nbsp;<b><A HREF="#ref10">generateOldIceToken</A></b> (String& dest) 
+</LI>
+<LI>static  inline const char* &nbsp;<b><A HREF="#ref11">typeName</A></b> (int t, const char* defVal = "unknown") 
+</LI>
+</ul><h4>Public Members</h4><ul><LI>static const TokenDict <b><A HREF="#ref12">s_type[]</A></b></LI>
+<LI>Type <b><A HREF="#ref13">m_type</A></b></LI>
+<LI>String <b><A HREF="#ref14">m_password</A></b></LI>
+<LI>String <b><A HREF="#ref15">m_ufrag</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ This class holds a list of jingle RTP transport candidates
+</p>
+<A NAME="Type"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>Type</strong> {	Unknown   = -1,
+	RtpIceUdp = 1,
+	RtpRawUdp,
+	RtpP2P,
+	RtpGoogleRawUdp,
+    }
+</td><td align="right"><h3><strong>Type</strong></h3></td></tr></table><p></p><p>
+ Enumeration of transport types
+     </p>
+<A NAME="JGRtpCandidates"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>JGRtpCandidates</strong> (Type t = Unknown)
+<br></td><td align="right"><h3><strong>JGRtpCandidates</strong></h3></td></tr></table><p></p><p>
+ Constructor. Fill this object from an XML element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>t</i></TD><TD align="left" valign="top">The transport type
+     </TD></TR>
+</TABLE></P>
+<A NAME="typeName"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const char* &nbsp;<strong>typeName</strong> ()
+<br></td><td align="right"><h3><strong>typeName</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the name of this list's type
+</p>
+<p><b>Returns</b>: The name of this list's type
+     </p>
+<A NAME="generateIceAuth"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>generateIceAuth</strong> ()
+<br></td><td align="right"><h3><strong>generateIceAuth</strong></h3></td></tr></table><p></p><p>
+ Fill password and ufrag data
+     </p>
+<A NAME="generateOldIceAuth"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>generateOldIceAuth</strong> ()
+<br></td><td align="right"><h3><strong>generateOldIceAuth</strong></h3></td></tr></table><p></p><p>
+ Fill password and ufrag data using old transport restrictions (16 bytes length)
+     </p>
+<A NAME="findByComponent"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>JGRtpCandidate* &nbsp;<strong>findByComponent</strong> (unsigned int component)
+<br></td><td align="right"><h3><strong>findByComponent</strong></h3></td></tr></table><p></p><p>
+ Find a candidate by its component value
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>component</i></TD><TD align="left" valign="top">The value to search
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: JGRtpCandidate pointer or 0
+     </p>
+<A NAME="toXml"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>XmlElement* &nbsp;<strong>toXml</strong> (bool addCandidates, bool addAuth)
+<br></td><td align="right"><h3><strong>toXml</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Create a 'transport' element from this object. Add candidates
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>addCandidates</i></TD><TD align="left" valign="top">True to add the candidate children
+</TD></TR>
+<TR><TD align="left" valign="top"><i>addAuth</i></TD><TD align="left" valign="top">RtpIceUdp only: add auth data
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Valid XmlElement pointer
+     </p>
+<A NAME="fromXml"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>fromXml</strong> (XmlElement* element)
+<br></td><td align="right"><h3><strong>fromXml</strong></h3></td></tr></table><p></p><p>
+ Fill this object from a given element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>element</i></TD><TD align="left" valign="top">The element
+     </TD></TR>
+</TABLE></P>
+<A NAME="generateIceToken"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>generateIceToken</strong> (String& dest, bool pwd, unsigned int max = 0)
+<br></td><td align="right"><h3><strong>generateIceToken</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Generate a random password or username to be used with ICE-UDP transport
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>dest</i></TD><TD align="left" valign="top">Destination string
+</TD></TR>
+<TR><TD align="left" valign="top"><i>pwd</i></TD><TD align="left" valign="top">True to generate a password, false to generate an username (ufrag)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>max</i></TD><TD align="left" valign="top">Maximum number of characters. The maxmimum value is 256.
+  The minimum value is 22 for password and 4 for username
+     </TD></TR>
+</TABLE></P>
+<A NAME="generateOldIceToken"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>generateOldIceToken</strong> (String& dest)
+<br></td><td align="right"><h3><strong>generateOldIceToken</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Generate a random password or username to be used with old ICE-UDP transport
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>dest</i></TD><TD align="left" valign="top">Destination string
+     </TD></TR>
+</TABLE></P>
+<A NAME="typeName"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline const char* &nbsp;<strong>typeName</strong> (int t, const char* defVal = "unknown")
+<br></td><td align="right"><h3><strong>typeName</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get the name associated with a list's type
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>t</i></TD><TD align="left" valign="top">The desired type
+</TD></TR>
+<TR><TD align="left" valign="top"><i>defVal</i></TD><TD align="left" valign="top">Default value to return
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The name associated with a list's type
+     </p>
+<A NAME="s_type[]"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_type[]</strong>
+</td><td align="right"><h3><strong>s_type[]</strong></h3></td></tr></table><p></p><A NAME="m_type"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>Type  <strong>m_type</strong>
+</td><td align="right"><h3><strong>m_type</strong></h3></td></tr></table><p></p><A NAME="m_password"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_password</strong>
+</td><td align="right"><h3><strong>m_password</strong></h3></td></tr></table><p></p><A NAME="m_ufrag"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_ufrag</strong>
+</td><td align="right"><h3><strong>m_ufrag</strong></h3></td></tr></table><p></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

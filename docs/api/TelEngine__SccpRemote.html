@@ -1,0 +1,195 @@
+<HTML>
+<HEAD>
+<TITLE>class SccpRemote</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SccpRemote</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">
+ Helper class to keep a remote sccp
+  <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SccpRemote</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__Mutex.html">TelEngine::Mutex</A> <small>[public ]</small>, <A HREF="TelEngine__RefObject.html">TelEngine::RefObject</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SccpRemote.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref2">SccpRemote</A></b> (SS7PointCode::Type pcType) 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref3">SccpRemote</A></b> (unsigned int pointcode, SS7PointCode::Type pcType) 
+</LI>
+<LI>virtual  &nbsp;<b><A HREF="#ref4">~SccpRemote</A></b> () 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref5">initialize</A></b> (const String& params) 
+</LI>
+<LI>inline SCCPManagement::SccpStates &nbsp;<b><A HREF="#ref6">getState</A></b> () 
+</LI>
+<LI>SccpSubsystem* &nbsp;<b><A HREF="#ref7">getSubsystem</A></b> (int ssn) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref8">setState</A></b> (SCCPManagement::SccpStates state) 
+</LI>
+<LI>inline const SS7PointCode& &nbsp;<b><A HREF="#ref9">getPointCode</A></b> () 
+</LI>
+<LI>inline int &nbsp;<b><A HREF="#ref10">getPackedPointcode</A></b> () 
+</LI>
+<LI>inline const char* &nbsp;<b><A HREF="#ref11">getPointCodeType</A></b> () 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref12">dump</A></b> (String& dest, bool extended = false) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref13">changeSubsystemState</A></b> (int ssn,SCCPManagement::SccpStates newState) 
+</LI>
+<LI>inline ObjList& &nbsp;<b><A HREF="#ref14">getSubsystems</A></b> () 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref15">setCongestion</A></b> (unsigned int cl) 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref16">resetCongestion</A></b> () 
+</LI>
+<LI>inline unsigned int &nbsp;<b><A HREF="#ref17">getCongestion</A></b> () 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ Helper class to keep a remote sccp
+ </p>
+<A NAME="SccpRemote"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>SccpRemote</strong> (SS7PointCode::Type pcType)
+<br></td><td align="right"><h3><strong>SccpRemote</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>pcType</i></TD><TD align="left" valign="top">The pointcode type
+     </TD></TR>
+</TABLE></P>
+<A NAME="SccpRemote"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>SccpRemote</strong> (unsigned int pointcode, SS7PointCode::Type pcType)
+<br></td><td align="right"><h3><strong>SccpRemote</strong></h3></td></tr></table><p></p><p>
+ Constructor.
+ Construncot an Remote sccp from given pointcode and pointcode type
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>pointcode</i></TD><TD align="left" valign="top">Integer value assigned to remote pointcode.
+</TD></TR>
+<TR><TD align="left" valign="top"><i>pcType</i></TD><TD align="left" valign="top">Remote pointcode type
+     </TD></TR>
+</TABLE></P>
+<A NAME="~SccpRemote"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~SccpRemote</strong> ()
+<br></td><td align="right"><h3><strong>~SccpRemote</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor
+     </p>
+<A NAME="initialize"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>initialize</strong> (const String& params)
+<br></td><td align="right"><h3><strong>initialize</strong></h3></td></tr></table><p></p><p>
+ Initialize the pointcode and subsystems list from a string
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">String containing the pointcode and the subsystems list
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if the pointcode from the string is not valid
+ Usage
+     </p>
+<A NAME="getState"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline SCCPManagement::SccpStates &nbsp;<strong>getState</strong> ()
+<br></td><td align="right"><h3><strong>getState</strong></h3></td></tr></table><p></p><p>
+ Obtain the state of this remote SCCP
+</p>
+<p><b>Returns</b>: Remote SCCP state
+     </p>
+<A NAME="getSubsystem"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>SccpSubsystem* &nbsp;<strong>getSubsystem</strong> (int ssn)
+<br></td><td align="right"><h3><strong>getSubsystem</strong></h3></td></tr></table><p></p><p>
+ Find a subsystem stored in remote subsystems list
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>ssn</i></TD><TD align="left" valign="top">The subsystem number of the remote subsystem
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Pointer to the Subsystem or 0 if it was not found
+     </p>
+<A NAME="setState"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>setState</strong> (SCCPManagement::SccpStates state)
+<br></td><td align="right"><h3><strong>setState</strong></h3></td></tr></table><p></p><p>
+ Set remote SCCP state
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>state</i></TD><TD align="left" valign="top">The new state of the remote SCCP
+     </TD></TR>
+</TABLE></P>
+<A NAME="getPointCode"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const SS7PointCode& &nbsp;<strong>getPointCode</strong> ()
+<br></td><td align="right"><h3><strong>getPointCode</strong></h3></td></tr></table><p></p><p>
+ Obtain the PointCode of the remote SCCP
+</p>
+<p><b>Returns</b>: The pointcode of the remote SCCP
+     </p>
+<A NAME="getPackedPointcode"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline int &nbsp;<strong>getPackedPointcode</strong> ()
+<br></td><td align="right"><h3><strong>getPackedPointcode</strong></h3></td></tr></table><p></p><p>
+ Obtain the pointcode as an integer
+</p>
+<p><b>Returns</b>: The packed pointcode representation
+     </p>
+<A NAME="getPointCodeType"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const char* &nbsp;<strong>getPointCodeType</strong> ()
+<br></td><td align="right"><h3><strong>getPointCodeType</strong></h3></td></tr></table><p></p><p>
+ Obtain a string representation of the remote pointcode type
+</p>
+<p><b>Returns</b>: String representation of remote pointcode type
+     </p>
+<A NAME="dump"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>dump</strong> (String& dest, bool extended = false)
+<br></td><td align="right"><h3><strong>dump</strong></h3></td></tr></table><p></p><p>
+ Dump this sccp status an all it's subsystems
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>dest</i></TD><TD align="left" valign="top">Destination string
+</TD></TR>
+<TR><TD align="left" valign="top"><i>extended</i></TD><TD align="left" valign="top">True to append the subsystems status
+     </TD></TR>
+</TABLE></P>
+<A NAME="changeSubsystemState"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>changeSubsystemState</strong> (int ssn,SCCPManagement::SccpStates newState)
+<br></td><td align="right"><h3><strong>changeSubsystemState</strong></h3></td></tr></table><p></p><p>
+ Helper method to change a subsystem state
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>ssn</i></TD><TD align="left" valign="top">The subsystem ssn
+</TD></TR>
+<TR><TD align="left" valign="top"><i>newState</i></TD><TD align="left" valign="top">The subsystem new state
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if the subsystem state is the same
+     </p>
+<A NAME="getSubsystems"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline ObjList& &nbsp;<strong>getSubsystems</strong> ()
+<br></td><td align="right"><h3><strong>getSubsystems</strong></h3></td></tr></table><p></p><p>
+ Helper method to obtain remote sccp's subsystems list
+</p>
+<p><b>Returns</b>: The subsystems list
+     </p>
+<A NAME="setCongestion"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>setCongestion</strong> (unsigned int cl)
+<br></td><td align="right"><h3><strong>setCongestion</strong></h3></td></tr></table><p></p><p>
+ Helper method to set congestion level
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>cl</i></TD><TD align="left" valign="top">The new congestion level
+     </TD></TR>
+</TABLE></P>
+<A NAME="resetCongestion"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>resetCongestion</strong> ()
+<br></td><td align="right"><h3><strong>resetCongestion</strong></h3></td></tr></table><p></p><p>
+ Helper method to reset congestion level
+     </p>
+<A NAME="getCongestion"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline unsigned int &nbsp;<strong>getCongestion</strong> ()
+<br></td><td align="right"><h3><strong>getCongestion</strong></h3></td></tr></table><p></p><p>
+ Helper method to obtain the congestion level
+</p>
+<p><b>Returns</b>: The congestion level
+     </p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

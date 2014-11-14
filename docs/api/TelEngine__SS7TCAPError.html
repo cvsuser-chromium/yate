@@ -1,0 +1,200 @@
+<HTML>
+<HEAD>
+<TITLE>class SS7TCAPError</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SS7TCAPError</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1"></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SS7TCAPError</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SS7TCAPError.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref1">ErrorType</A> {	Transact_UnrecognizedPackageType,     
+	Transact_IncorrectTransactionPortion, 
+	Transact_BadlyStructuredTransaction,  
+	Transact_UnassignedTransactionID,
+	Transact_PermissionToReleaseProblem,  
+	Transact_ResourceUnavailable,         
+	Dialog_UnrecognizedDialoguePortionID, 
+	Dialog_BadlyStructuredDialoguePortion,
+	Dialog_MissingDialoguePortion,        
+	Dialog_InconsistentDialoguePortion,   
+	Dialog_Abnormal,                      
+	General_UnrecognizedComponentType,   
+	General_IncorrectComponentPortion,   
+	General_BadlyStructuredCompPortion,  
+	General_IncorrectComponentCoding,    
+	Invoke_DuplicateInvokeID,           
+	Invoke_UnrecognizedOperationCode,   
+	Invoke_IncorrectParameter,          
+	Invoke_UnrecognizedCorrelationID,   
+	Invoke_ResourceLimitation,          
+	Invoke_InitiatingRelease,           
+	Invoke_LinkedResponseUnexpected,    
+	Invoke_UnexpectedLinkedOperation,   
+	Result_UnrecognizedInvokeID,        
+	Result_UnrecognisedCorrelationID,   
+	Result_UnexpectedReturnResult,      
+	Result_IncorrectParameter,          
+	Error_UnrecognizedInvokeID,        
+	Error_UnrecognisedCorrelationID,   
+	Error_UnexpectedReturnError,       
+	Error_UnrecognisedError,           
+	Error_UnexpectedError,             
+	Error_IncorrectParameter,          
+	Discard,
+	NoError,
+    }
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref2">SS7TCAPError</A></b> (SS7TCAP::TCAPType tcapType) 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref3">SS7TCAPError</A></b> (SS7TCAP::TCAPType tcapType, ErrorType error) 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref4">~SS7TCAPError</A></b> () 
+</LI>
+<LI>inline ErrorType &nbsp;<b><A HREF="#ref5">error</A></b> () 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref6">setError</A></b> (ErrorType error) 
+</LI>
+<LI>const String &nbsp;<b><A HREF="#ref7">errorName</A></b> () 
+</LI>
+<LI><A HREF="#u_int16_t">u_int16_t</A> &nbsp;<b><A HREF="#ref8">errorCode</A></b> () 
+</LI>
+</ul><h4>Public Static Methods</h4><ul><LI>static  int &nbsp;<b><A HREF="#ref9">errorFromCode</A></b> (SS7TCAP::TCAPType tcapType, <A HREF="#u_int16_t">u_int16_t</A> code) 
+</LI>
+<LI>static  <A HREF="#u_int16_t">u_int16_t</A> &nbsp;<b><A HREF="#ref10">codeFromError</A></b> (SS7TCAP::TCAPType tcapType, int err) 
+</LI>
+</ul><h4>Public Members</h4><ul><LI>static const TokenDict <b><A HREF="#ref11">s_errorTypes[]</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><A NAME="ErrorType"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>ErrorType</strong> {	Transact_UnrecognizedPackageType,     
+	Transact_IncorrectTransactionPortion, 
+	Transact_BadlyStructuredTransaction,  
+	Transact_UnassignedTransactionID,
+	Transact_PermissionToReleaseProblem,  
+	Transact_ResourceUnavailable,         
+	Dialog_UnrecognizedDialoguePortionID, 
+	Dialog_BadlyStructuredDialoguePortion,
+	Dialog_MissingDialoguePortion,        
+	Dialog_InconsistentDialoguePortion,   
+	Dialog_Abnormal,                      
+	General_UnrecognizedComponentType,   
+	General_IncorrectComponentPortion,   
+	General_BadlyStructuredCompPortion,  
+	General_IncorrectComponentCoding,    
+	Invoke_DuplicateInvokeID,           
+	Invoke_UnrecognizedOperationCode,   
+	Invoke_IncorrectParameter,          
+	Invoke_UnrecognizedCorrelationID,   
+	Invoke_ResourceLimitation,          
+	Invoke_InitiatingRelease,           
+	Invoke_LinkedResponseUnexpected,    
+	Invoke_UnexpectedLinkedOperation,   
+	Result_UnrecognizedInvokeID,        
+	Result_UnrecognisedCorrelationID,   
+	Result_UnexpectedReturnResult,      
+	Result_IncorrectParameter,          
+	Error_UnrecognizedInvokeID,        
+	Error_UnrecognisedCorrelationID,   
+	Error_UnexpectedReturnError,       
+	Error_UnrecognisedError,           
+	Error_UnexpectedError,             
+	Error_IncorrectParameter,          
+	Discard,
+	NoError,
+    }
+</td><td align="right"><h3><strong>ErrorType</strong></h3></td></tr></table><p></p><A NAME="SS7TCAPError"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>SS7TCAPError</strong> (SS7TCAP::TCAPType tcapType)
+<br></td><td align="right"><h3><strong>SS7TCAPError</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>tcapType</i></TD><TD align="left" valign="top">TCAP specification user for this error
+     </TD></TR>
+</TABLE></P>
+<A NAME="SS7TCAPError"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>SS7TCAPError</strong> (SS7TCAP::TCAPType tcapType, ErrorType error)
+<br></td><td align="right"><h3><strong>SS7TCAPError</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>tcapType</i></TD><TD align="left" valign="top">TCAP specification used for this error
+</TD></TR>
+<TR><TD align="left" valign="top"><i>error</i></TD><TD align="left" valign="top">The error
+     </TD></TR>
+</TABLE></P>
+<A NAME="~SS7TCAPError"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>~SS7TCAPError</strong> ()
+<br></td><td align="right"><h3><strong>~SS7TCAPError</strong></h3></td></tr></table><p></p><p>
+ Destructor
+     </p>
+<A NAME="error"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline ErrorType &nbsp;<strong>error</strong> ()
+<br></td><td align="right"><h3><strong>error</strong></h3></td></tr></table><p></p><p>
+ Get the error
+</p>
+<p><b>Returns</b>: The TCAP error
+     </p>
+<A NAME="setError"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>setError</strong> (ErrorType error)
+<br></td><td align="right"><h3><strong>setError</strong></h3></td></tr></table><p></p><p>
+ Set the error
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>error</i></TD><TD align="left" valign="top">Error to set
+     </TD></TR>
+</TABLE></P>
+<A NAME="errorName"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>const String &nbsp;<strong>errorName</strong> ()
+<br></td><td align="right"><h3><strong>errorName</strong></h3></td></tr></table><p></p><p>
+ Error name
+</p>
+<p><b>Returns</b>: The error name
+     </p>
+<A NAME="errorCode"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td><A HREF="#u_int16_t">u_int16_t</A> &nbsp;<strong>errorCode</strong> ()
+<br></td><td align="right"><h3><strong>errorCode</strong></h3></td></tr></table><p></p><p>
+ The full value of the error
+</p>
+<p><b>Returns</b>: 2 byte integer containing the full code of the error
+     </p>
+<A NAME="errorFromCode"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>errorFromCode</strong> (SS7TCAP::TCAPType tcapType, <A HREF="#u_int16_t">u_int16_t</A> code)
+<br></td><td align="right"><h3><strong>errorFromCode</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Obtain abstract TCAP error from TCAP protocol defined error value
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>tcapType</i></TD><TD align="left" valign="top">Type of TCAP for which the error is searched
+</TD></TR>
+<TR><TD align="left" valign="top"><i>code</i></TD><TD align="left" valign="top">TCAP protocol error value
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The type of the error
+     </p>
+<A NAME="codeFromError"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td> <A HREF="#u_int16_t">u_int16_t</A> &nbsp;<strong>codeFromError</strong> (SS7TCAP::TCAPType tcapType, int err)
+<br></td><td align="right"><h3><strong>codeFromError</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Obtain TCAP specific error value from abstract TCAP error
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>tcapType</i></TD><TD align="left" valign="top">Type of TCAP for which the error is searched
+</TD></TR>
+<TR><TD align="left" valign="top"><i>err</i></TD><TD align="left" valign="top">Abstrat TCAP error
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The error value as defined by the TCAP protocol
+     </p>
+<A NAME="s_errorTypes[]"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_errorTypes[]</strong>
+</td><td align="right"><h3><strong>s_errorTypes[]</strong></h3></td></tr></table><p></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

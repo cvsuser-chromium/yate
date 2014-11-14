@@ -1,0 +1,125 @@
+<HTML>
+<HEAD>
+<TITLE>class JGStreamHost</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class JGStreamHost</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">A Jingle file transfer stream host. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::JGStreamHost</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yjabber___yatejingle_h.html">libs/yjabber/yatejingle.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__String.html">TelEngine::String</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__JGStreamHost.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref1">JGStreamHost</A></b> (bool local, const char* jid, const char* addr, int port, const char* zeroConf = 0) 
+</LI>
+<LI>inline &nbsp;<b><A HREF="#ref2">JGStreamHost</A></b> (const JGStreamHost& src) 
+</LI>
+<LI>XmlElement* &nbsp;<b><A HREF="#ref3">toXml</A></b> () 
+</LI>
+</ul><h4>Public Static Methods</h4><ul><LI>static  JGStreamHost* &nbsp;<b><A HREF="#ref4">fromXml</A></b> (XmlElement* xml) 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref5">buildHosts</A></b> (const ObjList& hosts, const char* sid,
+	const char* mode = "tcp") 
+</LI>
+<LI>static  XmlElement* &nbsp;<b><A HREF="#ref6">buildRsp</A></b> (const char* jid) 
+</LI>
+</ul><h4>Public Members</h4><ul><LI>bool <b><A HREF="#ref7">m_local</A></b></LI>
+<LI>String <b><A HREF="#ref8">m_address</A></b></LI>
+<LI>int <b><A HREF="#ref9">m_port</A></b></LI>
+<LI>String <b><A HREF="#ref10">m_zeroConf</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ This class holds a file transfer stream host definition
+</p>
+<A NAME="JGStreamHost"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>JGStreamHost</strong> (bool local, const char* jid, const char* addr, int port, const char* zeroConf = 0)
+<br></td><td align="right"><h3><strong>JGStreamHost</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>local</i></TD><TD align="left" valign="top">Local stream host
+</TD></TR>
+<TR><TD align="left" valign="top"><i>jid</i></TD><TD align="left" valign="top">Stream host jid (id)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>addr</i></TD><TD align="left" valign="top">Stream host address
+</TD></TR>
+<TR><TD align="left" valign="top"><i>port</i></TD><TD align="left" valign="top">Stream host port
+</TD></TR>
+<TR><TD align="left" valign="top"><i>zeroConf</i></TD><TD align="left" valign="top">Optional zero conf definition (override address/port)
+     </TD></TR>
+</TABLE></P>
+<A NAME="JGStreamHost"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>JGStreamHost</strong> (const JGStreamHost& src)
+<br></td><td align="right"><h3><strong>JGStreamHost</strong></h3></td></tr></table><p></p><p>
+ Copy constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>src</i></TD><TD align="left" valign="top">Source stream host to copy from
+     </TD></TR>
+</TABLE></P>
+<A NAME="toXml"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>XmlElement* &nbsp;<strong>toXml</strong> ()
+<br></td><td align="right"><h3><strong>toXml</strong></h3></td></tr></table><p></p><p>
+ Build an XML element from this stream host
+</p>
+<p><b>Returns</b>: Valid XmlElement pointer
+     </p>
+<A NAME="fromXml"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td> JGStreamHost* &nbsp;<strong>fromXml</strong> (XmlElement* xml)
+<br></td><td align="right"><h3><strong>fromXml</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Build a stream host from an XML element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The element to build from
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Valid JGStreamHost pointer or 0 on error
+     </p>
+<A NAME="buildHosts"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>buildHosts</strong> (const ObjList& hosts, const char* sid,
+	const char* mode = "tcp")
+<br></td><td align="right"><h3><strong>buildHosts</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Build a query XML element carrying a list of stream hosts
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>hosts</i></TD><TD align="left" valign="top">List of JGStreamHost objects
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sid</i></TD><TD align="left" valign="top">The query element's sid attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>mode</i></TD><TD align="left" valign="top">The query element's mode attribute
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Valid XmlElement pointer
+     </p>
+<A NAME="buildRsp"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>buildRsp</strong> (const char* jid)
+<br></td><td align="right"><h3><strong>buildRsp</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Build a query XML element with a streamhost-used child
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>jid</i></TD><TD align="left" valign="top">The jid of the stream host used
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Valid XmlElement pointer
+     </p>
+<A NAME="m_local"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool  <strong>m_local</strong>
+</td><td align="right"><h3><strong>m_local</strong></h3></td></tr></table><p></p><A NAME="m_address"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_address</strong>
+</td><td align="right"><h3><strong>m_address</strong></h3></td></tr></table><p></p><A NAME="m_port"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>int  <strong>m_port</strong>
+</td><td align="right"><h3><strong>m_port</strong></h3></td></tr></table><p></p><A NAME="m_zeroConf"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_zeroConf</strong>
+</td><td align="right"><h3><strong>m_zeroConf</strong></h3></td></tr></table><p></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

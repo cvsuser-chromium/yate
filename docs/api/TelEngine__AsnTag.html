@@ -1,0 +1,202 @@
+<HTML>
+<HEAD>
+<TITLE>class AsnTag</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class AsnTag</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">Class for ASN.1 tags. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::AsnTag</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yasn___yateasn_h.html">libs/yasn/yateasn.h</A>&gt;</code></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__AsnTag.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref1">Class</A> {	Universal   = 0x00,
+	Application = 0x40,
+	Context     = 0x80,
+	Private     = 0xc0,
+    }
+</LI>
+<LI>enum <A HREF="#ref2">Type</A> {	Primitive   = 0x00,
+	Constructor = 0x20,
+    }
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>inline &nbsp;<b><A HREF="#ref3">AsnTag</A></b> () 
+</LI>
+<LI>inline &nbsp;<b><A HREF="#ref4">AsnTag</A></b> (Class clas, Type type, unsigned int code) 
+</LI>
+<LI>inline &nbsp;<b><A HREF="#ref5">~AsnTag</A></b> () 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref8">encode</A></b> () 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref9">operator==</A></b> (const AsnTag& tag)  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref10">operator!=</A></b> (const AsnTag& tag)  const
+</LI>
+<LI>inline AsnTag& &nbsp;<b><A HREF="#ref11">operator=</A></b> (const AsnTag& value) 
+</LI>
+<LI>inline const Class &nbsp;<b><A HREF="#ref12">classType</A></b> ()  const
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref13">classType</A></b> (Class clas) 
+</LI>
+<LI>inline const Type &nbsp;<b><A HREF="#ref14">type</A></b> ()  const
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref15">type</A></b> (Type type) 
+</LI>
+<LI>inline const unsigned int &nbsp;<b><A HREF="#ref16">code</A></b> ()  const
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref17">code</A></b> (unsigned int code) 
+</LI>
+<LI>inline const DataBlock& &nbsp;<b><A HREF="#ref18">coding</A></b> ()  const
+</LI>
+</ul><h4>Public Static Methods</h4><ul><LI>static  void &nbsp;<b><A HREF="#ref6">decode</A></b> (AsnTag& tag, DataBlock& data) 
+</LI>
+<LI>static  void &nbsp;<b><A HREF="#ref7">encode</A></b> (Class clas, Type type, unsigned int code, DataBlock& data) 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ Class AsnTag
+</p>
+<A NAME="Class"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>Class</strong> {	Universal   = 0x00,
+	Application = 0x40,
+	Context     = 0x80,
+	Private     = 0xc0,
+    }
+</td><td align="right"><h3><strong>Class</strong></h3></td></tr></table><p></p><p>
+ ASN.1 Tag class types enum
+     </p>
+<A NAME="Type"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>Type</strong> {	Primitive   = 0x00,
+	Constructor = 0x20,
+    }
+</td><td align="right"><h3><strong>Type</strong></h3></td></tr></table><p></p><p>
+ ASN.1  Type of tag enum
+     </p>
+<A NAME="AsnTag"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>AsnTag</strong> ()
+<br></td><td align="right"><h3><strong>AsnTag</strong></h3></td></tr></table><p></p><p>
+ Constructor
+     </p>
+<A NAME="AsnTag"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>AsnTag</strong> (Class clas, Type type, unsigned int code)
+<br></td><td align="right"><h3><strong>AsnTag</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>clas</i></TD><TD align="left" valign="top">Class of the ASN.1 Tag
+</TD></TR>
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Type of the ASN.1 Tag
+</TD></TR>
+<TR><TD align="left" valign="top"><i>code</i></TD><TD align="left" valign="top">Code ot the ASN.1 Tag
+     </TD></TR>
+</TABLE></P>
+<A NAME="~AsnTag"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>~AsnTag</strong> ()
+<br></td><td align="right"><h3><strong>~AsnTag</strong></h3></td></tr></table><p></p><p>
+ Destructor
+     </p>
+<A NAME="decode"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>decode</strong> (AsnTag& tag, DataBlock& data)
+<br></td><td align="right"><h3><strong>decode</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Decode an ASN.1 tag from the given data
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>tag</i></TD><TD align="left" valign="top">Tag to fill
+</TD></TR>
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Data from which the tag should be filled
+     </TD></TR>
+</TABLE></P>
+<A NAME="encode"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>encode</strong> (Class clas, Type type, unsigned int code, DataBlock& data)
+<br></td><td align="right"><h3><strong>encode</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Encode an ASN.1 tag and put the encoded form into the given data
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>clas</i></TD><TD align="left" valign="top">Class of the tag
+</TD></TR>
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Type of the tag
+</TD></TR>
+<TR><TD align="left" valign="top"><i>code</i></TD><TD align="left" valign="top">Tag code
+</TD></TR>
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">DataBlock into which to insert the encoded tag
+     </TD></TR>
+</TABLE></P>
+<A NAME="encode"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>encode</strong> ()
+<br></td><td align="right"><h3><strong>encode</strong></h3></td></tr></table><p></p><p>
+ Encode self
+     </p>
+<A NAME="operator=="></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>operator==</strong> (const AsnTag& tag)
+<br></td><td align="right"><h3><strong>operator==</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Equality operator
+     </p>
+<A NAME="operator!="></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>operator!=</strong> (const AsnTag& tag)
+<br></td><td align="right"><h3><strong>operator!=</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Inequality operator
+     </p>
+<A NAME="operator="></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline AsnTag& &nbsp;<strong>operator=</strong> (const AsnTag& value)
+<br></td><td align="right"><h3><strong>operator=</strong></h3></td></tr></table><p></p><p>
+ Assignment operator
+     </p>
+<A NAME="classType"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const Class &nbsp;<strong>classType</strong> ()
+<br></td><td align="right"><h3><strong>classType</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the tag class
+</p>
+<p><b>Returns</b>: The class of the tag
+     </p>
+<A NAME="classType"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>classType</strong> (Class clas)
+<br></td><td align="right"><h3><strong>classType</strong></h3></td></tr></table><p></p><p>
+ Set the tag class
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>clas</i></TD><TD align="left" valign="top">The clas to set for the  tag
+     </TD></TR>
+</TABLE></P>
+<A NAME="type"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const Type &nbsp;<strong>type</strong> ()
+<br></td><td align="right"><h3><strong>type</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the tag type
+</p>
+<p><b>Returns</b>: The type of the tag
+     </p>
+<A NAME="type"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>type</strong> (Type type)
+<br></td><td align="right"><h3><strong>type</strong></h3></td></tr></table><p></p><p>
+ Set the tag type
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">The type to set for the  tag
+     </TD></TR>
+</TABLE></P>
+<A NAME="code"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const unsigned int &nbsp;<strong>code</strong> ()
+<br></td><td align="right"><h3><strong>code</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the tag code
+</p>
+<p><b>Returns</b>: The code of the tag
+     </p>
+<A NAME="code"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>code</strong> (unsigned int code)
+<br></td><td align="right"><h3><strong>code</strong></h3></td></tr></table><p></p><p>
+ Set the tag code
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>code</i></TD><TD align="left" valign="top">The code to set for the  tag
+     </TD></TR>
+</TABLE></P>
+<A NAME="coding"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const DataBlock& &nbsp;<strong>coding</strong> ()
+<br></td><td align="right"><h3><strong>coding</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the tag encoding
+</p>
+<p><b>Returns</b>: The DataBlock containing the encoding for the tag
+     </p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

@@ -1,0 +1,164 @@
+<HTML>
+<HEAD>
+<TITLE>class SDPParser</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SDPParser</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">A SDP parser. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SDPParser</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysdp___yatesdp_h.html">libs/ysdp/yatesdp.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__DebugEnabler.html">TelEngine::DebugEnabler</A> <small>[public ]</small>, <A HREF="TelEngine__Mutex.html">TelEngine::Mutex</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SDPParser.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>inline &nbsp;<b><A HREF="#ref2">SDPParser</A></b> (const char* dbgName, const char* sessName, const char* fmts = "alaw,mulaw") 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref3">getAudioFormats</A></b> (String& buf) 
+</LI>
+<LI>inline int &nbsp;<b><A HREF="#ref4">rfc2833</A></b> ()  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref5">secure</A></b> ()  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref6">sdpForward</A></b> ()  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref7">ignorePort</A></b> ()  const
+</LI>
+<LI>ObjList* &nbsp;<b><A HREF="#ref8">parse</A></b> (const MimeSdpBody& sdp, String& addr, ObjList* oldMedia = 0,
+	const String& media = String::empty(), bool force = false) 
+</LI>
+<LI>inline ObjList* &nbsp;<b><A HREF="#ref9">parse</A></b> (const MimeSdpBody* sdp, String& addr, ObjList* oldMedia = 0,
+	const String& media = String::empty(), bool force = false) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref10">initialize</A></b> (const NamedList* codecs, const NamedList* hacks, const NamedList* general = 0) 
+</LI>
+</ul><h4>Public Members</h4><ul><LI>static const TokenDict <b><A HREF="#ref11">s_payloads[]</A></b></LI>
+<LI>static const TokenDict <b><A HREF="#ref12">s_rtpmap[]</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ This class holds a SDP parser and additional data used by SDP objects
+</p>
+<A NAME="SDPParser"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>SDPParser</strong> (const char* dbgName, const char* sessName, const char* fmts = "alaw,mulaw")
+<br></td><td align="right"><h3><strong>SDPParser</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>dbgName</i></TD><TD align="left" valign="top">Debug name of this parser
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sessName</i></TD><TD align="left" valign="top">Name of the session in SDP
+</TD></TR>
+<TR><TD align="left" valign="top"><i>fmts</i></TD><TD align="left" valign="top">Default media formats
+     </TD></TR>
+</TABLE></P>
+<A NAME="getAudioFormats"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>getAudioFormats</strong> (String& buf)
+<br></td><td align="right"><h3><strong>getAudioFormats</strong></h3></td></tr></table><p></p><p>
+ Get the formats list
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>buf</i></TD><TD align="left" valign="top">String to be filled with comma separated list of formats
+     </TD></TR>
+</TABLE></P>
+<A NAME="rfc2833"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline int &nbsp;<strong>rfc2833</strong> ()
+<br></td><td align="right"><h3><strong>rfc2833</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the RFC 2833 offer payload
+</p>
+<p><b>Returns</b>: Payload for RFC 2883 telephony events, negative if not offered
+     </p>
+<A NAME="secure"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>secure</strong> ()
+<br></td><td align="right"><h3><strong>secure</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the secure offer flag
+</p>
+<p><b>Returns</b>: True if SDES descriptors for SRTP will be offered
+     </p>
+<A NAME="sdpForward"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>sdpForward</strong> ()
+<br></td><td align="right"><h3><strong>sdpForward</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the SDP forward flag
+</p>
+<p><b>Returns</b>: True if raw SDP should be added to RTP forward offer
+     </p>
+<A NAME="ignorePort"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>ignorePort</strong> ()
+<br></td><td align="right"><h3><strong>ignorePort</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the RTP port change ignore flag
+</p>
+<p><b>Returns</b>: True if a port change should not cause an offer change
+     </p>
+<A NAME="parse"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>ObjList* &nbsp;<strong>parse</strong> (const MimeSdpBody& sdp, String& addr, ObjList* oldMedia = 0,
+	const String& media = String::empty(), bool force = false)
+<br></td><td align="right"><h3><strong>parse</strong></h3></td></tr></table><p></p><p>
+ Parse a received SDP body
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>sdp</i></TD><TD align="left" valign="top">Received SDP body
+</TD></TR>
+<TR><TD align="left" valign="top"><i>addr</i></TD><TD align="left" valign="top">Remote address
+</TD></TR>
+<TR><TD align="left" valign="top"><i>oldMedia</i></TD><TD align="left" valign="top">Optional list of existing media (an already existing media
+  will be moved to returned list)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>media</i></TD><TD align="left" valign="top">Optional expected media type. If not empty this will be the
+  only media type returned (if found)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>force</i></TD><TD align="left" valign="top">Force updating formats even if incompatible with old ones
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: List of SDPMedia objects, may be NULL
+     </p>
+<A NAME="parse"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline ObjList* &nbsp;<strong>parse</strong> (const MimeSdpBody* sdp, String& addr, ObjList* oldMedia = 0,
+	const String& media = String::empty(), bool force = false)
+<br></td><td align="right"><h3><strong>parse</strong></h3></td></tr></table><p></p><p>
+ Parse a received SDP body, returns NULL if SDP is not present
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>sdp</i></TD><TD align="left" valign="top">Pointer to received SDP body
+</TD></TR>
+<TR><TD align="left" valign="top"><i>addr</i></TD><TD align="left" valign="top">Remote address
+</TD></TR>
+<TR><TD align="left" valign="top"><i>oldMedia</i></TD><TD align="left" valign="top">Optional list of existing media (an already existing media
+  will be moved to returned list)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>media</i></TD><TD align="left" valign="top">Optional expected media type. If not empty this will be the
+  only media type returned (if found)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>force</i></TD><TD align="left" valign="top">Force updating formats even if incompatible with old ones
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: List of SDPMedia objects, may be NULL
+     </p>
+<A NAME="initialize"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>initialize</strong> (const NamedList* codecs, const NamedList* hacks, const NamedList* general = 0)
+<br></td><td align="right"><h3><strong>initialize</strong></h3></td></tr></table><p></p><p>
+ Update configuration. This method should be called after a configuration file is loaded
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>codecs</i></TD><TD align="left" valign="top">List of supported codecs
+</TD></TR>
+<TR><TD align="left" valign="top"><i>hacks</i></TD><TD align="left" valign="top">List of hacks
+</TD></TR>
+<TR><TD align="left" valign="top"><i>general</i></TD><TD align="left" valign="top">List of general settings
+     </TD></TR>
+</TABLE></P>
+<A NAME="s_payloads[]"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_payloads[]</strong>
+</td><td align="right"><h3><strong>s_payloads[]</strong></h3></td></tr></table><p></p><A NAME="s_rtpmap[]"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_rtpmap[]</strong>
+</td><td align="right"><h3><strong>s_rtpmap[]</strong></h3></td></tr></table><p></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

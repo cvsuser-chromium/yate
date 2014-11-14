@@ -1,0 +1,233 @@
+<HTML>
+<HEAD>
+<TITLE>class RTPSecure</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class RTPSecure</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">SRTP implementation. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::RTPSecure</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yrtp___yatertp_h.html">libs/yrtp/yatertp.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__GenObject.html">TelEngine::GenObject</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__RTPSecure.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref4">RTPSecure</A></b> () 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref5">RTPSecure</A></b> (const String& suite) 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref6">RTPSecure</A></b> (const RTPSecure& other) 
+</LI>
+<LI>virtual  &nbsp;<b><A HREF="#ref7">~RTPSecure</A></b> () 
+</LI>
+<LI>inline RTPBaseIO* &nbsp;<b><A HREF="#ref8">owner</A></b> ()  const
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref9">owner</A></b> (RTPBaseIO* newOwner) 
+</LI>
+<LI>inline Cipher* &nbsp;<b><A HREF="#ref10">rtpCipher</A></b> ()  const
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref11">supported</A></b> (RTPSession* session = 0)  const
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref12">setup</A></b> (const String& suite, const String& keyParams, const ObjList* paramList = 0) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref13">create</A></b> (String& suite, String& keyParams, bool buildMaster = true) 
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>virtual  void &nbsp;<b><A HREF="#ref14">init</A></b> () 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref15">rtpEncipher</A></b> (unsigned char* data, int len) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref16">rtpAddIntegrity</A></b> (const unsigned char* data, int len, unsigned char* authData) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref17">rtpDecipher</A></b> (unsigned char* data, int len, const void* secData, <A HREF="#u_int32_t">u_int32_t</A> ssrc, <A HREF="#u_int64_t">u_int64_t</A> seq) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref18">rtpCheckIntegrity</A></b> (const unsigned char* data, int len, const void* authData, <A HREF="#u_int32_t">u_int32_t</A> ssrc, <A HREF="#u_int64_t">u_int64_t</A> seq) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref19">deriveKey</A></b> (Cipher& cipher, DataBlock& key, unsigned int len, unsigned char label, <A HREF="#u_int64_t">u_int64_t</A> index = 0) 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ Security and integrity implementation
+</p>
+<A NAME="RTPSecure"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>RTPSecure</strong> ()
+<br></td><td align="right"><h3><strong>RTPSecure</strong></h3></td></tr></table><p></p><p>
+ Default constructor, builds an inactive implementation
+     </p>
+<A NAME="RTPSecure"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>RTPSecure</strong> (const String& suite)
+<br></td><td align="right"><h3><strong>RTPSecure</strong></h3></td></tr></table><p></p><p>
+ Constructor that creates an active implementation
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>suite</i></TD><TD align="left" valign="top">Cryptographic suite to use by default
+     </TD></TR>
+</TABLE></P>
+<A NAME="RTPSecure"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>RTPSecure</strong> (const RTPSecure& other)
+<br></td><td align="right"><h3><strong>RTPSecure</strong></h3></td></tr></table><p></p><p>
+ Constructor that copies the basic crypto lengths
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>other</i></TD><TD align="left" valign="top">Security provider to copy parameters from
+     </TD></TR>
+</TABLE></P>
+<A NAME="~RTPSecure"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~RTPSecure</strong> ()
+<br></td><td align="right"><h3><strong>~RTPSecure</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor
+     </p>
+<A NAME="owner"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline RTPBaseIO* &nbsp;<strong>owner</strong> ()
+<br></td><td align="right"><h3><strong>owner</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the owner of this security instance
+</p>
+<p><b>Returns</b>: Pointer to RTPBaseIO or NULL
+     </p>
+<A NAME="owner"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>owner</strong> (RTPBaseIO* newOwner)
+<br></td><td align="right"><h3><strong>owner</strong></h3></td></tr></table><p></p><p>
+ Set the owner of this security instance
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>newOwner</i></TD><TD align="left" valign="top">Pointer to new RTPBaseIO owning this security instance
+     </TD></TR>
+</TABLE></P>
+<A NAME="rtpCipher"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline Cipher* &nbsp;<strong>rtpCipher</strong> ()
+<br></td><td align="right"><h3><strong>rtpCipher</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the current RTP cipher if set
+</p>
+<p><b>Returns</b>: Pointer to current RTP cipher or NULL
+     </p>
+<A NAME="supported"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>supported</strong> (RTPSession* session = 0)
+<br></td><td align="right"><h3><strong>supported</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Check if the systems supports requirements for activating SRTP
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>session</i></TD><TD align="left" valign="top">RTP session to use for cipher checking, NULL to use owner session
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if it looks like SRTP can be activated later
+     </p>
+<A NAME="setup"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>setup</strong> (const String& suite, const String& keyParams, const ObjList* paramList = 0)
+<br></td><td align="right"><h3><strong>setup</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Set up the cryptographic parameters
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>suite</i></TD><TD align="left" valign="top">Descriptor of the encryption and authentication algorithms
+</TD></TR>
+<TR><TD align="left" valign="top"><i>keyParams</i></TD><TD align="left" valign="top">Keying material and related parameters
+</TD></TR>
+<TR><TD align="left" valign="top"><i>paramList</i></TD><TD align="left" valign="top">Optional session parameters as list of Strings
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the session parameters were applied successfully
+     </p>
+<A NAME="create"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>create</strong> (String& suite, String& keyParams, bool buildMaster = true)
+<br></td><td align="right"><h3><strong>create</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Create a set of cryptographic parameters
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>suite</i></TD><TD align="left" valign="top">Reference of returned cryptographic suite description
+</TD></TR>
+<TR><TD align="left" valign="top"><i>keyParams</i></TD><TD align="left" valign="top">Reference to returned keying material
+</TD></TR>
+<TR><TD align="left" valign="top"><i>buildMaster</i></TD><TD align="left" valign="top">Create random master key and salt if not already set
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if security instance is valid and ready
+     </p>
+<A NAME="init"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>init</strong> ()
+<br></td><td align="right"><h3><strong>init</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Initialize security related variables in the RTP session
+     </p>
+<A NAME="rtpEncipher"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>rtpEncipher</strong> (unsigned char* data, int len)
+<br></td><td align="right"><h3><strong>rtpEncipher</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Method called to encipher RTP payload data in-place
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Pointer to data block to encipher
+</TD></TR>
+<TR><TD align="left" valign="top"><i>len</i></TD><TD align="left" valign="top">Length of payload data to be encrypted including any padding
+     </TD></TR>
+</TABLE></P>
+<A NAME="rtpAddIntegrity"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>rtpAddIntegrity</strong> (const unsigned char* data, int len, unsigned char* authData)
+<br></td><td align="right"><h3><strong>rtpAddIntegrity</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Method called to add integrity information to the RTP packet
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Pointer to the RTP packet to protect
+</TD></TR>
+<TR><TD align="left" valign="top"><i>len</i></TD><TD align="left" valign="top">Length of RTP data to be encrypted including header and padding
+</TD></TR>
+<TR><TD align="left" valign="top"><i>authData</i></TD><TD align="left" valign="top">Address to write the integrity data to
+     </TD></TR>
+</TABLE></P>
+<A NAME="rtpDecipher"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>rtpDecipher</strong> (unsigned char* data, int len, const void* secData, <A HREF="#u_int32_t">u_int32_t</A> ssrc, <A HREF="#u_int64_t">u_int64_t</A> seq)
+<br></td><td align="right"><h3><strong>rtpDecipher</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Method called to decipher RTP data in-place
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Pointer to data block to decipher
+</TD></TR>
+<TR><TD align="left" valign="top"><i>len</i></TD><TD align="left" valign="top">Length of data including any padding
+</TD></TR>
+<TR><TD align="left" valign="top"><i>secData</i></TD><TD align="left" valign="top">Pointer to security data if applicable
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ssrc</i></TD><TD align="left" valign="top">SSRC of the packet to decipher
+</TD></TR>
+<TR><TD align="left" valign="top"><i>seq</i></TD><TD align="left" valign="top">Full (48 bit) seqence number of the packet including rollovers
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True is the packet was deciphered correctly or can't tell
+     </p>
+<A NAME="rtpCheckIntegrity"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>rtpCheckIntegrity</strong> (const unsigned char* data, int len, const void* authData, <A HREF="#u_int32_t">u_int32_t</A> ssrc, <A HREF="#u_int64_t">u_int64_t</A> seq)
+<br></td><td align="right"><h3><strong>rtpCheckIntegrity</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Method called to check the integrity of the RTP packet
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Pointer to RTP header and data
+</TD></TR>
+<TR><TD align="left" valign="top"><i>len</i></TD><TD align="left" valign="top">Length of header, data and padding
+</TD></TR>
+<TR><TD align="left" valign="top"><i>authData</i></TD><TD align="left" valign="top">Pointer to authentication data
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ssrc</i></TD><TD align="left" valign="top">SSRC of the packet to validate
+</TD></TR>
+<TR><TD align="left" valign="top"><i>seq</i></TD><TD align="left" valign="top">Full (48 bit) seqence number of the packet including rollovers
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True is the packet passed integrity checks
+     </p>
+<A NAME="deriveKey"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>deriveKey</strong> (Cipher& cipher, DataBlock& key, unsigned int len, unsigned char label, <A HREF="#u_int64_t">u_int64_t</A> index = 0)
+<br></td><td align="right"><h3><strong>deriveKey</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Internal method implementing key derivation
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>cipher</i></TD><TD align="left" valign="top">Cipher used for key derivation
+</TD></TR>
+<TR><TD align="left" valign="top"><i>key</i></TD><TD align="left" valign="top">Reference to derived key output
+</TD></TR>
+<TR><TD align="left" valign="top"><i>len</i></TD><TD align="left" valign="top">Desired length of the key, should be at most cipher block length
+</TD></TR>
+<TR><TD align="left" valign="top"><i>label</i></TD><TD align="left" valign="top">Derived key type
+</TD></TR>
+<TR><TD align="left" valign="top"><i>index</i></TD><TD align="left" valign="top">Packet index after being divided by KDR
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if success, false if invalid parameters or missing cipher
+     </p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

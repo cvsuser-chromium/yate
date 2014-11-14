@@ -1,0 +1,218 @@
+<HTML>
+<HEAD>
+<TITLE>class XMPPFeatureList</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class XMPPFeatureList</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">JID feature list. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::XMPPFeatureList</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yjabber___xmpputils_h.html">libs/yjabber/xmpputils.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__ObjList.html">TelEngine::ObjList</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__XMPPFeatureList.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>inline bool &nbsp;<b><A HREF="#ref1">add</A></b> (int xml, int feature, bool required = false) 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref2">add</A></b> (int feature) 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref3">add</A></b> (XMPPFeature* feature) 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref4">reset</A></b> () 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref5">add</A></b> (XMPPFeatureList& list) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref6">fromStreamFeatures</A></b> (XmlElement& xml) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref7">fromDiscoInfo</A></b> (XmlElement& xml) 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref8">remove</A></b> (int feature) 
+</LI>
+<LI>XMPPFeature* &nbsp;<b><A HREF="#ref9">get</A></b> (int feature) 
+</LI>
+<LI>inline XMPPFeature* &nbsp;<b><A HREF="#ref10">get</A></b> (const String& feature) 
+</LI>
+<LI>inline XMPPFeatureSasl* &nbsp;<b><A HREF="#ref11">getSasl</A></b> () 
+</LI>
+<LI>inline XMPPFeatureCompress* &nbsp;<b><A HREF="#ref12">getCompress</A></b> () 
+</LI>
+<LI>XmlElement* &nbsp;<b><A HREF="#ref13">buildStreamFeatures</A></b> () 
+</LI>
+<LI>XmlElement* &nbsp;<b><A HREF="#ref14">buildDiscoInfo</A></b> (const char* from, const char* to, const char* id,
+	const char* node = 0, const char* cap = 0) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref15">add</A></b> (XmlElement& xml) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref16">updateEntityCaps</A></b> () 
+</LI>
+</ul><h4>Public Members</h4><ul><LI>JIDIdentityList <b><A HREF="#ref17">m_identities</A></b></LI>
+<LI>String <b><A HREF="#ref18">m_entityCapsHash</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ This class holds a list of JID features
+</p>
+<A NAME="add"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>add</strong> (int xml, int feature, bool required = false)
+<br></td><td align="right"><h3><strong>add</strong></h3></td></tr></table><p></p><p>
+ Add a feature to the list
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">XML element tag as enumeration
+</TD></TR>
+<TR><TD align="left" valign="top"><i>feature</i></TD><TD align="left" valign="top">The feature to add as enumeration
+</TD></TR>
+<TR><TD align="left" valign="top"><i>required</i></TD><TD align="left" valign="top">True if this feature is required
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if the given feature already exists
+     </p>
+<A NAME="add"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>add</strong> (int feature)
+<br></td><td align="right"><h3><strong>add</strong></h3></td></tr></table><p></p><p>
+ Add a feature to the list
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>feature</i></TD><TD align="left" valign="top">The feature to add as enumeration
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if the given feature already exists
+     </p>
+<A NAME="add"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>add</strong> (XMPPFeature* feature)
+<br></td><td align="right"><h3><strong>add</strong></h3></td></tr></table><p></p><p>
+ Add a feature to the list. Destroy the received parameter if already in the list
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>feature</i></TD><TD align="left" valign="top">The feature to add
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if the given feature already exists
+     </p>
+<A NAME="reset"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>reset</strong> ()
+<br></td><td align="right"><h3><strong>reset</strong></h3></td></tr></table><p></p><p>
+ Clear data
+     </p>
+<A NAME="add"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>add</strong> (XMPPFeatureList& list)
+<br></td><td align="right"><h3><strong>add</strong></h3></td></tr></table><p></p><p>
+ Move a list of features to this list. Don't check duplicates
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>list</i></TD><TD align="left" valign="top">The source list
+     </TD></TR>
+</TABLE></P>
+<A NAME="fromStreamFeatures"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>fromStreamFeatures</strong> (XmlElement& xml)
+<br></td><td align="right"><h3><strong>fromStreamFeatures</strong></h3></td></tr></table><p></p><p>
+ Re-build this list from stream features
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The features element to parse
+     </TD></TR>
+</TABLE></P>
+<A NAME="fromDiscoInfo"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>fromDiscoInfo</strong> (XmlElement& xml)
+<br></td><td align="right"><h3><strong>fromDiscoInfo</strong></h3></td></tr></table><p></p><p>
+ Re-build this list from disco info responses
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The element to parse
+     </TD></TR>
+</TABLE></P>
+<A NAME="remove"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>remove</strong> (int feature)
+<br></td><td align="right"><h3><strong>remove</strong></h3></td></tr></table><p></p><p>
+ Remove a feature from the list
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>feature</i></TD><TD align="left" valign="top">The feature to remove
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__ObjList.html#remove">ObjList</A>.</p>
+<A NAME="get"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>XMPPFeature* &nbsp;<strong>get</strong> (int feature)
+<br></td><td align="right"><h3><strong>get</strong></h3></td></tr></table><p></p><p>
+ Get a feature from the list
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>feature</i></TD><TD align="left" valign="top">The feature to get
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Pointer to the feature or 0 if it doesn't exists
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__ObjList.html#get">ObjList</A>.</p>
+<A NAME="get"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline XMPPFeature* &nbsp;<strong>get</strong> (const String& feature)
+<br></td><td align="right"><h3><strong>get</strong></h3></td></tr></table><p></p><p>
+ Get a feature from the list
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>feature</i></TD><TD align="left" valign="top">The feature name to find
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Pointer to the feature or 0 if it doesn't exists
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__ObjList.html#get">ObjList</A>.</p>
+<A NAME="getSasl"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline XMPPFeatureSasl* &nbsp;<strong>getSasl</strong> ()
+<br></td><td align="right"><h3><strong>getSasl</strong></h3></td></tr></table><p></p><p>
+ Get a XMPPFeatureSasl feature from list
+</p>
+<p><b>Returns</b>: XMPPFeatureSasl pointer or 0 if not found
+     </p>
+<A NAME="getCompress"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline XMPPFeatureCompress* &nbsp;<strong>getCompress</strong> ()
+<br></td><td align="right"><h3><strong>getCompress</strong></h3></td></tr></table><p></p><p>
+ Get a XMPPFeatureCompress feature from list
+</p>
+<p><b>Returns</b>: XMPPFeatureCompress pointer or 0 if not found
+     </p>
+<A NAME="buildStreamFeatures"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>XmlElement* &nbsp;<strong>buildStreamFeatures</strong> ()
+<br></td><td align="right"><h3><strong>buildStreamFeatures</strong></h3></td></tr></table><p></p><p>
+ Build stream features from this list
+</p>
+<p><b>Returns</b>: XmlElement pointer
+     </p>
+<A NAME="buildDiscoInfo"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>XmlElement* &nbsp;<strong>buildDiscoInfo</strong> (const char* from, const char* to, const char* id,
+	const char* node = 0, const char* cap = 0)
+<br></td><td align="right"><h3><strong>buildDiscoInfo</strong></h3></td></tr></table><p></p><p>
+ Build an iq query disco info result from this list
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>from</i></TD><TD align="left" valign="top">The 'from' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>to</i></TD><TD align="left" valign="top">The 'to' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>id</i></TD><TD align="left" valign="top">The 'id' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>node</i></TD><TD align="left" valign="top">Optional 'node' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>cap</i></TD><TD align="left" valign="top">Optional capability to be set as 'node' suffix
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: XmlElement pointer
+     </p>
+<A NAME="add"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>add</strong> (XmlElement& xml)
+<br></td><td align="right"><h3><strong>add</strong></h3></td></tr></table><p></p><p>
+ Add this list to an xml element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Destination element
+     </TD></TR>
+</TABLE></P>
+<A NAME="updateEntityCaps"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>updateEntityCaps</strong> ()
+<br></td><td align="right"><h3><strong>updateEntityCaps</strong></h3></td></tr></table><p></p><p>
+ Update the entity capabilities hash
+     </p>
+<A NAME="m_identities"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td>JIDIdentityList  <strong>m_identities</strong>
+</td><td align="right"><h3><strong>m_identities</strong></h3></td></tr></table><p></p><A NAME="m_entityCapsHash"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_entityCapsHash</strong>
+</td><td align="right"><h3><strong>m_entityCapsHash</strong></h3></td></tr></table><p></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

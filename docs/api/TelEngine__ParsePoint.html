@@ -1,0 +1,114 @@
+<HTML>
+<HEAD>
+<TITLE>class ParsePoint</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class ParsePoint</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">The parsing context. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::ParsePoint</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yscript___yatescript_h.html">libs/yscript/yatescript.h</A>&gt;</code></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__ParsePoint.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>explicit inline &nbsp;<b><A HREF="#ref1">ParsePoint</A></b> (const char*& expr, ExpEvaluator* eval = 0, unsigned int lineNo = 0,
+			const char* fileName = 0, const char* seps = 0) 
+</LI>
+<LI>ParsePoint& &nbsp;<b><A HREF="#ref2">operator=</A></b> (ParsePoint& parsePoint) 
+</LI>
+<LI>inline &nbsp;<b><A HREF="#ref3">operator const char*&</A></b> () 
+</LI>
+<LI>inline ParsePoint& &nbsp;<b><A HREF="#ref4">operator=</A></b> (const char* newExpr) 
+</LI>
+<LI>inline ParsePoint& &nbsp;<b><A HREF="#ref5">operator++</A></b> () 
+</LI>
+<LI>inline ParsePoint& &nbsp;<b><A HREF="#ref6">operator++</A></b> (int unused) 
+</LI>
+<LI>inline char &nbsp;<b><A HREF="#ref7">firstChar</A></b> () 
+</LI>
+</ul><h4>Public Members</h4><ul><LI>const char* <b><A HREF="#ref8">m_expr</A></b></LI>
+<LI>const char* <b><A HREF="#ref9">m_searchedSeps</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref10">m_count</A></b></LI>
+<LI>char <b><A HREF="#ref11">m_foundSep</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref12">m_lineNo</A></b></LI>
+<LI>ExpEvaluator* <b><A HREF="#ref13">m_eval</A></b></LI>
+<LI>String <b><A HREF="#ref14">m_fileName</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ A class used to keep a parsing context
+</p>
+<A NAME="ParsePoint"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>explicit inline &nbsp;<strong>ParsePoint</strong> (const char*& expr, ExpEvaluator* eval = 0, unsigned int lineNo = 0,
+			const char* fileName = 0, const char* seps = 0)
+<br></td><td align="right"><h3><strong>ParsePoint</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>expr</i></TD><TD align="left" valign="top">Expression to be parsed
+</TD></TR>
+<TR><TD align="left" valign="top"><i>eval</i></TD><TD align="left" valign="top">ExpEvaluator associated with this parsing context
+</TD></TR>
+<TR><TD align="left" valign="top"><i>lineNo</i></TD><TD align="left" valign="top">The line number that is currently parsed
+</TD></TR>
+<TR><TD align="left" valign="top"><i>fileName</i></TD><TD align="left" valign="top">File name associated with this context
+</TD></TR>
+<TR><TD align="left" valign="top"><i>seps</i></TD><TD align="left" valign="top">Searched separator during parsing
+     </TD></TR>
+</TABLE></P>
+<A NAME="operator="></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>ParsePoint& &nbsp;<strong>operator=</strong> (ParsePoint& parsePoint)
+<br></td><td align="right"><h3><strong>operator=</strong></h3></td></tr></table><p></p><p>
+ Assignment operator
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>parsePoint</i></TD><TD align="left" valign="top">Parsing context which is to be assigned to this parsing context
+     </TD></TR>
+</TABLE></P>
+<A NAME="operator%20const%20char*&"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>operator const char*&</strong> ()
+<br></td><td align="right"><h3><strong>operator const char*&</strong></h3></td></tr></table><p></p><p>
+ Cast operator to const char*&
+     </p>
+<A NAME="operator="></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline ParsePoint& &nbsp;<strong>operator=</strong> (const char* newExpr)
+<br></td><td align="right"><h3><strong>operator=</strong></h3></td></tr></table><p></p><p>
+ Assignement from const char*
+     </p>
+<A NAME="operator++"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline ParsePoint& &nbsp;<strong>operator++</strong> ()
+<br></td><td align="right"><h3><strong>operator++</strong></h3></td></tr></table><p></p><p>
+ Prefix incrementation operator. Incrementes the internal expression
+     </p>
+<A NAME="operator++"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline ParsePoint& &nbsp;<strong>operator++</strong> (int unused)
+<br></td><td align="right"><h3><strong>operator++</strong></h3></td></tr></table><p></p><p>
+ Postfix incrementation operator. Incrementes the internal expression
+     </p>
+<A NAME="firstChar"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline char &nbsp;<strong>firstChar</strong> ()
+<br></td><td align="right"><h3><strong>firstChar</strong></h3></td></tr></table><p></p><p>
+ Get first char in the parsed expression
+</p>
+<p><b>Returns</b>: First char in the expression to be parsed
+     </p>
+<A NAME="m_expr"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>const char*  <strong>m_expr</strong>
+</td><td align="right"><h3><strong>m_expr</strong></h3></td></tr></table><p></p><A NAME="m_searchedSeps"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>const char*  <strong>m_searchedSeps</strong>
+</td><td align="right"><h3><strong>m_searchedSeps</strong></h3></td></tr></table><p></p><A NAME="m_count"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_count</strong>
+</td><td align="right"><h3><strong>m_count</strong></h3></td></tr></table><p></p><A NAME="m_foundSep"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>char  <strong>m_foundSep</strong>
+</td><td align="right"><h3><strong>m_foundSep</strong></h3></td></tr></table><p></p><A NAME="m_lineNo"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_lineNo</strong>
+</td><td align="right"><h3><strong>m_lineNo</strong></h3></td></tr></table><p></p><A NAME="m_eval"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>ExpEvaluator*  <strong>m_eval</strong>
+</td><td align="right"><h3><strong>m_eval</strong></h3></td></tr></table><p></p><A NAME="m_fileName"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_fileName</strong>
+</td><td align="right"><h3><strong>m_fileName</strong></h3></td></tr></table><p></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

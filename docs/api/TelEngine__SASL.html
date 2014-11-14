@@ -1,0 +1,226 @@
+<HTML>
+<HEAD>
+<TITLE>class SASL</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SASL</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">SASL authentication mechanism. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SASL</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yjabber___yatejabber_h.html">libs/yjabber/yatejabber.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__GenObject.html">TelEngine::GenObject</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SASL.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref1">SASL</A></b> (bool plain, const char* realm = 0) 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref2">~SASL</A></b> () 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref3">setAuthParams</A></b> (const char* user = 0, const char* pwd = 0) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref4">buildAuthRsp</A></b> (String& buf, const char* digestUri = 0) 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref5">buildAuthRspReply</A></b> (String& buf, const String& rsp) 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref6">validAuthReply</A></b> (const String& reply) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref7">buildMD5Challenge</A></b> (String& buf) 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref8">buildMD5Digest</A></b> (String& dest, const char* password,
+	bool challengeRsp = true) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref9">parsePlain</A></b> (const DataBlock& buf) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref10">parseMD5Challenge</A></b> (const String& buf) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref11">parseMD5ChallengeRsp</A></b> (const String& buf) 
+</LI>
+</ul><h4>Public Static Methods</h4><ul><LI>static  bool &nbsp;<b><A HREF="#ref12">parsePlain</A></b> (const DataBlock& buf, String& user, String& pwd,
+	String* authzid = 0) 
+</LI>
+<LI>static  void &nbsp;<b><A HREF="#ref13">buildMD5Digest</A></b> (String& dest, const NamedList& params,
+	const char* password, bool challengeRsp = true) 
+</LI>
+</ul><h4>Public Members</h4><ul><LI>bool <b><A HREF="#ref14">m_plain</A></b></LI>
+<LI>NamedList* <b><A HREF="#ref15">m_params</A></b></LI>
+<LI>String <b><A HREF="#ref16">m_realm</A></b></LI>
+<LI>String <b><A HREF="#ref17">m_nonce</A></b></LI>
+<LI>String <b><A HREF="#ref18">m_cnonce</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref19">m_nonceCount</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ This class handles PLAIN (rfc 4616) and DIGEST (rfc 2831) SASL authentication
+</p>
+<A NAME="SASL"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>SASL</strong> (bool plain, const char* realm = 0)
+<br></td><td align="right"><h3><strong>SASL</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>plain</i></TD><TD align="left" valign="top">True to build a plain password auth object
+</TD></TR>
+<TR><TD align="left" valign="top"><i>realm</i></TD><TD align="left" valign="top">Optional server realm
+     </TD></TR>
+</TABLE></P>
+<A NAME="~SASL"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>~SASL</strong> ()
+<br></td><td align="right"><h3><strong>~SASL</strong></h3></td></tr></table><p></p><p>
+ Destructor
+     </p>
+<A NAME="setAuthParams"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>setAuthParams</strong> (const char* user = 0, const char* pwd = 0)
+<br></td><td align="right"><h3><strong>setAuthParams</strong></h3></td></tr></table><p></p><p>
+ Set auth params
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>user</i></TD><TD align="left" valign="top">Optional username
+</TD></TR>
+<TR><TD align="left" valign="top"><i>pwd</i></TD><TD align="left" valign="top">Optional password
+     </TD></TR>
+</TABLE></P>
+<A NAME="buildAuthRsp"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>buildAuthRsp</strong> (String& buf, const char* digestUri = 0)
+<br></td><td align="right"><h3><strong>buildAuthRsp</strong></h3></td></tr></table><p></p><p>
+ Build a client initial auth or challenge response
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>buf</i></TD><TD align="left" valign="top">Destination buffer. It will be filled with Base64 encoded result
+</TD></TR>
+<TR><TD align="left" valign="top"><i>digestUri</i></TD><TD align="left" valign="top">Digest MD5 URI
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True on success
+     </p>
+<A NAME="buildAuthRspReply"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>buildAuthRspReply</strong> (String& buf, const String& rsp)
+<br></td><td align="right"><h3><strong>buildAuthRspReply</strong></h3></td></tr></table><p></p><p>
+ Build a server reply to challenge response
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>buf</i></TD><TD align="left" valign="top">Destination buffer. It will be filled with Base64 encoded result
+</TD></TR>
+<TR><TD align="left" valign="top"><i>rsp</i></TD><TD align="left" valign="top">The response
+     </TD></TR>
+</TABLE></P>
+<A NAME="validAuthReply"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>validAuthReply</strong> (const String& reply)
+<br></td><td align="right"><h3><strong>validAuthReply</strong></h3></td></tr></table><p></p><p>
+ Check if a challenge response reply is valid
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>reply</i></TD><TD align="left" valign="top">The reply to check
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if valid
+     </p>
+<A NAME="buildMD5Challenge"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>buildMD5Challenge</strong> (String& buf)
+<br></td><td align="right"><h3><strong>buildMD5Challenge</strong></h3></td></tr></table><p></p><p>
+ Build an MD5 challenge from this object.
+ Generate a new nonce and increase nonce count
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>buf</i></TD><TD align="left" valign="top">Destination buffer
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True on success
+     </p>
+<A NAME="buildMD5Digest"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>buildMD5Digest</strong> (String& dest, const char* password,
+	bool challengeRsp = true)
+<br></td><td align="right"><h3><strong>buildMD5Digest</strong></h3></td></tr></table><p></p><p>
+ Build a Digest MD5 SASL (RFC 2831) to be sent with authentication responses
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>dest</i></TD><TD align="left" valign="top">Destination string
+</TD></TR>
+<TR><TD align="left" valign="top"><i>password</i></TD><TD align="left" valign="top">The password to use
+</TD></TR>
+<TR><TD align="left" valign="top"><i>challengeRsp</i></TD><TD align="left" valign="top">True if building a Digest MD5 challenge response, false if
+  building a challenge response reply
+     </TD></TR>
+</TABLE></P>
+<A NAME="parsePlain"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>parsePlain</strong> (const DataBlock& buf)
+<br></td><td align="right"><h3><strong>parsePlain</strong></h3></td></tr></table><p></p><p>
+ Parse plain password auth data
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>buf</i></TD><TD align="left" valign="top">The buffer to parse
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if succesfully parsed
+     </p>
+<A NAME="parseMD5Challenge"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>parseMD5Challenge</strong> (const String& buf)
+<br></td><td align="right"><h3><strong>parseMD5Challenge</strong></h3></td></tr></table><p></p><p>
+ Parse and decode a buffer containing a SASL Digest MD5 challenge.
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>buf</i></TD><TD align="left" valign="top">Already checked for valid UTF8 characters input string
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True on success
+     </p>
+<A NAME="parseMD5ChallengeRsp"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>parseMD5ChallengeRsp</strong> (const String& buf)
+<br></td><td align="right"><h3><strong>parseMD5ChallengeRsp</strong></h3></td></tr></table><p></p><p>
+ Parse and decode a buffer containing a SASL Digest MD5 response.
+ Check realm, nonce and nonce count
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>buf</i></TD><TD align="left" valign="top">Already checked for valid UTF8 characters input string
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True on success
+     </p>
+<A NAME="parsePlain"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>parsePlain</strong> (const DataBlock& buf, String& user, String& pwd,
+	String* authzid = 0)
+<br></td><td align="right"><h3><strong>parsePlain</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Parse and decode a buffer containing SASL plain authentication data
+  as defined in RFC 4616
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>buf</i></TD><TD align="left" valign="top">Input buffer
+</TD></TR>
+<TR><TD align="left" valign="top"><i>user</i></TD><TD align="left" valign="top">Destination buffer for username part
+</TD></TR>
+<TR><TD align="left" valign="top"><i>pwd</i></TD><TD align="left" valign="top">Destination buffer for password part
+</TD></TR>
+<TR><TD align="left" valign="top"><i>authzid</i></TD><TD align="left" valign="top">Optional destination buffer for authorization identity part
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True on success
+     </p>
+<A NAME="buildMD5Digest"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>buildMD5Digest</strong> (String& dest, const NamedList& params,
+	const char* password, bool challengeRsp = true)
+<br></td><td align="right"><h3><strong>buildMD5Digest</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Build a Digest MD5 SASL (RFC 2831) to be sent with authentication responses
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>dest</i></TD><TD align="left" valign="top">Destination string
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">List of parameters
+</TD></TR>
+<TR><TD align="left" valign="top"><i>password</i></TD><TD align="left" valign="top">The password to use
+</TD></TR>
+<TR><TD align="left" valign="top"><i>challengeRsp</i></TD><TD align="left" valign="top">True if building a Digest MD5 challenge response, false if
+  building a challenge response reply
+     </TD></TR>
+</TABLE></P>
+<A NAME="m_plain"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool  <strong>m_plain</strong>
+</td><td align="right"><h3><strong>m_plain</strong></h3></td></tr></table><p></p><A NAME="m_params"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>NamedList*  <strong>m_params</strong>
+</td><td align="right"><h3><strong>m_params</strong></h3></td></tr></table><p></p><A NAME="m_realm"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_realm</strong>
+</td><td align="right"><h3><strong>m_realm</strong></h3></td></tr></table><p></p><A NAME="m_nonce"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_nonce</strong>
+</td><td align="right"><h3><strong>m_nonce</strong></h3></td></tr></table><p></p><A NAME="m_cnonce"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_cnonce</strong>
+</td><td align="right"><h3><strong>m_cnonce</strong></h3></td></tr></table><p></p><A NAME="m_nonceCount"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_nonceCount</strong>
+</td><td align="right"><h3><strong>m_nonceCount</strong></h3></td></tr></table><p></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

@@ -1,0 +1,547 @@
+<HTML>
+<HEAD>
+<TITLE>class SCCPManagement</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SCCPManagement</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">Abstract SS7 SCCP Management. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH colspan="2">Contains pure virtuals</TH></TR><TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SCCPManagement</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__Mutex.html">TelEngine::Mutex</A> <small>[public ]</small>, <A HREF="TelEngine__SignallingComponent.html">TelEngine::SignallingComponent</A> <small>[public ]</small></TD></TR>
+<TR><TH>Inherited by</TH><TD><A HREF="TelEngine__SS7AnsiSccpManagement.html">SS7AnsiSccpManagement</A>, <A HREF="TelEngine__SS7ItuSccpManagement.html">SS7ItuSccpManagement</A></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SCCPManagement.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref3">MsgType</A> {	SSA = 0x01,  
+	SSP = 0x02,  
+	SST = 0x03,  
+	SOR = 0x04,  
+	SOG = 0x05,  
+	SSC = 0x06,  
+	SBR = 0xfd,  
+	SNR = 0xfe,  
+	SRT = 0xff   
+    }
+</LI>
+<LI>enum <A HREF="#ref4">LocalBroadcast</A> {	UserOutOfService,
+	UserInService,
+	PCInaccessible,         
+	PCAccessible,           
+	SccpRemoteInaccessible,
+	SccpRemoteAccessible,
+	PCCongested,           
+	SubsystemStatus        
+    }
+</LI>
+<LI>enum <A HREF="#ref5">SccpStates</A> {	Allowed = SS7Route::Allowed,
+	Prohibited = SS7Route::Prohibited,
+	Unknown = SS7Route::Unknown,
+	WaitForGrant,
+	IgnoreTests
+    }
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref6">SCCPManagement</A></b> (const NamedList& params, SS7PointCode::Type type) 
+</LI>
+<LI>virtual  &nbsp;<b><A HREF="#ref7">~SCCPManagement</A></b> () 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref8">initialize</A></b> (const NamedList* config) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref9">processMessage</A></b> (SS7MsgSCCP* message) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref10">attach</A></b> (SS7SCCP* sccp) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref11">pointcodeStatus</A></b> (SS7Layer3* link, bool operational) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref12">routeStatus</A></b> (SS7PointCode::Type type, const SS7PointCode& node, SS7Route::State state) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref13">notify</A></b> (SCCP::Type type, NamedList& params) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref14">routeFailure</A></b> (SS7MsgSCCP* msg) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref15">subsystemFailure</A></b> (SS7MsgSCCP* msg, const SS7Label& label) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref16">sccpUnavailable</A></b> (const SS7PointCode& pointcode, unsigned char cause) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref17">subsystemsStatus</A></b> (String& dest,bool extended = true) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref18">routeStatus</A></b> (String& dest,bool extended = false) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref19">notifyConcerned</A></b> (MsgType msg, unsigned char ssn, int smi) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref21">updateTables</A></b> (SccpRemote* rsccp, SccpSubsystem* ssn = 0) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref22">printMessage</A></b> (String& dest, MsgType type, const NamedList& params) 
+</LI>
+</ul><h4>Public Static Methods</h4><ul><LI>static  const TokenDict* &nbsp;<b><A HREF="#ref20">broadcastType</A></b> () 
+</LI>
+<LI>static  const char* &nbsp;<b><A HREF="#ref23">stateName</A></b> (SCCPManagement::SccpStates state) 
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>virtual  void &nbsp;<b><A HREF="#ref24">timerTick</A></b> (const Time& when) 
+</LI>
+<LI>inline SS7SCCP* &nbsp;<b><A HREF="#ref25">sccp</A></b> () 
+</LI>
+<LI>inline <A HREF="#u_int32_t">u_int32_t</A> &nbsp;<b><A HREF="#ref31">getTestTimeout</A></b> () 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref32">managementMessage</A></b> (SCCP::Type type, NamedList& params) 
+</LI>
+<LI>SccpLocalSubsystem* &nbsp;<b><A HREF="#ref33">getLocalSubsystem</A></b> (unsigned char ssn) 
+</LI>
+<LI>SccpRemote* &nbsp;<b><A HREF="#ref34">getRemoteSccp</A></b> (int pointcode) 
+</LI>
+<LI>virtual  bool &nbsp;<b><i><A HREF="#ref35">sendMessage</A></i></b> (SCCPManagement::MsgType msgType, const NamedList& params) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref36">stopSst</A></b> (SccpRemote* remoteSccp, SccpSubsystem* rSubsystem = 0, SccpSubsystem* less = 0) 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref37">stopSSTs</A></b> () 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref38">startSst</A></b> (SccpRemote* remoteSccp, SccpSubsystem* rSubsystem) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref39">mtpEndRestart</A></b> () 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref40">localBroadcast</A></b> (SCCP::Type type, int pointcode, int sps, int rss = -1,
+	    int rl = -1, int ssn = -1, int ss = -1) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref41">sendSST</A></b> (SccpRemote* remote, SccpSubsystem* sub) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref42">handleMessage</A></b> (int msgType, unsigned char ssn, unsigned char smi, NamedList& params) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref43">manageSccpRemoteStatus</A></b> (SccpRemote* rsccp, SS7Route::State newState) 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref44">printMessagess</A></b> () 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref45">handleCoordinateChanged</A></b> (unsigned char ssn, int smi, const NamedList& params) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref46">handleSog</A></b> (unsigned char ssn, int pointcode) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref47">handleSubsystemStatus</A></b> (SccpSubsystem* subsystem, bool allowed, SccpRemote* remote, int smi) 
+</LI>
+<LI>inline <A HREF="#u_int32_t">u_int32_t</A> &nbsp;<b><A HREF="#ref48">getCoordTimeout</A></b> () 
+</LI>
+<LI>inline <A HREF="#u_int32_t">u_int32_t</A> &nbsp;<b><A HREF="#ref49">getIgnoreTestsInterval</A></b> () 
+</LI>
+</ul><h4>Protected Members</h4><ul><LI>ObjList <b><A HREF="#ref26">m_remoteSccp</A></b></LI>
+<LI>ObjList <b><A HREF="#ref27">m_statusTest</A></b></LI>
+<LI>ObjList <b><A HREF="#ref28">m_localSubsystems</A></b></LI>
+<LI>ObjList <b><A HREF="#ref29">m_concerned</A></b></LI>
+<LI>SS7PointCode::Type <b><A HREF="#ref30">m_pcType</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ An interface to a SS7 SCCP Management
+</p>
+<A NAME="MsgType"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>MsgType</strong> {	SSA = 0x01,  
+	SSP = 0x02,  
+	SST = 0x03,  
+	SOR = 0x04,  
+	SOG = 0x05,  
+	SSC = 0x06,  
+	SBR = 0xfd,  
+	SNR = 0xfe,  
+	SRT = 0xff   
+    }
+</td><td align="right"><h3><strong>MsgType</strong></h3></td></tr></table><p></p><A NAME="LocalBroadcast"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>LocalBroadcast</strong> {	UserOutOfService,
+	UserInService,
+	PCInaccessible,         
+	PCAccessible,           
+	SccpRemoteInaccessible,
+	SccpRemoteAccessible,
+	PCCongested,           
+	SubsystemStatus        
+    }
+</td><td align="right"><h3><strong>LocalBroadcast</strong></h3></td></tr></table><p></p><A NAME="SccpStates"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>SccpStates</strong> {	Allowed = SS7Route::Allowed,
+	Prohibited = SS7Route::Prohibited,
+	Unknown = SS7Route::Unknown,
+	WaitForGrant,
+	IgnoreTests
+    }
+</td><td align="right"><h3><strong>SccpStates</strong></h3></td></tr></table><p></p><A NAME="SCCPManagement"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>SCCPManagement</strong> (const NamedList& params, SS7PointCode::Type type)
+<br></td><td align="right"><h3><strong>SCCPManagement</strong></h3></td></tr></table><p></p><p>
+ Constructor
+     </p>
+<A NAME="~SCCPManagement"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~SCCPManagement</strong> ()
+<br></td><td align="right"><h3><strong>~SCCPManagement</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor
+     </p>
+<A NAME="initialize"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>initialize</strong> (const NamedList* config)
+<br></td><td align="right"><h3><strong>initialize</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Initialize this sccp management
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#initialize">SignallingComponent</A>.</p>
+<A NAME="processMessage"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>processMessage</strong> (SS7MsgSCCP* message)
+<br></td><td align="right"><h3><strong>processMessage</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Process a management message received from sccp
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>message</i></TD><TD align="left" valign="top">The message to process
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the message was processed successfully
+     </p>
+<A NAME="attach"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>attach</strong> (SS7SCCP* sccp)
+<br></td><td align="right"><h3><strong>attach</strong></h3></td></tr></table><p></p><p>
+ Attach a ss7 sccp to this management
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>sccp</i></TD><TD align="left" valign="top">The ss7 sccp to attach
+     </TD></TR>
+</TABLE></P>
+<A NAME="pointcodeStatus"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>pointcodeStatus</strong> (SS7Layer3* link, bool operational)
+<br></td><td align="right"><h3><strong>pointcodeStatus</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Process a notification from MTP about a pointcode status
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>link</i></TD><TD align="left" valign="top">The affected link
+</TD></TR>
+<TR><TD align="left" valign="top"><i>operational</i></TD><TD align="left" valign="top">True if the layer3 is operational
+     </TD></TR>
+</TABLE></P>
+<A NAME="routeStatus"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>routeStatus</strong> (SS7PointCode::Type type, const SS7PointCode& node, SS7Route::State state)
+<br></td><td align="right"><h3><strong>routeStatus</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Process a notification from router about a route state change
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">The Point Code type
+</TD></TR>
+<TR><TD align="left" valign="top"><i>node</i></TD><TD align="left" valign="top">The remote pointcode
+</TD></TR>
+<TR><TD align="left" valign="top"><i>state</i></TD><TD align="left" valign="top">The route state
+     </TD></TR>
+</TABLE></P>
+<A NAME="notify"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>notify</strong> (SCCP::Type type, NamedList& params)
+<br></td><td align="right"><h3><strong>notify</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Notification from sccp about local subsystems status
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">The type of notification
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">The notification parameters
+     </TD></TR>
+</TABLE></P>
+<A NAME="routeFailure"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>routeFailure</strong> (SS7MsgSCCP* msg)
+<br></td><td align="right"><h3><strong>routeFailure</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Method called by SCCP to inform management that no route was found for the message
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">The SCCP message that failed to be routed
+     </TD></TR>
+</TABLE></P>
+<A NAME="subsystemFailure"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>subsystemFailure</strong> (SS7MsgSCCP* msg, const SS7Label& label)
+<br></td><td align="right"><h3><strong>subsystemFailure</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Method called by sccp when a sccp message hasn't been processed by any user
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">The message
+</TD></TR>
+<TR><TD align="left" valign="top"><i>label</i></TD><TD align="left" valign="top">The mtp routing label
+     </TD></TR>
+</TABLE></P>
+<A NAME="sccpUnavailable"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>sccpUnavailable</strong> (const SS7PointCode& pointcode, unsigned char cause)
+<br></td><td align="right"><h3><strong>sccpUnavailable</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Notification from layer3 about a remote sccp unavailability
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>pointcode</i></TD><TD align="left" valign="top">The poincode of the unavailable sccp
+</TD></TR>
+<TR><TD align="left" valign="top"><i>cause</i></TD><TD align="left" valign="top">Unavailability cause
+     </TD></TR>
+</TABLE></P>
+<A NAME="subsystemsStatus"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>subsystemsStatus</strong> (String& dest,bool extended = true)
+<br></td><td align="right"><h3><strong>subsystemsStatus</strong></h3></td></tr></table><p></p><p>
+ Helper method used to obtain a string statistic about the messages received for unknown subsystems
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>dest</i></TD><TD align="left" valign="top">The string where the statistics will be stored
+</TD></TR>
+<TR><TD align="left" valign="top"><i>extended</i></TD><TD align="left" valign="top">True to print an extended statistic ( the number of messages received for unknown subsystem)
+     </TD></TR>
+</TABLE></P>
+<A NAME="routeStatus"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>routeStatus</strong> (String& dest,bool extended = false)
+<br></td><td align="right"><h3><strong>routeStatus</strong></h3></td></tr></table><p></p><p>
+ Helper method used to obtain information about the messages that failed to be routed
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>dest</i></TD><TD align="left" valign="top">The destination string
+</TD></TR>
+<TR><TD align="left" valign="top"><i>extended</i></TD><TD align="left" valign="top">True to print the GTT failures
+     </TD></TR>
+</TABLE></P>
+<A NAME="notifyConcerned"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>notifyConcerned</strong> (MsgType msg, unsigned char ssn, int smi)
+<br></td><td align="right"><h3><strong>notifyConcerned</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Helper method used to notify the concerned signalling points about a subsystem status
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">The message type to broadcast
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ssn</i></TD><TD align="left" valign="top">Local affected ssn
+</TD></TR>
+<TR><TD align="left" valign="top"><i>smi</i></TD><TD align="left" valign="top">Local subsystem multiplicity indicator
+     </TD></TR>
+</TABLE></P>
+<A NAME="broadcastType"></A><A NAME="ref20"></A><table width="100%"><tr bgcolor="#eeeeee"><td> const TokenDict* &nbsp;<strong>broadcastType</strong> ()
+<br></td><td align="right"><h3><strong>broadcastType</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Obtain broadcast type dict table
+</p>
+<p><b>Returns</b>: Pointer to broadcast type dict table
+     </p>
+<A NAME="updateTables"></A><A NAME="ref21"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>updateTables</strong> (SccpRemote* rsccp, SccpSubsystem* ssn = 0)
+<br></td><td align="right"><h3><strong>updateTables</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Helper method used to inform Global Title Translator to update translation tables
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>rsccp</i></TD><TD align="left" valign="top">The remote SCCP witch status has been changed
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ssn</i></TD><TD align="left" valign="top">The remote SCCP subsystem witch status has been changed
+     </TD></TR>
+</TABLE></P>
+<A NAME="printMessage"></A><A NAME="ref22"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>printMessage</strong> (String& dest, MsgType type, const NamedList& params)
+<br></td><td align="right"><h3><strong>printMessage</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Print a sccp management message
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>dest</i></TD><TD align="left" valign="top">The destination string
+</TD></TR>
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">The sccp management message type
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">List of sccp management message parameters
+     </TD></TR>
+</TABLE></P>
+<A NAME="stateName"></A><A NAME="ref23"></A><table width="100%"><tr bgcolor="#eeeeee"><td> const char* &nbsp;<strong>stateName</strong> (SCCPManagement::SccpStates state)
+<br></td><td align="right"><h3><strong>stateName</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Obtain a sccp management state name
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>state</i></TD><TD align="left" valign="top">The sccp management enum state
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The state name if found or 0
+     </p>
+<A NAME="timerTick"></A><A NAME="ref24"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>timerTick</strong> (const Time& when)
+<br></td><td align="right"><h3><strong>timerTick</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Method called periodically by engine to check for timeouts
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>when</i></TD><TD align="left" valign="top">Time to use as computing base for events and timeouts
+ Reimplemented from SignallingComponent
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#timerTick">SignallingComponent</A>.</p>
+<A NAME="sccp"></A><A NAME="ref25"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline SS7SCCP* &nbsp;<strong>sccp</strong> ()
+<br></td><td align="right"><h3><strong>sccp</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_remoteSccp"></A><A NAME="ref26"></A><table width="100%"><tr bgcolor="#eeeeee"><td>ObjList  <strong>m_remoteSccp</strong>
+</td><td align="right"><h3><strong>m_remoteSccp</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_statusTest"></A><A NAME="ref27"></A><table width="100%"><tr bgcolor="#eeeeee"><td>ObjList  <strong>m_statusTest</strong>
+</td><td align="right"><h3><strong>m_statusTest</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_localSubsystems"></A><A NAME="ref28"></A><table width="100%"><tr bgcolor="#eeeeee"><td>ObjList  <strong>m_localSubsystems</strong>
+</td><td align="right"><h3><strong>m_localSubsystems</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_concerned"></A><A NAME="ref29"></A><table width="100%"><tr bgcolor="#eeeeee"><td>ObjList  <strong>m_concerned</strong>
+</td><td align="right"><h3><strong>m_concerned</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_pcType"></A><A NAME="ref30"></A><table width="100%"><tr bgcolor="#eeeeee"><td>SS7PointCode::Type  <strong>m_pcType</strong>
+</td><td align="right"><h3><strong>m_pcType</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="getTestTimeout"></A><A NAME="ref31"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline <A HREF="#u_int32_t">u_int32_t</A> &nbsp;<strong>getTestTimeout</strong> ()
+<br></td><td align="right"><h3><strong>getTestTimeout</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Obtain the subsystem status test time interval
+</p>
+<p><b>Returns</b>: Subsystem status test duration
+     </p>
+<A NAME="managementMessage"></A><A NAME="ref32"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>managementMessage</strong> (SCCP::Type type, NamedList& params)
+<br></td><td align="right"><h3><strong>managementMessage</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Broadcast a management message to local attached sccp users
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">The broadcast type
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">List of parameters
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if at least one user has processed the message
+     </p>
+<A NAME="getLocalSubsystem"></A><A NAME="ref33"></A><table width="100%"><tr bgcolor="#eeeeee"><td>SccpLocalSubsystem* &nbsp;<strong>getLocalSubsystem</strong> (unsigned char ssn)
+<br></td><td align="right"><h3><strong>getLocalSubsystem</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Obtain a local subsystem
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>ssn</i></TD><TD align="left" valign="top">The local subsystem ssn
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Pointer to local subsystem if found, 0 otherwise
+     </p>
+<A NAME="getRemoteSccp"></A><A NAME="ref34"></A><table width="100%"><tr bgcolor="#eeeeee"><td>SccpRemote* &nbsp;<strong>getRemoteSccp</strong> (int pointcode)
+<br></td><td align="right"><h3><strong>getRemoteSccp</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Obtain a remote SCCP
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>pointcode</i></TD><TD align="left" valign="top">The remote sccp pointcode
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The remote SCCP with the matching pointcode or 0 if not found
+     </p>
+<A NAME="sendMessage"></A><A NAME="ref35"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<i><strong>sendMessage</strong></i> (SCCPManagement::MsgType msgType, const NamedList& params)
+<br></td><td align="right"><h3><i><strong>sendMessage</strong></i></h3></td></tr></table><p> <small>[protected pure virtual]</small></p><p>
+ Encode a sccp management message and send it to remote address
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msgType</i></TD><TD align="left" valign="top">The SCCP management message type
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">List of message parameters
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the message was successfully send
+     </p>
+<A NAME="stopSst"></A><A NAME="ref36"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>stopSst</strong> (SccpRemote* remoteSccp, SccpSubsystem* rSubsystem = 0, SccpSubsystem* less = 0)
+<br></td><td align="right"><h3><strong>stopSst</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Stop subsystem status tests for a remote location
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>remoteSccp</i></TD><TD align="left" valign="top">The remote sccp
+</TD></TR>
+<TR><TD align="left" valign="top"><i>rSubsystem</i></TD><TD align="left" valign="top">The remote subsystem. Can be 0 to stop all tests for the remote sccp
+</TD></TR>
+<TR><TD align="left" valign="top"><i>less</i></TD><TD align="left" valign="top">Stop all sst except this
+     </TD></TR>
+</TABLE></P>
+<A NAME="stopSSTs"></A><A NAME="ref37"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>stopSSTs</strong> ()
+<br></td><td align="right"><h3><strong>stopSSTs</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Stop all subsystem status tests
+     </p>
+<A NAME="startSst"></A><A NAME="ref38"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>startSst</strong> (SccpRemote* remoteSccp, SccpSubsystem* rSubsystem)
+<br></td><td align="right"><h3><strong>startSst</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Start a new subsystem status test
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>remoteSccp</i></TD><TD align="left" valign="top">The remote sccp
+</TD></TR>
+<TR><TD align="left" valign="top"><i>rSubsystem</i></TD><TD align="left" valign="top">The remote subsystem
+     </TD></TR>
+</TABLE></P>
+<A NAME="mtpEndRestart"></A><A NAME="ref39"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>mtpEndRestart</strong> ()
+<br></td><td align="right"><h3><strong>mtpEndRestart</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Notification from sccp that mtp has finished restarting
+     </p>
+<A NAME="localBroadcast"></A><A NAME="ref40"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>localBroadcast</strong> (SCCP::Type type, int pointcode, int sps, int rss = -1,
+	    int rl = -1, int ssn = -1, int ss = -1)
+<br></td><td align="right"><h3><strong>localBroadcast</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Send a local sccp broadcast
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">The broadcast message type
+</TD></TR>
+<TR><TD align="left" valign="top"><i>pointcode</i></TD><TD align="left" valign="top">The affected pointcode. -1 if it should not be included
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sps</i></TD><TD align="left" valign="top">The signalling point status.  -1 if it should not be included
+</TD></TR>
+<TR><TD align="left" valign="top"><i>rss</i></TD><TD align="left" valign="top">The remote sccp status. -1 if it should not be included
+</TD></TR>
+<TR><TD align="left" valign="top"><i>rl</i></TD><TD align="left" valign="top">The restriction level. -1 if it should not be included
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ssn</i></TD><TD align="left" valign="top">The affected ssn. -1 if it should not be included
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ss</i></TD><TD align="left" valign="top">The subsystem status. -1 if it should not be included
+     </TD></TR>
+</TABLE></P>
+<A NAME="sendSST"></A><A NAME="ref41"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>sendSST</strong> (SccpRemote* remote, SccpSubsystem* sub)
+<br></td><td align="right"><h3><strong>sendSST</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Helper method. Send subsystem status test
+ Note: Management mutex must not be locked. Thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>remote</i></TD><TD align="left" valign="top">The remote sccp
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sub</i></TD><TD align="left" valign="top">The remote subsystem
+     </TD></TR>
+</TABLE></P>
+<A NAME="handleMessage"></A><A NAME="ref42"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>handleMessage</strong> (int msgType, unsigned char ssn, unsigned char smi, NamedList& params)
+<br></td><td align="right"><h3><strong>handleMessage</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Process a sccp management message
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msgType</i></TD><TD align="left" valign="top">The sccp management message type
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ssn</i></TD><TD align="left" valign="top">The affected subsystem
+</TD></TR>
+<TR><TD align="left" valign="top"><i>smi</i></TD><TD align="left" valign="top">The subsystem multiplicity indicator
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">The message params
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the message was handled
+     </p>
+<A NAME="manageSccpRemoteStatus"></A><A NAME="ref43"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>manageSccpRemoteStatus</strong> (SccpRemote* rsccp, SS7Route::State newState)
+<br></td><td align="right"><h3><strong>manageSccpRemoteStatus</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Process remote sccp state
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>rsccp</i></TD><TD align="left" valign="top">The remote sccp witch state has changed
+</TD></TR>
+<TR><TD align="left" valign="top"><i>newState</i></TD><TD align="left" valign="top">The new state of the remote sccp
+     </TD></TR>
+</TABLE></P>
+<A NAME="printMessagess"></A><A NAME="ref44"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>printMessagess</strong> ()
+<br></td><td align="right"><h3><strong>printMessagess</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Helper method used to check if we should print sccp management messages
+</p>
+<p><b>Returns</b>: True if we should print messages
+     </p>
+<A NAME="handleCoordinateChanged"></A><A NAME="ref45"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>handleCoordinateChanged</strong> (unsigned char ssn, int smi, const NamedList& params)
+<br></td><td align="right"><h3><strong>handleCoordinateChanged</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Helper method that handles coordinate request
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>ssn</i></TD><TD align="left" valign="top">Local subsystem that wish to go out of service
+</TD></TR>
+<TR><TD align="left" valign="top"><i>smi</i></TD><TD align="left" valign="top">Subsystem multiplicity indicator
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">List of parameters
+     </TD></TR>
+</TABLE></P>
+<A NAME="handleSog"></A><A NAME="ref46"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>handleSog</strong> (unsigned char ssn, int pointcode)
+<br></td><td align="right"><h3><strong>handleSog</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Handle a subsystem out of service grant message
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>ssn</i></TD><TD align="left" valign="top">Remote subsystem ssn
+</TD></TR>
+<TR><TD align="left" valign="top"><i>pointcode</i></TD><TD align="left" valign="top">Remote subsystem pointcode
+ Note! Lock management mutex before calling this method
+     </TD></TR>
+</TABLE></P>
+<A NAME="handleSubsystemStatus"></A><A NAME="ref47"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>handleSubsystemStatus</strong> (SccpSubsystem* subsystem, bool allowed, SccpRemote* remote, int smi)
+<br></td><td align="right"><h3><strong>handleSubsystemStatus</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Process the status of subsystems
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>subsystem</i></TD><TD align="left" valign="top">The subsystem who's status has changed
+</TD></TR>
+<TR><TD align="left" valign="top"><i>allowed</i></TD><TD align="left" valign="top">True if the subsystem status is Allowed false for Prohibited
+</TD></TR>
+<TR><TD align="left" valign="top"><i>remote</i></TD><TD align="left" valign="top">The remote sccp pointcode where the subsystem is located
+</TD></TR>
+<TR><TD align="left" valign="top"><i>smi</i></TD><TD align="left" valign="top">Subsystem Multiplicity Indicator
+     </TD></TR>
+</TABLE></P>
+<A NAME="getCoordTimeout"></A><A NAME="ref48"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline <A HREF="#u_int32_t">u_int32_t</A> &nbsp;<strong>getCoordTimeout</strong> ()
+<br></td><td align="right"><h3><strong>getCoordTimeout</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Ontain the coordinate changed time interval
+</p>
+<p><b>Returns</b>: The coordinate time interval in ms
+     </p>
+<A NAME="getIgnoreTestsInterval"></A><A NAME="ref49"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline <A HREF="#u_int32_t">u_int32_t</A> &nbsp;<strong>getIgnoreTestsInterval</strong> ()
+<br></td><td align="right"><h3><strong>getIgnoreTestsInterval</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Obtain ignore status tests time interval
+</p>
+<p><b>Returns</b>: ignore status tests time interval in ms
+     </p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

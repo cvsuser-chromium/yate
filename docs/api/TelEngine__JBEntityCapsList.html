@@ -1,0 +1,261 @@
+<HTML>
+<HEAD>
+<TITLE>class JBEntityCapsList</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class JBEntityCapsList</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">Entity capability list manager. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::JBEntityCapsList</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yjabber___yatejabber_h.html">libs/yjabber/yatejabber.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__Mutex.html">TelEngine::Mutex</A> <small>[public ]</small>, <A HREF="TelEngine__ObjList.html">TelEngine::ObjList</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__JBEntityCapsList.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>inline &nbsp;<b><A HREF="#ref2">JBEntityCapsList</A></b> () 
+</LI>
+<LI>inline JBEntityCaps* &nbsp;<b><A HREF="#ref3">findCaps</A></b> (const String& id) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref4">expire</A></b> (<A HREF="#u_int64_t">u_int64_t</A> msecNow = Time::msecNow()) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref5">processRsp</A></b> (XmlElement* rsp, const String& id, bool ok) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref6">requestCaps</A></b> (JBStream* stream, const char* from, const char* to, const String& id,
+	char version, const char* node, const char* data) 
+</LI>
+<LI>XmlDocument* &nbsp;<b><A HREF="#ref7">toDocument</A></b> (const char* rootName = "entitycaps") 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref8">fromDocument</A></b> (XmlDocument& doc, const char* rootName = "entitycaps") 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref9">processCaps</A></b> (String& capsId, XmlElement* xml, JBStream* stream,
+	const char* from, const char* to) 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref10">addCaps</A></b> (NamedList& list, const String& id) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref11">addCaps</A></b> (NamedList& list, JBEntityCaps& caps) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref12">loadXmlDoc</A></b> (const char* file, DebugEnabler* enabler = 0) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref13">saveXmlDoc</A></b> (const char* file, DebugEnabler* enabler = 0) 
+</LI>
+</ul><h4>Public Static Methods</h4><ul><LI>static  bool &nbsp;<b><A HREF="#ref14">decodeCaps</A></b> (const XmlElement& xml, char& version, String*& node,
+	String*& ver, String*& ext) 
+</LI>
+</ul><h4>Public Members</h4><ul><LI>bool <b><A HREF="#ref15">m_enable</A></b></LI>
+</ul><h4>Protected Methods</h4><ul><LI>virtual  void &nbsp;<b><A HREF="#ref16">capsAdded</A></b> (JBEntityCaps* caps) 
+</LI>
+</ul><h4>Protected Members</h4><ul><LI>unsigned int <b><A HREF="#ref17">m_reqIndex</A></b></LI>
+<LI>String <b><A HREF="#ref18">m_reqPrefix</A></b></LI>
+<LI>ObjList <b><A HREF="#ref19">m_requests</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ This class holds data and offer entity capability services.
+ Implements XEP 0115 support
+</p>
+<A NAME="JBEntityCapsList"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>JBEntityCapsList</strong> ()
+<br></td><td align="right"><h3><strong>JBEntityCapsList</strong></h3></td></tr></table><p></p><p>
+ Constructor
+     </p>
+<A NAME="findCaps"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline JBEntityCaps* &nbsp;<strong>findCaps</strong> (const String& id)
+<br></td><td align="right"><h3><strong>findCaps</strong></h3></td></tr></table><p></p><p>
+ Retrieve an entity caps object. This method is not thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>id</i></TD><TD align="left" valign="top">The id to find
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: JBEntityCaps pointer or 0
+     </p>
+<A NAME="expire"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>expire</strong> (<A HREF="#u_int64_t">u_int64_t</A> msecNow = Time::msecNow())
+<br></td><td align="right"><h3><strong>expire</strong></h3></td></tr></table><p></p><p>
+ Expire pending requests.
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msecNow</i></TD><TD align="left" valign="top">Current time
+     </TD></TR>
+</TABLE></P>
+<A NAME="processRsp"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>processRsp</strong> (XmlElement* rsp, const String& id, bool ok)
+<br></td><td align="right"><h3><strong>processRsp</strong></h3></td></tr></table><p></p><p>
+ Process a response.
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>rsp</i></TD><TD align="left" valign="top">The element to process
+</TD></TR>
+<TR><TD align="left" valign="top"><i>id</i></TD><TD align="left" valign="top">The element's id
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ok</i></TD><TD align="left" valign="top">True if the response is a result one, false if it's an error
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the element was processed (handled)
+     </p>
+<A NAME="requestCaps"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>requestCaps</strong> (JBStream* stream, const char* from, const char* to, const String& id,
+	char version, const char* node, const char* data)
+<br></td><td align="right"><h3><strong>requestCaps</strong></h3></td></tr></table><p></p><p>
+ Request entity capabilities.
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stream</i></TD><TD align="left" valign="top">The stream to send the request
+</TD></TR>
+<TR><TD align="left" valign="top"><i>from</i></TD><TD align="left" valign="top">The 'from' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>to</i></TD><TD align="left" valign="top">The 'to' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>id</i></TD><TD align="left" valign="top">Entity caps id
+</TD></TR>
+<TR><TD align="left" valign="top"><i>version</i></TD><TD align="left" valign="top">Entity caps version
+</TD></TR>
+<TR><TD align="left" valign="top"><i>node</i></TD><TD align="left" valign="top">Entity node
+</TD></TR>
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Entity caps data
+     </TD></TR>
+</TABLE></P>
+<A NAME="toDocument"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>XmlDocument* &nbsp;<strong>toDocument</strong> (const char* rootName = "entitycaps")
+<br></td><td align="right"><h3><strong>toDocument</strong></h3></td></tr></table><p></p><p>
+ Build an XML document from this list.
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>rootName</i></TD><TD align="left" valign="top">Document root element name
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: XmlDocument pointer
+     </p>
+<A NAME="fromDocument"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>fromDocument</strong> (XmlDocument& doc, const char* rootName = "entitycaps")
+<br></td><td align="right"><h3><strong>fromDocument</strong></h3></td></tr></table><p></p><p>
+ Build this list from an XML document.
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>doc</i></TD><TD align="left" valign="top">Document to build from
+</TD></TR>
+<TR><TD align="left" valign="top"><i>rootName</i></TD><TD align="left" valign="top">Document root element name (it will be checked if set)
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: XmlDocument pointer
+     </p>
+<A NAME="processCaps"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>processCaps</strong> (String& capsId, XmlElement* xml, JBStream* stream,
+	const char* from, const char* to)
+<br></td><td align="right"><h3><strong>processCaps</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Process an element containing an entity capabily child.
+ Request capabilities if not found in the list.
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>capsId</i></TD><TD align="left" valign="top">String to be filled with entity caps object id
+  (empty if an entity caps child is not found in element )
+</TD></TR>
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">XML element to process
+</TD></TR>
+<TR><TD align="left" valign="top"><i>stream</i></TD><TD align="left" valign="top">The stream used to request capabilities
+</TD></TR>
+<TR><TD align="left" valign="top"><i>from</i></TD><TD align="left" valign="top">The 'from' attribute of the request stanza
+</TD></TR>
+<TR><TD align="left" valign="top"><i>to</i></TD><TD align="left" valign="top">The 'to' attribute of the request stanza
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if processed (already found, added or request sent)
+     </p>
+<A NAME="addCaps"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>addCaps</strong> (NamedList& list, const String& id)
+<br></td><td align="right"><h3><strong>addCaps</strong></h3></td></tr></table><p></p><p>
+ Add capabilities to a list.
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>list</i></TD><TD align="left" valign="top">Destination list
+</TD></TR>
+<TR><TD align="left" valign="top"><i>id</i></TD><TD align="left" valign="top">Entity caps id
+     </TD></TR>
+</TABLE></P>
+<A NAME="addCaps"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>addCaps</strong> (NamedList& list, JBEntityCaps& caps)
+<br></td><td align="right"><h3><strong>addCaps</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Add capabilities to a list.
+ This method is not thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>list</i></TD><TD align="left" valign="top">Destination list
+</TD></TR>
+<TR><TD align="left" valign="top"><i>caps</i></TD><TD align="left" valign="top">Entity caps to add
+     </TD></TR>
+</TABLE></P>
+<A NAME="loadXmlDoc"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>loadXmlDoc</strong> (const char* file, DebugEnabler* enabler = 0)
+<br></td><td align="right"><h3><strong>loadXmlDoc</strong></h3></td></tr></table><p></p><p>
+ Load (reset) this list from an XML document file.
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>file</i></TD><TD align="left" valign="top">The file to load
+</TD></TR>
+<TR><TD align="left" valign="top"><i>enabler</i></TD><TD align="left" valign="top">The debug enabler used to output messages
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True on success
+     </p>
+<A NAME="saveXmlDoc"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>saveXmlDoc</strong> (const char* file, DebugEnabler* enabler = 0)
+<br></td><td align="right"><h3><strong>saveXmlDoc</strong></h3></td></tr></table><p></p><p>
+ Save this list to an XML document file.
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>file</i></TD><TD align="left" valign="top">The file to save
+</TD></TR>
+<TR><TD align="left" valign="top"><i>enabler</i></TD><TD align="left" valign="top">The debug enabler used to output messages
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True on success
+     </p>
+<A NAME="decodeCaps"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>decodeCaps</strong> (const XmlElement& xml, char& version, String*& node,
+	String*& ver, String*& ext)
+<br></td><td align="right"><h3><strong>decodeCaps</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Check if an XML element has a 'c' entity capability child and decode it
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The element to process
+</TD></TR>
+<TR><TD align="left" valign="top"><i>version</i></TD><TD align="left" valign="top">Entity caps version
+</TD></TR>
+<TR><TD align="left" valign="top"><i>node</i></TD><TD align="left" valign="top">Entity node attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ver</i></TD><TD align="left" valign="top">Entity ver attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ext</i></TD><TD align="left" valign="top">Entity ext attribute if version is less the 1.4
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if a child was succesfully decoded
+     </p>
+<A NAME="m_enable"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool  <strong>m_enable</strong>
+</td><td align="right"><h3><strong>m_enable</strong></h3></td></tr></table><p></p><A NAME="capsAdded"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>capsAdded</strong> (JBEntityCaps* caps)
+<br></td><td align="right"><h3><strong>capsAdded</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Caps list item add notification for descendants.
+ This method is called when processing responses with the list locked
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>caps</i></TD><TD align="left" valign="top">Changed caps object. 0 if none specified
+     </TD></TR>
+</TABLE></P>
+<A NAME="m_reqIndex"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_reqIndex</strong>
+</td><td align="right"><h3><strong>m_reqIndex</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_reqPrefix"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_reqPrefix</strong>
+</td><td align="right"><h3><strong>m_reqPrefix</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_requests"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td>ObjList  <strong>m_requests</strong>
+</td><td align="right"><h3><strong>m_requests</strong></h3></td></tr></table><p> <small>[protected]</small></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

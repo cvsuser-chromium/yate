@@ -1,0 +1,169 @@
+<HTML>
+<HEAD>
+<TITLE>class HandledMSU</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class HandledMSU</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">MSU handling result codes (Q.704 15.17.5 and more). <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::HandledMSU</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__HandledMSU.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref1">Result</A> {	Rejected     =  0,
+	Unequipped   =  1,
+	Inaccessible =  2,
+	Accepted     = 16,
+	Failure      = 17,
+	NoAddress    = 18,
+	NoCircuit    = 19,
+    }
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>inline &nbsp;<b><A HREF="#ref2">HandledMSU</A></b> (Result result = Rejected) 
+</LI>
+<LI>inline &nbsp;<b><A HREF="#ref3">HandledMSU</A></b> (bool success) 
+</LI>
+<LI>inline &nbsp;<b><A HREF="#ref4">HandledMSU</A></b> (const HandledMSU& original) 
+</LI>
+<LI>inline HandledMSU& &nbsp;<b><A HREF="#ref5">operator=</A></b> (Result result) 
+</LI>
+<LI>inline HandledMSU& &nbsp;<b><A HREF="#ref6">operator=</A></b> (const HandledMSU& original) 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref7">operator==</A></b> (Result result) 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref8">operator==</A></b> (const HandledMSU& result) 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref9">operator!=</A></b> (Result result) 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref10">operator!=</A></b> (const HandledMSU& result) 
+</LI>
+<LI>inline operator &nbsp;<b><A HREF="#ref11">Result</A></b> ()  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref12">ok</A></b> ()  const
+</LI>
+<LI>inline unsigned char &nbsp;<b><A HREF="#ref13">upu</A></b> ()  const
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ Simple inline class used to know if a MSU was handled and if not why
+</p>
+<A NAME="Result"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>Result</strong> {	Rejected     =  0,
+	Unequipped   =  1,
+	Inaccessible =  2,
+	Accepted     = 16,
+	Failure      = 17,
+	NoAddress    = 18,
+	NoCircuit    = 19,
+    }
+</td><td align="right"><h3><strong>Result</strong></h3></td></tr></table><p></p><A NAME="HandledMSU"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>HandledMSU</strong> (Result result = Rejected)
+<br></td><td align="right"><h3><strong>HandledMSU</strong></h3></td></tr></table><p></p><p>
+ Regular constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>result</i></TD><TD align="left" valign="top">MSU handling result
+     </TD></TR>
+</TABLE></P>
+<A NAME="HandledMSU"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>HandledMSU</strong> (bool success)
+<br></td><td align="right"><h3><strong>HandledMSU</strong></h3></td></tr></table><p></p><p>
+ Constructor from boolean success
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>success</i></TD><TD align="left" valign="top">True signifies Accepted, false for Failure
+     </TD></TR>
+</TABLE></P>
+<A NAME="HandledMSU"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>HandledMSU</strong> (const HandledMSU& original)
+<br></td><td align="right"><h3><strong>HandledMSU</strong></h3></td></tr></table><p></p><p>
+ Copy constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>original</i></TD><TD align="left" valign="top">Result to copy
+     </TD></TR>
+</TABLE></P>
+<A NAME="operator="></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline HandledMSU& &nbsp;<strong>operator=</strong> (Result result)
+<br></td><td align="right"><h3><strong>operator=</strong></h3></td></tr></table><p></p><p>
+ Assignment from Result enumeration
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>result</i></TD><TD align="left" valign="top">MSU handling result
+     </TD></TR>
+</TABLE></P>
+<A NAME="operator="></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline HandledMSU& &nbsp;<strong>operator=</strong> (const HandledMSU& original)
+<br></td><td align="right"><h3><strong>operator=</strong></h3></td></tr></table><p></p><p>
+ Assignment operator
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>original</i></TD><TD align="left" valign="top">Result to assign from
+     </TD></TR>
+</TABLE></P>
+<A NAME="operator=="></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>operator==</strong> (Result result)
+<br></td><td align="right"><h3><strong>operator==</strong></h3></td></tr></table><p></p><p>
+ Equality operator
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>result</i></TD><TD align="left" valign="top">Handling result value to compare to
+     </TD></TR>
+</TABLE></P>
+<A NAME="operator=="></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>operator==</strong> (const HandledMSU& result)
+<br></td><td align="right"><h3><strong>operator==</strong></h3></td></tr></table><p></p><p>
+ Equality operator
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>result</i></TD><TD align="left" valign="top">Handling result value to compare to
+     </TD></TR>
+</TABLE></P>
+<A NAME="operator!="></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>operator!=</strong> (Result result)
+<br></td><td align="right"><h3><strong>operator!=</strong></h3></td></tr></table><p></p><p>
+ Inequality operator
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>result</i></TD><TD align="left" valign="top">Handling result value to compare to
+     </TD></TR>
+</TABLE></P>
+<A NAME="operator!="></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>operator!=</strong> (const HandledMSU& result)
+<br></td><td align="right"><h3><strong>operator!=</strong></h3></td></tr></table><p></p><p>
+ Inequality operator
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>result</i></TD><TD align="left" valign="top">Handling result value to compare to
+     </TD></TR>
+</TABLE></P>
+<A NAME="Result"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline operator &nbsp;<strong>Result</strong> ()
+<br></td><td align="right"><h3><strong>Result</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Result retrieval operator
+</p>
+<p><b>Returns</b>: Handling result enumeration
+     </p>
+<A NAME="ok"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>ok</strong> ()
+<br></td><td align="right"><h3><strong>ok</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Success checking
+</p>
+<p><b>Returns</b>: True if MSU was handled, false for any other result
+     </p>
+<A NAME="upu"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline unsigned char &nbsp;<strong>upu</strong> ()
+<br></td><td align="right"><h3><strong>upu</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve Q.704 15.17.5 UPU cause code
+</p>
+<p><b>Returns</b>: UPU cause code, 0 (Unknown) for all private causes
+     </p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

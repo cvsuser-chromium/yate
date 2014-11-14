@@ -1,0 +1,141 @@
+<HTML>
+<HEAD>
+<TITLE>class SignallingDumpable</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SignallingDumpable</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">A data dumping capable component. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SignallingDumpable</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherited by</TH><TD><A HREF="TelEngine__ISDNQ921.html">ISDNQ921</A>, <A HREF="TelEngine__ISDNQ921Management.html">ISDNQ921Management</A>, <A HREF="TelEngine__ISDNQ921Passive.html">ISDNQ921Passive</A>, <A HREF="TelEngine__ISDNQ931.html">ISDNQ931</A>, <A HREF="TelEngine__SS7MTP2.html">SS7MTP2</A>, <A HREF="TelEngine__SS7MTP3.html">SS7MTP3</A></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SignallingDumpable.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>inline &nbsp;<b><A HREF="#ref1">~SignallingDumpable</A></b> () 
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>inline &nbsp;<b><A HREF="#ref2">SignallingDumpable</A></b> (SignallingDumper::Type type, bool network = false) 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref3">dump</A></b> (void* buf, unsigned int len, bool sent = false, int link = 0) 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref4">dump</A></b> (const DataBlock& data, bool sent = false, int link = 0) 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref5">setDumpNetwork</A></b> (bool network) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref6">setDumper</A></b> (SignallingDumper* dumper = 0) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref7">setDumper</A></b> (const String& name, bool create = true, bool append = false) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref8">control</A></b> (NamedList& params, SignallingComponent* owner = 0) 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ A generic base class for components capable of creating data dumps
+</p>
+<A NAME="~SignallingDumpable"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>~SignallingDumpable</strong> ()
+<br></td><td align="right"><h3><strong>~SignallingDumpable</strong></h3></td></tr></table><p></p><p>
+ Destructor - destroys the data dumper
+     </p>
+<A NAME="SignallingDumpable"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>SignallingDumpable</strong> (SignallingDumper::Type type, bool network = false)
+<br></td><td align="right"><h3><strong>SignallingDumpable</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Default type of the data dumper
+</TD></TR>
+<TR><TD align="left" valign="top"><i>network</i></TD><TD align="left" valign="top">True if we are the network side of the link
+     </TD></TR>
+</TABLE></P>
+<A NAME="dump"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>dump</strong> (void* buf, unsigned int len, bool sent = false, int link = 0)
+<br></td><td align="right"><h3><strong>dump</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Dump the provided data if the dumper is valid
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>buf</i></TD><TD align="left" valign="top">Pointer to buffer to dump
+</TD></TR>
+<TR><TD align="left" valign="top"><i>len</i></TD><TD align="left" valign="top">Length of the data
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sent</i></TD><TD align="left" valign="top">True if data is being sent, false if is being received
+</TD></TR>
+<TR><TD align="left" valign="top"><i>link</i></TD><TD align="left" valign="top">Link number (relevant to MTP2 only)
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the data was dumped successfully
+     </p>
+<A NAME="dump"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>dump</strong> (const DataBlock& data, bool sent = false, int link = 0)
+<br></td><td align="right"><h3><strong>dump</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Dump data if the dumper is valid
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Buffer to dump
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sent</i></TD><TD align="left" valign="top">True if data is being sent, false if is being received
+</TD></TR>
+<TR><TD align="left" valign="top"><i>link</i></TD><TD align="left" valign="top">Link number (relevant to MTP2 only)
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the data was dumped successfully
+     </p>
+<A NAME="setDumpNetwork"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>setDumpNetwork</strong> (bool network)
+<br></td><td align="right"><h3><strong>setDumpNetwork</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Set the dump network side flag
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>network</i></TD><TD align="left" valign="top">True to dump as network side, false othervise
+     </TD></TR>
+</TABLE></P>
+<A NAME="setDumper"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>setDumper</strong> (SignallingDumper* dumper = 0)
+<br></td><td align="right"><h3><strong>setDumper</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Set or remove the data dumper
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>dumper</i></TD><TD align="left" valign="top">Pointer to the data dumper object, 0 to remove
+     </TD></TR>
+</TABLE></P>
+<A NAME="setDumper"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>setDumper</strong> (const String& name, bool create = true, bool append = false)
+<br></td><td align="right"><h3><strong>setDumper</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Set or remove a file data dumper
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Name of the file to dump to, empty to remove dumper
+</TD></TR>
+<TR><TD align="left" valign="top"><i>create</i></TD><TD align="left" valign="top">True to create the file if doesn't exist
+</TD></TR>
+<TR><TD align="left" valign="top"><i>append</i></TD><TD align="left" valign="top">Append to an existing file. If false and the file already exists, it will be truncated
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the file dumper was created or removed
+     </p>
+<A NAME="control"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>control</strong> (NamedList& params, SignallingComponent* owner = 0)
+<br></td><td align="right"><h3><strong>control</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Handle dumper related control on behalf of the owning component
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Control parameters to handle
+</TD></TR>
+<TR><TD align="left" valign="top"><i>owner</i></TD><TD align="left" valign="top">Optional owning component
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if control operation was applied
+     </p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

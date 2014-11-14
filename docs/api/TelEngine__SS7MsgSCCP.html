@@ -1,0 +1,279 @@
+<HTML>
+<HEAD>
+<TITLE>class SS7MsgSCCP</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SS7MsgSCCP</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1"></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SS7MsgSCCP</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__SignallingMessage.html">TelEngine::SignallingMessage</A> <small>[public ]</small></TD></TR>
+<TR><TH>Inherited by</TH><TD><A HREF="TelEngine__SS7MsgSccpReassemble.html">SS7MsgSccpReassemble</A></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SS7MsgSCCP.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref1">Type</A> {	Unknown = 0,
+	CR     = 0x01, 
+	CC     = 0x02, 
+	CREF   = 0x03, 
+	RLSD   = 0x04, 
+	RLC    = 0x05, 
+	DT1    = 0x06, 
+	DT2    = 0x07, 
+	AK     = 0x08, 
+	UDT    = 0x09, 
+	UDTS   = 0x0a, 
+	ED     = 0x0b, 
+	EA     = 0x0c, 
+	RSR    = 0x0d, 
+	RSC    = 0x0e, 
+	ERR    = 0x0f, 
+	IT     = 0x10, 
+	XUDT   = 0x11, 
+	XUDTS  = 0x12, 
+	LUDT   = 0x13, 
+	LUDTS  = 0x14, 
+    }
+</LI>
+<LI>enum <A HREF="#ref2">Parameters</A> {	EndOfParameters                = 0,
+	DestinationLocalReference      = 0x01,
+	SourceLocalReference           = 0x02,
+	CalledPartyAddress             = 0x03,
+	CallingPartyAddress            = 0x04,
+	ProtocolClass                  = 0x05,
+	Segmenting                     = 0x06,
+	ReceiveSequenceNumber          = 0x07,
+	Sequencing                     = 0x08,
+	Credit                         = 0x09,
+	ReleaseCause                   = 0x0a,
+	ReturnCause                    = 0x0b,
+	ResetCause                     = 0x0c,
+	ErrorCause                     = 0x0d,
+	RefusalCause                   = 0x0e,
+	Data                           = 0x0f,
+	Segmentation                   = 0x10,
+	HopCounter                     = 0x11,
+	Importance                     = 0x12, 
+	LongData                       = 0x13,
+	MessageTypeInterworking        = 0xf8, 
+	INS                            = 0xf9, 
+	ISNI                           = 0xfa, 
+    }
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>inline &nbsp;<b><A HREF="#ref3">SS7MsgSCCP</A></b> (Type type) 
+</LI>
+<LI>virtual  &nbsp;<b><A HREF="#ref4">~SS7MsgSCCP</A></b> () 
+</LI>
+<LI>inline Type &nbsp;<b><A HREF="#ref5">type</A></b> ()  const
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref6">updateType</A></b> (Type type) 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref7">isLongDataMessage</A></b> ()  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref8">canBeUDT</A></b> ()  const
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref9">toString</A></b> (String& dest, const SS7Label& label, bool params,
+	const void* raw = 0, unsigned int rawLen = 0)  const
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref13">setData</A></b> (DataBlock* data) 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref14">removeData</A></b> () 
+</LI>
+<LI>inline DataBlock* &nbsp;<b><A HREF="#ref15">getData</A></b> () 
+</LI>
+<LI>inline DataBlock* &nbsp;<b><A HREF="#ref16">extractData</A></b> () 
+</LI>
+</ul><h4>Public Static Methods</h4><ul><LI>static  const TokenDict* &nbsp;<b><A HREF="#ref10">names</A></b> () 
+</LI>
+<LI>static  inline const char* &nbsp;<b><A HREF="#ref11">lookup</A></b> (Type type, const char* defvalue = 0) 
+</LI>
+<LI>static  inline Type &nbsp;<b><A HREF="#ref12">lookup</A></b> (const char* name, Type defvalue = Unknown) 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><A NAME="Type"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>Type</strong> {	Unknown = 0,
+	CR     = 0x01, 
+	CC     = 0x02, 
+	CREF   = 0x03, 
+	RLSD   = 0x04, 
+	RLC    = 0x05, 
+	DT1    = 0x06, 
+	DT2    = 0x07, 
+	AK     = 0x08, 
+	UDT    = 0x09, 
+	UDTS   = 0x0a, 
+	ED     = 0x0b, 
+	EA     = 0x0c, 
+	RSR    = 0x0d, 
+	RSC    = 0x0e, 
+	ERR    = 0x0f, 
+	IT     = 0x10, 
+	XUDT   = 0x11, 
+	XUDTS  = 0x12, 
+	LUDT   = 0x13, 
+	LUDTS  = 0x14, 
+    }
+</td><td align="right"><h3><strong>Type</strong></h3></td></tr></table><p></p><p>
+ SCCP Message type
+     </p>
+<A NAME="Parameters"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>Parameters</strong> {	EndOfParameters                = 0,
+	DestinationLocalReference      = 0x01,
+	SourceLocalReference           = 0x02,
+	CalledPartyAddress             = 0x03,
+	CallingPartyAddress            = 0x04,
+	ProtocolClass                  = 0x05,
+	Segmenting                     = 0x06,
+	ReceiveSequenceNumber          = 0x07,
+	Sequencing                     = 0x08,
+	Credit                         = 0x09,
+	ReleaseCause                   = 0x0a,
+	ReturnCause                    = 0x0b,
+	ResetCause                     = 0x0c,
+	ErrorCause                     = 0x0d,
+	RefusalCause                   = 0x0e,
+	Data                           = 0x0f,
+	Segmentation                   = 0x10,
+	HopCounter                     = 0x11,
+	Importance                     = 0x12, 
+	LongData                       = 0x13,
+	MessageTypeInterworking        = 0xf8, 
+	INS                            = 0xf9, 
+	ISNI                           = 0xfa, 
+    }
+</td><td align="right"><h3><strong>Parameters</strong></h3></td></tr></table><p></p><A NAME="SS7MsgSCCP"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>SS7MsgSCCP</strong> (Type type)
+<br></td><td align="right"><h3><strong>SS7MsgSCCP</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Type of SCCP message as enumeration
+     </TD></TR>
+</TABLE></P>
+<A NAME="~SS7MsgSCCP"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~SS7MsgSCCP</strong> ()
+<br></td><td align="right"><h3><strong>~SS7MsgSCCP</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor
+ NOTE: The SCCP message does not own the data pointer
+ In destructor the data pointer should be valid if data was set from decode message
+ In any other cases the pointer should be 0
+ NOTE: The data is not destroyed!! Only removed from data object and after the data object is destroyed
+     </p>
+<A NAME="type"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline Type &nbsp;<strong>type</strong> ()
+<br></td><td align="right"><h3><strong>type</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the type of this message
+</p>
+<p><b>Returns</b>: The type of this message as enumeration
+     </p>
+<A NAME="updateType"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>updateType</strong> (Type type)
+<br></td><td align="right"><h3><strong>updateType</strong></h3></td></tr></table><p></p><p>
+ Helper method to change the message type
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">The new message type
+     </TD></TR>
+</TABLE></P>
+<A NAME="isLongDataMessage"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>isLongDataMessage</strong> ()
+<br></td><td align="right"><h3><strong>isLongDataMessage</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Utility method to verify if this message is a long unit data
+</p>
+<p><b>Returns</b>: True if this message is a long unit data
+     </p>
+<A NAME="canBeUDT"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>canBeUDT</strong> ()
+<br></td><td align="right"><h3><strong>canBeUDT</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Utility method to verify if this message can be a UDT message
+ A SCCP message can be an UDT message if it not contains HopCounter parameter
+ or other optional parameters
+</p>
+<p><b>Returns</b>: True if this message can be a UDT message
+     </p>
+<A NAME="toString"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>toString</strong> (String& dest, const SS7Label& label, bool params,
+	const void* raw = 0, unsigned int rawLen = 0)
+<br></td><td align="right"><h3><strong>toString</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Fill a string with this message's parameters for debug purposes
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>dest</i></TD><TD align="left" valign="top">The destination string
+</TD></TR>
+<TR><TD align="left" valign="top"><i>label</i></TD><TD align="left" valign="top">The routing label
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">True to add parameters
+</TD></TR>
+<TR><TD align="left" valign="top"><i>raw</i></TD><TD align="left" valign="top">Optional raw message data to be added to destination
+</TD></TR>
+<TR><TD align="left" valign="top"><i>rawLen</i></TD><TD align="left" valign="top">Raw data length
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__GenObject.html#toString">GenObject</A>.</p>
+<A NAME="names"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td> const TokenDict* &nbsp;<strong>names</strong> ()
+<br></td><td align="right"><h3><strong>names</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get the dictionary with the message names
+</p>
+<p><b>Returns</b>: Pointer to the dictionary with the message names
+     </p>
+<A NAME="lookup"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline const char* &nbsp;<strong>lookup</strong> (Type type, const char* defvalue = 0)
+<br></td><td align="right"><h3><strong>lookup</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Convert an SCCP message type to a C string
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Type of SCCP message to look up
+</TD></TR>
+<TR><TD align="left" valign="top"><i>defvalue</i></TD><TD align="left" valign="top">Default string to return
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Name of the SCCP message type
+     </p>
+<A NAME="lookup"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline Type &nbsp;<strong>lookup</strong> (const char* name, Type defvalue = Unknown)
+<br></td><td align="right"><h3><strong>lookup</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Look up an SCCP message name
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">String name of the SCCP message
+</TD></TR>
+<TR><TD align="left" valign="top"><i>defvalue</i></TD><TD align="left" valign="top">Default type to return
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Encoded type of the SCCP message
+     </p>
+<A NAME="setData"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>setData</strong> (DataBlock* data)
+<br></td><td align="right"><h3><strong>setData</strong></h3></td></tr></table><p></p><p>
+ Set data for this message
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">the data
+     </TD></TR>
+</TABLE></P>
+<A NAME="removeData"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>removeData</strong> ()
+<br></td><td align="right"><h3><strong>removeData</strong></h3></td></tr></table><p></p><p>
+ Remove the data from this message
+     </p>
+<A NAME="getData"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline DataBlock* &nbsp;<strong>getData</strong> ()
+<br></td><td align="right"><h3><strong>getData</strong></h3></td></tr></table><p></p><p>
+ Obtain the data associated with this message
+</p>
+<p><b>Returns</b>: The data
+     </p>
+<A NAME="extractData"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline DataBlock* &nbsp;<strong>extractData</strong> ()
+<br></td><td align="right"><h3><strong>extractData</strong></h3></td></tr></table><p></p><p>
+ Extract the data associated with this message
+</p>
+<p><b>Returns</b>: The data
+     </p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

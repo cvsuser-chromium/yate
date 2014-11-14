@@ -1,0 +1,88 @@
+<HTML>
+<HEAD>
+<TITLE>class ApplicationSyntax</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class ApplicationSyntax</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1"></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="Snmp.html">Snmp</A>::ApplicationSyntax</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysnmp___yatesnmp_h.html">libs/ysnmp/yatesnmp.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD>AsnObject <small>(unknown)</small> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-Snmp__ApplicationSyntax.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref2">ApplicationSyntaxType</A> {		IPADDRESS_VALUE,
+		COUNTER_VALUE,
+		TIMETICKS_VALUE,
+		ARBITRARY_VALUE,
+		BIG_COUNTER_VALUE,
+		UNSIGNED_INTEGER_VALUE,
+	}
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref10">ApplicationSyntax</A></b> () 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref11">ApplicationSyntax</A></b> (void* data, int len) 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref12">~ApplicationSyntax</A></b> () 
+</LI>
+<LI>int &nbsp;<b><A HREF="#ref13">decode</A></b> (DataBlock& data) 
+</LI>
+<LI>int &nbsp;<b><A HREF="#ref14">encode</A></b> (DataBlock& data) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref15">getParams</A></b> (NamedList* params) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref16">setParams</A></b> (NamedList* params) 
+</LI>
+</ul><h4>Public Members</h4><ul><LI>static const int <b><A HREF="#ref1">s_type </A></b></LI>
+<LI>int <b><A HREF="#ref3">m_choiceType</A></b></LI>
+<LI>IpAddress* <b><A HREF="#ref4">m_ipAddress_value</A></b></LI>
+<LI>Counter32* <b><A HREF="#ref5">m_counter_value</A></b></LI>
+<LI>TimeTicks* <b><A HREF="#ref6">m_timeticks_value</A></b></LI>
+<LI>Opaque* <b><A HREF="#ref7">m_arbitrary_value</A></b></LI>
+<LI>Counter64* <b><A HREF="#ref8">m_big_counter_value</A></b></LI>
+<LI>Unsigned32* <b><A HREF="#ref9">m_unsigned_integer_value</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><A NAME="s_type%20"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const int  <strong>s_type </strong>
+</td><td align="right"><h3><strong>s_type </strong></h3></td></tr></table><p></p><A NAME="ApplicationSyntaxType"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>ApplicationSyntaxType</strong> {		IPADDRESS_VALUE,
+		COUNTER_VALUE,
+		TIMETICKS_VALUE,
+		ARBITRARY_VALUE,
+		BIG_COUNTER_VALUE,
+		UNSIGNED_INTEGER_VALUE,
+	}
+</td><td align="right"><h3><strong>ApplicationSyntaxType</strong></h3></td></tr></table><p></p><A NAME="m_choiceType"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>int  <strong>m_choiceType</strong>
+</td><td align="right"><h3><strong>m_choiceType</strong></h3></td></tr></table><p></p><A NAME="m_ipAddress_value"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>IpAddress*  <strong>m_ipAddress_value</strong>
+</td><td align="right"><h3><strong>m_ipAddress_value</strong></h3></td></tr></table><p></p><A NAME="m_counter_value"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>Counter32*  <strong>m_counter_value</strong>
+</td><td align="right"><h3><strong>m_counter_value</strong></h3></td></tr></table><p></p><A NAME="m_timeticks_value"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>TimeTicks*  <strong>m_timeticks_value</strong>
+</td><td align="right"><h3><strong>m_timeticks_value</strong></h3></td></tr></table><p></p><A NAME="m_arbitrary_value"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>Opaque*  <strong>m_arbitrary_value</strong>
+</td><td align="right"><h3><strong>m_arbitrary_value</strong></h3></td></tr></table><p></p><A NAME="m_big_counter_value"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>Counter64*  <strong>m_big_counter_value</strong>
+</td><td align="right"><h3><strong>m_big_counter_value</strong></h3></td></tr></table><p></p><A NAME="m_unsigned_integer_value"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>Unsigned32*  <strong>m_unsigned_integer_value</strong>
+</td><td align="right"><h3><strong>m_unsigned_integer_value</strong></h3></td></tr></table><p></p><A NAME="ApplicationSyntax"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>ApplicationSyntax</strong> ()
+<br></td><td align="right"><h3><strong>ApplicationSyntax</strong></h3></td></tr></table><p></p><A NAME="ApplicationSyntax"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>ApplicationSyntax</strong> (void* data, int len)
+<br></td><td align="right"><h3><strong>ApplicationSyntax</strong></h3></td></tr></table><p></p><A NAME="~ApplicationSyntax"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>~ApplicationSyntax</strong> ()
+<br></td><td align="right"><h3><strong>~ApplicationSyntax</strong></h3></td></tr></table><p></p><A NAME="decode"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>int &nbsp;<strong>decode</strong> (DataBlock& data)
+<br></td><td align="right"><h3><strong>decode</strong></h3></td></tr></table><p></p><A NAME="encode"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>int &nbsp;<strong>encode</strong> (DataBlock& data)
+<br></td><td align="right"><h3><strong>encode</strong></h3></td></tr></table><p></p><A NAME="getParams"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>getParams</strong> (NamedList* params)
+<br></td><td align="right"><h3><strong>getParams</strong></h3></td></tr></table><p></p><A NAME="setParams"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>setParams</strong> (NamedList* params)
+<br></td><td align="right"><h3><strong>setParams</strong></h3></td></tr></table><p></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

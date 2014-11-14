@@ -1,0 +1,101 @@
+<HTML>
+<HEAD>
+<TITLE>class AsnObject</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class AsnObject</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">Base Class for ASN.1 objects. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH colspan="2">Contains pure virtuals</TH></TR><TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::AsnObject</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yasn___yateasn_h.html">libs/yasn/yateasn.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__GenObject.html">TelEngine::GenObject</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__AsnObject.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>inline &nbsp;<b><A HREF="#ref1">AsnObject</A></b> () 
+</LI>
+<LI>inline &nbsp;<b><A HREF="#ref2">AsnObject</A></b> (const AsnObject& original) 
+</LI>
+<LI>virtual  inline &nbsp;<b><A HREF="#ref3">~AsnObject</A></b> () 
+</LI>
+<LI>virtual  int &nbsp;<b><i><A HREF="#ref4">decode</A></i></b> (DataBlock& data) 
+</LI>
+<LI>virtual  int &nbsp;<b><i><A HREF="#ref5">encode</A></i></b> (DataBlock& data) 
+</LI>
+<LI>virtual  void &nbsp;<b><i><A HREF="#ref6">getParams</A></i></b> (NamedList* params) 
+</LI>
+<LI>virtual  void &nbsp;<b><i><A HREF="#ref7">setParams</A></i></b> (NamedList* params) 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ Abstract class implemented by all ASN.1 type objects
+</p>
+<A NAME="AsnObject"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>AsnObject</strong> ()
+<br></td><td align="right"><h3><strong>AsnObject</strong></h3></td></tr></table><p></p><p>
+ Constructor
+     </p>
+<A NAME="AsnObject"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>AsnObject</strong> (const AsnObject& original)
+<br></td><td align="right"><h3><strong>AsnObject</strong></h3></td></tr></table><p></p><p>
+ Copy constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>original</i></TD><TD align="left" valign="top">Value object to copy
+     </TD></TR>
+</TABLE></P>
+<A NAME="~AsnObject"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline &nbsp;<strong>~AsnObject</strong> ()
+<br></td><td align="right"><h3><strong>~AsnObject</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor
+     </p>
+<A NAME="decode"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<i><strong>decode</strong></i> (DataBlock& data)
+<br></td><td align="right"><h3><i><strong>decode</strong></i></h3></td></tr></table><p> <small>[pure virtual]</small></p><p>
+ Function to decode the parameters of this object from given data
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">DataBlock from which the object is decoded
+     </TD></TR>
+</TABLE></P>
+<A NAME="encode"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<i><strong>encode</strong></i> (DataBlock& data)
+<br></td><td align="right"><h3><i><strong>encode</strong></i></h3></td></tr></table><p> <small>[pure virtual]</small></p><p>
+ Function to encode this object into a datablock
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">The DataBlock in which the object should be encoded
+     </TD></TR>
+</TABLE></P>
+<A NAME="getParams"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<i><strong>getParams</strong></i> (NamedList* params)
+<br></td><td align="right"><h3><i><strong>getParams</strong></i></h3></td></tr></table><p> <small>[pure virtual]</small></p><p>
+ Function for obtaining this object's data
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">NamedList in which this object's data should be put
+     </TD></TR>
+</TABLE></P>
+<A NAME="setParams"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<i><strong>setParams</strong></i> (NamedList* params)
+<br></td><td align="right"><h3><i><strong>setParams</strong></i></h3></td></tr></table><p> <small>[pure virtual]</small></p><p>
+ Function for setting this object's data
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">NamedList containing the values to which this object's data should be set
+     </TD></TR>
+</TABLE></P>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

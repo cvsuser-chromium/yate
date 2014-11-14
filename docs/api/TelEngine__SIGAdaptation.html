@@ -1,0 +1,403 @@
+<HTML>
+<HEAD>
+<TITLE>class SIGAdaptation</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SIGAdaptation</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">Abstract SIGTRAN User Adaptation component. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH colspan="2">Contains pure virtuals</TH></TR><TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SIGAdaptation</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__Mutex.html">TelEngine::Mutex</A> <small>[public ]</small>, <i><A HREF="TelEngine__SIGTRAN.html">TelEngine::SIGTRAN</A></i> <small>[public ]</small>, <A HREF="TelEngine__SignallingComponent.html">TelEngine::SignallingComponent</A> <small>[public ]</small></TD></TR>
+<TR><TH>Inherited by</TH><TD><A HREF="TelEngine__ISDNIUAClient.html">ISDNIUAClient</A>, <A HREF="TelEngine__SIGAdaptClient.html">SIGAdaptClient</A>, <A HREF="TelEngine__SIGAdaptServer.html">SIGAdaptServer</A>, <A HREF="TelEngine__SS7M2UAClient.html">SS7M2UAClient</A></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SIGAdaptation.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref1">TrafficMode</A> {	TrafficUnused    = 0,
+	TrafficOverride  = 1,
+	TrafficLoadShare = 2,
+	TrafficBroadcast = 3,
+    }
+</LI>
+<LI>enum <A HREF="#ref2">HeartbeatState</A> {	HeartbeatDisabled     = 0,
+	HeartbeatEnabled      = 1,
+	HeartbeatWaitResponse = 2,
+    }
+</LI>
+<LI>enum <A HREF="#ref3">Errors</A> {	InvalidVersion            = 0x01,
+	InvalidIID                = 0x02,
+	UnsupportedMessageClass   = 0x03,
+	UnsupportedMessageType    = 0x04,
+	UnsupportedTrafficMode    = 0x05,
+	UnexpectedMessage         = 0x06,
+	ProtocolError             = 0x07,
+	UnsupportedIIDType        = 0x08,
+	InvalidStreamIdentifier   = 0x09,
+	UnassignedTEI             = 0x0a,
+	UnrecognizedSAPI          = 0x0b,
+	InvalidTEISAPI            = 0x0c,
+	ManagementBlocking        = 0x0d,
+	ASPIDRequired             = 0x0e,
+	InvalidASPID              = 0x0f,
+	ASPActiveIID              = 0x10,
+	InvalidParameterValue     = 0x11,
+	ParameterFieldError       = 0x12,
+	UnexpectedParameter       = 0x13,
+	DestinationStatusUnknown  = 0x14,
+	InvalidNetworkAppearance  = 0x15,
+	MissingParameter          = 0x16,
+	InvalidRoutingContext     = 0x19,
+	NotConfiguredAS           = 0x1a,
+	SubsystemStatusUnknown    = 0x1b,
+	InvalidLoadsharingLabel   = 0x1c
+    }
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>virtual  &nbsp;<b><A HREF="#ref4">~SIGAdaptation</A></b> () 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref5">initialize</A></b> (const NamedList* config) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref14">notifyLayer</A></b> (SignallingInterface::Notification status) 
+</LI>
+</ul><h4>Public Static Methods</h4><ul><LI>static  bool &nbsp;<b><A HREF="#ref6">nextTag</A></b> (const DataBlock& data, int& offset, <A HREF="#uint16_t">uint16_t</A>& tag, <A HREF="#uint16_t">uint16_t</A>& length) 
+</LI>
+<LI>static  bool &nbsp;<b><A HREF="#ref7">findTag</A></b> (const DataBlock& data, int& offset, <A HREF="#uint16_t">uint16_t</A> tag, <A HREF="#uint16_t">uint16_t</A>& length) 
+</LI>
+<LI>static  bool &nbsp;<b><A HREF="#ref8">getTag</A></b> (const DataBlock& data, <A HREF="#uint16_t">uint16_t</A> tag, <A HREF="#uint32_t">uint32_t</A>& value) 
+</LI>
+<LI>static  bool &nbsp;<b><A HREF="#ref9">getTag</A></b> (const DataBlock& data, <A HREF="#uint16_t">uint16_t</A> tag, String& value) 
+</LI>
+<LI>static  bool &nbsp;<b><A HREF="#ref10">getTag</A></b> (const DataBlock& data, <A HREF="#uint16_t">uint16_t</A> tag, DataBlock& value) 
+</LI>
+<LI>static  void &nbsp;<b><A HREF="#ref11">addTag</A></b> (DataBlock& data, <A HREF="#uint16_t">uint16_t</A> tag, <A HREF="#uint32_t">uint32_t</A> value) 
+</LI>
+<LI>static  void &nbsp;<b><A HREF="#ref12">addTag</A></b> (DataBlock& data, <A HREF="#uint16_t">uint16_t</A> tag, const String& value) 
+</LI>
+<LI>static  void &nbsp;<b><A HREF="#ref13">addTag</A></b> (DataBlock& data, <A HREF="#uint16_t">uint16_t</A> tag, const DataBlock& value) 
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>explicit &nbsp;<b><A HREF="#ref15">SIGAdaptation</A></b> (const char* name = 0, const NamedList* params = 0,
+	<A HREF="#u_int32_t">u_int32_t</A> payload = 0, <A HREF="#u_int16_t">u_int16_t</A> port = 0) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref16">processCommonMSG</A></b> (unsigned char msgClass,
+	unsigned char msgType, const DataBlock& msg, int streamId) 
+</LI>
+<LI>virtual  bool &nbsp;<b><i><A HREF="#ref17">processMgmtMSG</A></i></b> (unsigned char msgType, const DataBlock& msg, int streamId) 
+</LI>
+<LI>virtual  bool &nbsp;<b><i><A HREF="#ref18">processAspsmMSG</A></i></b> (unsigned char msgType, const DataBlock& msg, int streamId) 
+</LI>
+<LI>virtual  bool &nbsp;<b><i><A HREF="#ref19">processAsptmMSG</A></i></b> (unsigned char msgType, const DataBlock& msg, int streamId) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref20">timerTick</A></b> (const Time& when) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref21">processHeartbeat</A></b> (unsigned char msgType, const DataBlock& msg,
+	int streamId) 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref22">resetHeartbeat</A></b> () 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref23">enableHeartbeat</A></b> (unsigned char streamId) 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ An interface to a Signalling Transport User Adaptation component
+</p>
+<A NAME="TrafficMode"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>TrafficMode</strong> {	TrafficUnused    = 0,
+	TrafficOverride  = 1,
+	TrafficLoadShare = 2,
+	TrafficBroadcast = 3,
+    }
+</td><td align="right"><h3><strong>TrafficMode</strong></h3></td></tr></table><p></p><p>
+ Traffic modes
+     </p>
+<A NAME="HeartbeatState"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>HeartbeatState</strong> {	HeartbeatDisabled     = 0,
+	HeartbeatEnabled      = 1,
+	HeartbeatWaitResponse = 2,
+    }
+</td><td align="right"><h3><strong>HeartbeatState</strong></h3></td></tr></table><p></p><A NAME="Errors"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>Errors</strong> {	InvalidVersion            = 0x01,
+	InvalidIID                = 0x02,
+	UnsupportedMessageClass   = 0x03,
+	UnsupportedMessageType    = 0x04,
+	UnsupportedTrafficMode    = 0x05,
+	UnexpectedMessage         = 0x06,
+	ProtocolError             = 0x07,
+	UnsupportedIIDType        = 0x08,
+	InvalidStreamIdentifier   = 0x09,
+	UnassignedTEI             = 0x0a,
+	UnrecognizedSAPI          = 0x0b,
+	InvalidTEISAPI            = 0x0c,
+	ManagementBlocking        = 0x0d,
+	ASPIDRequired             = 0x0e,
+	InvalidASPID              = 0x0f,
+	ASPActiveIID              = 0x10,
+	InvalidParameterValue     = 0x11,
+	ParameterFieldError       = 0x12,
+	UnexpectedParameter       = 0x13,
+	DestinationStatusUnknown  = 0x14,
+	InvalidNetworkAppearance  = 0x15,
+	MissingParameter          = 0x16,
+	InvalidRoutingContext     = 0x19,
+	NotConfiguredAS           = 0x1a,
+	SubsystemStatusUnknown    = 0x1b,
+	InvalidLoadsharingLabel   = 0x1c
+    }
+</td><td align="right"><h3><strong>Errors</strong></h3></td></tr></table><p></p><A NAME="~SIGAdaptation"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~SIGAdaptation</strong> ()
+<br></td><td align="right"><h3><strong>~SIGAdaptation</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor
+     </p>
+<A NAME="initialize"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>initialize</strong> (const NamedList* config)
+<br></td><td align="right"><h3><strong>initialize</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Transport initialization
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>config</i></TD><TD align="left" valign="top">Configuration section for the adaptation
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#initialize">SignallingComponent</A>.</p>
+<A NAME="nextTag"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>nextTag</strong> (const DataBlock& data, int& offset, <A HREF="#uint16_t">uint16_t</A>& tag, <A HREF="#uint16_t">uint16_t</A>& length)
+<br></td><td align="right"><h3><strong>nextTag</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Advance to next tag in a Type-Length-Value set of parameters
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Block of data containing TLV parameters
+</TD></TR>
+<TR><TD align="left" valign="top"><i>offset</i></TD><TD align="left" valign="top">Offset of current parameter in block, initialize to negative for first tag
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tag</i></TD><TD align="left" valign="top">Type tag of returned parameter
+</TD></TR>
+<TR><TD align="left" valign="top"><i>length</i></TD><TD align="left" valign="top">Unpadded length of returned parameter in octets
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the current parameter was valid
+     </p>
+<A NAME="findTag"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>findTag</strong> (const DataBlock& data, int& offset, <A HREF="#uint16_t">uint16_t</A> tag, <A HREF="#uint16_t">uint16_t</A>& length)
+<br></td><td align="right"><h3><strong>findTag</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Find a specific tag in a Type-Length-Value set of parameters
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Block of data containing TLV parameters
+</TD></TR>
+<TR><TD align="left" valign="top"><i>offset</i></TD><TD align="left" valign="top">Offset of current parameter in block, gets updated
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tag</i></TD><TD align="left" valign="top">Type tag of searched parameter
+</TD></TR>
+<TR><TD align="left" valign="top"><i>length</i></TD><TD align="left" valign="top">Unpadded length of returned parameter in octets
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the requested parameter was found
+     </p>
+<A NAME="getTag"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>getTag</strong> (const DataBlock& data, <A HREF="#uint16_t">uint16_t</A> tag, <A HREF="#uint32_t">uint32_t</A>& value)
+<br></td><td align="right"><h3><strong>getTag</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get the value of a 32 bit integer parameter
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Block of data containing TLV parameters
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tag</i></TD><TD align="left" valign="top">Type tag of searched parameter
+</TD></TR>
+<TR><TD align="left" valign="top"><i>value</i></TD><TD align="left" valign="top">Variable to store the decoded parameter if found
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the requested parameter was found and decoded
+     </p>
+<A NAME="getTag"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>getTag</strong> (const DataBlock& data, <A HREF="#uint16_t">uint16_t</A> tag, String& value)
+<br></td><td align="right"><h3><strong>getTag</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get the value of a String parameter
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Block of data containing TLV parameters
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tag</i></TD><TD align="left" valign="top">Type tag of searched parameter
+</TD></TR>
+<TR><TD align="left" valign="top"><i>value</i></TD><TD align="left" valign="top">Variable to store the decoded parameter if found
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the requested parameter was found and decoded
+     </p>
+<A NAME="getTag"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>getTag</strong> (const DataBlock& data, <A HREF="#uint16_t">uint16_t</A> tag, DataBlock& value)
+<br></td><td align="right"><h3><strong>getTag</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get the value of a raw binary parameter
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Block of data containing TLV parameters
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tag</i></TD><TD align="left" valign="top">Type tag of searched parameter
+</TD></TR>
+<TR><TD align="left" valign="top"><i>value</i></TD><TD align="left" valign="top">Variable to store the decoded parameter if found
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the requested parameter was found and decoded
+     </p>
+<A NAME="addTag"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>addTag</strong> (DataBlock& data, <A HREF="#uint16_t">uint16_t</A> tag, <A HREF="#uint32_t">uint32_t</A> value)
+<br></td><td align="right"><h3><strong>addTag</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Add a 32 bit integer parameter
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Block of data containing TLV parameters
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tag</i></TD><TD align="left" valign="top">Type tag of parameter to add
+</TD></TR>
+<TR><TD align="left" valign="top"><i>value</i></TD><TD align="left" valign="top">Value of parameter to add
+     </TD></TR>
+</TABLE></P>
+<A NAME="addTag"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>addTag</strong> (DataBlock& data, <A HREF="#uint16_t">uint16_t</A> tag, const String& value)
+<br></td><td align="right"><h3><strong>addTag</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Add a String parameter
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Block of data containing TLV parameters
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tag</i></TD><TD align="left" valign="top">Type tag of parameter to add
+</TD></TR>
+<TR><TD align="left" valign="top"><i>value</i></TD><TD align="left" valign="top">Value of parameter to add
+     </TD></TR>
+</TABLE></P>
+<A NAME="addTag"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>addTag</strong> (DataBlock& data, <A HREF="#uint16_t">uint16_t</A> tag, const DataBlock& value)
+<br></td><td align="right"><h3><strong>addTag</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Add a raw binary parameter
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Block of data containing TLV parameters
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tag</i></TD><TD align="left" valign="top">Type tag of parameter to add
+</TD></TR>
+<TR><TD align="left" valign="top"><i>value</i></TD><TD align="left" valign="top">Value of parameter to add
+     </TD></TR>
+</TABLE></P>
+<A NAME="notifyLayer"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>notifyLayer</strong> (SignallingInterface::Notification status)
+<br></td><td align="right"><h3><strong>notifyLayer</strong></h3></td></tr></table><p></p><p>
+ Method called when the transport status has been changed
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>status</i></TD><TD align="left" valign="top">Status of the transport causing the notification
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SIGTRAN.html#notifyLayer">SIGTRAN</A>.</p>
+<A NAME="SIGAdaptation"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>explicit &nbsp;<strong>SIGAdaptation</strong> (const char* name = 0, const NamedList* params = 0,
+	<A HREF="#u_int32_t">u_int32_t</A> payload = 0, <A HREF="#u_int16_t">u_int16_t</A> port = 0)
+<br></td><td align="right"><h3><strong>SIGAdaptation</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Constructs an uninitialized User Adaptation component
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Name of this component
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Optional pointer to creation parameters
+</TD></TR>
+<TR><TD align="left" valign="top"><i>payload</i></TD><TD align="left" valign="top">SCTP payload code, ignored for other transports
+</TD></TR>
+<TR><TD align="left" valign="top"><i>port</i></TD><TD align="left" valign="top">SCTP/TCP/UDP default port used for transport
+     </TD></TR>
+</TABLE></P>
+<A NAME="processCommonMSG"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>processCommonMSG</strong> (unsigned char msgClass,
+	unsigned char msgType, const DataBlock& msg, int streamId)
+<br></td><td align="right"><h3><strong>processCommonMSG</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Processing of common management messages
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msgClass</i></TD><TD align="left" valign="top">Class of the message
+</TD></TR>
+<TR><TD align="left" valign="top"><i>msgType</i></TD><TD align="left" valign="top">Type of the message, depends on the class
+</TD></TR>
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">Message data, may be empty
+</TD></TR>
+<TR><TD align="left" valign="top"><i>streamId</i></TD><TD align="left" valign="top">Identifier of the stream the message was received on
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the message was handled
+     </p>
+<A NAME="processMgmtMSG"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<i><strong>processMgmtMSG</strong></i> (unsigned char msgType, const DataBlock& msg, int streamId)
+<br></td><td align="right"><h3><i><strong>processMgmtMSG</strong></i></h3></td></tr></table><p> <small>[protected pure virtual]</small></p><p>
+ Abstract processing of Management messages
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msgType</i></TD><TD align="left" valign="top">Type of the message, depends on the class
+</TD></TR>
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">Message data, may be empty
+</TD></TR>
+<TR><TD align="left" valign="top"><i>streamId</i></TD><TD align="left" valign="top">Identifier of the stream the message was received on
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the message was handled
+     </p>
+<A NAME="processAspsmMSG"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<i><strong>processAspsmMSG</strong></i> (unsigned char msgType, const DataBlock& msg, int streamId)
+<br></td><td align="right"><h3><i><strong>processAspsmMSG</strong></i></h3></td></tr></table><p> <small>[protected pure virtual]</small></p><p>
+ Abstract processing of ASP State Maintenance messages
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msgType</i></TD><TD align="left" valign="top">Type of the message, depends on the class
+</TD></TR>
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">Message data, may be empty
+</TD></TR>
+<TR><TD align="left" valign="top"><i>streamId</i></TD><TD align="left" valign="top">Identifier of the stream the message was received on
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the message was handled
+     </p>
+<A NAME="processAsptmMSG"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<i><strong>processAsptmMSG</strong></i> (unsigned char msgType, const DataBlock& msg, int streamId)
+<br></td><td align="right"><h3><i><strong>processAsptmMSG</strong></i></h3></td></tr></table><p> <small>[protected pure virtual]</small></p><p>
+ Abstract processing of ASP Traffic Maintenance messages
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msgType</i></TD><TD align="left" valign="top">Type of the message, depends on the class
+</TD></TR>
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">Message data, may be empty
+</TD></TR>
+<TR><TD align="left" valign="top"><i>streamId</i></TD><TD align="left" valign="top">Identifier of the stream the message was received on
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the message was handled
+     </p>
+<A NAME="timerTick"></A><A NAME="ref20"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>timerTick</strong> (const Time& when)
+<br></td><td align="right"><h3><strong>timerTick</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Method called periodically by the engine to keep everything alive
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>when</i></TD><TD align="left" valign="top">Time to use as computing base for events and timeouts
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#timerTick">SignallingComponent</A>.</p>
+<A NAME="processHeartbeat"></A><A NAME="ref21"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>processHeartbeat</strong> (unsigned char msgType, const DataBlock& msg,
+	int streamId)
+<br></td><td align="right"><h3><strong>processHeartbeat</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Process the heartbeat messages
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msgType</i></TD><TD align="left" valign="top">The message type
+</TD></TR>
+<TR><TD align="left" valign="top"><i>msg</i></TD><TD align="left" valign="top">Message data
+</TD></TR>
+<TR><TD align="left" valign="top"><i>streamId</i></TD><TD align="left" valign="top">Identifier of the stream the message was received on
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the message was handled
+     </p>
+<A NAME="resetHeartbeat"></A><A NAME="ref22"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>resetHeartbeat</strong> ()
+<br></td><td align="right"><h3><strong>resetHeartbeat</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Reset heartbeat for all streams
+     </p>
+<A NAME="enableHeartbeat"></A><A NAME="ref23"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>enableHeartbeat</strong> (unsigned char streamId)
+<br></td><td align="right"><h3><strong>enableHeartbeat</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Enable heartbeat for the specifyed steam id
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>streamId</i></TD><TD align="left" valign="top">The stream id
+     </TD></TR>
+</TABLE></P>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

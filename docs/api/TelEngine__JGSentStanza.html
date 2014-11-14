@@ -1,0 +1,99 @@
+<HTML>
+<HEAD>
+<TITLE>class JGSentStanza</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class JGSentStanza</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">Send stanza timeout info. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::JGSentStanza</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yjabber___yatejingle_h.html">libs/yjabber/yatejingle.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__String.html">TelEngine::String</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__JGSentStanza.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref1">JGSentStanza</A></b> (const char* id, <A HREF="#u_int64_t">u_int64_t</A> time, bool notif = false, bool ping = false,
+	JGSession::Action action = JGSession::ActCount) 
+</LI>
+<LI>inline <A HREF="#u_int64_t">u_int64_t</A> &nbsp;<b><A HREF="#ref2">timeout</A></b> ()  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref3">timeout</A></b> (<A HREF="#u_int64_t">u_int64_t</A> time)  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref4">notify</A></b> ()  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref5">ping</A></b> ()  const
+</LI>
+<LI>inline JGSession::Action &nbsp;<b><A HREF="#ref6">action</A></b> ()  const
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ This class holds sent stanzas info used for timeout checking
+</p>
+<A NAME="JGSentStanza"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>JGSentStanza</strong> (const char* id, <A HREF="#u_int64_t">u_int64_t</A> time, bool notif = false, bool ping = false,
+	JGSession::Action action = JGSession::ActCount)
+<br></td><td align="right"><h3><strong>JGSentStanza</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>id</i></TD><TD align="left" valign="top">The sent stanza's id
+</TD></TR>
+<TR><TD align="left" valign="top"><i>time</i></TD><TD align="left" valign="top">The sent time
+</TD></TR>
+<TR><TD align="left" valign="top"><i>notif</i></TD><TD align="left" valign="top">True to notify stanza timeout or response
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ping</i></TD><TD align="left" valign="top">True if the sent stanza is a ping one
+</TD></TR>
+<TR><TD align="left" valign="top"><i>action</i></TD><TD align="left" valign="top">Optional sent stanza action
+     </TD></TR>
+</TABLE></P>
+<A NAME="timeout"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline <A HREF="#u_int64_t">u_int64_t</A> &nbsp;<strong>timeout</strong> ()
+<br></td><td align="right"><h3><strong>timeout</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve stanza timeout
+</p>
+<p><b>Returns</b>: Stanza timeout
+     </p>
+<A NAME="timeout"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>timeout</strong> (<A HREF="#u_int64_t">u_int64_t</A> time)
+<br></td><td align="right"><h3><strong>timeout</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Check if this element timed out
+</p>
+<p><b>Returns</b>: True if timeout
+     </p>
+<A NAME="notify"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>notify</strong> ()
+<br></td><td align="right"><h3><strong>notify</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Check if timeout should be notified to sender
+</p>
+<p><b>Returns</b>: True to notify
+     </p>
+<A NAME="ping"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>ping</strong> ()
+<br></td><td align="right"><h3><strong>ping</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Check if the stanza is a ping one
+</p>
+<p><b>Returns</b>: True if the stanza is a ping one
+     </p>
+<A NAME="action"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline JGSession::Action &nbsp;<strong>action</strong> ()
+<br></td><td align="right"><h3><strong>action</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the jingle action as enumeration
+</p>
+<p><b>Returns</b>: The jingle action as enumeration
+     </p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

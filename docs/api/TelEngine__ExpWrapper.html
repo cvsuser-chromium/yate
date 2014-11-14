@@ -1,0 +1,136 @@
+<HTML>
+<HEAD>
+<TITLE>class ExpWrapper</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class ExpWrapper</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">Object wrapper for evaluation. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::ExpWrapper</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yscript___yatescript_h.html">libs/yscript/yatescript.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__ExpOperation.html">TelEngine::ExpOperation</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__ExpWrapper.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>inline &nbsp;<b><A HREF="#ref1">ExpWrapper</A></b> (GenObject* object, const char* name = 0, bool barrier = false) 
+</LI>
+<LI>inline &nbsp;<b><A HREF="#ref2">ExpWrapper</A></b> (ExpEvaluator::Opcode opcode, GenObject* object) 
+</LI>
+<LI>virtual  &nbsp;<b><A HREF="#ref3">~ExpWrapper</A></b> () 
+</LI>
+<LI>virtual  void* &nbsp;<b><A HREF="#ref4">getObject</A></b> (const String& name)  const
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref5">valBoolean</A></b> ()  const
+</LI>
+<LI>virtual  const char* &nbsp;<b><A HREF="#ref6">typeOf</A></b> ()  const
+</LI>
+<LI>virtual  ExpOperation* &nbsp;<b><A HREF="#ref7">clone</A></b> (const char* name)  const
+</LI>
+<LI>virtual  ExpOperation* &nbsp;<b><A HREF="#ref8">copy</A></b> (Mutex* mtx)  const
+</LI>
+<LI>GenObject* &nbsp;<b><A HREF="#ref9">object</A></b> ()  const
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ Helper class that allows wrapping entire objects in an operation
+</p>
+<A NAME="ExpWrapper"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>ExpWrapper</strong> (GenObject* object, const char* name = 0, bool barrier = false)
+<br></td><td align="right"><h3><strong>ExpWrapper</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>object</i></TD><TD align="left" valign="top">Pointer to the object to wrap
+</TD></TR>
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Optional name of the wrapper
+</TD></TR>
+<TR><TD align="left" valign="top"><i>barrier</i></TD><TD align="left" valign="top">True if the operation is an expression barrier on the stack
+     </TD></TR>
+</TABLE></P>
+<A NAME="ExpWrapper"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>ExpWrapper</strong> (ExpEvaluator::Opcode opcode, GenObject* object)
+<br></td><td align="right"><h3><strong>ExpWrapper</strong></h3></td></tr></table><p></p><p>
+ Constructor with special operation
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>opcode</i></TD><TD align="left" valign="top">Operation code of the wrapper
+</TD></TR>
+<TR><TD align="left" valign="top"><i>object</i></TD><TD align="left" valign="top">Pointer to the object to wrap
+     </TD></TR>
+</TABLE></P>
+<A NAME="~ExpWrapper"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~ExpWrapper</strong> ()
+<br></td><td align="right"><h3><strong>~ExpWrapper</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor, deletes the held object
+     </p>
+<A NAME="getObject"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void* &nbsp;<strong>getObject</strong> (const String& name)
+<br></td><td align="right"><h3><strong>getObject</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Get a pointer to a derived class given that class name
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Name of the class we are asking for
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Pointer to the requested class or NULL if this object doesn't implement it
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__NamedString.html#getObject">NamedString</A>.</p>
+<A NAME="valBoolean"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>valBoolean</strong> ()
+<br></td><td align="right"><h3><strong>valBoolean</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Retrieve the boolean value of the operation
+</p>
+<p><b>Returns</b>: True if the wrapped object is to be interpreted as true value
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__ExpOperation.html#valBoolean">ExpOperation</A>.</p>
+<A NAME="typeOf"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td> const char* &nbsp;<strong>typeOf</strong> ()
+<br></td><td align="right"><h3><strong>typeOf</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Retrieve the name of the type of the value of this operation
+</p>
+<p><b>Returns</b>: Name of the type of the value
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__ExpOperation.html#typeOf">ExpOperation</A>.</p>
+<A NAME="clone"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> ExpOperation* &nbsp;<strong>clone</strong> (const char* name)
+<br></td><td align="right"><h3><strong>clone</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Clone and rename method
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Name of the cloned operation
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: New operation instance
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__ExpOperation.html#clone">ExpOperation</A>.</p>
+<A NAME="copy"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td> ExpOperation* &nbsp;<strong>copy</strong> (Mutex* mtx)
+<br></td><td align="right"><h3><strong>copy</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Deep copy method
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>mtx</i></TD><TD align="left" valign="top">Pointer to the mutex that serializes the copied object
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: New operation instance
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__ExpOperation.html#copy">ExpOperation</A>.</p>
+<A NAME="object"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>GenObject* &nbsp;<strong>object</strong> ()
+<br></td><td align="right"><h3><strong>object</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Object access method
+</p>
+<p><b>Returns</b>: Pointer to the held object
+     </p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

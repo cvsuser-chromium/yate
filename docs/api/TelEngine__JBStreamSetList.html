@@ -1,0 +1,178 @@
+<HTML>
+<HEAD>
+<TITLE>class JBStreamSetList</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class JBStreamSetList</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">A list of stream sets. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::JBStreamSetList</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yjabber___yatejabber_h.html">libs/yjabber/yatejabber.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__Mutex.html">TelEngine::Mutex</A> <small>[public ]</small>, <A HREF="TelEngine__RefObject.html">TelEngine::RefObject</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__JBStreamSetList.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref3">JBStreamSetList</A></b> (JBEngine* engine, unsigned int max, unsigned int sleepMs,
+	const char* name) 
+</LI>
+<LI>inline ObjList& &nbsp;<b><A HREF="#ref4">sets</A></b> () 
+</LI>
+<LI>virtual  &nbsp;<b><A HREF="#ref5">~JBStreamSetList</A></b> () 
+</LI>
+<LI>inline unsigned int &nbsp;<b><A HREF="#ref6">maxStreams</A></b> ()  const
+</LI>
+<LI>inline unsigned int &nbsp;<b><A HREF="#ref7">streamCount</A></b> ()  const
+</LI>
+<LI>inline JBEngine* &nbsp;<b><A HREF="#ref8">engine</A></b> ()  const
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref9">add</A></b> (JBStream* client) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref10">remove</A></b> (JBStream* client, bool delObj = true) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref11">stop</A></b> (JBStreamSet* set = 0, bool waitTerminate = true) 
+</LI>
+<LI>virtual  const String& &nbsp;<b><A HREF="#ref12">toString</A></b> ()  const
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>virtual  void &nbsp;<b><A HREF="#ref13">destroyed</A></b> () 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref14">remove</A></b> (JBStreamSet* set) 
+</LI>
+<LI>virtual  JBStreamSet* &nbsp;<b><A HREF="#ref15">build</A></b> () 
+</LI>
+</ul><h4>Protected Members</h4><ul><LI>JBEngine* <b><A HREF="#ref16">m_engine</A></b></LI>
+<LI>String <b><A HREF="#ref17">m_name</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref18">m_max</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref19">m_sleepMs</A></b></LI>
+<LI>ObjList <b><A HREF="#ref20">m_sets</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ This class holds a list of stream sets.
+ The purpose is to create a list of threads
+</p>
+<A NAME="JBStreamSetList"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>JBStreamSetList</strong> (JBEngine* engine, unsigned int max, unsigned int sleepMs,
+	const char* name)
+<br></td><td align="right"><h3><strong>JBStreamSetList</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>engine</i></TD><TD align="left" valign="top">Engine owning this list
+</TD></TR>
+<TR><TD align="left" valign="top"><i>max</i></TD><TD align="left" valign="top">Maximum streams per set (0 for maximum possible)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sleepMs</i></TD><TD align="left" valign="top">Time to sleep when idle
+</TD></TR>
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">List name (for debugging purposes)
+     </TD></TR>
+</TABLE></P>
+<A NAME="sets"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline ObjList& &nbsp;<strong>sets</strong> ()
+<br></td><td align="right"><h3><strong>sets</strong></h3></td></tr></table><p></p><p>
+ Retrieve the stream set list.
+ Make sure the list is locked before calling this method
+</p>
+<p><b>Returns</b>: The stream set list
+     </p>
+<A NAME="~JBStreamSetList"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~JBStreamSetList</strong> ()
+<br></td><td align="right"><h3><strong>~JBStreamSetList</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor
+     </p>
+<A NAME="maxStreams"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline unsigned int &nbsp;<strong>maxStreams</strong> ()
+<br></td><td align="right"><h3><strong>maxStreams</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the maximum number of streams per set
+</p>
+<p><b>Returns</b>: The maximum number of streams per set
+     </p>
+<A NAME="streamCount"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline unsigned int &nbsp;<strong>streamCount</strong> ()
+<br></td><td align="right"><h3><strong>streamCount</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the number of streams in all sets
+</p>
+<p><b>Returns</b>: The number of streams in all sets
+     </p>
+<A NAME="engine"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline JBEngine* &nbsp;<strong>engine</strong> ()
+<br></td><td align="right"><h3><strong>engine</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the engine owning this list
+</p>
+<p><b>Returns</b>: The engine owning this list
+     </p>
+<A NAME="add"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>add</strong> (JBStream* client)
+<br></td><td align="right"><h3><strong>add</strong></h3></td></tr></table><p></p><p>
+ Add a stream to the list. Build a new set if there is no room in existing sets
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>client</i></TD><TD align="left" valign="top">The stream to add
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True on success
+     </p>
+<A NAME="remove"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>remove</strong> (JBStream* client, bool delObj = true)
+<br></td><td align="right"><h3><strong>remove</strong></h3></td></tr></table><p></p><p>
+ Remove a stream from list
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>client</i></TD><TD align="left" valign="top">The stream to remove
+</TD></TR>
+<TR><TD align="left" valign="top"><i>delObj</i></TD><TD align="left" valign="top">True to release the stream, false to remove it from list
+  without releasing it
+     </TD></TR>
+</TABLE></P>
+<A NAME="stop"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>stop</strong> (JBStreamSet* set = 0, bool waitTerminate = true)
+<br></td><td align="right"><h3><strong>stop</strong></h3></td></tr></table><p></p><p>
+ Stop one set or all sets
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>set</i></TD><TD align="left" valign="top">The set to stop, 0 to stop all
+</TD></TR>
+<TR><TD align="left" valign="top"><i>waitTerminate</i></TD><TD align="left" valign="top">True to wait for all streams to terminate
+     </TD></TR>
+</TABLE></P>
+<A NAME="toString"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td> const String& &nbsp;<strong>toString</strong> ()
+<br></td><td align="right"><h3><strong>toString</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Get the string representation of this list
+</p>
+<p><b>Returns</b>: The list name
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__GenObject.html#toString">GenObject</A>.</p>
+<A NAME="destroyed"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>destroyed</strong> ()
+<br></td><td align="right"><h3><strong>destroyed</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Stop all sets. Release memory
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__RefObject.html#destroyed">RefObject</A>.</p>
+<A NAME="remove"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>remove</strong> (JBStreamSet* set)
+<br></td><td align="right"><h3><strong>remove</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Remove a set from list without deleting it
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>set</i></TD><TD align="left" valign="top">The set to remove
+     </TD></TR>
+</TABLE></P>
+<A NAME="build"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td> JBStreamSet* &nbsp;<strong>build</strong> ()
+<br></td><td align="right"><h3><strong>build</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Build a specialized stream set. Descendants must override this method
+</p>
+<p><b>Returns</b>: JBStreamSet pointer or 0
+     </p>
+<A NAME="m_engine"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td>JBEngine*  <strong>m_engine</strong>
+</td><td align="right"><h3><strong>m_engine</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_name"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_name</strong>
+</td><td align="right"><h3><strong>m_name</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_max"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_max</strong>
+</td><td align="right"><h3><strong>m_max</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_sleepMs"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_sleepMs</strong>
+</td><td align="right"><h3><strong>m_sleepMs</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_sets"></A><A NAME="ref20"></A><table width="100%"><tr bgcolor="#eeeeee"><td>ObjList  <strong>m_sets</strong>
+</td><td align="right"><h3><strong>m_sets</strong></h3></td></tr></table><p> <small>[protected]</small></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

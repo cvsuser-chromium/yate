@@ -1,0 +1,720 @@
+<HTML>
+<HEAD>
+<TITLE>class ASNLib</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class ASNLib</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">Class containing functions for decoding/encoding ASN.1 basic data types. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::ASNLib</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yasn___yateasn_h.html">libs/yasn/yateasn.h</A>&gt;</code></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__ASNLib.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref1">TypeTag</A> {	UNIVERSAL	= 0x00,
+	BOOLEAN		= 0x01,
+	INTEGER 	= 0x02,
+	BIT_STRING	= 0x03,
+	OCTET_STRING 	= 0x04,
+	NULL_ID		= 0x05,
+	OBJECT_ID	= 0x06,
+	REAL		= 0x09, 
+	UTF8_STR	= 0x0c,
+	SEQUENCE	= 0x30,
+	SET		= 0x31,
+	NUMERIC_STR	= 0x12,
+	PRINTABLE_STR	= 0x13,
+	IA5_STR		= 0x16,
+	UTC_TIME	= 0x17,
+	GENERALIZED_TIME = 0x18,
+	VISIBLE_STR	= 0x1a,
+	GENERAL_STR	= 0x1b, 
+	UNIVERSAL_STR	= 0x1c, 
+	CHARACTER_STR	= 0x1d, 
+	BMP_STR		= 0x1e, 
+	CHOICE		= 0x1f, 
+	DEFINED		= 0x2d
+    }
+</LI>
+<LI>enum <A HREF="#ref2">Error</A> {	InvalidLengthOrTag = -1,
+	ConstraintBreakError = -2,
+	ParseError = -3,
+	InvalidContentsError = -4,
+	IndefiniteForm = -5,
+    }
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref3">ASNLib</A></b> () 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref4">~ASNLib</A></b> () 
+</LI>
+</ul><h4>Public Static Methods</h4><ul><LI>static  int &nbsp;<b><A HREF="#ref5">decodeLength</A></b> (DataBlock& data) 
+</LI>
+<LI>static  int &nbsp;<b><A HREF="#ref6">decodeBoolean</A></b> (DataBlock& data, bool* val, bool tagCheck) 
+</LI>
+<LI>static  int &nbsp;<b><A HREF="#ref7">decodeInteger</A></b> (DataBlock& data, <A HREF="#u_int64_t">u_int64_t</A>& intVal, unsigned int bytes, bool tagCheck) 
+</LI>
+<LI>static  int &nbsp;<b><A HREF="#ref8">decodeUINT8</A></b> (DataBlock& data, <A HREF="#u_int8_t">u_int8_t</A>* intVal, bool tagCheck) 
+</LI>
+<LI>static  int &nbsp;<b><A HREF="#ref9">decodeUINT16</A></b> (DataBlock& data, <A HREF="#u_int16_t">u_int16_t</A>* intVal, bool tagCheck) 
+</LI>
+<LI>static  int &nbsp;<b><A HREF="#ref10">decodeUINT32</A></b> (DataBlock& data, <A HREF="#u_int32_t">u_int32_t</A>* intVal, bool tagCheck) 
+</LI>
+<LI>static  int &nbsp;<b><A HREF="#ref11">decodeUINT64</A></b> (DataBlock& data, <A HREF="#u_int64_t">u_int64_t</A>* intVal, bool tagCheck) 
+</LI>
+<LI>static  int &nbsp;<b><A HREF="#ref12">decodeINT8</A></b> (DataBlock& data, <A HREF="#int8_t">int8_t</A>* intVal, bool tagCheck) 
+</LI>
+<LI>static  int &nbsp;<b><A HREF="#ref13">decodeINT16</A></b> (DataBlock& data, <A HREF="#int16_t">int16_t</A>* intVal, bool tagCheck) 
+</LI>
+<LI>static  int &nbsp;<b><A HREF="#ref14">decodeINT32</A></b> (DataBlock& data, <A HREF="#int32_t">int32_t</A>* intVal, bool tagCheck) 
+</LI>
+<LI>static  int &nbsp;<b><A HREF="#ref15">decodeINT64</A></b> (DataBlock& data, <A HREF="#int64_t">int64_t</A>* intVal, bool tagCheck) 
+</LI>
+<LI>static  int &nbsp;<b><A HREF="#ref16">decodeBitString</A></b> (DataBlock& data, String* val, bool tagCheck) 
+</LI>
+<LI>static  int &nbsp;<b><A HREF="#ref17">decodeOctetString</A></b> (DataBlock& data, OctetString* strVal, bool tagCheck) 
+</LI>
+<LI>static  int &nbsp;<b><A HREF="#ref18">decodeNull</A></b> (DataBlock& data, bool tagCheck) 
+</LI>
+<LI>static  int &nbsp;<b><A HREF="#ref19">decodeOID</A></b> (DataBlock& data, ASNObjId* obj, bool tagCheck) 
+</LI>
+<LI>static  int &nbsp;<b><A HREF="#ref20">decodeReal</A></b> (DataBlock& data, float* realVal, bool tagCheck) 
+</LI>
+<LI>static  int &nbsp;<b><A HREF="#ref21">decodeString</A></b> (DataBlock& data, String* str, int* type, bool tagCheck) 
+</LI>
+<LI>static  int &nbsp;<b><A HREF="#ref22">decodeUtf8</A></b> (DataBlock& data, String* str, bool tagCheck) 
+</LI>
+<LI>static  int &nbsp;<b><A HREF="#ref23">decodeGenTime</A></b> (DataBlock& data, unsigned int* time, unsigned int* fractions, bool* utc, bool tagCheck) 
+</LI>
+<LI>static  int &nbsp;<b><A HREF="#ref24">decodeUTCTime</A></b> (DataBlock& data, unsigned int* time, bool tagCheck) 
+</LI>
+<LI>static  int &nbsp;<b><A HREF="#ref25">decodeAny</A></b> (DataBlock data, DataBlock* val, bool tagCheck) 
+</LI>
+<LI>static  int &nbsp;<b><A HREF="#ref26">decodeSequence</A></b> (DataBlock& data, bool tagCheck) 
+</LI>
+<LI>static  int &nbsp;<b><A HREF="#ref27">decodeSet</A></b> (DataBlock& data, bool tagCheck) 
+</LI>
+<LI>static  DataBlock &nbsp;<b><A HREF="#ref28">buildLength</A></b> (DataBlock& data) 
+</LI>
+<LI>static  DataBlock &nbsp;<b><A HREF="#ref29">encodeBoolean</A></b> (bool val, bool tagCheck) 
+</LI>
+<LI>static  DataBlock &nbsp;<b><A HREF="#ref30">encodeInteger</A></b> (<A HREF="#u_int64_t">u_int64_t</A> intVal, bool tagCheck) 
+</LI>
+<LI>static  DataBlock &nbsp;<b><A HREF="#ref31">encodeOctetString</A></b> (OctetString strVal, bool tagCheck) 
+</LI>
+<LI>static  DataBlock &nbsp;<b><A HREF="#ref32">encodeNull</A></b> (bool tagCheck) 
+</LI>
+<LI>static  DataBlock &nbsp;<b><A HREF="#ref33">encodeBitString</A></b> (String val, bool tagCheck) 
+</LI>
+<LI>static  DataBlock &nbsp;<b><A HREF="#ref34">encodeOID</A></b> (ASNObjId obj, bool tagCheck) 
+</LI>
+<LI>static  DataBlock &nbsp;<b><A HREF="#ref35">encodeReal</A></b> (float val, bool tagCheck) 
+</LI>
+<LI>static  DataBlock &nbsp;<b><A HREF="#ref36">encodeString</A></b> (String str, int type, bool tagCheck) 
+</LI>
+<LI>static  DataBlock &nbsp;<b><A HREF="#ref37">encodeUtf8</A></b> (String str, bool tagCheck) 
+</LI>
+<LI>static  DataBlock &nbsp;<b><A HREF="#ref38">encodeGenTime</A></b> (unsigned int time, unsigned int fractions, bool tagCheck) 
+</LI>
+<LI>static  DataBlock &nbsp;<b><A HREF="#ref39">encodeUTCTime</A></b> (unsigned int time, bool tagCheck) 
+</LI>
+<LI>static  DataBlock &nbsp;<b><A HREF="#ref40">encodeAny</A></b> (DataBlock data, bool tagCheck) 
+</LI>
+<LI>static  int &nbsp;<b><A HREF="#ref41">encodeSequence</A></b> (DataBlock& data, bool tagCheck) 
+</LI>
+<LI>static  int &nbsp;<b><A HREF="#ref42">encodeSet</A></b> (DataBlock& data, bool tagCheck) 
+</LI>
+<LI>static  int &nbsp;<b><A HREF="#ref43">matchEOC</A></b> (DataBlock& data) 
+</LI>
+<LI>static  int &nbsp;<b><A HREF="#ref44">parseUntilEoC</A></b> (DataBlock& data, int length = 0) 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ Class ASNLib
+</p>
+<A NAME="TypeTag"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>TypeTag</strong> {	UNIVERSAL	= 0x00,
+	BOOLEAN		= 0x01,
+	INTEGER 	= 0x02,
+	BIT_STRING	= 0x03,
+	OCTET_STRING 	= 0x04,
+	NULL_ID		= 0x05,
+	OBJECT_ID	= 0x06,
+	REAL		= 0x09, 
+	UTF8_STR	= 0x0c,
+	SEQUENCE	= 0x30,
+	SET		= 0x31,
+	NUMERIC_STR	= 0x12,
+	PRINTABLE_STR	= 0x13,
+	IA5_STR		= 0x16,
+	UTC_TIME	= 0x17,
+	GENERALIZED_TIME = 0x18,
+	VISIBLE_STR	= 0x1a,
+	GENERAL_STR	= 0x1b, 
+	UNIVERSAL_STR	= 0x1c, 
+	CHARACTER_STR	= 0x1d, 
+	BMP_STR		= 0x1e, 
+	CHOICE		= 0x1f, 
+	DEFINED		= 0x2d
+    }
+</td><td align="right"><h3><strong>TypeTag</strong></h3></td></tr></table><p></p><p>
+ ASN.1 Type tags
+     </p>
+<A NAME="Error"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>Error</strong> {	InvalidLengthOrTag = -1,
+	ConstraintBreakError = -2,
+	ParseError = -3,
+	InvalidContentsError = -4,
+	IndefiniteForm = -5,
+    }
+</td><td align="right"><h3><strong>Error</strong></h3></td></tr></table><p></p><p>
+ Error types
+     </p>
+<A NAME="ASNLib"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>ASNLib</strong> ()
+<br></td><td align="right"><h3><strong>ASNLib</strong></h3></td></tr></table><p></p><p>
+ Constructor
+     </p>
+<A NAME="~ASNLib"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>~ASNLib</strong> ()
+<br></td><td align="right"><h3><strong>~ASNLib</strong></h3></td></tr></table><p></p><p>
+ Destructor
+     </p>
+<A NAME="decodeLength"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>decodeLength</strong> (DataBlock& data)
+<br></td><td align="right"><h3><strong>decodeLength</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Decode the length of the block data containing the ASN.1 type data
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Input block from which to extract the length
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The length of the data block containing data, -1 if it couldn't be decoded
+     </p>
+<A NAME="decodeBoolean"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>decodeBoolean</strong> (DataBlock& data, bool* val, bool tagCheck)
+<br></td><td align="right"><h3><strong>decodeBoolean</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Decode a boolean value from the encoded data
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Input block from which the boolean value should be extracted
+</TD></TR>
+<TR><TD align="left" valign="top"><i>val</i></TD><TD align="left" valign="top">Pointer to a boolean to be filled with the decoded value
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag for indicating if in the process of decoding the value the presence of the ASN.1 tag for boolean (0x01) should be verified
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Length of data consumed from the input data it the decoding was successful, -1 if the boolean value could not be decoded
+     </p>
+<A NAME="decodeInteger"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>decodeInteger</strong> (DataBlock& data, <A HREF="#u_int64_t">u_int64_t</A>& intVal, unsigned int bytes, bool tagCheck)
+<br></td><td align="right"><h3><strong>decodeInteger</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Decode an integer value from the encoded data
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Input block from which the integer value should be extracted
+</TD></TR>
+<TR><TD align="left" valign="top"><i>intVal</i></TD><TD align="left" valign="top">Integer to be filled with the decoded value
+</TD></TR>
+<TR><TD align="left" valign="top"><i>bytes</i></TD><TD align="left" valign="top">Width of the decoded integer field
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag for indicating if in the process of decoding the value the presence of the ASN.1 tag for integer (0x02) should be verified
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Length of data consumed from the input data it the decoding was successful, -1 if the integer value could not be decoded
+     </p>
+<A NAME="decodeUINT8"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>decodeUINT8</strong> (DataBlock& data, <A HREF="#u_int8_t">u_int8_t</A>* intVal, bool tagCheck)
+<br></td><td align="right"><h3><strong>decodeUINT8</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Decode an unsigned integer value from the encoded data - helper function for casting from u_int64_t to u_int8_t in case of size constraints
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Input block from which the integer value should be extracted
+</TD></TR>
+<TR><TD align="left" valign="top"><i>intVal</i></TD><TD align="left" valign="top">Integer to be filled with the decoded value
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag for indicating if in the process of decoding the value the presence of the ASN.1 tag for integer (0x02) should be verified
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Length of data consumed from the input data it the decoding was successful, -1 if the integer value could not be decoded
+     </p>
+<A NAME="decodeUINT16"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>decodeUINT16</strong> (DataBlock& data, <A HREF="#u_int16_t">u_int16_t</A>* intVal, bool tagCheck)
+<br></td><td align="right"><h3><strong>decodeUINT16</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Decode an unsigned integer value from the encoded data - helper function for casting from u_int64_t to u_int16_t in case of size constraints
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Input block from which the integer value should be extracted
+</TD></TR>
+<TR><TD align="left" valign="top"><i>intVal</i></TD><TD align="left" valign="top">Integer to be filled with the decoded value
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag for indicating if in the process of decoding the value the presence of the ASN.1 tag for integer (0x02) should be verified
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Length of data consumed from the input data it the decoding was successful, -1 if the integer value could not be decoded
+     </p>
+<A NAME="decodeUINT32"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>decodeUINT32</strong> (DataBlock& data, <A HREF="#u_int32_t">u_int32_t</A>* intVal, bool tagCheck)
+<br></td><td align="right"><h3><strong>decodeUINT32</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Decode an unsigned integer value from the encoded data - helper function for casting from u_int64_t to u_int32_t in case of size constraints
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Input block from which the integer value should be extracted
+</TD></TR>
+<TR><TD align="left" valign="top"><i>intVal</i></TD><TD align="left" valign="top">Integer to be filled with the decoded value
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag for indicating if in the process of decoding the value the presence of the ASN.1 tag for integer (0x02) should be verified
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Length of data consumed from the input data it the decoding was successful, -1 if the integer value could not be decoded
+     </p>
+<A NAME="decodeUINT64"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>decodeUINT64</strong> (DataBlock& data, <A HREF="#u_int64_t">u_int64_t</A>* intVal, bool tagCheck)
+<br></td><td align="right"><h3><strong>decodeUINT64</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Decode an unsigned integer value from the encoded data - helper function for casting in case of size constraints
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Input block from which the integer value should be extracted
+</TD></TR>
+<TR><TD align="left" valign="top"><i>intVal</i></TD><TD align="left" valign="top">Integer to be filled with the decoded value
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag for indicating if in the process of decoding the value the presence of the ASN.1 tag for integer (0x02) should be verified
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Length of data consumed from the input data it the decoding was successful, -1 if the integer value could not be decoded
+     </p>
+<A NAME="decodeINT8"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>decodeINT8</strong> (DataBlock& data, <A HREF="#int8_t">int8_t</A>* intVal, bool tagCheck)
+<br></td><td align="right"><h3><strong>decodeINT8</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Decode an integer value from the encoded data - helper function for casting from u_int64_t to int8_t in case of size constraints
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Input block from which the integer value should be extracted
+</TD></TR>
+<TR><TD align="left" valign="top"><i>intVal</i></TD><TD align="left" valign="top">Integer to be filled with the decoded value
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag for indicating if in the process of decoding the value the presence of the ASN.1 tag for integer (0x02) should be verified
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Length of data consumed from the input data it the decoding was successful, -1 if the integer value could not be decoded
+     </p>
+<A NAME="decodeINT16"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>decodeINT16</strong> (DataBlock& data, <A HREF="#int16_t">int16_t</A>* intVal, bool tagCheck)
+<br></td><td align="right"><h3><strong>decodeINT16</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Decode an integer value from the encoded data - helper function for casting from u_int64_t to int16_t in case of size constraints
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Input block from which the integer value should be extracted
+</TD></TR>
+<TR><TD align="left" valign="top"><i>intVal</i></TD><TD align="left" valign="top">Integer to be filled with the decoded value
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag for indicating if in the process of decoding the value the presence of the ASN.1 tag for integer (0x02) should be verified
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Length of data consumed from the input data it the decoding was successful, -1 if the integer value could not be decoded
+     </p>
+<A NAME="decodeINT32"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>decodeINT32</strong> (DataBlock& data, <A HREF="#int32_t">int32_t</A>* intVal, bool tagCheck)
+<br></td><td align="right"><h3><strong>decodeINT32</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Decode an integer value from the encoded data - helper function for casting from u_int64_t to int32_t in case of size constraints
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Input block from which the integer value should be extracted
+</TD></TR>
+<TR><TD align="left" valign="top"><i>intVal</i></TD><TD align="left" valign="top">Integer to be filled with the decoded value
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag for indicating if in the process of decoding the value the presence of the ASN.1 tag for integer (0x02) should be verified
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Length of data consumed from the input data it the decoding was successful, -1 if the integer value could not be decoded
+     </p>
+<A NAME="decodeINT64"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>decodeINT64</strong> (DataBlock& data, <A HREF="#int64_t">int64_t</A>* intVal, bool tagCheck)
+<br></td><td align="right"><h3><strong>decodeINT64</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Decode an integer value from the encoded data - helper function for casting in case of size constraints
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Input block from which the integer value should be extracted
+</TD></TR>
+<TR><TD align="left" valign="top"><i>intVal</i></TD><TD align="left" valign="top">Integer to be filled with the decoded value
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag for indicating if in the process of decoding the value the presence of the ASN.1 tag for integer (0x02) should be verified
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Length of data consumed from the input data it the decoding was successful, -1 if the integer value could not be decoded
+     </p>
+<A NAME="decodeBitString"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>decodeBitString</strong> (DataBlock& data, String* val, bool tagCheck)
+<br></td><td align="right"><h3><strong>decodeBitString</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Decode a bitstring value from the encoded data
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Input block from which the bitstring value should be extracted
+</TD></TR>
+<TR><TD align="left" valign="top"><i>val</i></TD><TD align="left" valign="top">String to be filled with the decoded value
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag for indicating if in the process of decoding the value the presence of the ASN.1 tag for integer (0x03) should be verified
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Length of data consumed from the input data it the decoding was successful, -1 if the integer value could not be decoded
+     </p>
+<A NAME="decodeOctetString"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>decodeOctetString</strong> (DataBlock& data, OctetString* strVal, bool tagCheck)
+<br></td><td align="right"><h3><strong>decodeOctetString</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Decode a string value from the encoded data
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Input block from which the octet string value should be extracted
+</TD></TR>
+<TR><TD align="left" valign="top"><i>strVal</i></TD><TD align="left" valign="top">String to be filled with the decoded value
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag for indicating if in the process of decoding the value the presence of the ASN.1 tag for integer (0x04) should be verified
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Length of data consumed from the input data it the decoding was successful, -1 if the integer value could not be decoded
+     </p>
+<A NAME="decodeNull"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>decodeNull</strong> (DataBlock& data, bool tagCheck)
+<br></td><td align="right"><h3><strong>decodeNull</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Decode a null value from the encoded data
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Input block from which the null value should be extracted
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag for indicating if in the process of decoding the value the presence of the ASN.1 tag for integer (0x05) should be verified
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Length of data consumed from the input data it the decoding was successful, -1 if the integer value could not be decoded
+     </p>
+<A NAME="decodeOID"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>decodeOID</strong> (DataBlock& data, ASNObjId* obj, bool tagCheck)
+<br></td><td align="right"><h3><strong>decodeOID</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Decode an object id value from the encoded data
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Input block from which the OID value should be extracted
+</TD></TR>
+<TR><TD align="left" valign="top"><i>obj</i></TD><TD align="left" valign="top">ASNObjId to be filled with the decoded value
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag for indicating if in the process of decoding the value the presence of the ASN.1 tag for integer (0x06) should be verified
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Length of data consumed from the input data it the decoding was successful, -1 if the integer value could not be decoded
+     </p>
+<A NAME="decodeReal"></A><A NAME="ref20"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>decodeReal</strong> (DataBlock& data, float* realVal, bool tagCheck)
+<br></td><td align="right"><h3><strong>decodeReal</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Decode a real value from the encoded data - not implemented
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Input block from which the real value should be extracted
+</TD></TR>
+<TR><TD align="left" valign="top"><i>realVal</i></TD><TD align="left" valign="top">Float to be filled with the decoded value
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag for indicating if in the process of decoding the value the presence of the ASN.1 tag for integer (0x09) should be verified
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Length of data consumed from the input data it the decoding was successful, -1 if the integer value could not be decoded
+     </p>
+<A NAME="decodeString"></A><A NAME="ref21"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>decodeString</strong> (DataBlock& data, String* str, int* type, bool tagCheck)
+<br></td><td align="right"><h3><strong>decodeString</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Decode other types of ASN.1 strings from the encoded data (NumericString, PrintableString, VisibleString, IA5String)
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Input block from which the string value should be extracted
+</TD></TR>
+<TR><TD align="left" valign="top"><i>str</i></TD><TD align="left" valign="top">String to be filled with the decoded value
+</TD></TR>
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Integer to be filled with the value indicating which type of string has been decoded
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag for indicating if in the process of decoding the value the presence of the ASN.1 tag should be verified
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Length of data consumed from the input data it the decoding was successful, -1 if the integer value could not be decoded
+     </p>
+<A NAME="decodeUtf8"></A><A NAME="ref22"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>decodeUtf8</strong> (DataBlock& data, String* str, bool tagCheck)
+<br></td><td align="right"><h3><strong>decodeUtf8</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Decode an UTF8 string from the encoded data
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Input block from which the string value should be extracted
+</TD></TR>
+<TR><TD align="left" valign="top"><i>str</i></TD><TD align="left" valign="top">String to be filled with the decoded value
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag for indicating if in the process of decoding the value the presence of the ASN.1 tag (0x0c) should be verified
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Length of data consumed from the input data it the decoding was successful, -1 if the integer value could not be decoded
+     </p>
+<A NAME="decodeGenTime"></A><A NAME="ref23"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>decodeGenTime</strong> (DataBlock& data, unsigned int* time, unsigned int* fractions, bool* utc, bool tagCheck)
+<br></td><td align="right"><h3><strong>decodeGenTime</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Decode a GeneralizedTime value from the encoded data
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Input block from which the value should be extracted
+</TD></TR>
+<TR><TD align="left" valign="top"><i>time</i></TD><TD align="left" valign="top">Integer to be filled with time in seconds since epoch
+</TD></TR>
+<TR><TD align="left" valign="top"><i>fractions</i></TD><TD align="left" valign="top">Integer to be filled with fractions of a second
+</TD></TR>
+<TR><TD align="left" valign="top"><i>utc</i></TD><TD align="left" valign="top">Flag indicating if the decode time value represent local time or UTC time
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag for indicating if in the process of decoding the value the presence of the ASN.1 tag (0x18) should be verified
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Length of data consumed from the input data it the decoding was successful, -1 if the integer value could not be decoded
+     </p>
+<A NAME="decodeUTCTime"></A><A NAME="ref24"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>decodeUTCTime</strong> (DataBlock& data, unsigned int* time, bool tagCheck)
+<br></td><td align="right"><h3><strong>decodeUTCTime</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Decode a UTC time value from the encoded data
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Input block from which the value should be extracted
+</TD></TR>
+<TR><TD align="left" valign="top"><i>time</i></TD><TD align="left" valign="top">Integer to be filled with time in seconds since epoch
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag for indicating if in the process of decoding the value the presence of the ASN.1 tag (0x17) should be verified
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Length of data consumed from the input data it the decoding was successful, -1 if the integer value could not be decoded
+     </p>
+<A NAME="decodeAny"></A><A NAME="ref25"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>decodeAny</strong> (DataBlock data, DataBlock* val, bool tagCheck)
+<br></td><td align="right"><h3><strong>decodeAny</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Decode a block of arbitrary data
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Input block from which the value should be extracted
+</TD></TR>
+<TR><TD align="left" valign="top"><i>val</i></TD><TD align="left" valign="top">DataBlock in which the data shoulb be copied
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag for indicating if in the process of decoding the value the presence of the ASN.1 should be verified
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Length of data consumed from the input data it the decoding was successful, -1 if the integer value could not be decoded
+     </p>
+<A NAME="decodeSequence"></A><A NAME="ref26"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>decodeSequence</strong> (DataBlock& data, bool tagCheck)
+<br></td><td align="right"><h3><strong>decodeSequence</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Decode the header of an ASN.1 sequence ( decodes the tag and the length of the sequence)
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Input block from which the header should be extracted
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag for indicating if in the process of decoding the value the presence of the ASN.1 (0x30) should be verified
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Length of data consumed from the input data it the decoding was succesful, -1 if the integer value could not be decoded
+     </p>
+<A NAME="decodeSet"></A><A NAME="ref27"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>decodeSet</strong> (DataBlock& data, bool tagCheck)
+<br></td><td align="right"><h3><strong>decodeSet</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Decode the header of an ASN.1 set ( decodes the tag and the length of the sequence)
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Input block from which the header should be extracted
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag for indicating if in the process of decoding the value the presence of the ASN.1 (0x31) should be verified
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Length of data consumed from the input data it the decoding was succesful, -1 if the integer value could not be decoded
+     </p>
+<A NAME="buildLength"></A><A NAME="ref28"></A><table width="100%"><tr bgcolor="#eeeeee"><td> DataBlock &nbsp;<strong>buildLength</strong> (DataBlock& data)
+<br></td><td align="right"><h3><strong>buildLength</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Encode the length of the given data
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">The data for which the length should be encoded
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The data block which now contains the length encoding
+     </p>
+<A NAME="encodeBoolean"></A><A NAME="ref29"></A><table width="100%"><tr bgcolor="#eeeeee"><td> DataBlock &nbsp;<strong>encodeBoolean</strong> (bool val, bool tagCheck)
+<br></td><td align="right"><h3><strong>encodeBoolean</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Encode the given boolean value
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>val</i></TD><TD align="left" valign="top">The boolean value to encode
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag to specify if the boolean type tag should be inserted in the encoding
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The data block encoding of the value
+     </p>
+<A NAME="encodeInteger"></A><A NAME="ref30"></A><table width="100%"><tr bgcolor="#eeeeee"><td> DataBlock &nbsp;<strong>encodeInteger</strong> (<A HREF="#u_int64_t">u_int64_t</A> intVal, bool tagCheck)
+<br></td><td align="right"><h3><strong>encodeInteger</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Encode the given integer value
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>intVal</i></TD><TD align="left" valign="top">The integer value to encode
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag to specify if the integer type tag should be inserted in the encoding
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The data block encoding of the value
+     </p>
+<A NAME="encodeOctetString"></A><A NAME="ref31"></A><table width="100%"><tr bgcolor="#eeeeee"><td> DataBlock &nbsp;<strong>encodeOctetString</strong> (OctetString strVal, bool tagCheck)
+<br></td><td align="right"><h3><strong>encodeOctetString</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Encode the given octet string value
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>strVal</i></TD><TD align="left" valign="top">The octet string value to encode
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag to specify if the octet string type tag should be inserted in the encoding
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The data block encoding of the value
+     </p>
+<A NAME="encodeNull"></A><A NAME="ref32"></A><table width="100%"><tr bgcolor="#eeeeee"><td> DataBlock &nbsp;<strong>encodeNull</strong> (bool tagCheck)
+<br></td><td align="right"><h3><strong>encodeNull</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Encode a null value
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag to specify if the null tag should be inserted in the encoding
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The data block encoding of the value
+     </p>
+<A NAME="encodeBitString"></A><A NAME="ref33"></A><table width="100%"><tr bgcolor="#eeeeee"><td> DataBlock &nbsp;<strong>encodeBitString</strong> (String val, bool tagCheck)
+<br></td><td align="right"><h3><strong>encodeBitString</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Encode the given bitstring value
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>val</i></TD><TD align="left" valign="top">The bitstring value to encode
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag to specify if the type tag should be inserted in the encoding
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The data block encoding of the value
+     </p>
+<A NAME="encodeOID"></A><A NAME="ref34"></A><table width="100%"><tr bgcolor="#eeeeee"><td> DataBlock &nbsp;<strong>encodeOID</strong> (ASNObjId obj, bool tagCheck)
+<br></td><td align="right"><h3><strong>encodeOID</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Encode the given OID value
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>obj</i></TD><TD align="left" valign="top">The OID value to encode
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag to specify if the type tag should be inserted in the encoding
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The data block encoding of the value
+     </p>
+<A NAME="encodeReal"></A><A NAME="ref35"></A><table width="100%"><tr bgcolor="#eeeeee"><td> DataBlock &nbsp;<strong>encodeReal</strong> (float val, bool tagCheck)
+<br></td><td align="right"><h3><strong>encodeReal</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Encode the given real value - not implemented
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>val</i></TD><TD align="left" valign="top">The real value to encode
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag to specify if the type tag should be inserted in the encoding
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The data block encoding of the value
+     </p>
+<A NAME="encodeString"></A><A NAME="ref36"></A><table width="100%"><tr bgcolor="#eeeeee"><td> DataBlock &nbsp;<strong>encodeString</strong> (String str, int type, bool tagCheck)
+<br></td><td align="right"><h3><strong>encodeString</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Encode the given string value to NumericString, PrintableString, IA5String, VisibleString
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>str</i></TD><TD align="left" valign="top">The string value to encode
+</TD></TR>
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">The type of the encoding
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag to specify if the type tag should be inserted in the encoding
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The data block encoding of the value
+     </p>
+<A NAME="encodeUtf8"></A><A NAME="ref37"></A><table width="100%"><tr bgcolor="#eeeeee"><td> DataBlock &nbsp;<strong>encodeUtf8</strong> (String str, bool tagCheck)
+<br></td><td align="right"><h3><strong>encodeUtf8</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Encode the UTF8 string value
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>str</i></TD><TD align="left" valign="top">The string value to encode
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag to specify if the type tag should be inserted in the encoding
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The data block encoding of the value
+     </p>
+<A NAME="encodeGenTime"></A><A NAME="ref38"></A><table width="100%"><tr bgcolor="#eeeeee"><td> DataBlock &nbsp;<strong>encodeGenTime</strong> (unsigned int time, unsigned int fractions, bool tagCheck)
+<br></td><td align="right"><h3><strong>encodeGenTime</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Encode the given time value into a GeneralizedTime format
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>time</i></TD><TD align="left" valign="top">Time in seconds since epoch to encode
+</TD></TR>
+<TR><TD align="left" valign="top"><i>fractions</i></TD><TD align="left" valign="top">Fractions of a seconds to encode
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag to specify if the type tag should be inserted in the encoding
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The data block encoding of the value
+     </p>
+<A NAME="encodeUTCTime"></A><A NAME="ref39"></A><table width="100%"><tr bgcolor="#eeeeee"><td> DataBlock &nbsp;<strong>encodeUTCTime</strong> (unsigned int time, bool tagCheck)
+<br></td><td align="right"><h3><strong>encodeUTCTime</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Encode the given time value into an UTCTime format
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>time</i></TD><TD align="left" valign="top">Time in seconds since epoch to encode
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag to specify if the type tag should be inserted in the encoding
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The data block encoding of the value
+     </p>
+<A NAME="encodeAny"></A><A NAME="ref40"></A><table width="100%"><tr bgcolor="#eeeeee"><td> DataBlock &nbsp;<strong>encodeAny</strong> (DataBlock data, bool tagCheck)
+<br></td><td align="right"><h3><strong>encodeAny</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Encode an arbitrary block a data
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">data
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag to specify if the type tag should be inserted in the encoding
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The data block encoding of the value
+     </p>
+<A NAME="encodeSequence"></A><A NAME="ref41"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>encodeSequence</strong> (DataBlock& data, bool tagCheck)
+<br></td><td align="right"><h3><strong>encodeSequence</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Encode the header for a sequence
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Sequence data for which the header is encoded
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag to specify if the ype tag should be inserted in the encoding
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The length of the data block length encoding
+     </p>
+<A NAME="encodeSet"></A><A NAME="ref42"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>encodeSet</strong> (DataBlock& data, bool tagCheck)
+<br></td><td align="right"><h3><strong>encodeSet</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Encode the header for a set
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Sequence data for which the header is encoded
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tagCheck</i></TD><TD align="left" valign="top">Flag to specify if the type tag should be inserted in the encoding
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The length of the data block length encoding
+     </p>
+<A NAME="matchEOC"></A><A NAME="ref43"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>matchEOC</strong> (DataBlock& data)
+<br></td><td align="right"><h3><strong>matchEOC</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Verify the data for End Of Contents presence
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Input block to verify
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Length of data consumed from the input data it the decoding was succesful, it should be 2 in case of success, -1 if the data doesn't match EoC
+     </p>
+<A NAME="parseUntilEoC"></A><A NAME="ref44"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>parseUntilEoC</strong> (DataBlock& data, int length = 0)
+<br></td><td align="right"><h3><strong>parseUntilEoC</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Extract length until a End Of Contents is found.
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Input block for which to determine the length to End Of Contents
+</TD></TR>
+<TR><TD align="left" valign="top"><i>length</i></TD><TD align="left" valign="top">Length to which to add determined length
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Length until End Of Contents
+     </p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

@@ -1,0 +1,224 @@
+<HTML>
+<HEAD>
+<TITLE>class SS7TCAPComponent</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SS7TCAPComponent</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">SS7 TCAP component implementation. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SS7TCAPComponent</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__GenObject.html">TelEngine::GenObject</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SS7TCAPComponent.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref1">TCAPComponentState</A> {	Idle,
+	OperationPending,
+	OperationSent,
+	WaitForReject,
+    }
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref2">SS7TCAPComponent</A></b> (SS7TCAP::TCAPType type, SS7TCAPTransaction* trans, NamedList& params, unsigned int index) 
+</LI>
+<LI>virtual  &nbsp;<b><A HREF="#ref3">~SS7TCAPComponent</A></b> () 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref4">update</A></b> (NamedList& params, unsigned int index) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref5">fill</A></b> (unsigned int index, NamedList& fillIn) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref7">setTransaction</A></b> (SS7TCAPTransaction* transact) 
+</LI>
+<LI>SS7TCAPTransaction* &nbsp;<b><A HREF="#ref8">transaction</A></b> () 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref9">setType</A></b> (SS7TCAP::TCAPUserCompActions type) 
+</LI>
+<LI>inline SS7TCAP::TCAPUserCompActions &nbsp;<b><A HREF="#ref10">type</A></b> () 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref11">setInvokeID</A></b> (String invokeID) 
+</LI>
+<LI>virtual  const String&  &nbsp;<b><A HREF="#ref12">toString</A></b> ()  const
+</LI>
+<LI>virtual  const String&  &nbsp;<b><A HREF="#ref13">correlationID</A></b> ()  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref14">timedOut</A></b> () 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref15">setState</A></b> (TCAPComponentState state) 
+</LI>
+<LI>inline TCAPComponentState &nbsp;<b><A HREF="#ref16">state</A></b> () 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref17">resetTimer</A></b> (NamedList& params, unsigned int index) 
+</LI>
+<LI>SS7TCAP::TCAPComponentOperationClass &nbsp;<b><A HREF="#ref18">operationClass</A></b> () 
+</LI>
+</ul><h4>Public Static Methods</h4><ul><LI>static  SS7TCAPComponent* &nbsp;<b><A HREF="#ref6">componentFromNamedList</A></b> (SS7TCAP::TCAPType type, SS7TCAPTransaction* tr, NamedList& params, unsigned int index) 
+</LI>
+</ul><h4>Public Members</h4><ul><LI>static const TokenDict <b><A HREF="#ref19">s_compStates[]</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ Implementation of SS7 Transactional Capabilities Application Part Component
+</p>
+<A NAME="TCAPComponentState"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>TCAPComponentState</strong> {	Idle,
+	OperationPending,
+	OperationSent,
+	WaitForReject,
+    }
+</td><td align="right"><h3><strong>TCAPComponentState</strong></h3></td></tr></table><p></p><p>
+ Component state
+     </p>
+<A NAME="SS7TCAPComponent"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>SS7TCAPComponent</strong> (SS7TCAP::TCAPType type, SS7TCAPTransaction* trans, NamedList& params, unsigned int index)
+<br></td><td align="right"><h3><strong>SS7TCAPComponent</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">TCAP type for which to build this component
+</TD></TR>
+<TR><TD align="left" valign="top"><i>trans</i></TD><TD align="left" valign="top">TCAP transaction to which this component belongs to
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Parameters for building component
+</TD></TR>
+<TR><TD align="left" valign="top"><i>index</i></TD><TD align="left" valign="top">Index in the list of parameters
+     </TD></TR>
+</TABLE></P>
+<A NAME="~SS7TCAPComponent"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~SS7TCAPComponent</strong> ()
+<br></td><td align="right"><h3><strong>~SS7TCAPComponent</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor
+     </p>
+<A NAME="update"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>update</strong> (NamedList& params, unsigned int index)
+<br></td><td align="right"><h3><strong>update</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Update this component's data
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Update parameters
+</TD></TR>
+<TR><TD align="left" valign="top"><i>index</i></TD><TD align="left" valign="top">Index of parameters in the list for the update of this component
+     </TD></TR>
+</TABLE></P>
+<A NAME="fill"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>fill</strong> (unsigned int index, NamedList& fillIn)
+<br></td><td align="right"><h3><strong>fill</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Put the information of the component in a NamedList
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>index</i></TD><TD align="left" valign="top">Index for build parameter names
+</TD></TR>
+<TR><TD align="left" valign="top"><i>fillIn</i></TD><TD align="left" valign="top">NamedList to fill with this component's information
+     </TD></TR>
+</TABLE></P>
+<A NAME="componentFromNamedList"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td> SS7TCAPComponent* &nbsp;<strong>componentFromNamedList</strong> (SS7TCAP::TCAPType type, SS7TCAPTransaction* tr, NamedList& params, unsigned int index)
+<br></td><td align="right"><h3><strong>componentFromNamedList</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Build a TCAP Component from a NamedList
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">TCAP type of component
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tr</i></TD><TD align="left" valign="top">The transaction to which this component should belong
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Parameters for building the component
+</TD></TR>
+<TR><TD align="left" valign="top"><i>index</i></TD><TD align="left" valign="top">Index in the list of parameters
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A pointer to the built SS7TCAPComponent or nil if not all required parameters are present
+     </p>
+<A NAME="setTransaction"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>setTransaction</strong> (SS7TCAPTransaction* transact)
+<br></td><td align="right"><h3><strong>setTransaction</strong></h3></td></tr></table><p></p><p>
+ Set the transaction to which this component belongs to
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>transact</i></TD><TD align="left" valign="top">TCAP transaction
+     </TD></TR>
+</TABLE></P>
+<A NAME="transaction"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>SS7TCAPTransaction* &nbsp;<strong>transaction</strong> ()
+<br></td><td align="right"><h3><strong>transaction</strong></h3></td></tr></table><p></p><p>
+ Returns the transaction to which this component belongs to.
+     </p>
+<A NAME="setType"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>setType</strong> (SS7TCAP::TCAPUserCompActions type)
+<br></td><td align="right"><h3><strong>setType</strong></h3></td></tr></table><p></p><p>
+ Set the type for this component
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">The type of the component
+     </TD></TR>
+</TABLE></P>
+<A NAME="type"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline SS7TCAP::TCAPUserCompActions &nbsp;<strong>type</strong> ()
+<br></td><td align="right"><h3><strong>type</strong></h3></td></tr></table><p></p><p>
+ Get the type of the component
+     </p>
+<A NAME="setInvokeID"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>setInvokeID</strong> (String invokeID)
+<br></td><td align="right"><h3><strong>setInvokeID</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Set the Invoke ID for this component
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>invokeID</i></TD><TD align="left" valign="top">The invoke ID to assign
+     </TD></TR>
+</TABLE></P>
+<A NAME="toString"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td> const String&  &nbsp;<strong>toString</strong> ()
+<br></td><td align="right"><h3><strong>toString</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ String representation of this component's Invoke ID
+</p>
+<p><b>Returns</b>: String representation of Invoke ID
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__GenObject.html#toString">GenObject</A>.</p>
+<A NAME="correlationID"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td> const String&  &nbsp;<strong>correlationID</strong> ()
+<br></td><td align="right"><h3><strong>correlationID</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ String representation of this component's Correlation ID
+</p>
+<p><b>Returns</b>: String representation of Correlation ID
+     </p>
+<A NAME="timedOut"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>timedOut</strong> ()
+<br></td><td align="right"><h3><strong>timedOut</strong></h3></td></tr></table><p></p><p>
+ Check if the component has timed out
+</p>
+<p><b>Returns</b>: True if the component timed out, false otherwise
+     </p>
+<A NAME="setState"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>setState</strong> (TCAPComponentState state)
+<br></td><td align="right"><h3><strong>setState</strong></h3></td></tr></table><p></p><p>
+ Set component state
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>state</i></TD><TD align="left" valign="top">The state to be set
+     </TD></TR>
+</TABLE></P>
+<A NAME="state"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline TCAPComponentState &nbsp;<strong>state</strong> ()
+<br></td><td align="right"><h3><strong>state</strong></h3></td></tr></table><p></p><p>
+ Obtain the component state
+</p>
+<p><b>Returns</b>: The component state
+     </p>
+<A NAME="resetTimer"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>resetTimer</strong> (NamedList& params, unsigned int index)
+<br></td><td align="right"><h3><strong>resetTimer</strong></h3></td></tr></table><p></p><p>
+ Reset invocation timer on user request
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">List of parameters
+</TD></TR>
+<TR><TD align="left" valign="top"><i>index</i></TD><TD align="left" valign="top">Index of this component's parameters in the list
+     </TD></TR>
+</TABLE></P>
+<A NAME="operationClass"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td>SS7TCAP::TCAPComponentOperationClass &nbsp;<strong>operationClass</strong> ()
+<br></td><td align="right"><h3><strong>operationClass</strong></h3></td></tr></table><p></p><p>
+ Retrieve operation class for this component
+</p>
+<p><b>Returns</b>: The class of the operation
+     </p>
+<A NAME="s_compStates[]"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_compStates[]</strong>
+</td><td align="right"><h3><strong>s_compStates[]</strong></h3></td></tr></table><p></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

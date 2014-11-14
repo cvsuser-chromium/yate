@@ -1,0 +1,151 @@
+<HTML>
+<HEAD>
+<TITLE>class IAXMetaTrunkFrame</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class IAXMetaTrunkFrame</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">Meta trunk frame. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::IAXMetaTrunkFrame</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yiax___yateiax_h.html">libs/yiax/yateiax.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__Mutex.html">TelEngine::Mutex</A> <small>[public ]</small>, <A HREF="TelEngine__RefObject.html">TelEngine::RefObject</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__IAXMetaTrunkFrame.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref1">IAXMetaTrunkFrame</A></b> (IAXEngine* engine, const SocketAddr& addr, bool timestamps,
+	unsigned int maxLen, unsigned int sendInterval) 
+</LI>
+<LI>virtual  &nbsp;<b><A HREF="#ref2">~IAXMetaTrunkFrame</A></b> () 
+</LI>
+<LI>inline const SocketAddr& &nbsp;<b><A HREF="#ref3">addr</A></b> ()  const
+</LI>
+<LI>inline unsigned int &nbsp;<b><A HREF="#ref4">calls</A></b> ()  const
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref5">changeCalls</A></b> (bool add) 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref6">trunkTimestamps</A></b> ()  const
+</LI>
+<LI>inline unsigned int &nbsp;<b><A HREF="#ref7">sendInterval</A></b> ()  const
+</LI>
+<LI>inline unsigned int &nbsp;<b><A HREF="#ref8">maxLen</A></b> ()  const
+</LI>
+<LI>unsigned int &nbsp;<b><A HREF="#ref9">add</A></b> (<A HREF="#u_int16_t">u_int16_t</A> sCallNo, const DataBlock& data, <A HREF="#u_int32_t">u_int32_t</A> tStamp) 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref10">timerTick</A></b> (const Time& now = Time()) 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref11">send</A></b> () 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ Handle meta trunk frame with timestamps
+</p>
+<A NAME="IAXMetaTrunkFrame"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>IAXMetaTrunkFrame</strong> (IAXEngine* engine, const SocketAddr& addr, bool timestamps,
+	unsigned int maxLen, unsigned int sendInterval)
+<br></td><td align="right"><h3><strong>IAXMetaTrunkFrame</strong></h3></td></tr></table><p></p><p>
+ Constructor. Constructs an outgoing meta trunk frame
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>engine</i></TD><TD align="left" valign="top">The engine that owns this frame
+</TD></TR>
+<TR><TD align="left" valign="top"><i>addr</i></TD><TD align="left" valign="top">Remote peer address
+</TD></TR>
+<TR><TD align="left" valign="top"><i>timestamps</i></TD><TD align="left" valign="top">True if miniframes have timestamps, false if not
+</TD></TR>
+<TR><TD align="left" valign="top"><i>maxLen</i></TD><TD align="left" valign="top">Maximum frame length
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sendInterval</i></TD><TD align="left" valign="top">Trunk send interval in milliseconds
+     </TD></TR>
+</TABLE></P>
+<A NAME="~IAXMetaTrunkFrame"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~IAXMetaTrunkFrame</strong> ()
+<br></td><td align="right"><h3><strong>~IAXMetaTrunkFrame</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor
+     </p>
+<A NAME="addr"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const SocketAddr& &nbsp;<strong>addr</strong> ()
+<br></td><td align="right"><h3><strong>addr</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the remote peer address
+</p>
+<p><b>Returns</b>: The remote peer address
+     </p>
+<A NAME="calls"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline unsigned int &nbsp;<strong>calls</strong> ()
+<br></td><td align="right"><h3><strong>calls</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the number of calls using this trunk
+</p>
+<p><b>Returns</b>: The number of calls using this trunk
+     </p>
+<A NAME="changeCalls"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>changeCalls</strong> (bool add)
+<br></td><td align="right"><h3><strong>changeCalls</strong></h3></td></tr></table><p></p><p>
+ Change the number of calls using this trunk
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>add</i></TD><TD align="left" valign="top">True to add a call, false to remove it
+     </TD></TR>
+</TABLE></P>
+<A NAME="trunkTimestamps"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>trunkTimestamps</strong> ()
+<br></td><td align="right"><h3><strong>trunkTimestamps</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Check if the frame is adding mini frames timestamps
+</p>
+<p><b>Returns</b>: True if the frame is adding mini frames timestamps
+     </p>
+<A NAME="sendInterval"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline unsigned int &nbsp;<strong>sendInterval</strong> ()
+<br></td><td align="right"><h3><strong>sendInterval</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the send interval
+</p>
+<p><b>Returns</b>: Send interval in milliseconds
+     </p>
+<A NAME="maxLen"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline unsigned int &nbsp;<strong>maxLen</strong> ()
+<br></td><td align="right"><h3><strong>maxLen</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the frame maximum length
+</p>
+<p><b>Returns</b>: Frame maximum length
+     </p>
+<A NAME="add"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int &nbsp;<strong>add</strong> (<A HREF="#u_int16_t">u_int16_t</A> sCallNo, const DataBlock& data, <A HREF="#u_int32_t">u_int32_t</A> tStamp)
+<br></td><td align="right"><h3><strong>add</strong></h3></td></tr></table><p></p><p>
+ Add a mini frame. If no room, send before adding
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>sCallNo</i></TD><TD align="left" valign="top">Sorce call number
+</TD></TR>
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Mini frame data
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tStamp</i></TD><TD align="left" valign="top">Mini frame timestamp
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The number of data bytes added to trunk, 0 on failure
+     </p>
+<A NAME="timerTick"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>timerTick</strong> (const Time& now = Time())
+<br></td><td align="right"><h3><strong>timerTick</strong></h3></td></tr></table><p></p><p>
+ Send this frame to remote peer if the time arrived
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>now</i></TD><TD align="left" valign="top">Current time
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The result of the write operation
+     </p>
+<A NAME="send"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>send</strong> ()
+<br></td><td align="right"><h3><strong>send</strong></h3></td></tr></table><p></p><p>
+ Send this frame to remote peer if there is any data in buffer
+</p>
+<p><b>Returns</b>: The result of the write operation
+     </p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

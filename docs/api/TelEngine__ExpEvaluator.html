@@ -1,0 +1,1143 @@
+<HTML>
+<HEAD>
+<TITLE>class ExpEvaluator</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class ExpEvaluator</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">An expression parser and evaluator. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::ExpEvaluator</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yscript___yatescript_h.html">libs/yscript/yatescript.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__DebugEnabler.html">TelEngine::DebugEnabler</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__ExpEvaluator.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref2">Parser</A> {	C,
+	SQL,
+    }
+</LI>
+<LI>enum <A HREF="#ref3">Opcode</A> {	OpcNone = 0,
+	OpcNull,    
+	OpcPush,    
+	OpcDrop,    
+	OpcDup,     
+	OpcSwap,    
+	OpcRot,     
+	OpcOver,    
+	OpcAdd,     
+	OpcSub,     
+	OpcMul,     
+	OpcDiv,     
+	OpcMod,     
+	OpcNeg,     
+	OpcIncPre,  
+	OpcDecPre,  
+	OpcIncPost, 
+	OpcDecPost, 
+	OpcAnd,     
+	OpcOr,      
+	OpcXor,     
+	OpcNot,     
+	OpcShl,     
+	OpcShr,     
+	OpcLAnd,    
+	OpcLOr,     
+	OpcLXor,    
+	OpcLNot,    
+	OpcCat,     
+	OpcReM,     
+	OpcReIM,    
+	OpcReNm,    
+	OpcReINm,   
+	OpcLike,    
+	OpcILike,   
+	OpcNLike,   
+	OpcNIlike,  
+	OpcEq,      
+	OpcNe,      
+	OpcGt,      
+	OpcLt,      
+	OpcGe,      
+	OpcLe,      
+	OpcCond,    
+	OpcAs,      
+	OpcField,   
+	OpcFunc,    
+	OpcLabel,   
+	OpcCopy,    
+	OpcAssign  = 0x0100, 
+	OpcPrivate = 0x1000
+    }
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>explicit &nbsp;<b><A HREF="#ref4">ExpEvaluator</A></b> (const TokenDict* operators = 0, const TokenDict* unaryOps = 0) 
+</LI>
+<LI>explicit &nbsp;<b><A HREF="#ref5">ExpEvaluator</A></b> (Parser style) 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref6">ExpEvaluator</A></b> (const ExpEvaluator& original) 
+</LI>
+<LI>virtual  &nbsp;<b><A HREF="#ref7">~ExpEvaluator</A></b> () 
+</LI>
+<LI>int &nbsp;<b><A HREF="#ref8">compile</A></b> (ParsePoint& expr, GenObject* context = 0) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref9">evaluate</A></b> (ObjList* results, GenObject* context = 0)  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref10">evaluate</A></b> (ObjList& results, GenObject* context = 0)  const
+</LI>
+<LI>int &nbsp;<b><A HREF="#ref11">evaluate</A></b> (NamedList& results, unsigned int index = 0, const char* prefix = 0, GenObject* context = 0)  const
+</LI>
+<LI>int &nbsp;<b><A HREF="#ref12">evaluate</A></b> (Array& results, unsigned int index, GenObject* context = 0)  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref13">simplify</A></b> () 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref14">inError</A></b> ()  const
+</LI>
+<LI>inline unsigned int &nbsp;<b><A HREF="#ref15">lineNumber</A></b> ()  const
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref16">null</A></b> ()  const
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref17">dump</A></b> (const ObjList& codes, String& res)  const
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref18">dump</A></b> (String& res)  const
+</LI>
+<LI>inline String &nbsp;<b><A HREF="#ref19">dump</A></b> (const ObjList& codes)  const
+</LI>
+<LI>inline String &nbsp;<b><A HREF="#ref20">dump</A></b> ()  const
+</LI>
+<LI>inline const TokenDict* &nbsp;<b><A HREF="#ref21">operators</A></b> ()  const
+</LI>
+<LI>inline const TokenDict* &nbsp;<b><A HREF="#ref22">unaryOps</A></b> ()  const
+</LI>
+<LI>inline ExpExtender* &nbsp;<b><A HREF="#ref23">extender</A></b> ()  const
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref24">extender</A></b> (ExpExtender* ext) 
+</LI>
+<LI>virtual  ExpOperation* &nbsp;<b><A HREF="#ref29">popValue</A></b> (ObjList& stack, GenObject* context = 0)  const
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref30">runOperation</A></b> (ObjList& stack, const ExpOperation& oper, GenObject* context = 0)  const
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref31">runAllFields</A></b> (ObjList& stack, GenObject* context = 0)  const
+</LI>
+</ul><h4>Public Static Methods</h4><ul><LI>static  unsigned int &nbsp;<b><A HREF="#ref25">getLineOf</A></b> (ExpOperation* op1, ExpOperation* op2 = 0, ExpOperation* op3 = 0) 
+</LI>
+<LI>static  void &nbsp;<b><A HREF="#ref26">pushOne</A></b> (ObjList& stack, ExpOperation* oper) 
+</LI>
+<LI>static  ExpOperation* &nbsp;<b><A HREF="#ref27">popOne</A></b> (ObjList& stack) 
+</LI>
+<LI>static  ExpOperation* &nbsp;<b><A HREF="#ref28">popAny</A></b> (ObjList& stack) 
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>virtual  char &nbsp;<b><A HREF="#ref32">skipWhites</A></b> (ParsePoint& expr) 
+</LI>
+<LI>Opcode &nbsp;<b><A HREF="#ref34">getOperator</A></b> (const char*& expr, const TokenDict* operators, bool caseInsensitive = false)  const
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref35">keywordLetter</A></b> (char c)  const
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref36">keywordDigit</A></b> (char c)  const
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref37">keywordChar</A></b> (char c)  const
+</LI>
+<LI>virtual  int &nbsp;<b><A HREF="#ref38">getKeyword</A></b> (const char* str)  const
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref39">gotError</A></b> (const char* error = 0, const char* text = 0, unsigned int line = 0)  const
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref40">gotError</A></b> (const char* error = 0, const char* text = 0, unsigned int line = 0) 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref41">gotError</A></b> (const char* error, unsigned int line)  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref42">gotError</A></b> (const char* error, unsigned int line) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref43">formatLineNo</A></b> (String& buf, unsigned int line)  const
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref44">runCompile</A></b> (ParsePoint& expr, char stop, GenObject* nested = 0) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref45">runCompile</A></b> (ParsePoint& expr, const char* stop = 0, GenObject* nested = 0) 
+</LI>
+<LI>virtual  char &nbsp;<b><A HREF="#ref46">skipComments</A></b> (ParsePoint& expr, GenObject* context = 0) 
+</LI>
+<LI>virtual  int &nbsp;<b><A HREF="#ref47">preProcess</A></b> (ParsePoint& expr, GenObject* context = 0) 
+</LI>
+<LI>virtual  Opcode &nbsp;<b><A HREF="#ref48">getOperator</A></b> (ParsePoint& expr) 
+</LI>
+<LI>virtual  Opcode &nbsp;<b><A HREF="#ref49">getUnaryOperator</A></b> (ParsePoint& expr) 
+</LI>
+<LI>virtual  Opcode &nbsp;<b><A HREF="#ref50">getPostfixOperator</A></b> (ParsePoint& expr, int precedence = 0) 
+</LI>
+<LI>virtual  const char* &nbsp;<b><A HREF="#ref51">getOperator</A></b> (Opcode oper)  const
+</LI>
+<LI>virtual  int &nbsp;<b><A HREF="#ref52">getPrecedence</A></b> (Opcode oper)  const
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref53">getRightAssoc</A></b> (Opcode oper)  const
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref54">getSeparator</A></b> (ParsePoint& expr, bool remove) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref55">getInstruction</A></b> (ParsePoint& expr, char stop = 0, GenObject* nested = 0) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref56">getOperand</A></b> (ParsePoint& expr, bool endOk = true, int precedence = 0) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref57">getSimple</A></b> (ParsePoint& expr, bool constOnly = false) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref58">getNumber</A></b> (ParsePoint& expr) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref59">getString</A></b> (ParsePoint& expr) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref60">getFunction</A></b> (ParsePoint& expr) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref61">getString</A></b> (const char*& expr, String& str) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref62">getEscape</A></b> (const char*& expr, String& str, char sep) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref63">getField</A></b> (ParsePoint& expr) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref64">addOpcode</A></b> (ExpOperation* oper, unsigned int line = 0) 
+</LI>
+<LI>ExpOperation* &nbsp;<b><A HREF="#ref65">addOpcode</A></b> (Opcode oper, bool barrier = false) 
+</LI>
+<LI>ExpOperation* &nbsp;<b><A HREF="#ref66">addOpcode</A></b> (Opcode oper, <A HREF="#int64_t">int64_t</A> value, bool barrier = false) 
+</LI>
+<LI>ExpOperation* &nbsp;<b><A HREF="#ref67">addOpcode</A></b> (const String& value) 
+</LI>
+<LI>ExpOperation* &nbsp;<b><A HREF="#ref68">addOpcode</A></b> (<A HREF="#int64_t">int64_t</A> value) 
+</LI>
+<LI>ExpOperation* &nbsp;<b><A HREF="#ref69">addOpcode</A></b> (bool value) 
+</LI>
+<LI>ExpOperation* &nbsp;<b><A HREF="#ref70">addOpcode</A></b> (Opcode oper, const String& name, <A HREF="#int64_t">int64_t</A> value = 0, bool barrier = false) 
+</LI>
+<LI>ExpOperation* &nbsp;<b><A HREF="#ref71">popOpcode</A></b> () 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref72">trySimplify</A></b> () 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref73">runEvaluate</A></b> (const ObjList& opcodes, ObjList& stack, GenObject* context = 0)  const
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref74">runEvaluate</A></b> (const ObjVector& opcodes, ObjList& stack, GenObject* context = 0, unsigned int index = 0)  const
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref75">runEvaluate</A></b> (ObjList& stack, GenObject* context = 0)  const
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref76">runFunction</A></b> (ObjList& stack, const ExpOperation& oper, GenObject* context = 0)  const
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref77">runField</A></b> (ObjList& stack, const ExpOperation& oper, GenObject* context = 0)  const
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref78">runAssign</A></b> (ObjList& stack, const ExpOperation& oper, GenObject* context = 0)  const
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref79">dump</A></b> (const ExpOperation& oper, String& res)  const
+</LI>
+</ul><h4>Protected Static Methods</h4><ul><LI>static inline  char &nbsp;<b><A HREF="#ref33">condLower</A></b> (char chr, bool makeLower) 
+</LI>
+</ul><h4>Protected Members</h4><ul><LI>const TokenDict* <b><A HREF="#ref80">m_operators</A></b></LI>
+<LI>const TokenDict* <b><A HREF="#ref81">m_unaryOps</A></b></LI>
+<LI>ObjList <b><A HREF="#ref82">m_opcodes</A></b></LI>
+<LI>ObjList* <b><A HREF="#ref83">m_lastOpcode</A></b></LI>
+<LI>bool <b><A HREF="#ref84">m_inError</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref85">m_lineNo</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ A class used to build stack based (posifix) expression parsers and evaluators
+</p>
+<A NAME="Parser"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>Parser</strong> {	C,
+	SQL,
+    }
+</td><td align="right"><h3><strong>Parser</strong></h3></td></tr></table><p></p><p>
+ Parsing styles
+     </p>
+<A NAME="Opcode"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>Opcode</strong> {	OpcNone = 0,
+	OpcNull,    
+	OpcPush,    
+	OpcDrop,    
+	OpcDup,     
+	OpcSwap,    
+	OpcRot,     
+	OpcOver,    
+	OpcAdd,     
+	OpcSub,     
+	OpcMul,     
+	OpcDiv,     
+	OpcMod,     
+	OpcNeg,     
+	OpcIncPre,  
+	OpcDecPre,  
+	OpcIncPost, 
+	OpcDecPost, 
+	OpcAnd,     
+	OpcOr,      
+	OpcXor,     
+	OpcNot,     
+	OpcShl,     
+	OpcShr,     
+	OpcLAnd,    
+	OpcLOr,     
+	OpcLXor,    
+	OpcLNot,    
+	OpcCat,     
+	OpcReM,     
+	OpcReIM,    
+	OpcReNm,    
+	OpcReINm,   
+	OpcLike,    
+	OpcILike,   
+	OpcNLike,   
+	OpcNIlike,  
+	OpcEq,      
+	OpcNe,      
+	OpcGt,      
+	OpcLt,      
+	OpcGe,      
+	OpcLe,      
+	OpcCond,    
+	OpcAs,      
+	OpcField,   
+	OpcFunc,    
+	OpcLabel,   
+	OpcCopy,    
+	OpcAssign  = 0x0100, 
+	OpcPrivate = 0x1000
+    }
+</td><td align="right"><h3><strong>Opcode</strong></h3></td></tr></table><p></p><p>
+ Operation codes
+     </p>
+<A NAME="ExpEvaluator"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>explicit &nbsp;<strong>ExpEvaluator</strong> (const TokenDict* operators = 0, const TokenDict* unaryOps = 0)
+<br></td><td align="right"><h3><strong>ExpEvaluator</strong></h3></td></tr></table><p></p><p>
+ Constructs an evaluator from an operator dictionary
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>operators</i></TD><TD align="left" valign="top">Pointer to operator dictionary, longest strings first
+</TD></TR>
+<TR><TD align="left" valign="top"><i>unaryOps</i></TD><TD align="left" valign="top">Pointer to unary operators dictionary, longest strings first
+     </TD></TR>
+</TABLE></P>
+<A NAME="ExpEvaluator"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>explicit &nbsp;<strong>ExpEvaluator</strong> (Parser style)
+<br></td><td align="right"><h3><strong>ExpEvaluator</strong></h3></td></tr></table><p></p><p>
+ Constructs an evaluator from a parser style
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>style</i></TD><TD align="left" valign="top">Style of parsing to use
+     </TD></TR>
+</TABLE></P>
+<A NAME="ExpEvaluator"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>ExpEvaluator</strong> (const ExpEvaluator& original)
+<br></td><td align="right"><h3><strong>ExpEvaluator</strong></h3></td></tr></table><p></p><p>
+ Copy constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>original</i></TD><TD align="left" valign="top">Evaluator to copy the operation list from
+     </TD></TR>
+</TABLE></P>
+<A NAME="~ExpEvaluator"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~ExpEvaluator</strong> ()
+<br></td><td align="right"><h3><strong>~ExpEvaluator</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor
+     </p>
+<A NAME="compile"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>int &nbsp;<strong>compile</strong> (ParsePoint& expr, GenObject* context = 0)
+<br></td><td align="right"><h3><strong>compile</strong></h3></td></tr></table><p></p><p>
+ Parse and compile an expression
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>expr</i></TD><TD align="left" valign="top">Parsing context to compile
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to arbitrary object to be passed to called methods
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Number of expressions compiled, zero on error
+     </p>
+<A NAME="evaluate"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>evaluate</strong> (ObjList* results, GenObject* context = 0)
+<br></td><td align="right"><h3><strong>evaluate</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Evaluate the expression, optionally return results
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>results</i></TD><TD align="left" valign="top">List to fill with results row
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to arbitrary object to be passed to called methods
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if expression evaluation succeeded, false on failure
+     </p>
+<A NAME="evaluate"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>evaluate</strong> (ObjList& results, GenObject* context = 0)
+<br></td><td align="right"><h3><strong>evaluate</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Evaluate the expression, return computed results
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>results</i></TD><TD align="left" valign="top">List to fill with results row
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to arbitrary object to be passed to called methods
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if expression evaluation succeeded, false on failure
+     </p>
+<A NAME="evaluate"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>int &nbsp;<strong>evaluate</strong> (NamedList& results, unsigned int index = 0, const char* prefix = 0, GenObject* context = 0)
+<br></td><td align="right"><h3><strong>evaluate</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Evaluate the expression, return computed results
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>results</i></TD><TD align="left" valign="top">List of parameters to populate with results row
+</TD></TR>
+<TR><TD align="left" valign="top"><i>index</i></TD><TD align="left" valign="top">Index of result row, zero to not include an index
+</TD></TR>
+<TR><TD align="left" valign="top"><i>prefix</i></TD><TD align="left" valign="top">Prefix to prepend to parameter names
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to arbitrary object to be passed to called methods
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Number of result columns, -1 on failure
+     </p>
+<A NAME="evaluate"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>int &nbsp;<strong>evaluate</strong> (Array& results, unsigned int index, GenObject* context = 0)
+<br></td><td align="right"><h3><strong>evaluate</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Evaluate the expression, return computed results
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>results</i></TD><TD align="left" valign="top">Array of result rows to populate
+</TD></TR>
+<TR><TD align="left" valign="top"><i>index</i></TD><TD align="left" valign="top">Index of result row, zero to just set column headers
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to arbitrary object to be passed to called methods
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Number of result columns, -1 on failure
+     </p>
+<A NAME="simplify"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>simplify</strong> ()
+<br></td><td align="right"><h3><strong>simplify</strong></h3></td></tr></table><p></p><p>
+ Simplify the expression, performs constant folding
+</p>
+<p><b>Returns</b>: True if the expression was simplified
+     </p>
+<A NAME="inError"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>inError</strong> ()
+<br></td><td align="right"><h3><strong>inError</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Check if a parse or compile error was encountered
+</p>
+<p><b>Returns</b>: True if the evaluator encountered an error
+     </p>
+<A NAME="lineNumber"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline unsigned int &nbsp;<strong>lineNumber</strong> ()
+<br></td><td align="right"><h3><strong>lineNumber</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the number of line currently being parsed
+</p>
+<p><b>Returns</b>: Number of current parsed line, 1 is the first line
+     </p>
+<A NAME="null"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>null</strong> ()
+<br></td><td align="right"><h3><strong>null</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Check if the expression is empty (no operands or operators)
+</p>
+<p><b>Returns</b>: True if the expression is completely empty
+     </p>
+<A NAME="dump"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>dump</strong> (const ObjList& codes, String& res)
+<br></td><td align="right"><h3><strong>dump</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Dump a list of operations according to current operators dictionary
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>codes</i></TD><TD align="left" valign="top">List of operation codes
+</TD></TR>
+<TR><TD align="left" valign="top"><i>res</i></TD><TD align="left" valign="top">Result string representation of operations
+     </TD></TR>
+</TABLE></P>
+<A NAME="dump"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>dump</strong> (String& res)
+<br></td><td align="right"><h3><strong>dump</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Dump the postfix expression according to current operators dictionary
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>res</i></TD><TD align="left" valign="top">Result string representation of operations
+     </TD></TR>
+</TABLE></P>
+<A NAME="dump"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline String &nbsp;<strong>dump</strong> (const ObjList& codes)
+<br></td><td align="right"><h3><strong>dump</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Dump a list of operations according to current operators dictionary
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>codes</i></TD><TD align="left" valign="top">List of operation codes
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: String representation of operations
+     </p>
+<A NAME="dump"></A><A NAME="ref20"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline String &nbsp;<strong>dump</strong> ()
+<br></td><td align="right"><h3><strong>dump</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Dump the postfix expression according to current operators dictionary
+</p>
+<p><b>Returns</b>: String representation of operations
+     </p>
+<A NAME="operators"></A><A NAME="ref21"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const TokenDict* &nbsp;<strong>operators</strong> ()
+<br></td><td align="right"><h3><strong>operators</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the internally used operator dictionary
+</p>
+<p><b>Returns</b>: Pointer to operators dictionary in use
+     </p>
+<A NAME="unaryOps"></A><A NAME="ref22"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const TokenDict* &nbsp;<strong>unaryOps</strong> ()
+<br></td><td align="right"><h3><strong>unaryOps</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the internally used unary operators dictionary
+</p>
+<p><b>Returns</b>: Pointer to unary operators dictionary in use
+     </p>
+<A NAME="extender"></A><A NAME="ref23"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline ExpExtender* &nbsp;<strong>extender</strong> ()
+<br></td><td align="right"><h3><strong>extender</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the internally used expression extender
+</p>
+<p><b>Returns</b>: Pointer to the extender in use, NULL if none
+     </p>
+<A NAME="extender"></A><A NAME="ref24"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>extender</strong> (ExpExtender* ext)
+<br></td><td align="right"><h3><strong>extender</strong></h3></td></tr></table><p></p><p>
+ Set the expression extender to use in evaluation
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>ext</i></TD><TD align="left" valign="top">Pointer to the extender to use, NULL to remove current
+     </TD></TR>
+</TABLE></P>
+<A NAME="getLineOf"></A><A NAME="ref25"></A><table width="100%"><tr bgcolor="#eeeeee"><td> unsigned int &nbsp;<strong>getLineOf</strong> (ExpOperation* op1, ExpOperation* op2 = 0, ExpOperation* op3 = 0)
+<br></td><td align="right"><h3><strong>getLineOf</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Retrieve the line number from one to three operands
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>op1</i></TD><TD align="left" valign="top">First operand
+</TD></TR>
+<TR><TD align="left" valign="top"><i>op2</i></TD><TD align="left" valign="top">Optional second operand
+</TD></TR>
+<TR><TD align="left" valign="top"><i>op3</i></TD><TD align="left" valign="top">Optional third operand
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Line number at compile time, zero if not found
+     </p>
+<A NAME="pushOne"></A><A NAME="ref26"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>pushOne</strong> (ObjList& stack, ExpOperation* oper)
+<br></td><td align="right"><h3><strong>pushOne</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Push an operand on an evaluation stack
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stack</i></TD><TD align="left" valign="top">Evaluation stack to remove the operand from
+</TD></TR>
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Operation to push on stack, NULL will not be pushed
+     </TD></TR>
+</TABLE></P>
+<A NAME="popOne"></A><A NAME="ref27"></A><table width="100%"><tr bgcolor="#eeeeee"><td> ExpOperation* &nbsp;<strong>popOne</strong> (ObjList& stack)
+<br></td><td align="right"><h3><strong>popOne</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Pops an operand off an evaluation stack, does not pop a barrier
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stack</i></TD><TD align="left" valign="top">Evaluation stack to remove the operand from
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Operator removed from stack, NULL if stack underflow
+     </p>
+<A NAME="popAny"></A><A NAME="ref28"></A><table width="100%"><tr bgcolor="#eeeeee"><td> ExpOperation* &nbsp;<strong>popAny</strong> (ObjList& stack)
+<br></td><td align="right"><h3><strong>popAny</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Pops any operand (including barriers) off an evaluation stack
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stack</i></TD><TD align="left" valign="top">Evaluation stack to remove the operand from
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Operator removed from stack, NULL if stack underflow
+     </p>
+<A NAME="popValue"></A><A NAME="ref29"></A><table width="100%"><tr bgcolor="#eeeeee"><td> ExpOperation* &nbsp;<strong>popValue</strong> (ObjList& stack, GenObject* context = 0)
+<br></td><td align="right"><h3><strong>popValue</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Pops and evaluate the value of an operand off an evaluation stack, does not pop a barrier
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stack</i></TD><TD align="left" valign="top">Evaluation stack to remove the operand from
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to arbitrary object to be passed to called methods
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Value removed from stack, NULL if stack underflow or field not evaluable
+     </p>
+<A NAME="runOperation"></A><A NAME="ref30"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>runOperation</strong> (ObjList& stack, const ExpOperation& oper, GenObject* context = 0)
+<br></td><td align="right"><h3><strong>runOperation</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Try to evaluate a single operation
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stack</i></TD><TD align="left" valign="top">Evaluation stack in use, operands are popped off this stack
+  and results are pushed back on stack
+</TD></TR>
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Operation to execute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to arbitrary object to be passed to called methods
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if evaluation succeeded
+     </p>
+<A NAME="runAllFields"></A><A NAME="ref31"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>runAllFields</strong> (ObjList& stack, GenObject* context = 0)
+<br></td><td align="right"><h3><strong>runAllFields</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Convert all fields on the evaluation stack to their values
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stack</i></TD><TD align="left" valign="top">Evaluation stack to evaluate fields from
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to arbitrary object to be passed to called methods
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if all fields on the stack were evaluated properly
+     </p>
+<A NAME="skipWhites"></A><A NAME="ref32"></A><table width="100%"><tr bgcolor="#eeeeee"><td> char &nbsp;<strong>skipWhites</strong> (ParsePoint& expr)
+<br></td><td align="right"><h3><strong>skipWhites</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Method to skip over whitespaces, count parsed lines too
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>expr</i></TD><TD align="left" valign="top">Current parsing context, advances on expression to be compiled
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: First character after whitespaces where expr points
+     </p>
+<A NAME="condLower"></A><A NAME="ref33"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline  char &nbsp;<strong>condLower</strong> (char chr, bool makeLower)
+<br></td><td align="right"><h3><strong>condLower</strong></h3></td></tr></table><p> <small>[protected static]</small></p><p>
+ Helper method to conditionally convert to lower case
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>chr</i></TD><TD align="left" valign="top">Character to convert
+</TD></TR>
+<TR><TD align="left" valign="top"><i>makeLower</i></TD><TD align="left" valign="top">True to convert chr to lower case
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Converted character or original if conversion not requested
+     </p>
+<A NAME="getOperator"></A><A NAME="ref34"></A><table width="100%"><tr bgcolor="#eeeeee"><td>Opcode &nbsp;<strong>getOperator</strong> (const char*& expr, const TokenDict* operators, bool caseInsensitive = false)
+<br></td><td align="right"><h3><strong>getOperator</strong></h3></td></tr></table><p> <small>[protected const]</small></p><p>
+ Helper method to return next operator in the parsed text
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>expr</i></TD><TD align="left" valign="top">Pointer to text to parse, gets advanced if succeeds
+</TD></TR>
+<TR><TD align="left" valign="top"><i>operators</i></TD><TD align="left" valign="top">Pointer to operators table to use
+</TD></TR>
+<TR><TD align="left" valign="top"><i>caseInsensitive</i></TD><TD align="left" valign="top">Match case-insensitive if set
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Operator code, OpcNone on failure
+     </p>
+<A NAME="keywordLetter"></A><A NAME="ref35"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>keywordLetter</strong> (char c)
+<br></td><td align="right"><h3><strong>keywordLetter</strong></h3></td></tr></table><p> <small>[protected const virtual]</small></p><p>
+ Check if a character can be a letter character in a keyword or identifier
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>c</i></TD><TD align="left" valign="top">Character to check
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the character can be part of a keyword or identifier
+     </p>
+<A NAME="keywordDigit"></A><A NAME="ref36"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>keywordDigit</strong> (char c)
+<br></td><td align="right"><h3><strong>keywordDigit</strong></h3></td></tr></table><p> <small>[protected const virtual]</small></p><p>
+ Check if a character can be can be a digit character in a keyword or identifier
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>c</i></TD><TD align="left" valign="top">Character to check
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the character can be part of a keyword or identifier
+     </p>
+<A NAME="keywordChar"></A><A NAME="ref37"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>keywordChar</strong> (char c)
+<br></td><td align="right"><h3><strong>keywordChar</strong></h3></td></tr></table><p> <small>[protected const virtual]</small></p><p>
+ Check if a character can be part of a keyword or identifier
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>c</i></TD><TD align="left" valign="top">Character to check
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the character can be part of a keyword or identifier
+     </p>
+<A NAME="getKeyword"></A><A NAME="ref38"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>getKeyword</strong> (const char* str)
+<br></td><td align="right"><h3><strong>getKeyword</strong></h3></td></tr></table><p> <small>[protected const virtual]</small></p><p>
+ Helper method to count characters making a keyword
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>str</i></TD><TD align="left" valign="top">Pointer to text without whitespaces in front
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Length of the keyword, 0 if a valid keyword doesn't follow
+     </p>
+<A NAME="gotError"></A><A NAME="ref39"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>gotError</strong> (const char* error = 0, const char* text = 0, unsigned int line = 0)
+<br></td><td align="right"><h3><strong>gotError</strong></h3></td></tr></table><p> <small>[protected const]</small></p><p>
+ Helper method to display debugging errors internally
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>error</i></TD><TD align="left" valign="top">Text of the error
+</TD></TR>
+<TR><TD align="left" valign="top"><i>text</i></TD><TD align="left" valign="top">Optional text that caused the error
+</TD></TR>
+<TR><TD align="left" valign="top"><i>line</i></TD><TD align="left" valign="top">Number of line generating the error, zero for parsing errors
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Always returns false
+     </p>
+<A NAME="gotError"></A><A NAME="ref40"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>gotError</strong> (const char* error = 0, const char* text = 0, unsigned int line = 0)
+<br></td><td align="right"><h3><strong>gotError</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Helper method to set error flag and display debugging errors internally
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>error</i></TD><TD align="left" valign="top">Text of the error
+</TD></TR>
+<TR><TD align="left" valign="top"><i>text</i></TD><TD align="left" valign="top">Optional text that caused the error
+</TD></TR>
+<TR><TD align="left" valign="top"><i>line</i></TD><TD align="left" valign="top">Number of line generating the error, zero for parsing errors
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Always returns false
+     </p>
+<A NAME="gotError"></A><A NAME="ref41"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>gotError</strong> (const char* error, unsigned int line)
+<br></td><td align="right"><h3><strong>gotError</strong></h3></td></tr></table><p> <small>[protected const]</small></p><p>
+ Helper method to display debugging errors internally
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>error</i></TD><TD align="left" valign="top">Text of the error
+</TD></TR>
+<TR><TD align="left" valign="top"><i>line</i></TD><TD align="left" valign="top">Number of line generating the error, zero for parsing errors
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Always returns false
+     </p>
+<A NAME="gotError"></A><A NAME="ref42"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>gotError</strong> (const char* error, unsigned int line)
+<br></td><td align="right"><h3><strong>gotError</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Helper method to set error flag and display debugging errors internally
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>error</i></TD><TD align="left" valign="top">Text of the error
+</TD></TR>
+<TR><TD align="left" valign="top"><i>line</i></TD><TD align="left" valign="top">Number of line generating the error, zero for parsing errors
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Always returns false
+     </p>
+<A NAME="formatLineNo"></A><A NAME="ref43"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>formatLineNo</strong> (String& buf, unsigned int line)
+<br></td><td align="right"><h3><strong>formatLineNo</strong></h3></td></tr></table><p> <small>[protected const virtual]</small></p><p>
+ Formats a line number to display in error messages
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>buf</i></TD><TD align="left" valign="top">String buffer used to return the value
+</TD></TR>
+<TR><TD align="left" valign="top"><i>line</i></TD><TD align="left" valign="top">Line number to format
+     </TD></TR>
+</TABLE></P>
+<A NAME="runCompile"></A><A NAME="ref44"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>runCompile</strong> (ParsePoint& expr, char stop, GenObject* nested = 0)
+<br></td><td align="right"><h3><strong>runCompile</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Runs the parser and compiler for one (sub)expression
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>expr</i></TD><TD align="left" valign="top">Current parsing context, advances on expression to be compiled
+</TD></TR>
+<TR><TD align="left" valign="top"><i>stop</i></TD><TD align="left" valign="top">Optional character expected after the expression
+</TD></TR>
+<TR><TD align="left" valign="top"><i>nested</i></TD><TD align="left" valign="top">User defined object to pass for nested parsing
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if one expression was compiled and a separator follows
+     </p>
+<A NAME="runCompile"></A><A NAME="ref45"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>runCompile</strong> (ParsePoint& expr, const char* stop = 0, GenObject* nested = 0)
+<br></td><td align="right"><h3><strong>runCompile</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Runs the parser and compiler for one (sub)expression
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>expr</i></TD><TD align="left" valign="top">Current parsing context, advances on expression to be compiled
+</TD></TR>
+<TR><TD align="left" valign="top"><i>stop</i></TD><TD align="left" valign="top">Optional list of possible characters expected after the expression
+</TD></TR>
+<TR><TD align="left" valign="top"><i>nested</i></TD><TD align="left" valign="top">User defined object to pass for nested parsing
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if one expression was compiled and a separator follows
+     </p>
+<A NAME="skipComments"></A><A NAME="ref46"></A><table width="100%"><tr bgcolor="#eeeeee"><td> char &nbsp;<strong>skipComments</strong> (ParsePoint& expr, GenObject* context = 0)
+<br></td><td align="right"><h3><strong>skipComments</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Skip over comments and whitespaces
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>expr</i></TD><TD align="left" valign="top">Current parsing context, advances on expression to be compiled
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to arbitrary object to be passed to called methods
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: First character after comments or whitespaces where expr points
+     </p>
+<A NAME="preProcess"></A><A NAME="ref47"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>preProcess</strong> (ParsePoint& expr, GenObject* context = 0)
+<br></td><td align="right"><h3><strong>preProcess</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Process top-level preprocessor directives
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>expr</i></TD><TD align="left" valign="top">Current parsing context, advances on expression to be compiled
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to arbitrary object to be passed to called methods
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Number of expressions compiled, negative if no more directives
+     </p>
+<A NAME="getOperator"></A><A NAME="ref48"></A><table width="100%"><tr bgcolor="#eeeeee"><td> Opcode &nbsp;<strong>getOperator</strong> (ParsePoint& expr)
+<br></td><td align="right"><h3><strong>getOperator</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Returns next operator in the parsed text
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>expr</i></TD><TD align="left" valign="top">Current parsing context, advances on expression to be compiled if it succeeds
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Operator code, OpcNone on failure
+     </p>
+<A NAME="getUnaryOperator"></A><A NAME="ref49"></A><table width="100%"><tr bgcolor="#eeeeee"><td> Opcode &nbsp;<strong>getUnaryOperator</strong> (ParsePoint& expr)
+<br></td><td align="right"><h3><strong>getUnaryOperator</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Returns next unary operator in the parsed text
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>expr</i></TD><TD align="left" valign="top">Current parsing context, advances on expression to be compiled if it succeeds
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Operator code, OpcNone on failure
+     </p>
+<A NAME="getPostfixOperator"></A><A NAME="ref50"></A><table width="100%"><tr bgcolor="#eeeeee"><td> Opcode &nbsp;<strong>getPostfixOperator</strong> (ParsePoint& expr, int precedence = 0)
+<br></td><td align="right"><h3><strong>getPostfixOperator</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Returns next unary postfix operator in the parsed text
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>expr</i></TD><TD align="left" valign="top">Current parsing context, advances on expression to be compiled if it succeeds
+</TD></TR>
+<TR><TD align="left" valign="top"><i>precedence</i></TD><TD align="left" valign="top">The precedence of the previous operator
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Operator code, OpcNone on failure
+     </p>
+<A NAME="getOperator"></A><A NAME="ref51"></A><table width="100%"><tr bgcolor="#eeeeee"><td> const char* &nbsp;<strong>getOperator</strong> (Opcode oper)
+<br></td><td align="right"><h3><strong>getOperator</strong></h3></td></tr></table><p> <small>[protected const virtual]</small></p><p>
+ Helper method to get the canonical name of an operator
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Operator code
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: name of the operator, NULL if it doesn't have one
+     </p>
+<A NAME="getPrecedence"></A><A NAME="ref52"></A><table width="100%"><tr bgcolor="#eeeeee"><td> int &nbsp;<strong>getPrecedence</strong> (Opcode oper)
+<br></td><td align="right"><h3><strong>getPrecedence</strong></h3></td></tr></table><p> <small>[protected const virtual]</small></p><p>
+ Get the precedence of an operator
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Operator code
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Precedence of the operator, zero (lowest) if unknown
+     </p>
+<A NAME="getRightAssoc"></A><A NAME="ref53"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>getRightAssoc</strong> (Opcode oper)
+<br></td><td align="right"><h3><strong>getRightAssoc</strong></h3></td></tr></table><p> <small>[protected const virtual]</small></p><p>
+ Get the associativity of an operator
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Operator code
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the operator is right-to-left associative, false if left-to-right
+     </p>
+<A NAME="getSeparator"></A><A NAME="ref54"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>getSeparator</strong> (ParsePoint& expr, bool remove)
+<br></td><td align="right"><h3><strong>getSeparator</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Check if we are at an expression separator and optionally skip past it
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>expr</i></TD><TD align="left" valign="top">Current parsing context to check, advances on expression to be compiled if asked to remove separator
+</TD></TR>
+<TR><TD align="left" valign="top"><i>remove</i></TD><TD align="left" valign="top">True to skip past the found separator
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if a separator was found
+     </p>
+<A NAME="getInstruction"></A><A NAME="ref55"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>getInstruction</strong> (ParsePoint& expr, char stop = 0, GenObject* nested = 0)
+<br></td><td align="right"><h3><strong>getInstruction</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Get an instruction or block, advance parsing pointer past it
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>expr</i></TD><TD align="left" valign="top">Current parsing context, advances on expression to be compiled if it succeeds
+</TD></TR>
+<TR><TD align="left" valign="top"><i>stop</i></TD><TD align="left" valign="top">Optional character expected after the instruction
+</TD></TR>
+<TR><TD align="left" valign="top"><i>nested</i></TD><TD align="left" valign="top">User defined object passed from nested parsing
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if succeeded, must add the operands internally
+     </p>
+<A NAME="getOperand"></A><A NAME="ref56"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>getOperand</strong> (ParsePoint& expr, bool endOk = true, int precedence = 0)
+<br></td><td align="right"><h3><strong>getOperand</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Get an operand, advance parsing pointer past it
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>expr</i></TD><TD align="left" valign="top">Current parsing context, advances on expression to be compiled if it succeeds
+</TD></TR>
+<TR><TD align="left" valign="top"><i>endOk</i></TD><TD align="left" valign="top">Consider reaching the end of string a success
+</TD></TR>
+<TR><TD align="left" valign="top"><i>precedence</i></TD><TD align="left" valign="top">The precedence of the previous operator
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if succeeded, must add the operand internally
+     </p>
+<A NAME="getSimple"></A><A NAME="ref57"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>getSimple</strong> (ParsePoint& expr, bool constOnly = false)
+<br></td><td align="right"><h3><strong>getSimple</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Get an inline simple type, usually string or number
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>expr</i></TD><TD align="left" valign="top">Current parsing context, advances on expression to be compiled if it succeeds
+</TD></TR>
+<TR><TD align="left" valign="top"><i>constOnly</i></TD><TD align="left" valign="top">Return only inline constants
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if succeeded, must add the operand internally
+     </p>
+<A NAME="getNumber"></A><A NAME="ref58"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>getNumber</strong> (ParsePoint& expr)
+<br></td><td align="right"><h3><strong>getNumber</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Get a numerical operand, advance parsing pointer past it
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>expr</i></TD><TD align="left" valign="top">Current parsing context, advances on expression to be compiled if it succeeds
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if succeeded, must add the operand internally
+     </p>
+<A NAME="getString"></A><A NAME="ref59"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>getString</strong> (ParsePoint& expr)
+<br></td><td align="right"><h3><strong>getString</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Get a string operand, advance parsing pointer past it
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>expr</i></TD><TD align="left" valign="top">Current parsing context, advances on expression to be compiled if it succeeds
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if succeeded, must add the operand internally
+     </p>
+<A NAME="getFunction"></A><A NAME="ref60"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>getFunction</strong> (ParsePoint& expr)
+<br></td><td align="right"><h3><strong>getFunction</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Get a function call, advance parsing pointer past it
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>expr</i></TD><TD align="left" valign="top">Current parsing context, advances on expression to be compiled if it succeeds
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if succeeded, must add the operand internally
+     </p>
+<A NAME="getString"></A><A NAME="ref61"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>getString</strong> (const char*& expr, String& str)
+<br></td><td align="right"><h3><strong>getString</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Helper method - get a string, advance parsing pointer past it
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>expr</i></TD><TD align="left" valign="top">Pointer to string separator, gets advanced on success
+</TD></TR>
+<TR><TD align="left" valign="top"><i>str</i></TD><TD align="left" valign="top">String in which the result is returned
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if succeeded
+     </p>
+<A NAME="getEscape"></A><A NAME="ref62"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>getEscape</strong> (const char*& expr, String& str, char sep)
+<br></td><td align="right"><h3><strong>getEscape</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Helper method - get an escaped component of a string
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>expr</i></TD><TD align="left" valign="top">Pointer past escape character, gets advanced on success
+</TD></TR>
+<TR><TD align="left" valign="top"><i>str</i></TD><TD align="left" valign="top">String in which the result is returned
+</TD></TR>
+<TR><TD align="left" valign="top"><i>sep</i></TD><TD align="left" valign="top">String separator character
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if succeeded
+     </p>
+<A NAME="getField"></A><A NAME="ref63"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>getField</strong> (ParsePoint& expr)
+<br></td><td align="right"><h3><strong>getField</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Get a field keyword, advance parsing pointer past it
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>expr</i></TD><TD align="left" valign="top">Current parsing context, advances on expression to be compiled if it succeeds
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if succeeded, must add the operand internally
+     </p>
+<A NAME="addOpcode"></A><A NAME="ref64"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>addOpcode</strong> (ExpOperation* oper, unsigned int line = 0)
+<br></td><td align="right"><h3><strong>addOpcode</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Add an aready built operation to the expression and set its line number
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Operation to add
+</TD></TR>
+<TR><TD align="left" valign="top"><i>line</i></TD><TD align="left" valign="top">Line number where operation was compiled, zero to used parsing point
+     </TD></TR>
+</TABLE></P>
+<A NAME="addOpcode"></A><A NAME="ref65"></A><table width="100%"><tr bgcolor="#eeeeee"><td>ExpOperation* &nbsp;<strong>addOpcode</strong> (Opcode oper, bool barrier = false)
+<br></td><td align="right"><h3><strong>addOpcode</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Add a simple operator to the expression
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Operator code to add
+</TD></TR>
+<TR><TD align="left" valign="top"><i>barrier</i></TD><TD align="left" valign="top">True to create an evaluator stack barrier
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Newly added operation
+     </p>
+<A NAME="addOpcode"></A><A NAME="ref66"></A><table width="100%"><tr bgcolor="#eeeeee"><td>ExpOperation* &nbsp;<strong>addOpcode</strong> (Opcode oper, <A HREF="#int64_t">int64_t</A> value, bool barrier = false)
+<br></td><td align="right"><h3><strong>addOpcode</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Add a simple operator to the expression
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Operator code to add
+</TD></TR>
+<TR><TD align="left" valign="top"><i>value</i></TD><TD align="left" valign="top">64 bit nteger value to add
+</TD></TR>
+<TR><TD align="left" valign="top"><i>barrier</i></TD><TD align="left" valign="top">True to create an evaluator stack barrier
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Newly added operation
+     </p>
+<A NAME="addOpcode"></A><A NAME="ref67"></A><table width="100%"><tr bgcolor="#eeeeee"><td>ExpOperation* &nbsp;<strong>addOpcode</strong> (const String& value)
+<br></td><td align="right"><h3><strong>addOpcode</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Add a string constant to the expression
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>value</i></TD><TD align="left" valign="top">String value to add, will be pushed on execution
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Newly added operation
+     </p>
+<A NAME="addOpcode"></A><A NAME="ref68"></A><table width="100%"><tr bgcolor="#eeeeee"><td>ExpOperation* &nbsp;<strong>addOpcode</strong> (<A HREF="#int64_t">int64_t</A> value)
+<br></td><td align="right"><h3><strong>addOpcode</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Add an integer constant to the expression
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>value</i></TD><TD align="left" valign="top">Integer value to add, will be pushed on execution
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Newly added operation
+     </p>
+<A NAME="addOpcode"></A><A NAME="ref69"></A><table width="100%"><tr bgcolor="#eeeeee"><td>ExpOperation* &nbsp;<strong>addOpcode</strong> (bool value)
+<br></td><td align="right"><h3><strong>addOpcode</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Add a boolean constant to the expression
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>value</i></TD><TD align="left" valign="top">Boolean value to add, will be pushed on execution
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Newly added operation
+     </p>
+<A NAME="addOpcode"></A><A NAME="ref70"></A><table width="100%"><tr bgcolor="#eeeeee"><td>ExpOperation* &nbsp;<strong>addOpcode</strong> (Opcode oper, const String& name, <A HREF="#int64_t">int64_t</A> value = 0, bool barrier = false)
+<br></td><td align="right"><h3><strong>addOpcode</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Add a function or field to the expression
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Operator code to add, must be OpcField or OpcFunc
+</TD></TR>
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Name of the field or function, case sensitive
+</TD></TR>
+<TR><TD align="left" valign="top"><i>value</i></TD><TD align="left" valign="top">Numerical value used as parameter count to functions
+</TD></TR>
+<TR><TD align="left" valign="top"><i>barrier</i></TD><TD align="left" valign="top">True to create an exavuator stack barrier
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Newly added operation
+     </p>
+<A NAME="popOpcode"></A><A NAME="ref71"></A><table width="100%"><tr bgcolor="#eeeeee"><td>ExpOperation* &nbsp;<strong>popOpcode</strong> ()
+<br></td><td align="right"><h3><strong>popOpcode</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Remove from the code and return the last operation
+</p>
+<p><b>Returns</b>: Operation removed from end of code, NULL if no operations remaining
+     </p>
+<A NAME="trySimplify"></A><A NAME="ref72"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>trySimplify</strong> ()
+<br></td><td align="right"><h3><strong>trySimplify</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Try to apply simplification to the expression
+</p>
+<p><b>Returns</b>: True if the expression was simplified
+     </p>
+<A NAME="runEvaluate"></A><A NAME="ref73"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>runEvaluate</strong> (const ObjList& opcodes, ObjList& stack, GenObject* context = 0)
+<br></td><td align="right"><h3><strong>runEvaluate</strong></h3></td></tr></table><p> <small>[protected const virtual]</small></p><p>
+ Try to evaluate a list of operation codes
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>opcodes</i></TD><TD align="left" valign="top">List of operation codes to evaluate
+</TD></TR>
+<TR><TD align="left" valign="top"><i>stack</i></TD><TD align="left" valign="top">Evaluation stack in use, results are left on stack
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to arbitrary object to be passed to called methods
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if evaluation succeeded
+     </p>
+<A NAME="runEvaluate"></A><A NAME="ref74"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>runEvaluate</strong> (const ObjVector& opcodes, ObjList& stack, GenObject* context = 0, unsigned int index = 0)
+<br></td><td align="right"><h3><strong>runEvaluate</strong></h3></td></tr></table><p> <small>[protected const virtual]</small></p><p>
+ Try to evaluate a vector of operation codes
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>opcodes</i></TD><TD align="left" valign="top">ObjVector of operation codes to evaluate
+</TD></TR>
+<TR><TD align="left" valign="top"><i>stack</i></TD><TD align="left" valign="top">Evaluation stack in use, results are left on stack
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to arbitrary object to be passed to called methods
+</TD></TR>
+<TR><TD align="left" valign="top"><i>index</i></TD><TD align="left" valign="top">Index in operation codes to start evaluation from
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if evaluation succeeded
+     </p>
+<A NAME="runEvaluate"></A><A NAME="ref75"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>runEvaluate</strong> (ObjList& stack, GenObject* context = 0)
+<br></td><td align="right"><h3><strong>runEvaluate</strong></h3></td></tr></table><p> <small>[protected const virtual]</small></p><p>
+ Try to evaluate the expression
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stack</i></TD><TD align="left" valign="top">Evaluation stack in use, results are left on stack
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to arbitrary object to be passed to called methods
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if evaluation succeeded
+     </p>
+<A NAME="runFunction"></A><A NAME="ref76"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>runFunction</strong> (ObjList& stack, const ExpOperation& oper, GenObject* context = 0)
+<br></td><td align="right"><h3><strong>runFunction</strong></h3></td></tr></table><p> <small>[protected const virtual]</small></p><p>
+ Try to evaluate a single function
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stack</i></TD><TD align="left" valign="top">Evaluation stack in use, parameters are popped off this stack
+  and results are pushed back on stack
+</TD></TR>
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Function to evaluate
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to arbitrary object to be passed to called methods
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if evaluation succeeded
+     </p>
+<A NAME="runField"></A><A NAME="ref77"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>runField</strong> (ObjList& stack, const ExpOperation& oper, GenObject* context = 0)
+<br></td><td align="right"><h3><strong>runField</strong></h3></td></tr></table><p> <small>[protected const virtual]</small></p><p>
+ Try to evaluate a single field
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stack</i></TD><TD align="left" valign="top">Evaluation stack in use, field value must be pushed on it
+</TD></TR>
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Field to evaluate
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to arbitrary object to be passed to called methods
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if evaluation succeeded
+     </p>
+<A NAME="runAssign"></A><A NAME="ref78"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>runAssign</strong> (ObjList& stack, const ExpOperation& oper, GenObject* context = 0)
+<br></td><td align="right"><h3><strong>runAssign</strong></h3></td></tr></table><p> <small>[protected const virtual]</small></p><p>
+ Try to assign a value to a single field
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stack</i></TD><TD align="left" valign="top">Evaluation stack in use
+</TD></TR>
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Field to assign to, contains the field name and new value
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Pointer to arbitrary object to be passed to called methods
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if assignment succeeded
+     </p>
+<A NAME="dump"></A><A NAME="ref79"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>dump</strong> (const ExpOperation& oper, String& res)
+<br></td><td align="right"><h3><strong>dump</strong></h3></td></tr></table><p> <small>[protected const virtual]</small></p><p>
+ Dump a single operation according to current operators dictionary
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>oper</i></TD><TD align="left" valign="top">Operation to dump
+</TD></TR>
+<TR><TD align="left" valign="top"><i>res</i></TD><TD align="left" valign="top">Result string representation of operations
+     </TD></TR>
+</TABLE></P>
+<A NAME="m_operators"></A><A NAME="ref80"></A><table width="100%"><tr bgcolor="#eeeeee"><td>const TokenDict*  <strong>m_operators</strong>
+</td><td align="right"><h3><strong>m_operators</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_unaryOps"></A><A NAME="ref81"></A><table width="100%"><tr bgcolor="#eeeeee"><td>const TokenDict*  <strong>m_unaryOps</strong>
+</td><td align="right"><h3><strong>m_unaryOps</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_opcodes"></A><A NAME="ref82"></A><table width="100%"><tr bgcolor="#eeeeee"><td>ObjList  <strong>m_opcodes</strong>
+</td><td align="right"><h3><strong>m_opcodes</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_lastOpcode"></A><A NAME="ref83"></A><table width="100%"><tr bgcolor="#eeeeee"><td>ObjList*  <strong>m_lastOpcode</strong>
+</td><td align="right"><h3><strong>m_lastOpcode</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_inError"></A><A NAME="ref84"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool  <strong>m_inError</strong>
+</td><td align="right"><h3><strong>m_inError</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_lineNo"></A><A NAME="ref85"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_lineNo</strong>
+</td><td align="right"><h3><strong>m_lineNo</strong></h3></td></tr></table><p> <small>[protected]</small></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

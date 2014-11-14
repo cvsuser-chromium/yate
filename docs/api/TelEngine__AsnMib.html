@@ -1,0 +1,175 @@
+<HTML>
+<HEAD>
+<TITLE>class AsnMib</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class AsnMib</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">
+ Class describing an ASN. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::AsnMib</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yasn___yateasn_h.html">libs/yasn/yateasn.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__GenObject.html">TelEngine::GenObject</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__AsnMib.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref1">Access</A> {	notAccessible = 0,
+	accessibleForNotify = 1,
+	readOnly = 2,
+	readWrite = 3,
+	readCreate = 4
+    }
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>inline &nbsp;<b><A HREF="#ref2">AsnMib</A></b> () 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref3">AsnMib</A></b> (NamedList& params) 
+</LI>
+<LI>inline &nbsp;<b><A HREF="#ref4">~AsnMib</A></b> () 
+</LI>
+<LI>inline String& &nbsp;<b><A HREF="#ref5">getAccess</A></b> () 
+</LI>
+<LI>inline int &nbsp;<b><A HREF="#ref6">getAccessValue</A></b> () 
+</LI>
+<LI>inline String& &nbsp;<b><A HREF="#ref7">getName</A></b> () 
+</LI>
+<LI>inline String &nbsp;<b><A HREF="#ref8">getOID</A></b> () 
+</LI>
+<LI>inline String& &nbsp;<b><A HREF="#ref9">getType</A></b> () 
+</LI>
+<LI>inline String& &nbsp;<b><A HREF="#ref10">getRevision</A></b> () 
+</LI>
+<LI>inline const String& &nbsp;<b><A HREF="#ref11">toString</A></b> ()  const
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref12">setIndex</A></b> (unsigned int ind) 
+</LI>
+<LI>inline unsigned int &nbsp;<b><A HREF="#ref13">index</A></b> () 
+</LI>
+<LI>int &nbsp;<b><A HREF="#ref14">compareTo</A></b> (AsnMib* mib) 
+</LI>
+<LI>inline String &nbsp;<b><A HREF="#ref15">getParent</A></b> () 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ Class describing an ASN.1 OID
+ </p>
+<A NAME="Access"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>Access</strong> {	notAccessible = 0,
+	accessibleForNotify = 1,
+	readOnly = 2,
+	readWrite = 3,
+	readCreate = 4
+    }
+</td><td align="right"><h3><strong>Access</strong></h3></td></tr></table><p></p><p>
+ Access levels
+     </p>
+<A NAME="AsnMib"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>AsnMib</strong> ()
+<br></td><td align="right"><h3><strong>AsnMib</strong></h3></td></tr></table><p></p><p>
+ Constructor
+     </p>
+<A NAME="AsnMib"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>AsnMib</strong> (NamedList& params)
+<br></td><td align="right"><h3><strong>AsnMib</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">NamedList containing data for building this object, it should contain name, access level, value type
+     </TD></TR>
+</TABLE></P>
+<A NAME="~AsnMib"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>~AsnMib</strong> ()
+<br></td><td align="right"><h3><strong>~AsnMib</strong></h3></td></tr></table><p></p><p>
+ Destructor
+     </p>
+<A NAME="getAccess"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline String& &nbsp;<strong>getAccess</strong> ()
+<br></td><td align="right"><h3><strong>getAccess</strong></h3></td></tr></table><p></p><p>
+ Get OID access level in string form
+</p>
+<p><b>Returns</b>: String containing the access level for this OID. It's one of the following values : not-accessible, read-only, read-write,
+	read-create, accessible-for-notify.
+     </p>
+<A NAME="getAccessValue"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline int &nbsp;<strong>getAccessValue</strong> ()
+<br></td><td align="right"><h3><strong>getAccessValue</strong></h3></td></tr></table><p></p><p>
+ Get OID access level
+</p>
+<p><b>Returns</b>: String containing the access level for this OID. It's one of the following values : not-accessible, read-only, read-write,
+	read-create, accessible-for-notify.
+     </p>
+<A NAME="getName"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline String& &nbsp;<strong>getName</strong> ()
+<br></td><td align="right"><h3><strong>getName</strong></h3></td></tr></table><p></p><p>
+ Get the name of this OID
+</p>
+<p><b>Returns</b>: Name of the OID
+     </p>
+<A NAME="getOID"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline String &nbsp;<strong>getOID</strong> ()
+<br></td><td align="right"><h3><strong>getOID</strong></h3></td></tr></table><p></p><p>
+ Get the oid
+</p>
+<p><b>Returns</b>: The OID
+     </p>
+<A NAME="getType"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline String& &nbsp;<strong>getType</strong> ()
+<br></td><td align="right"><h3><strong>getType</strong></h3></td></tr></table><p></p><p>
+ Get the type of the value of this OID
+</p>
+<p><b>Returns</b>: String containing the type of value
+     </p>
+<A NAME="getRevision"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline String& &nbsp;<strong>getRevision</strong> ()
+<br></td><td align="right"><h3><strong>getRevision</strong></h3></td></tr></table><p></p><p>
+ Get the revision of this OID
+</p>
+<p><b>Returns</b>: String containing the revision string
+     </p>
+<A NAME="toString"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const String& &nbsp;<strong>toString</strong> ()
+<br></td><td align="right"><h3><strong>toString</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the string representation of this OID
+</p>
+<p><b>Returns</b>: String representation of this OID
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__GenObject.html#toString">GenObject</A>.</p>
+<A NAME="setIndex"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>setIndex</strong> (unsigned int ind)
+<br></td><td align="right"><h3><strong>setIndex</strong></h3></td></tr></table><p></p><p>
+ Set the index of an OID in case this OID is part of a table.
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>ind</i></TD><TD align="left" valign="top">Given index
+     </TD></TR>
+</TABLE></P>
+<A NAME="index"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline unsigned int &nbsp;<strong>index</strong> ()
+<br></td><td align="right"><h3><strong>index</strong></h3></td></tr></table><p></p><p>
+ Obtain the index of this OID
+</p>
+<p><b>Returns</b>: This OID's index in the OID table
+     </p>
+<A NAME="compareTo"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>int &nbsp;<strong>compareTo</strong> (AsnMib* mib)
+<br></td><td align="right"><h3><strong>compareTo</strong></h3></td></tr></table><p></p><p>
+ Compare this object ID with another
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>mib</i></TD><TD align="left" valign="top">The object ID with which this object should be compared
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: 0 if they're equal, -1 if this object is less lexicographically then the given parameter, 1 if it's greater
+     </p>
+<A NAME="getParent"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline String &nbsp;<strong>getParent</strong> ()
+<br></td><td align="right"><h3><strong>getParent</strong></h3></td></tr></table><p></p><p>
+ Get the parent object ID of this object
+</p>
+<p><b>Returns</b>: String version of the parent ID
+     </p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

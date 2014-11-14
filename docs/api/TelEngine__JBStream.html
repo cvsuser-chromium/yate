@@ -1,0 +1,1158 @@
+<HTML>
+<HEAD>
+<TITLE>class JBStream</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class JBStream</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">A Jabber stream. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::JBStream</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yjabber___yatejabber_h.html">libs/yjabber/yatejabber.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__DebugEnabler.html">TelEngine::DebugEnabler</A> <small>[public ]</small>, <A HREF="TelEngine__Mutex.html">TelEngine::Mutex</A> <small>[public ]</small>, <A HREF="TelEngine__RefObject.html">TelEngine::RefObject</A> <small>[public ]</small></TD></TR>
+<TR><TH>Inherited by</TH><TD><A HREF="TelEngine__JBClientStream.html">JBClientStream</A>, <A HREF="TelEngine__JBClusterStream.html">JBClusterStream</A>, <A HREF="TelEngine__JBServerStream.html">JBServerStream</A></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__JBStream.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref3">Type</A> {	c2s = 0,                         
+	s2s,                             
+	comp,                            
+	cluster,                         
+	TypeCount                        
+    }
+</LI>
+<LI>enum <A HREF="#ref4">State</A> {	Idle = 0,                        
+	Connecting,                      
+	WaitStart,                       
+	Starting,                        
+	Features,                        
+	WaitTlsRsp,                      
+	Securing,                        
+	Auth,                            
+	Challenge,                       
+	Compressing,                     
+	Register,                        
+	Running,                         
+	Destroy,                         
+    }
+</LI>
+<LI>enum <A HREF="#ref5">Flags</A> {	NoAutoRestart       = 0x00000001,
+	TlsRequired         = 0x00000002,
+	AllowPlainAuth      = 0x00000004,
+	DialbackOnly        = 0x00000008,
+	RegisterUser        = 0x00000010,
+	Compress            = 0x00000020,
+	InError             = 0x00000080,
+	RosterRequested     = 0x00000100,
+	AvailableResource   = 0x00000200,
+	PositivePriority    = 0x00000400,
+	SetCompressed       = 0x00010000,
+	StreamSecured       = 0x00020000,
+	StreamTls           = 0x00040000,
+	StreamAuthenticated = 0x00080000,
+	StreamRemoteVer1    = 0x00100000,
+	StreamLocalVer1     = 0x00200000,
+	StreamWaitBindRsp   = 0x01000000,
+	StreamWaitSessRsp   = 0x02000000,
+	StreamWaitChallenge = 0x04000000,
+	StreamWaitChgRsp    = 0x08000000,
+	StreamRfc3920Chg    = 0x10000000,
+	StreamCompressed    = 0x20000000,
+	StreamCanCompress   = 0x40000000,
+	StreamFlags         = 0x000000ff,
+	InternalFlags       = 0xffff0000,
+    }
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>virtual  &nbsp;<b><A HREF="#ref6">~JBStream</A></b> () 
+</LI>
+<LI>inline int &nbsp;<b><A HREF="#ref7">type</A></b> ()  const
+</LI>
+<LI>inline int &nbsp;<b><A HREF="#ref8">xmlns</A></b> ()  const
+</LI>
+<LI>inline State &nbsp;<b><A HREF="#ref9">state</A></b> ()  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref10">incoming</A></b> ()  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref11">outgoing</A></b> ()  const
+</LI>
+<LI>inline JBEngine* &nbsp;<b><A HREF="#ref12">engine</A></b> ()  const
+</LI>
+<LI>inline const char* &nbsp;<b><A HREF="#ref13">name</A></b> ()  const
+</LI>
+<LI>inline const String& &nbsp;<b><A HREF="#ref14">id</A></b> ()  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref15">isId</A></b> (const String& str) 
+</LI>
+<LI>inline const JabberID& &nbsp;<b><A HREF="#ref16">local</A></b> ()  const
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref17">local</A></b> (JabberID& jid) 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref18">setLocal</A></b> (const char* jid) 
+</LI>
+<LI>inline const JabberID& &nbsp;<b><A HREF="#ref19">remote</A></b> ()  const
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref20">remote</A></b> (JabberID& jid) 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref21">remoteAddr</A></b> (SocketAddr& addr) 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref22">localAddr</A></b> (SocketAddr& addr) 
+</LI>
+<LI>inline int &nbsp;<b><A HREF="#ref23">flags</A></b> ()  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref24">flag</A></b> (int mask)  const
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref25">setTlsRequired</A></b> (bool set) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref26">haveData</A></b> () 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref27">connectAddr</A></b> (String& addr, int& port, String& localip, int& stat,
+	ObjList& srvs, bool* isRedirect = 0)  const
+</LI>
+<LI>inline const String& &nbsp;<b><A HREF="#ref28">serverHost</A></b> ()  const
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref29">setRosterRequested</A></b> (bool ok) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref30">setAvailableResource</A></b> (bool ok, bool positive = true) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref31">readSocket</A></b> (char* buf, unsigned int len) 
+</LI>
+<LI>virtual  JBClientStream* &nbsp;<b><A HREF="#ref32">clientStream</A></b> () 
+</LI>
+<LI>virtual  JBServerStream* &nbsp;<b><A HREF="#ref33">serverStream</A></b> () 
+</LI>
+<LI>virtual  JBClusterStream* &nbsp;<b><A HREF="#ref34">clusterStream</A></b> () 
+</LI>
+<LI>JBEvent* &nbsp;<b><A HREF="#ref35">getEvent</A></b> (<A HREF="#u_int64_t">u_int64_t</A> time = Time::msecNow()) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref36">sendStanza</A></b> (XmlElement*& xml) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref37">sendStreamXml</A></b> (State newState, XmlElement* first, XmlElement* second = 0,
+	XmlElement* third = 0) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref38">start</A></b> (XMPPFeatureList* features = 0, XmlElement* caps = 0, bool useVer1 = true) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref39">authenticated</A></b> (bool ok, const String& rsp = String::empty(),
+	XMPPError::Type error = XMPPError::NotAuthorized,
+	const char* username = 0, const char* id = 0, const char* resource = 0) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref40">terminate</A></b> (int location, bool destroy, XmlElement* xml,
+	int error = XMPPError::NoError, const char* reason = "",
+	bool final = false, bool genEvent = true, const char* content = 0) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref41">connectTerminated</A></b> (Socket*& sock) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref42">connecting</A></b> (bool sync, int stat, ObjList& srvs) 
+</LI>
+<LI>virtual  void* &nbsp;<b><A HREF="#ref43">getObject</A></b> (const String& name)  const
+</LI>
+<LI>inline const char* &nbsp;<b><A HREF="#ref44">stateName</A></b> ()  const
+</LI>
+<LI>inline const char* &nbsp;<b><A HREF="#ref45">typeName</A></b> ()  const
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref46">buildSha1Digest</A></b> (String& buf, const String& secret) 
+</LI>
+<LI>virtual  const String& &nbsp;<b><A HREF="#ref47">toString</A></b> ()  const
+</LI>
+</ul><h4>Public Static Methods</h4><ul><LI>static  inline Type &nbsp;<b><A HREF="#ref48">lookupType</A></b> (const char* text, Type defVal = TypeCount) 
+</LI>
+</ul><h4>Public Members</h4><ul><LI>SASL* <b><A HREF="#ref49">m_sasl</A></b></LI>
+<LI>static const TokenDict <b><A HREF="#ref50">s_stateName[]</A></b></LI>
+<LI>static const TokenDict <b><A HREF="#ref51">s_flagName[]</A></b></LI>
+<LI>static const TokenDict <b><A HREF="#ref52">s_typeName[]</A></b></LI>
+</ul><h4>Protected Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref53">JBStream</A></b> (JBEngine* engine, Socket* socket, Type t, bool ssl = false) 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref54">JBStream</A></b> (JBEngine* engine, Type t, const JabberID& local, const JabberID& remote,
+	const char* name = 0, const NamedList* params = 0, const char* serverHost = 0) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref55">destroyed</A></b> () 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref56">canProcess</A></b> (<A HREF="#u_int64_t">u_int64_t</A> time) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref57">process</A></b> (<A HREF="#u_int64_t">u_int64_t</A> time) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref58">processRunning</A></b> (XmlElement* xml, const JabberID& from,
+	const JabberID& to) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref59">checkTimeouts</A></b> (<A HREF="#u_int64_t">u_int64_t</A> time) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref60">resetConnection</A></b> (Socket* sock = 0) 
+</LI>
+<LI>virtual  XmlElement* &nbsp;<b><A HREF="#ref61">buildPing</A></b> (const String& stanzaId) 
+</LI>
+<LI>virtual  XmlElement* &nbsp;<b><A HREF="#ref62">buildStreamStart</A></b> () 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref63">processStart</A></b> (const XmlElement* xml, const JabberID& from,
+	const JabberID& to) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref64">processAuth</A></b> (XmlElement* xml, const JabberID& from,
+	const JabberID& to) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref65">processCompressing</A></b> (XmlElement* xml, const JabberID& from,
+	const JabberID& to) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref66">processRegister</A></b> (XmlElement* xml, const JabberID& from,
+	const JabberID& to) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref67">processStreamStart</A></b> (const XmlElement* xml) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref68">handleCompressReq</A></b> (XmlElement* xml) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref69">streamError</A></b> (XmlElement* xml) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref70">getJids</A></b> (XmlElement* xml, JabberID& from, JabberID& to) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref71">checkStanzaRecv</A></b> (XmlElement* xml, JabberID& from, JabberID& to) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref72">changeState</A></b> (State newState, <A HREF="#u_int64_t">u_int64_t</A> time = Time::msecNow()) 
+</LI>
+<LI>XmlElement* &nbsp;<b><A HREF="#ref73">checkCompress</A></b> () 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref74">checkPendingEvent</A></b> () 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref75">sendPending</A></b> (bool streamOnly = false) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref76">writeSocket</A></b> (const void* data, unsigned int& len) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref77">updateFromRemoteDef</A></b> () 
+</LI>
+<LI>XMPPFeature* &nbsp;<b><A HREF="#ref78">firstRequiredFeature</A></b> () 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref79">dropXml</A></b> (XmlElement*& xml, const char* reason) 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref80">destroyDropXml</A></b> (XmlElement*& xml, XMPPError::Type error, const char* reason) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref81">setFlags</A></b> (int mask) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref82">resetFlags</A></b> (int mask) 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref83">setSecured</A></b> () 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref84">setIdleTimer</A></b> (<A HREF="#u_int64_t">u_int64_t</A> msecNow = Time::msecNow()) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref85">resetPing</A></b> () 
+</LI>
+<LI>XmlElement* &nbsp;<b><A HREF="#ref86">setNextPing</A></b> (bool force) 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref87">generateIdIndex</A></b> (String& buf, const char* extra = 0) 
+</LI>
+</ul><h4>Protected Members</h4><ul><LI>State <b><A HREF="#ref88">m_state</A></b></LI>
+<LI>String <b><A HREF="#ref89">m_id</A></b></LI>
+<LI>JabberID <b><A HREF="#ref90">m_local</A></b></LI>
+<LI>JabberID <b><A HREF="#ref91">m_remote</A></b></LI>
+<LI>String <b><A HREF="#ref92">m_serverHost</A></b></LI>
+<LI>int <b><A HREF="#ref93">m_flags</A></b></LI>
+<LI>XMPPNamespace::Type <b><A HREF="#ref94">m_xmlns</A></b></LI>
+<LI>XMPPFeatureList <b><A HREF="#ref95">m_features</A></b></LI>
+<LI>JBEvent* <b><A HREF="#ref96">m_lastEvent</A></b></LI>
+<LI>ObjList <b><A HREF="#ref97">m_events</A></b></LI>
+<LI>ObjList <b><A HREF="#ref98">m_pending</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref99">m_stanzaIndex</A></b></LI>
+<LI>u_int64_t <b><A HREF="#ref100">m_setupTimeout</A></b></LI>
+<LI>u_int64_t <b><A HREF="#ref101">m_startTimeout</A></b></LI>
+<LI>u_int64_t <b><A HREF="#ref102">m_pingTimeout</A></b></LI>
+<LI>u_int64_t <b><A HREF="#ref103">m_pingInterval</A></b></LI>
+<LI>u_int64_t <b><A HREF="#ref104">m_nextPing</A></b></LI>
+<LI>u_int64_t <b><A HREF="#ref105">m_idleTimeout</A></b></LI>
+<LI>u_int64_t <b><A HREF="#ref106">m_connectTimeout</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref107">m_restart</A></b></LI>
+<LI>u_int64_t <b><A HREF="#ref108">m_timeToFillRestart</A></b></LI>
+<LI>String <b><A HREF="#ref109">m_pingId</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ Base class for all Jabber streams. Basic stream data processing: send/receive
+  XML elements, keep stream state, generate events
+</p>
+<A NAME="Type"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>Type</strong> {	c2s = 0,                         
+	s2s,                             
+	comp,                            
+	cluster,                         
+	TypeCount                        
+    }
+</td><td align="right"><h3><strong>Type</strong></h3></td></tr></table><p></p><p>
+ Stream type enumeration
+     </p>
+<A NAME="State"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>State</strong> {	Idle = 0,                        
+	Connecting,                      
+	WaitStart,                       
+	Starting,                        
+	Features,                        
+	WaitTlsRsp,                      
+	Securing,                        
+	Auth,                            
+	Challenge,                       
+	Compressing,                     
+	Register,                        
+	Running,                         
+	Destroy,                         
+    }
+</td><td align="right"><h3><strong>State</strong></h3></td></tr></table><p></p><p>
+ Stream state enumeration
+     </p>
+<A NAME="Flags"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>Flags</strong> {	NoAutoRestart       = 0x00000001,
+	TlsRequired         = 0x00000002,
+	AllowPlainAuth      = 0x00000004,
+	DialbackOnly        = 0x00000008,
+	RegisterUser        = 0x00000010,
+	Compress            = 0x00000020,
+	InError             = 0x00000080,
+	RosterRequested     = 0x00000100,
+	AvailableResource   = 0x00000200,
+	PositivePriority    = 0x00000400,
+	SetCompressed       = 0x00010000,
+	StreamSecured       = 0x00020000,
+	StreamTls           = 0x00040000,
+	StreamAuthenticated = 0x00080000,
+	StreamRemoteVer1    = 0x00100000,
+	StreamLocalVer1     = 0x00200000,
+	StreamWaitBindRsp   = 0x01000000,
+	StreamWaitSessRsp   = 0x02000000,
+	StreamWaitChallenge = 0x04000000,
+	StreamWaitChgRsp    = 0x08000000,
+	StreamRfc3920Chg    = 0x10000000,
+	StreamCompressed    = 0x20000000,
+	StreamCanCompress   = 0x40000000,
+	StreamFlags         = 0x000000ff,
+	InternalFlags       = 0xffff0000,
+    }
+</td><td align="right"><h3><strong>Flags</strong></h3></td></tr></table><p></p><p>
+ Stream behaviour options
+     </p>
+<A NAME="~JBStream"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~JBStream</strong> ()
+<br></td><td align="right"><h3><strong>~JBStream</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor.
+ Gracefully close the stream and the socket
+     </p>
+<A NAME="type"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline int &nbsp;<strong>type</strong> ()
+<br></td><td align="right"><h3><strong>type</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the type of this stream. See the protocol enumeration of the engine
+</p>
+<p><b>Returns</b>: The type of this stream
+     </p>
+<A NAME="xmlns"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline int &nbsp;<strong>xmlns</strong> ()
+<br></td><td align="right"><h3><strong>xmlns</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve this stream's default namespace
+</p>
+<p><b>Returns</b>: The stream default namespace
+     </p>
+<A NAME="state"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline State &nbsp;<strong>state</strong> ()
+<br></td><td align="right"><h3><strong>state</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the stream state
+</p>
+<p><b>Returns</b>: The stream state as enumeration.
+     </p>
+<A NAME="incoming"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>incoming</strong> ()
+<br></td><td align="right"><h3><strong>incoming</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the stream direction
+</p>
+<p><b>Returns</b>: True if the stream is an incoming one
+     </p>
+<A NAME="outgoing"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>outgoing</strong> ()
+<br></td><td align="right"><h3><strong>outgoing</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the stream direction
+</p>
+<p><b>Returns</b>: True if the stream is an outgoing one
+     </p>
+<A NAME="engine"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline JBEngine* &nbsp;<strong>engine</strong> ()
+<br></td><td align="right"><h3><strong>engine</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the stream's owner
+</p>
+<p><b>Returns</b>: Pointer to the engine owning this stream
+     </p>
+<A NAME="name"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const char* &nbsp;<strong>name</strong> ()
+<br></td><td align="right"><h3><strong>name</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the stream's name
+</p>
+<p><b>Returns</b>: The stream's name
+     </p>
+<A NAME="id"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const String& &nbsp;<strong>id</strong> ()
+<br></td><td align="right"><h3><strong>id</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the stream id
+</p>
+<p><b>Returns</b>: The stream id
+     </p>
+<A NAME="isId"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>isId</strong> (const String& str)
+<br></td><td align="right"><h3><strong>isId</strong></h3></td></tr></table><p></p><p>
+ Check if the stream id equals a given string.
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>str</i></TD><TD align="left" valign="top">The string to check
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the given string equals this stream's id
+     </p>
+<A NAME="local"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const JabberID& &nbsp;<strong>local</strong> ()
+<br></td><td align="right"><h3><strong>local</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the JID of the local side of this stream
+</p>
+<p><b>Returns</b>: The JID of the local side of this stream
+     </p>
+<A NAME="local"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>local</strong> (JabberID& jid)
+<br></td><td align="right"><h3><strong>local</strong></h3></td></tr></table><p></p><p>
+ Get the JID of the local side of this stream.
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>jid</i></TD><TD align="left" valign="top">The JID to be filled with the local side of this stream
+     </TD></TR>
+</TABLE></P>
+<A NAME="setLocal"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>setLocal</strong> (const char* jid)
+<br></td><td align="right"><h3><strong>setLocal</strong></h3></td></tr></table><p></p><p>
+ Set the local party's JID
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>jid</i></TD><TD align="left" valign="top">Local party's jid to set
+     </TD></TR>
+</TABLE></P>
+<A NAME="remote"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const JabberID& &nbsp;<strong>remote</strong> ()
+<br></td><td align="right"><h3><strong>remote</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the JID of the remote side of this stream
+</p>
+<p><b>Returns</b>: The JID of the remote side of this stream
+     </p>
+<A NAME="remote"></A><A NAME="ref20"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>remote</strong> (JabberID& jid)
+<br></td><td align="right"><h3><strong>remote</strong></h3></td></tr></table><p></p><p>
+ Get the JID of the remote side of this stream.
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>jid</i></TD><TD align="left" valign="top">The JID to be filled with the remote side of this stream
+     </TD></TR>
+</TABLE></P>
+<A NAME="remoteAddr"></A><A NAME="ref21"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>remoteAddr</strong> (SocketAddr& addr)
+<br></td><td align="right"><h3><strong>remoteAddr</strong></h3></td></tr></table><p></p><p>
+ Get the remote party's address
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>addr</i></TD><TD align="left" valign="top">The socket address to be filled with remote party's address
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True on success
+     </p>
+<A NAME="localAddr"></A><A NAME="ref22"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>localAddr</strong> (SocketAddr& addr)
+<br></td><td align="right"><h3><strong>localAddr</strong></h3></td></tr></table><p></p><p>
+ Get the local address
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>addr</i></TD><TD align="left" valign="top">The socket address to be filled with local address
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True on success
+     </p>
+<A NAME="flags"></A><A NAME="ref23"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline int &nbsp;<strong>flags</strong> ()
+<br></td><td align="right"><h3><strong>flags</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the stream flags
+</p>
+<p><b>Returns</b>: Stream flags
+     </p>
+<A NAME="flag"></A><A NAME="ref24"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>flag</strong> (int mask)
+<br></td><td align="right"><h3><strong>flag</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Check if a given option (or option mask) is set
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>mask</i></TD><TD align="left" valign="top">The flag(s) to check
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if set
+     </p>
+<A NAME="setTlsRequired"></A><A NAME="ref25"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>setTlsRequired</strong> (bool set)
+<br></td><td align="right"><h3><strong>setTlsRequired</strong></h3></td></tr></table><p></p><p>
+ Set or reset the TLS required flag
+ This method is not thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>set</i></TD><TD align="left" valign="top">True to set, false to reset the flag
+     </TD></TR>
+</TABLE></P>
+<A NAME="haveData"></A><A NAME="ref26"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>haveData</strong> ()
+<br></td><td align="right"><h3><strong>haveData</strong></h3></td></tr></table><p></p><p>
+ Check if the stream has valid pending data (received xml elements in queue or
+  pending events or pending xml elements that can still be sent).
+ This method is thread safe
+</p>
+<p><b>Returns</b>: True if the stream have pending data, false otherwise
+     </p>
+<A NAME="connectAddr"></A><A NAME="ref27"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>connectAddr</strong> (String& addr, int& port, String& localip, int& stat,
+	ObjList& srvs, bool* isRedirect = 0)
+<br></td><td align="right"><h3><strong>connectAddr</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve connection address(es), port and status
+ This method is not thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>addr</i></TD><TD align="left" valign="top">The remote ip
+</TD></TR>
+<TR><TD align="left" valign="top"><i>port</i></TD><TD align="left" valign="top">The remote port
+</TD></TR>
+<TR><TD align="left" valign="top"><i>localip</i></TD><TD align="left" valign="top">Local ip to bind
+</TD></TR>
+<TR><TD align="left" valign="top"><i>stat</i></TD><TD align="left" valign="top">Current connect status
+</TD></TR>
+<TR><TD align="left" valign="top"><i>isRedirect</i></TD><TD align="left" valign="top">Optional pointer to be set to true if returned address is a redirect one
+</TD></TR>
+<TR><TD align="left" valign="top"><i>srvs</i></TD><TD align="left" valign="top">List to copy stream SRV records
+     </TD></TR>
+</TABLE></P>
+<A NAME="serverHost"></A><A NAME="ref28"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const String& &nbsp;<strong>serverHost</strong> ()
+<br></td><td align="right"><h3><strong>serverHost</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve server host when connecting.
+ This method is not thread safe
+</p>
+<p><b>Returns</b>: Server host if set, remote jid's domain otherwise
+     </p>
+<A NAME="setRosterRequested"></A><A NAME="ref29"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>setRosterRequested</strong> (bool ok)
+<br></td><td align="right"><h3><strong>setRosterRequested</strong></h3></td></tr></table><p></p><p>
+ Set/reset RosterRequested flag
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>ok</i></TD><TD align="left" valign="top">True to set, false to reset it
+     </TD></TR>
+</TABLE></P>
+<A NAME="setAvailableResource"></A><A NAME="ref30"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>setAvailableResource</strong> (bool ok, bool positive = true)
+<br></td><td align="right"><h3><strong>setAvailableResource</strong></h3></td></tr></table><p></p><p>
+ Set/reset AvailableResource/PositivePriority flags
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>ok</i></TD><TD align="left" valign="top">True to set, false to reset it
+</TD></TR>
+<TR><TD align="left" valign="top"><i>positive</i></TD><TD align="left" valign="top">True if an available resource has positive priority
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if changed
+     </p>
+<A NAME="readSocket"></A><A NAME="ref31"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>readSocket</strong> (char* buf, unsigned int len)
+<br></td><td align="right"><h3><strong>readSocket</strong></h3></td></tr></table><p></p><p>
+ Read data from socket. Send it to the parser.
+ Terminate the stream on socket or parser error
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>buf</i></TD><TD align="left" valign="top">Destination buffer
+</TD></TR>
+<TR><TD align="left" valign="top"><i>len</i></TD><TD align="left" valign="top">Buffer length (must be greater then 1)
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if data was received
+     </p>
+<A NAME="clientStream"></A><A NAME="ref32"></A><table width="100%"><tr bgcolor="#eeeeee"><td> JBClientStream* &nbsp;<strong>clientStream</strong> ()
+<br></td><td align="right"><h3><strong>clientStream</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Get a client stream from this one
+</p>
+<p><b>Returns</b>: JBClientStream pointer or 0
+     </p>
+<A NAME="serverStream"></A><A NAME="ref33"></A><table width="100%"><tr bgcolor="#eeeeee"><td> JBServerStream* &nbsp;<strong>serverStream</strong> ()
+<br></td><td align="right"><h3><strong>serverStream</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Get a server stream from this one
+</p>
+<p><b>Returns</b>: JBServerStream pointer or 0
+     </p>
+<A NAME="clusterStream"></A><A NAME="ref34"></A><table width="100%"><tr bgcolor="#eeeeee"><td> JBClusterStream* &nbsp;<strong>clusterStream</strong> ()
+<br></td><td align="right"><h3><strong>clusterStream</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Get a cluster stream from this one
+</p>
+<p><b>Returns</b>: JBClusterStream pointer
+     </p>
+<A NAME="getEvent"></A><A NAME="ref35"></A><table width="100%"><tr bgcolor="#eeeeee"><td>JBEvent* &nbsp;<strong>getEvent</strong> (<A HREF="#u_int64_t">u_int64_t</A> time = Time::msecNow())
+<br></td><td align="right"><h3><strong>getEvent</strong></h3></td></tr></table><p></p><p>
+ Stream state processor.
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>time</i></TD><TD align="left" valign="top">Current time
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: JBEvent pointer or 0
+     </p>
+<A NAME="sendStanza"></A><A NAME="ref36"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>sendStanza</strong> (XmlElement*& xml)
+<br></td><td align="right"><h3><strong>sendStanza</strong></h3></td></tr></table><p></p><p>
+ Send a stanza ('iq', 'message' or 'presence') or dialback elements in Running state.
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Element to send (will be consumed and zeroed)
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True on success
+     </p>
+<A NAME="sendStreamXml"></A><A NAME="ref37"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>sendStreamXml</strong> (State newState, XmlElement* first, XmlElement* second = 0,
+	XmlElement* third = 0)
+<br></td><td align="right"><h3><strong>sendStreamXml</strong></h3></td></tr></table><p></p><p>
+ Send stream related XML when negotiating the stream or some other
+  stanza in non Running state
+ All elements will be consumed
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>newState</i></TD><TD align="left" valign="top">The new stream state to set on success
+</TD></TR>
+<TR><TD align="left" valign="top"><i>first</i></TD><TD align="left" valign="top">The first element to send
+</TD></TR>
+<TR><TD align="left" valign="top"><i>second</i></TD><TD align="left" valign="top">Optional second element to send
+</TD></TR>
+<TR><TD align="left" valign="top"><i>third</i></TD><TD align="left" valign="top">Optional third element to send
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True on success
+     </p>
+<A NAME="start"></A><A NAME="ref38"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>start</strong> (XMPPFeatureList* features = 0, XmlElement* caps = 0, bool useVer1 = true)
+<br></td><td align="right"><h3><strong>start</strong></h3></td></tr></table><p></p><p>
+ Start the stream. This method should be called by the upper layer
+  when processing an incoming stream Start event
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>features</i></TD><TD align="left" valign="top">Optional features to advertise to the remote party of an
+  incoming stream. The caller is responsable of freeing it.
+  If processed, list's elements will be moved to stream's features list
+</TD></TR>
+<TR><TD align="left" valign="top"><i>caps</i></TD><TD align="left" valign="top">Optional entity capabilities to be added to the stream features.
+  Ignored for outgoing streams
+</TD></TR>
+<TR><TD align="left" valign="top"><i>useVer1</i></TD><TD align="left" valign="top">Advertise RFC3920 version. Ignored for outgoing streams
+     </TD></TR>
+</TABLE></P>
+<A NAME="authenticated"></A><A NAME="ref39"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>authenticated</strong> (bool ok, const String& rsp = String::empty(),
+	XMPPError::Type error = XMPPError::NotAuthorized,
+	const char* username = 0, const char* id = 0, const char* resource = 0)
+<br></td><td align="right"><h3><strong>authenticated</strong></h3></td></tr></table><p></p><p>
+ Auth event result. This method should be called by the
+  upper layer when processing an Auth event
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>ok</i></TD><TD align="left" valign="top">True if the remote party was authenticated,
+  false if authentication failed
+</TD></TR>
+<TR><TD align="left" valign="top"><i>rsp</i></TD><TD align="left" valign="top">Optional success response content. Ignored if not authenticated
+</TD></TR>
+<TR><TD align="left" valign="top"><i>error</i></TD><TD align="left" valign="top">Failure reason. Ignored if authenticated
+</TD></TR>
+<TR><TD align="left" valign="top"><i>username</i></TD><TD align="left" valign="top">Authenticated user
+</TD></TR>
+<TR><TD align="left" valign="top"><i>id</i></TD><TD align="left" valign="top">Non SASL auth response id
+</TD></TR>
+<TR><TD align="left" valign="top"><i>resource</i></TD><TD align="left" valign="top">Client resource to set when non SASL authentication is used
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if stream state is incorrect
+     </p>
+<A NAME="terminate"></A><A NAME="ref40"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>terminate</strong> (int location, bool destroy, XmlElement* xml,
+	int error = XMPPError::NoError, const char* reason = "",
+	bool final = false, bool genEvent = true, const char* content = 0)
+<br></td><td align="right"><h3><strong>terminate</strong></h3></td></tr></table><p></p><p>
+ Terminate the stream. Send stream end tag or error.
+ Reset the stream. Deref stream if destroying.
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>location</i></TD><TD align="left" valign="top">The terminate request location:
+  -1: upper layer, 0: internal, 1: remote
+</TD></TR>
+<TR><TD align="left" valign="top"><i>destroy</i></TD><TD align="left" valign="top">True to destroy. False to terminate
+</TD></TR>
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Received XML element. The element will be consumed
+</TD></TR>
+<TR><TD align="left" valign="top"><i>error</i></TD><TD align="left" valign="top">Termination reason. Set it to NoError to send stream end tag
+</TD></TR>
+<TR><TD align="left" valign="top"><i>reason</i></TD><TD align="left" valign="top">Optional text to be added to the error stanza
+</TD></TR>
+<TR><TD align="left" valign="top"><i>final</i></TD><TD align="left" valign="top">True if called from destructor
+</TD></TR>
+<TR><TD align="left" valign="top"><i>genEvent</i></TD><TD align="left" valign="top">True to generate terminated event
+</TD></TR>
+<TR><TD align="left" valign="top"><i>content</i></TD><TD align="left" valign="top">Optional sent error condition element text
+     </TD></TR>
+</TABLE></P>
+<A NAME="connectTerminated"></A><A NAME="ref41"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>connectTerminated</strong> (Socket*& sock)
+<br></td><td align="right"><h3><strong>connectTerminated</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Outgoing stream connect terminated notification.
+ Send stream start if everithing is ok
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>sock</i></TD><TD align="left" valign="top">The connected socket, will be consumed and zeroed
+     </TD></TR>
+</TABLE></P>
+<A NAME="connecting"></A><A NAME="ref42"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>connecting</strong> (bool sync, int stat, ObjList& srvs)
+<br></td><td align="right"><h3><strong>connecting</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Connecting notification. Start connect timer for synchronous connect
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>sync</i></TD><TD align="left" valign="top">True if the connection is synchronous
+</TD></TR>
+<TR><TD align="left" valign="top"><i>stat</i></TD><TD align="left" valign="top">Current status of the connect thread
+</TD></TR>
+<TR><TD align="left" valign="top"><i>srvs</i></TD><TD align="left" valign="top">Current list of SRV records in the connect thread
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if accepted
+     </p>
+<A NAME="getObject"></A><A NAME="ref43"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void* &nbsp;<strong>getObject</strong> (const String& name)
+<br></td><td align="right"><h3><strong>getObject</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Get an object from this stream
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">The name of the object to get
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__RefObject.html#getObject">RefObject</A>.</p>
+<A NAME="stateName"></A><A NAME="ref44"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const char* &nbsp;<strong>stateName</strong> ()
+<br></td><td align="right"><h3><strong>stateName</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the name of a stream state
+</p>
+<p><b>Returns</b>: The name of the stream state
+     </p>
+<A NAME="typeName"></A><A NAME="ref45"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline const char* &nbsp;<strong>typeName</strong> ()
+<br></td><td align="right"><h3><strong>typeName</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get the name of a stream type
+</p>
+<p><b>Returns</b>: The name of the stream type
+     </p>
+<A NAME="buildSha1Digest"></A><A NAME="ref46"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>buildSha1Digest</strong> (String& buf, const String& secret)
+<br></td><td align="right"><h3><strong>buildSha1Digest</strong></h3></td></tr></table><p></p><p>
+ Build a SHA1 digest from stream id and secret
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>buf</i></TD><TD align="left" valign="top">Destination buffer
+</TD></TR>
+<TR><TD align="left" valign="top"><i>secret</i></TD><TD align="left" valign="top">The secret
+     </TD></TR>
+</TABLE></P>
+<A NAME="toString"></A><A NAME="ref47"></A><table width="100%"><tr bgcolor="#eeeeee"><td> const String& &nbsp;<strong>toString</strong> ()
+<br></td><td align="right"><h3><strong>toString</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Get the string representation of this stream
+</p>
+<p><b>Returns</b>: Stream name
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__GenObject.html#toString">GenObject</A>.</p>
+<A NAME="lookupType"></A><A NAME="ref48"></A><table width="100%"><tr bgcolor="#eeeeee"><td> inline Type &nbsp;<strong>lookupType</strong> (const char* text, Type defVal = TypeCount)
+<br></td><td align="right"><h3><strong>lookupType</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Get the stream type associated with a given text
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>text</i></TD><TD align="left" valign="top">Stream type text to find
+</TD></TR>
+<TR><TD align="left" valign="top"><i>defVal</i></TD><TD align="left" valign="top">Value to return if not found
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The stream type associated with a given text
+     </p>
+<A NAME="m_sasl"></A><A NAME="ref49"></A><table width="100%"><tr bgcolor="#eeeeee"><td>SASL*  <strong>m_sasl</strong>
+</td><td align="right"><h3><strong>m_sasl</strong></h3></td></tr></table><p></p><A NAME="s_stateName[]"></A><A NAME="ref50"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_stateName[]</strong>
+</td><td align="right"><h3><strong>s_stateName[]</strong></h3></td></tr></table><p></p><A NAME="s_flagName[]"></A><A NAME="ref51"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_flagName[]</strong>
+</td><td align="right"><h3><strong>s_flagName[]</strong></h3></td></tr></table><p></p><A NAME="s_typeName[]"></A><A NAME="ref52"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_typeName[]</strong>
+</td><td align="right"><h3><strong>s_typeName[]</strong></h3></td></tr></table><p></p><A NAME="JBStream"></A><A NAME="ref53"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>JBStream</strong> (JBEngine* engine, Socket* socket, Type t, bool ssl = false)
+<br></td><td align="right"><h3><strong>JBStream</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Constructor. Build an incoming stream from a socket
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>engine</i></TD><TD align="left" valign="top">Engine owning this stream
+</TD></TR>
+<TR><TD align="left" valign="top"><i>socket</i></TD><TD align="left" valign="top">The socket
+</TD></TR>
+<TR><TD align="left" valign="top"><i>t</i></TD><TD align="left" valign="top">Stream type as enumeration
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ssl</i></TD><TD align="left" valign="top">True if the socket is already using SSL/TLS
+     </TD></TR>
+</TABLE></P>
+<A NAME="JBStream"></A><A NAME="ref54"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>JBStream</strong> (JBEngine* engine, Type t, const JabberID& local, const JabberID& remote,
+	const char* name = 0, const NamedList* params = 0, const char* serverHost = 0)
+<br></td><td align="right"><h3><strong>JBStream</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Constructor. Build an outgoing stream
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>engine</i></TD><TD align="left" valign="top">Engine owning this stream
+</TD></TR>
+<TR><TD align="left" valign="top"><i>t</i></TD><TD align="left" valign="top">Stream type as enumeration
+</TD></TR>
+<TR><TD align="left" valign="top"><i>local</i></TD><TD align="left" valign="top">Local party jabber id
+</TD></TR>
+<TR><TD align="left" valign="top"><i>remote</i></TD><TD align="left" valign="top">Remote party jabber id
+</TD></TR>
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Optional stream name
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Optional stream parameters
+</TD></TR>
+<TR><TD align="left" valign="top"><i>serverHost</i></TD><TD align="left" valign="top">Optional server host to use instead of jid domain
+     </TD></TR>
+</TABLE></P>
+<A NAME="destroyed"></A><A NAME="ref55"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>destroyed</strong> ()
+<br></td><td align="right"><h3><strong>destroyed</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Close the stream. Release memory
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__RefObject.html#destroyed">RefObject</A>.</p>
+<A NAME="canProcess"></A><A NAME="ref56"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>canProcess</strong> (<A HREF="#u_int64_t">u_int64_t</A> time)
+<br></td><td align="right"><h3><strong>canProcess</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Check if stream state processor can continue.
+ This method is called from getEvent() with the stream locked
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>time</i></TD><TD align="left" valign="top">Current time
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True to indicate stream availability to process its state,
+  false to return the last event, if any
+     </p>
+<A NAME="process"></A><A NAME="ref57"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>process</strong> (<A HREF="#u_int64_t">u_int64_t</A> time)
+<br></td><td align="right"><h3><strong>process</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Process stream state. Get XML from parser's queue and process it
+ This method is called from getEvent() with the stream locked
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>time</i></TD><TD align="left" valign="top">Current time
+     </TD></TR>
+</TABLE></P>
+<A NAME="processRunning"></A><A NAME="ref58"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>processRunning</strong> (XmlElement* xml, const JabberID& from,
+	const JabberID& to)
+<br></td><td align="right"><h3><strong>processRunning</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Process elements in Running state
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Received element (will be consumed)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>from</i></TD><TD align="left" valign="top">Already parsed source JID
+</TD></TR>
+<TR><TD align="left" valign="top"><i>to</i></TD><TD align="left" valign="top">Already parsed destination JID
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if stream termination was initiated
+     </p>
+<A NAME="checkTimeouts"></A><A NAME="ref59"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>checkTimeouts</strong> (<A HREF="#u_int64_t">u_int64_t</A> time)
+<br></td><td align="right"><h3><strong>checkTimeouts</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Check stream timeouts.
+ This method is called from getEvent() with the stream locked, after
+  the process() method returned without setting the last event
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>time</i></TD><TD align="left" valign="top">Current time
+     </TD></TR>
+</TABLE></P>
+<A NAME="resetConnection"></A><A NAME="ref60"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>resetConnection</strong> (Socket* sock = 0)
+<br></td><td align="right"><h3><strong>resetConnection</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Reset the stream's connection. Build a new XML parser if the socket is valid
+ Release the old connection
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>sock</i></TD><TD align="left" valign="top">The new socket
+     </TD></TR>
+</TABLE></P>
+<A NAME="buildPing"></A><A NAME="ref61"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>buildPing</strong> (const String& stanzaId)
+<br></td><td align="right"><h3><strong>buildPing</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Build a ping iq stanza
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stanzaId</i></TD><TD align="left" valign="top">Stanza id
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: 0
+     </p>
+<A NAME="buildStreamStart"></A><A NAME="ref62"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>buildStreamStart</strong> ()
+<br></td><td align="right"><h3><strong>buildStreamStart</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Build a stream start XML element
+</p>
+<p><b>Returns</b>: XmlElement pointer
+     </p>
+<A NAME="processStart"></A><A NAME="ref63"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>processStart</strong> (const XmlElement* xml, const JabberID& from,
+	const JabberID& to)
+<br></td><td align="right"><h3><strong>processStart</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Process stream start elements while waiting for them
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Received xml element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>from</i></TD><TD align="left" valign="top">The 'from' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>to</i></TD><TD align="left" valign="top">The 'to' attribute
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if stream termination was initiated
+     </p>
+<A NAME="processAuth"></A><A NAME="ref64"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>processAuth</strong> (XmlElement* xml, const JabberID& from,
+	const JabberID& to)
+<br></td><td align="right"><h3><strong>processAuth</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Process elements in Auth state
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Received element (will be consumed)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>from</i></TD><TD align="left" valign="top">Already parsed source JID
+</TD></TR>
+<TR><TD align="left" valign="top"><i>to</i></TD><TD align="left" valign="top">Already parsed destination JID
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if stream termination was initiated
+     </p>
+<A NAME="processCompressing"></A><A NAME="ref65"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>processCompressing</strong> (XmlElement* xml, const JabberID& from,
+	const JabberID& to)
+<br></td><td align="right"><h3><strong>processCompressing</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Process elements in Compressing state
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Received element (will be consumed)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>from</i></TD><TD align="left" valign="top">Already parsed source JID
+</TD></TR>
+<TR><TD align="left" valign="top"><i>to</i></TD><TD align="left" valign="top">Already parsed destination JID
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if stream termination was initiated
+     </p>
+<A NAME="processRegister"></A><A NAME="ref66"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>processRegister</strong> (XmlElement* xml, const JabberID& from,
+	const JabberID& to)
+<br></td><td align="right"><h3><strong>processRegister</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Process elements in Register state
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Received element (will be consumed)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>from</i></TD><TD align="left" valign="top">Already parsed source JID
+</TD></TR>
+<TR><TD align="left" valign="top"><i>to</i></TD><TD align="left" valign="top">Already parsed destination JID
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if stream termination was initiated
+     </p>
+<A NAME="processStreamStart"></A><A NAME="ref67"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>processStreamStart</strong> (const XmlElement* xml)
+<br></td><td align="right"><h3><strong>processStreamStart</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Check if a received stream start element is correct.
+ Check namespaces and set stream version
+ Check and set the id for outgoing streams
+ Generate an id for incoming streams
+ Terminate the stream if this conditions are met
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Received xml element
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if stream termination was initiated
+     </p>
+<A NAME="handleCompressReq"></A><A NAME="ref68"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>handleCompressReq</strong> (XmlElement* xml)
+<br></td><td align="right"><h3><strong>handleCompressReq</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Handle an already checked (tag and namespace) compress request
+ Respond to it. Change stream state on success
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Received xml element (will be consumed)
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if stream termination was initiated
+     </p>
+<A NAME="streamError"></A><A NAME="ref69"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>streamError</strong> (XmlElement* xml)
+<br></td><td align="right"><h3><strong>streamError</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Check if a received element is a stream error one
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Received xml element
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if stream termination was initiated (the xml will be consumed)
+     </p>
+<A NAME="getJids"></A><A NAME="ref70"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>getJids</strong> (XmlElement* xml, JabberID& from, JabberID& to)
+<br></td><td align="right"><h3><strong>getJids</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Retrieve and check the 'from' and 'to' JIDs from a receive element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Received xml element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>from</i></TD><TD align="left" valign="top">Jabber ID to set from the 'from' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>to</i></TD><TD align="left" valign="top">Jabber ID to set from the 'to' attribute
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if stream termination was initiated (the xml will be consumed)
+     </p>
+<A NAME="checkStanzaRecv"></A><A NAME="ref71"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>checkStanzaRecv</strong> (XmlElement* xml, JabberID& from, JabberID& to)
+<br></td><td align="right"><h3><strong>checkStanzaRecv</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Check if a received element is a presence, message or iq qualified by the stream
+  namespace and the stream is not authenticated.
+ Validate 'from' for c2s streams
+ Validate s2s 'to' domain and 'from' jid
+ Fix 'from' or 'to' is needed
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Received xml element (will be consumed if false is returned)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>from</i></TD><TD align="left" valign="top">The sender of the stanza
+</TD></TR>
+<TR><TD align="left" valign="top"><i>to</i></TD><TD align="left" valign="top">Stanza recipient
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if the element was consumed (error was sent or stream termination was initiated)
+     </p>
+<A NAME="changeState"></A><A NAME="ref72"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>changeState</strong> (State newState, <A HREF="#u_int64_t">u_int64_t</A> time = Time::msecNow())
+<br></td><td align="right"><h3><strong>changeState</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Change stream state. Reset state depending data
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>newState</i></TD><TD align="left" valign="top">The new stream state
+</TD></TR>
+<TR><TD align="left" valign="top"><i>time</i></TD><TD align="left" valign="top">Current time
+     </TD></TR>
+</TABLE></P>
+<A NAME="checkCompress"></A><A NAME="ref73"></A><table width="100%"><tr bgcolor="#eeeeee"><td>XmlElement* &nbsp;<strong>checkCompress</strong> ()
+<br></td><td align="right"><h3><strong>checkCompress</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Check if the stream compress flag is set and compression was offered by remote party
+</p>
+<p><b>Returns</b>: Compress request XmlElement pointer or 0
+     </p>
+<A NAME="checkPendingEvent"></A><A NAME="ref74"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>checkPendingEvent</strong> ()
+<br></td><td align="right"><h3><strong>checkPendingEvent</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Check for pending events. Set the last event
+     </p>
+<A NAME="sendPending"></A><A NAME="ref75"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>sendPending</strong> (bool streamOnly = false)
+<br></td><td align="right"><h3><strong>sendPending</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Send pending stream XML or stanzas
+ Terminate the stream on error
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>streamOnly</i></TD><TD align="left" valign="top">Try to send only existing stream related XML elements
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True on success
+     </p>
+<A NAME="writeSocket"></A><A NAME="ref76"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>writeSocket</strong> (const void* data, unsigned int& len)
+<br></td><td align="right"><h3><strong>writeSocket</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Write data to socket. Terminate the stream on socket error
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Buffer to sent
+</TD></TR>
+<TR><TD align="left" valign="top"><i>len</i></TD><TD align="left" valign="top">The number of bytes to send. Filled with actually sent bytes on exit
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True on success, false on failure
+     </p>
+<A NAME="updateFromRemoteDef"></A><A NAME="ref77"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>updateFromRemoteDef</strong> ()
+<br></td><td align="right"><h3><strong>updateFromRemoteDef</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Update stream flags and remote connection data from engine
+     </p>
+<A NAME="firstRequiredFeature"></A><A NAME="ref78"></A><table width="100%"><tr bgcolor="#eeeeee"><td>XMPPFeature* &nbsp;<strong>firstRequiredFeature</strong> ()
+<br></td><td align="right"><h3><strong>firstRequiredFeature</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Retrieve the first required feature in the list
+</p>
+<p><b>Returns</b>: XMPPFeature pointer or 0
+     </p>
+<A NAME="dropXml"></A><A NAME="ref79"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>dropXml</strong> (XmlElement*& xml, const char* reason)
+<br></td><td align="right"><h3><strong>dropXml</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Drop (delete) received XML element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The element to delete
+</TD></TR>
+<TR><TD align="left" valign="top"><i>reason</i></TD><TD align="left" valign="top">The reason
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True
+     </p>
+<A NAME="destroyDropXml"></A><A NAME="ref80"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>destroyDropXml</strong> (XmlElement*& xml, XMPPError::Type error, const char* reason)
+<br></td><td align="right"><h3><strong>destroyDropXml</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Terminate (destroy) the stream. Drop (delete) received XML element
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">The element to delete
+</TD></TR>
+<TR><TD align="left" valign="top"><i>error</i></TD><TD align="left" valign="top">Terminate error
+</TD></TR>
+<TR><TD align="left" valign="top"><i>reason</i></TD><TD align="left" valign="top">Drop reason
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False
+     </p>
+<A NAME="setFlags"></A><A NAME="ref81"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>setFlags</strong> (int mask)
+<br></td><td align="right"><h3><strong>setFlags</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Set stream flag mask
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>mask</i></TD><TD align="left" valign="top">The bit mask to set
+     </TD></TR>
+</TABLE></P>
+<A NAME="resetFlags"></A><A NAME="ref82"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>resetFlags</strong> (int mask)
+<br></td><td align="right"><h3><strong>resetFlags</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Reset stream flag mask
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>mask</i></TD><TD align="left" valign="top">The bit mask to reset
+     </TD></TR>
+</TABLE></P>
+<A NAME="setSecured"></A><A NAME="ref83"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>setSecured</strong> ()
+<br></td><td align="right"><h3><strong>setSecured</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Set secured flag. Remove feature from list
+     </p>
+<A NAME="setIdleTimer"></A><A NAME="ref84"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>setIdleTimer</strong> (<A HREF="#u_int64_t">u_int64_t</A> msecNow = Time::msecNow())
+<br></td><td align="right"><h3><strong>setIdleTimer</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Set the idle timer in Running state
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>msecNow</i></TD><TD align="left" valign="top">Current time in milliseconds
+     </TD></TR>
+</TABLE></P>
+<A NAME="resetPing"></A><A NAME="ref85"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>resetPing</strong> ()
+<br></td><td align="right"><h3><strong>resetPing</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Reset ping data
+     </p>
+<A NAME="setNextPing"></A><A NAME="ref86"></A><table width="100%"><tr bgcolor="#eeeeee"><td>XmlElement* &nbsp;<strong>setNextPing</strong> (bool force)
+<br></td><td align="right"><h3><strong>setNextPing</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Set the time of the next ping if there is any timeout and we don't have a ping in progress.
+ Set the ping timeout if an element is returned
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>force</i></TD><TD align="left" valign="top">True to set it even if already set
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: XmlElement containing the ping to send, 0 if no ping is going to be sent or 'force' is true
+     </p>
+<A NAME="generateIdIndex"></A><A NAME="ref87"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>generateIdIndex</strong> (String& buf, const char* extra = 0)
+<br></td><td align="right"><h3><strong>generateIdIndex</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Generate a stanza index from stream id and current stanza index
+ Set the ping timeout if an element is returned
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>buf</i></TD><TD align="left" valign="top">Destination string
+</TD></TR>
+<TR><TD align="left" valign="top"><i>extra</i></TD><TD align="left" valign="top">Optional extra string
+     </TD></TR>
+</TABLE></P>
+<A NAME="m_state"></A><A NAME="ref88"></A><table width="100%"><tr bgcolor="#eeeeee"><td>State  <strong>m_state</strong>
+</td><td align="right"><h3><strong>m_state</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_id"></A><A NAME="ref89"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_id</strong>
+</td><td align="right"><h3><strong>m_id</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_local"></A><A NAME="ref90"></A><table width="100%"><tr bgcolor="#eeeeee"><td>JabberID  <strong>m_local</strong>
+</td><td align="right"><h3><strong>m_local</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_remote"></A><A NAME="ref91"></A><table width="100%"><tr bgcolor="#eeeeee"><td>JabberID  <strong>m_remote</strong>
+</td><td align="right"><h3><strong>m_remote</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_serverHost"></A><A NAME="ref92"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_serverHost</strong>
+</td><td align="right"><h3><strong>m_serverHost</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_flags"></A><A NAME="ref93"></A><table width="100%"><tr bgcolor="#eeeeee"><td>int  <strong>m_flags</strong>
+</td><td align="right"><h3><strong>m_flags</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_xmlns"></A><A NAME="ref94"></A><table width="100%"><tr bgcolor="#eeeeee"><td>XMPPNamespace::Type  <strong>m_xmlns</strong>
+</td><td align="right"><h3><strong>m_xmlns</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_features"></A><A NAME="ref95"></A><table width="100%"><tr bgcolor="#eeeeee"><td>XMPPFeatureList  <strong>m_features</strong>
+</td><td align="right"><h3><strong>m_features</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_lastEvent"></A><A NAME="ref96"></A><table width="100%"><tr bgcolor="#eeeeee"><td>JBEvent*  <strong>m_lastEvent</strong>
+</td><td align="right"><h3><strong>m_lastEvent</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_events"></A><A NAME="ref97"></A><table width="100%"><tr bgcolor="#eeeeee"><td>ObjList  <strong>m_events</strong>
+</td><td align="right"><h3><strong>m_events</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_pending"></A><A NAME="ref98"></A><table width="100%"><tr bgcolor="#eeeeee"><td>ObjList  <strong>m_pending</strong>
+</td><td align="right"><h3><strong>m_pending</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_stanzaIndex"></A><A NAME="ref99"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_stanzaIndex</strong>
+</td><td align="right"><h3><strong>m_stanzaIndex</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_setupTimeout"></A><A NAME="ref100"></A><table width="100%"><tr bgcolor="#eeeeee"><td><A HREF="#u_int64_t">u_int64_t</A>  <strong>m_setupTimeout</strong>
+</td><td align="right"><h3><strong>m_setupTimeout</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_startTimeout"></A><A NAME="ref101"></A><table width="100%"><tr bgcolor="#eeeeee"><td><A HREF="#u_int64_t">u_int64_t</A>  <strong>m_startTimeout</strong>
+</td><td align="right"><h3><strong>m_startTimeout</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_pingTimeout"></A><A NAME="ref102"></A><table width="100%"><tr bgcolor="#eeeeee"><td><A HREF="#u_int64_t">u_int64_t</A>  <strong>m_pingTimeout</strong>
+</td><td align="right"><h3><strong>m_pingTimeout</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_pingInterval"></A><A NAME="ref103"></A><table width="100%"><tr bgcolor="#eeeeee"><td><A HREF="#u_int64_t">u_int64_t</A>  <strong>m_pingInterval</strong>
+</td><td align="right"><h3><strong>m_pingInterval</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_nextPing"></A><A NAME="ref104"></A><table width="100%"><tr bgcolor="#eeeeee"><td><A HREF="#u_int64_t">u_int64_t</A>  <strong>m_nextPing</strong>
+</td><td align="right"><h3><strong>m_nextPing</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_idleTimeout"></A><A NAME="ref105"></A><table width="100%"><tr bgcolor="#eeeeee"><td><A HREF="#u_int64_t">u_int64_t</A>  <strong>m_idleTimeout</strong>
+</td><td align="right"><h3><strong>m_idleTimeout</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_connectTimeout"></A><A NAME="ref106"></A><table width="100%"><tr bgcolor="#eeeeee"><td><A HREF="#u_int64_t">u_int64_t</A>  <strong>m_connectTimeout</strong>
+</td><td align="right"><h3><strong>m_connectTimeout</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_restart"></A><A NAME="ref107"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_restart</strong>
+</td><td align="right"><h3><strong>m_restart</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_timeToFillRestart"></A><A NAME="ref108"></A><table width="100%"><tr bgcolor="#eeeeee"><td><A HREF="#u_int64_t">u_int64_t</A>  <strong>m_timeToFillRestart</strong>
+</td><td align="right"><h3><strong>m_timeToFillRestart</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_pingId"></A><A NAME="ref109"></A><table width="100%"><tr bgcolor="#eeeeee"><td>String  <strong>m_pingId</strong>
+</td><td align="right"><h3><strong>m_pingId</strong></h3></td></tr></table><p> <small>[protected]</small></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

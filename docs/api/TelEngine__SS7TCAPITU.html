@@ -1,0 +1,128 @@
+<HTML>
+<HEAD>
+<TITLE>class SS7TCAPITU</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class SS7TCAPITU</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">ITU-T SS7 TCAP implementation. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::SS7TCAPITU</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><i><A HREF="TelEngine__SS7TCAP.html">TelEngine::SS7TCAP</A></i> <small>[virtual public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__SS7TCAPITU.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref1">TCAPTags</A> {	OriginatingIDTag    = 0x48,
+	DestinationIDTag    = 0x49,
+	PCauseTag           = 0x4a,
+    }
+</LI>
+<LI>enum <A HREF="#ref2">TCAPDialogTags</A> {	DialogPortionTag         = 0x6b,
+	ProtocolVersionTag       = 0x80,
+	ApplicationContextTag    = 0xa1,
+	UserInformationTag       = 0xbe,
+    }
+</LI>
+<LI>enum <A HREF="#ref3">UserInfoTags</A> {	DirectReferenceTag       = 0x06,
+	DataDescriptorTag        = 0x07,
+	ExternalTag              = 0x28,
+	SingleASNTypePEncTag     = 0x80, 
+	SingleASNTypeCEncTag     = 0xa0, 
+	OctetAlignEncTag         = 0x81,
+	ArbitraryEncTag          = 0x82,
+    }
+</LI>
+<LI>enum <A HREF="#ref4">TCAPComponentTags</A> {	ComponentPortionTag  = 0x6c,
+	LocalTag             = 0x02,
+	LinkedIDTag          = 0x80,
+	GlobalTag            = 0x06,
+	ParameterSeqTag      = 0x30,
+	ParameterSetTag      = 0x31,
+    }
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref5">SS7TCAPITU</A></b> (const NamedList& params) 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref6">~SS7TCAPITU</A></b> () 
+</LI>
+<LI>virtual  SS7TCAPTransaction* &nbsp;<b><A HREF="#ref7">buildTransaction</A></b> (SS7TCAP::TCAPUserTransActions type, const String& transactID, NamedList& params,
+	bool initLocal = true) 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ Implementation of SS7 Transactional Capabilities Application Part - specification ITU-T
+</p>
+<A NAME="TCAPTags"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>TCAPTags</strong> {	OriginatingIDTag    = 0x48,
+	DestinationIDTag    = 0x49,
+	PCauseTag           = 0x4a,
+    }
+</td><td align="right"><h3><strong>TCAPTags</strong></h3></td></tr></table><p></p><A NAME="TCAPDialogTags"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>TCAPDialogTags</strong> {	DialogPortionTag         = 0x6b,
+	ProtocolVersionTag       = 0x80,
+	ApplicationContextTag    = 0xa1,
+	UserInformationTag       = 0xbe,
+    }
+</td><td align="right"><h3><strong>TCAPDialogTags</strong></h3></td></tr></table><p></p><A NAME="UserInfoTags"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>UserInfoTags</strong> {	DirectReferenceTag       = 0x06,
+	DataDescriptorTag        = 0x07,
+	ExternalTag              = 0x28,
+	SingleASNTypePEncTag     = 0x80, 
+	SingleASNTypeCEncTag     = 0xa0, 
+	OctetAlignEncTag         = 0x81,
+	ArbitraryEncTag          = 0x82,
+    }
+</td><td align="right"><h3><strong>UserInfoTags</strong></h3></td></tr></table><p></p><A NAME="TCAPComponentTags"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>TCAPComponentTags</strong> {	ComponentPortionTag  = 0x6c,
+	LocalTag             = 0x02,
+	LinkedIDTag          = 0x80,
+	GlobalTag            = 0x06,
+	ParameterSeqTag      = 0x30,
+	ParameterSetTag      = 0x31,
+    }
+</td><td align="right"><h3><strong>TCAPComponentTags</strong></h3></td></tr></table><p></p><A NAME="SS7TCAPITU"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>SS7TCAPITU</strong> (const NamedList& params)
+<br></td><td align="right"><h3><strong>SS7TCAPITU</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Parameters to build ITU TCAP
+     </TD></TR>
+</TABLE></P>
+<A NAME="~SS7TCAPITU"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>~SS7TCAPITU</strong> ()
+<br></td><td align="right"><h3><strong>~SS7TCAPITU</strong></h3></td></tr></table><p></p><p>
+ Destructor
+     </p>
+<A NAME="buildTransaction"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> SS7TCAPTransaction* &nbsp;<strong>buildTransaction</strong> (SS7TCAP::TCAPUserTransActions type, const String& transactID, NamedList& params,
+	bool initLocal = true)
+<br></td><td align="right"><h3><strong>buildTransaction</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Build a transaction
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Type with which to build the transactions
+</TD></TR>
+<TR><TD align="left" valign="top"><i>transactID</i></TD><TD align="left" valign="top">ID for the transaction
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Parameters for building the transaction
+</TD></TR>
+<TR><TD align="left" valign="top"><i>initLocal</i></TD><TD align="left" valign="top">True if built by user, false if by remote end
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A transaction
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SS7TCAP.html#buildTransaction">SS7TCAP</A>.</p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

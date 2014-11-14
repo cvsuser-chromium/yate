@@ -1,0 +1,158 @@
+<HTML>
+<HEAD>
+<TITLE>class ScriptParser</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class ScriptParser</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">Abstract script parser. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH colspan="2">Contains pure virtuals</TH></TR><TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::ScriptParser</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yscript___yatescript_h.html">libs/yscript/yatescript.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__GenObject.html">TelEngine::GenObject</A> <small>[public ]</small></TD></TR>
+<TR><TH>Inherited by</TH><TD><A HREF="TelEngine__JsParser.html">JsParser</A></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__ScriptParser.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>virtual  &nbsp;<b><A HREF="#ref1">~ScriptParser</A></b> () 
+</LI>
+<LI>virtual  bool &nbsp;<b><i><A HREF="#ref2">parse</A></i></b> (const char* text, bool fragment = false, const char* file = 0, int len = -1) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref3">parseFile</A></b> (const char* name, bool fragment = false) 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref4">clear</A></b> () 
+</LI>
+<LI>inline ScriptCode* &nbsp;<b><A HREF="#ref5">code</A></b> ()  const
+</LI>
+<LI>virtual  ScriptContext* &nbsp;<b><A HREF="#ref6">createContext</A></b> ()  const
+</LI>
+<LI>virtual  ScriptRun* &nbsp;<b><A HREF="#ref7">createRunner</A></b> (ScriptCode* code, ScriptContext* context = 0, const char* title = 0)  const
+</LI>
+<LI>inline ScriptRun* &nbsp;<b><A HREF="#ref8">createRunner</A></b> (ScriptContext* context = 0, const char* title = 0)  const
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref9">callable</A></b> (const String& name) 
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>inline &nbsp;<b><A HREF="#ref10">ScriptParser</A></b> () 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref11">setCode</A></b> (ScriptCode* code) 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ Abstract parser, base class for each language parser
+</p>
+<A NAME="~ScriptParser"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~ScriptParser</strong> ()
+<br></td><td align="right"><h3><strong>~ScriptParser</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor, releases code
+     </p>
+<A NAME="parse"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<i><strong>parse</strong></i> (const char* text, bool fragment = false, const char* file = 0, int len = -1)
+<br></td><td align="right"><h3><i><strong>parse</strong></i></h3></td></tr></table><p> <small>[pure virtual]</small></p><p>
+ Parse a string as script source code
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>text</i></TD><TD align="left" valign="top">Source code text
+</TD></TR>
+<TR><TD align="left" valign="top"><i>fragment</i></TD><TD align="left" valign="top">True if the code is just an included fragment
+</TD></TR>
+<TR><TD align="left" valign="top"><i>file</i></TD><TD align="left" valign="top">Name of the file that is being parsed
+</TD></TR>
+<TR><TD align="left" valign="top"><i>len</i></TD><TD align="left" valign="top">Length of text, negative if unknown
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the text was successfully parsed
+     </p>
+<A NAME="parseFile"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>parseFile</strong> (const char* name, bool fragment = false)
+<br></td><td align="right"><h3><strong>parseFile</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Parse a file as script source code
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Source file name
+</TD></TR>
+<TR><TD align="left" valign="top"><i>fragment</i></TD><TD align="left" valign="top">True if the code is just an included fragment
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the file was successfully parsed
+     </p>
+<A NAME="clear"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>clear</strong> ()
+<br></td><td align="right"><h3><strong>clear</strong></h3></td></tr></table><p></p><p>
+ Clear any existing parsed code
+     </p>
+<A NAME="code"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline ScriptCode* &nbsp;<strong>code</strong> ()
+<br></td><td align="right"><h3><strong>code</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the currently stored parsed code
+</p>
+<p><b>Returns</b>: Parsed code block, may be NULL
+     </p>
+<A NAME="createContext"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td> ScriptContext* &nbsp;<strong>createContext</strong> ()
+<br></td><td align="right"><h3><strong>createContext</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Create a context adequate for the parsed code
+</p>
+<p><b>Returns</b>: A new script context
+     </p>
+<A NAME="createRunner"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> ScriptRun* &nbsp;<strong>createRunner</strong> (ScriptCode* code, ScriptContext* context = 0, const char* title = 0)
+<br></td><td align="right"><h3><strong>createRunner</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Create a runner adequate for a block of parsed code
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>code</i></TD><TD align="left" valign="top">Parsed code block
+</TD></TR>
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Script context, an empty one will be allocated if NULL
+</TD></TR>
+<TR><TD align="left" valign="top"><i>title</i></TD><TD align="left" valign="top">An optional name for the runner
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A new script runner, NULL if code is NULL
+     </p>
+<A NAME="createRunner"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline ScriptRun* &nbsp;<strong>createRunner</strong> (ScriptContext* context = 0, const char* title = 0)
+<br></td><td align="right"><h3><strong>createRunner</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Create a runner adequate for the parsed code
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>context</i></TD><TD align="left" valign="top">Script context, an empty one will be allocated if NULL
+</TD></TR>
+<TR><TD align="left" valign="top"><i>title</i></TD><TD align="left" valign="top">An optional name for the runner
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: A new script runner, NULL if code is not yet parsed
+     </p>
+<A NAME="callable"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>callable</strong> (const String& name)
+<br></td><td align="right"><h3><strong>callable</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Check if a script has a certain function or method
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Name of the function to check
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if function exists in code
+     </p>
+<A NAME="ScriptParser"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline &nbsp;<strong>ScriptParser</strong> ()
+<br></td><td align="right"><h3><strong>ScriptParser</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Default constructor for derived classes
+     </p>
+<A NAME="setCode"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>setCode</strong> (ScriptCode* code)
+<br></td><td align="right"><h3><strong>setCode</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Set the just parsed block of code
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>code</i></TD><TD align="left" valign="top">Parsed code block, may be NULL
+     </TD></TR>
+</TABLE></P>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

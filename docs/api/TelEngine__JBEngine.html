@@ -1,0 +1,510 @@
+<HTML>
+<HEAD>
+<TITLE>class JBEngine</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class JBEngine</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">A Jabber engine. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::JBEngine</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yjabber___yatejabber_h.html">libs/yjabber/yatejabber.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__DebugEnabler.html">TelEngine::DebugEnabler</A> <small>[public ]</small>, <A HREF="TelEngine__GenObject.html">TelEngine::GenObject</A> <small>[public ]</small>, <A HREF="TelEngine__Mutex.html">TelEngine::Mutex</A> <small>[public ]</small></TD></TR>
+<TR><TH>Inherited by</TH><TD><A HREF="TelEngine__JBClientEngine.html">JBClientEngine</A>, <A HREF="TelEngine__JBServerEngine.html">JBServerEngine</A></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__JBEngine.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref4">JBEngine</A></b> (const char* name = "jbengine") 
+</LI>
+<LI>virtual  &nbsp;<b><A HREF="#ref5">~JBEngine</A></b> () 
+</LI>
+<LI>inline unsigned int &nbsp;<b><A HREF="#ref6">streamReadBuffer</A></b> ()  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref7">exiting</A></b> ()  const
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref8">setExiting</A></b> () 
+</LI>
+<LI>inline unsigned int &nbsp;<b><A HREF="#ref9">redirectMax</A></b> ()  const
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref10">hasClientTls</A></b> ()  const
+</LI>
+<LI>inline JBRemoteDomainDef* &nbsp;<b><A HREF="#ref11">remoteDomainDef</A></b> (const String& domain) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref12">destruct</A></b> () 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref13">initialize</A></b> (const NamedList& params) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref14">cleanup</A></b> (bool final = false, bool waitTerminate = true) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref15">acceptConn</A></b> (Socket* sock, SocketAddr& remote, JBStream::Type t, bool ssl = false) 
+</LI>
+<LI>virtual  JBStream* &nbsp;<b><A HREF="#ref16">findStream</A></b> (const String& id,
+	JBStream::Type hint = JBStream::TypeCount) 
+</LI>
+<LI>ObjList* &nbsp;<b><A HREF="#ref17">findClientStreams</A></b> (bool in, const JabberID& jid, int flags = 0xffffffff) 
+</LI>
+<LI>ObjList* &nbsp;<b><A HREF="#ref18">findClientStreams</A></b> (bool in, const JabberID& jid, const ObjList& resources,
+	int flags = 0xffffffff) 
+</LI>
+<LI>JBClientStream* &nbsp;<b><A HREF="#ref19">findClientStream</A></b> (bool in, const JabberID& jid) 
+</LI>
+<LI>virtual  unsigned int &nbsp;<b><A HREF="#ref20">dropAll</A></b> (JBStream::Type type = JBStream::TypeCount,
+	const JabberID& local = JabberID::empty(),
+	const JabberID& remote = JabberID::empty(),
+	XMPPError::Type error = XMPPError::NoError, const char* reason = 0) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref21">buildStreamName</A></b> (String& name, const JBStream* stream) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref22">hasDomain</A></b> (const String& domain) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref23">processEvent</A></b> (JBEvent* ev) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref24">returnEvent</A></b> (JBEvent* ev, XMPPError::Type error = XMPPError::NoError,
+	const char* reason = 0) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref25">encryptStream</A></b> (JBStream* stream) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref26">connectStream</A></b> (JBStream* stream) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref27">compressStream</A></b> (JBStream* stream, const String& formats) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref28">buildDialbackKey</A></b> (const String& id, const String& local,
+	const String& remote, String& key) 
+</LI>
+<LI>bool &nbsp;<b><A HREF="#ref29">checkDupId</A></b> (JBStream* stream) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref30">printXml</A></b> (const JBStream* stream, bool send, XmlChild& xml)  const
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref31">printXml</A></b> (const JBStream* stream, bool send, XmlFragment& frag)  const
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>virtual  void &nbsp;<b><A HREF="#ref32">addStream</A></b> (JBStream* stream) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref33">removeStream</A></b> (JBStream* stream, bool delObj = true) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref34">stopStreamSets</A></b> (bool waitTerminate = true) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref35">getStreamList</A></b> (RefPointer<JBStreamSetList>& list, int type) 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref36">getStreamLists</A></b> (RefPointer<JBStreamSetList> list[JBStream::TypeCount],
+	int type = JBStream::TypeCount) 
+</LI>
+<LI>JBStream* &nbsp;<b><A HREF="#ref37">findStream</A></b> (const String& id, JBStreamSetList* list) 
+</LI>
+</ul><h4>Protected Members</h4><ul><LI>bool <b><A HREF="#ref38">m_exiting</A></b></LI>
+<LI>JBRemoteDomainDef <b><A HREF="#ref39">m_remoteDomain</A></b></LI>
+<LI>ObjList <b><A HREF="#ref40">m_remoteDomains</A></b></LI>
+<LI>unsigned char <b><A HREF="#ref41">m_restartMax</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref42">m_restartUpdInterval</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref43">m_setupTimeout</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref44">m_startTimeout</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref45">m_connectTimeout</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref46">m_srvTimeout</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref47">m_pingInterval</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref48">m_pingTimeout</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref49">m_idleTimeout</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref50">m_pptTimeoutC2s</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref51">m_pptTimeout</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref52">m_streamReadBuffer</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref53">m_maxIncompleteXml</A></b></LI>
+<LI>unsigned int <b><A HREF="#ref54">m_redirectMax</A></b></LI>
+<LI>bool <b><A HREF="#ref55">m_hasClientTls</A></b></LI>
+<LI>int <b><A HREF="#ref56">m_printXml</A></b></LI>
+<LI>bool <b><A HREF="#ref57">m_initialized</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ This class holds a Jabber engine
+</p>
+<A NAME="JBEngine"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>JBEngine</strong> (const char* name = "jbengine")
+<br></td><td align="right"><h3><strong>JBEngine</strong></h3></td></tr></table><p></p><p>
+ Constructor
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Engine name
+     </TD></TR>
+</TABLE></P>
+<A NAME="~JBEngine"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~JBEngine</strong> ()
+<br></td><td align="right"><h3><strong>~JBEngine</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor
+     </p>
+<A NAME="streamReadBuffer"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline unsigned int &nbsp;<strong>streamReadBuffer</strong> ()
+<br></td><td align="right"><h3><strong>streamReadBuffer</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the stream read buffer length
+</p>
+<p><b>Returns</b>: Stream read buffer length
+     </p>
+<A NAME="exiting"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>exiting</strong> ()
+<br></td><td align="right"><h3><strong>exiting</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Check if this engine is exiting
+</p>
+<p><b>Returns</b>: True if this engine is exiting
+     </p>
+<A NAME="setExiting"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>setExiting</strong> ()
+<br></td><td align="right"><h3><strong>setExiting</strong></h3></td></tr></table><p></p><p>
+ Set the exiting flag. Terminate all streams
+     </p>
+<A NAME="redirectMax"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline unsigned int &nbsp;<strong>redirectMax</strong> ()
+<br></td><td align="right"><h3><strong>redirectMax</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve maximum redirect counter for outgoing streams
+</p>
+<p><b>Returns</b>: Maximum redirect counter for outgoing streams
+     </p>
+<A NAME="hasClientTls"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>hasClientTls</strong> ()
+<br></td><td align="right"><h3><strong>hasClientTls</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Check if TLS is available for outgoing streams
+</p>
+<p><b>Returns</b>: True if TLS is available for outgoing streams
+     </p>
+<A NAME="remoteDomainDef"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline JBRemoteDomainDef* &nbsp;<strong>remoteDomainDef</strong> (const String& domain)
+<br></td><td align="right"><h3><strong>remoteDomainDef</strong></h3></td></tr></table><p></p><p>
+ Find a remote domain definition. Return the default settings if not found.
+ This method is not thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>domain</i></TD><TD align="left" valign="top">The domain to find
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Valid JBRemoteDomainDef pointer
+     </p>
+<A NAME="destruct"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>destruct</strong> ()
+<br></td><td align="right"><h3><strong>destruct</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Cleanup streams. Stop all threads owned by this engine. Release memory
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__GenObject.html#destruct">GenObject</A>.</p>
+<A NAME="initialize"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>initialize</strong> (const NamedList& params)
+<br></td><td align="right"><h3><strong>initialize</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Initialize the engine's parameters. Start private streams if requested
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Engine's parameters
+     </TD></TR>
+</TABLE></P>
+<A NAME="cleanup"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>cleanup</strong> (bool final = false, bool waitTerminate = true)
+<br></td><td align="right"><h3><strong>cleanup</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Stop connect threads. Drop all streams. Stop all stream sets. Release memory if final
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>final</i></TD><TD align="left" valign="top">True if called from destructor
+</TD></TR>
+<TR><TD align="left" valign="top"><i>waitTerminate</i></TD><TD align="left" valign="top">True to wait for all streams to terminate
+     </TD></TR>
+</TABLE></P>
+<A NAME="acceptConn"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>acceptConn</strong> (Socket* sock, SocketAddr& remote, JBStream::Type t, bool ssl = false)
+<br></td><td align="right"><h3><strong>acceptConn</strong></h3></td></tr></table><p></p><p>
+ Accept an incoming stream connection. Build a stream.
+ Don't delete the socket if false is returned
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>sock</i></TD><TD align="left" valign="top">Accepted socket
+</TD></TR>
+<TR><TD align="left" valign="top"><i>remote</i></TD><TD align="left" valign="top">Remote ip and port
+</TD></TR>
+<TR><TD align="left" valign="top"><i>t</i></TD><TD align="left" valign="top">Expected stream type
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ssl</i></TD><TD align="left" valign="top">True if the socket is already using SSL/TLS
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True on success
+     </p>
+<A NAME="findStream"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td> JBStream* &nbsp;<strong>findStream</strong> (const String& id,
+	JBStream::Type hint = JBStream::TypeCount)
+<br></td><td align="right"><h3><strong>findStream</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Find a stream by its name. This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>id</i></TD><TD align="left" valign="top">The internal id of the stream to find
+</TD></TR>
+<TR><TD align="left" valign="top"><i>hint</i></TD><TD align="left" valign="top">Optional stream type hint
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Referenced JBStream pointer or 0
+     </p>
+<A NAME="findClientStreams"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td>ObjList* &nbsp;<strong>findClientStreams</strong> (bool in, const JabberID& jid, int flags = 0xffffffff)
+<br></td><td align="right"><h3><strong>findClientStreams</strong></h3></td></tr></table><p></p><p>
+ Find all c2s streams whose local or remote bare jid matches a given one.
+ Ignore destroying streams.
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>in</i></TD><TD align="left" valign="top">True for incoming, false for outgoing
+</TD></TR>
+<TR><TD align="left" valign="top"><i>jid</i></TD><TD align="left" valign="top">JID to compare (the local one for outgoing, remote jid for incoming)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>flags</i></TD><TD align="left" valign="top">Optional stream flag to match
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: List of referenced JBClientStream pointers or 0
+     </p>
+<A NAME="findClientStreams"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td>ObjList* &nbsp;<strong>findClientStreams</strong> (bool in, const JabberID& jid, const ObjList& resources,
+	int flags = 0xffffffff)
+<br></td><td align="right"><h3><strong>findClientStreams</strong></h3></td></tr></table><p></p><p>
+ Find all c2s streams whose local or remote bare jid matches a given one and
+  their resource is found in the given list.
+ Ignore destroying streams.
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>in</i></TD><TD align="left" valign="top">True for incoming, false for outgoing
+</TD></TR>
+<TR><TD align="left" valign="top"><i>jid</i></TD><TD align="left" valign="top">JID to compare (the local one for outgoing, remote jid for incoming)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>resources</i></TD><TD align="left" valign="top">The list of resources to match
+</TD></TR>
+<TR><TD align="left" valign="top"><i>flags</i></TD><TD align="left" valign="top">Optional stream flag to match
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: List of referenced JBClientStream pointers or 0
+     </p>
+<A NAME="findClientStream"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td>JBClientStream* &nbsp;<strong>findClientStream</strong> (bool in, const JabberID& jid)
+<br></td><td align="right"><h3><strong>findClientStream</strong></h3></td></tr></table><p></p><p>
+ Find a c2s stream by its local or remote jid.
+ This method is thread safe
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>in</i></TD><TD align="left" valign="top">True for incoming, false for outgoing
+</TD></TR>
+<TR><TD align="left" valign="top"><i>jid</i></TD><TD align="left" valign="top">JID to compare (the local one for outgoing, remote jid for incoming)
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Referenced JBClientStream pointer or 0
+     </p>
+<A NAME="dropAll"></A><A NAME="ref20"></A><table width="100%"><tr bgcolor="#eeeeee"><td> unsigned int &nbsp;<strong>dropAll</strong> (JBStream::Type type = JBStream::TypeCount,
+	const JabberID& local = JabberID::empty(),
+	const JabberID& remote = JabberID::empty(),
+	XMPPError::Type error = XMPPError::NoError, const char* reason = 0)
+<br></td><td align="right"><h3><strong>dropAll</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Terminate all streams matching type and/or local/remote jid
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Stream type. Match all stream types if unknown
+</TD></TR>
+<TR><TD align="left" valign="top"><i>local</i></TD><TD align="left" valign="top">Optional local jid to match
+</TD></TR>
+<TR><TD align="left" valign="top"><i>remote</i></TD><TD align="left" valign="top">Optional remote jid to match
+</TD></TR>
+<TR><TD align="left" valign="top"><i>error</i></TD><TD align="left" valign="top">Optional error to be sent to the client
+</TD></TR>
+<TR><TD align="left" valign="top"><i>reason</i></TD><TD align="left" valign="top">Optional error text to be sent to the client
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: The number of stream terminated
+     </p>
+<A NAME="buildStreamName"></A><A NAME="ref21"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>buildStreamName</strong> (String& name, const JBStream* stream)
+<br></td><td align="right"><h3><strong>buildStreamName</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Build an internal stream name
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Destination buffer
+</TD></TR>
+<TR><TD align="left" valign="top"><i>stream</i></TD><TD align="left" valign="top">Stream requesting it
+     </TD></TR>
+</TABLE></P>
+<A NAME="hasDomain"></A><A NAME="ref22"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>hasDomain</strong> (const String& domain)
+<br></td><td align="right"><h3><strong>hasDomain</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Check if a domain is serviced by this engine
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>domain</i></TD><TD align="left" valign="top">Domain to check
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the given domain is serviced by this engine
+     </p>
+<A NAME="processEvent"></A><A NAME="ref23"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>processEvent</strong> (JBEvent* ev)
+<br></td><td align="right"><h3><strong>processEvent</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Process an event. The default implementation will return the event
+  to this engine
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>ev</i></TD><TD align="left" valign="top">The event to process
+     </TD></TR>
+</TABLE></P>
+<A NAME="returnEvent"></A><A NAME="ref24"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>returnEvent</strong> (JBEvent* ev, XMPPError::Type error = XMPPError::NoError,
+	const char* reason = 0)
+<br></td><td align="right"><h3><strong>returnEvent</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Return an event to this engine. The default implementation will send an
+ error if apropriate and delete the event
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>ev</i></TD><TD align="left" valign="top">The event to return
+</TD></TR>
+<TR><TD align="left" valign="top"><i>error</i></TD><TD align="left" valign="top">Optional error to be returned to the event's XML sender
+</TD></TR>
+<TR><TD align="left" valign="top"><i>reason</i></TD><TD align="left" valign="top">Optional text to be attached to the error
+     </TD></TR>
+</TABLE></P>
+<A NAME="encryptStream"></A><A NAME="ref25"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>encryptStream</strong> (JBStream* stream)
+<br></td><td align="right"><h3><strong>encryptStream</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Start stream TLS
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stream</i></TD><TD align="left" valign="top">The stream to enchrypt
+     </TD></TR>
+</TABLE></P>
+<A NAME="connectStream"></A><A NAME="ref26"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>connectStream</strong> (JBStream* stream)
+<br></td><td align="right"><h3><strong>connectStream</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Connect an outgoing stream
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stream</i></TD><TD align="left" valign="top">The stream to connect
+     </TD></TR>
+</TABLE></P>
+<A NAME="compressStream"></A><A NAME="ref27"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>compressStream</strong> (JBStream* stream, const String& formats)
+<br></td><td align="right"><h3><strong>compressStream</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Start stream compression
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stream</i></TD><TD align="left" valign="top">The stream to compress
+</TD></TR>
+<TR><TD align="left" valign="top"><i>formats</i></TD><TD align="left" valign="top">Supported formats
+     </TD></TR>
+</TABLE></P>
+<A NAME="buildDialbackKey"></A><A NAME="ref28"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>buildDialbackKey</strong> (const String& id, const String& local,
+	const String& remote, String& key)
+<br></td><td align="right"><h3><strong>buildDialbackKey</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Build a dialback key
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>id</i></TD><TD align="left" valign="top">The stream id
+</TD></TR>
+<TR><TD align="left" valign="top"><i>local</i></TD><TD align="left" valign="top">Local domain
+</TD></TR>
+<TR><TD align="left" valign="top"><i>remote</i></TD><TD align="left" valign="top">Remote domain
+</TD></TR>
+<TR><TD align="left" valign="top"><i>key</i></TD><TD align="left" valign="top">The dialback key
+     </TD></TR>
+</TABLE></P>
+<A NAME="checkDupId"></A><A NAME="ref29"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool &nbsp;<strong>checkDupId</strong> (JBStream* stream)
+<br></td><td align="right"><h3><strong>checkDupId</strong></h3></td></tr></table><p></p><p>
+ Check if an outgoing stream exists with the same id and remote peer
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stream</i></TD><TD align="left" valign="top">The calling stream
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if a duplicate is found
+     </p>
+<A NAME="printXml"></A><A NAME="ref30"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>printXml</strong> (const JBStream* stream, bool send, XmlChild& xml)
+<br></td><td align="right"><h3><strong>printXml</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Print XML to output
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stream</i></TD><TD align="left" valign="top">Stream requesting the operation
+</TD></TR>
+<TR><TD align="left" valign="top"><i>send</i></TD><TD align="left" valign="top">True if sending, false if receiving
+</TD></TR>
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">XML to print
+     </TD></TR>
+</TABLE></P>
+<A NAME="printXml"></A><A NAME="ref31"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>printXml</strong> (const JBStream* stream, bool send, XmlFragment& frag)
+<br></td><td align="right"><h3><strong>printXml</strong></h3></td></tr></table><p> <small>[const virtual]</small></p><p>
+ Print an XML fragment to output
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stream</i></TD><TD align="left" valign="top">Stream requesting the operation
+</TD></TR>
+<TR><TD align="left" valign="top"><i>send</i></TD><TD align="left" valign="top">True if sending, false if receiving
+</TD></TR>
+<TR><TD align="left" valign="top"><i>frag</i></TD><TD align="left" valign="top">XML fragment to print
+     </TD></TR>
+</TABLE></P>
+<A NAME="addStream"></A><A NAME="ref32"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>addStream</strong> (JBStream* stream)
+<br></td><td align="right"><h3><strong>addStream</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Add a stream to one of the stream lists
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stream</i></TD><TD align="left" valign="top">The stream to add
+     </TD></TR>
+</TABLE></P>
+<A NAME="removeStream"></A><A NAME="ref33"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>removeStream</strong> (JBStream* stream, bool delObj = true)
+<br></td><td align="right"><h3><strong>removeStream</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Remove a stream
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>stream</i></TD><TD align="left" valign="top">The stream to remove
+</TD></TR>
+<TR><TD align="left" valign="top"><i>delObj</i></TD><TD align="left" valign="top">True to release the stream, false to remove it from list
+  without releasing it
+     </TD></TR>
+</TABLE></P>
+<A NAME="stopStreamSets"></A><A NAME="ref34"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>stopStreamSets</strong> (bool waitTerminate = true)
+<br></td><td align="right"><h3><strong>stopStreamSets</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Stop all stream sets
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>waitTerminate</i></TD><TD align="left" valign="top">True to wait for all streams to terminate
+     </TD></TR>
+</TABLE></P>
+<A NAME="getStreamList"></A><A NAME="ref35"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>getStreamList</strong> (RefPointer<JBStreamSetList>& list, int type)
+<br></td><td align="right"><h3><strong>getStreamList</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Retrieve the list of streams of a given type.
+ Descendant must implement it
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>list</i></TD><TD align="left" valign="top">The destination list to set
+</TD></TR>
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Stream type
+     </TD></TR>
+</TABLE></P>
+<A NAME="getStreamLists"></A><A NAME="ref36"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>getStreamLists</strong> (RefPointer<JBStreamSetList> list[JBStream::TypeCount],
+	int type = JBStream::TypeCount)
+<br></td><td align="right"><h3><strong>getStreamLists</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Retrieve all streams
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>list</i></TD><TD align="left" valign="top">The destination list to set. The first index will be filled with the
+  c2s streams list, the second index will be set to the s2s stream list
+</TD></TR>
+<TR><TD align="left" valign="top"><i>type</i></TD><TD align="left" valign="top">Optional stream type
+     </TD></TR>
+</TABLE></P>
+<A NAME="findStream"></A><A NAME="ref37"></A><table width="100%"><tr bgcolor="#eeeeee"><td>JBStream* &nbsp;<strong>findStream</strong> (const String& id, JBStreamSetList* list)
+<br></td><td align="right"><h3><strong>findStream</strong></h3></td></tr></table><p> <small>[protected]</small></p><p>
+ Find a stream by its name in a given set list
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>id</i></TD><TD align="left" valign="top">The name of the stream to find
+</TD></TR>
+<TR><TD align="left" valign="top"><i>list</i></TD><TD align="left" valign="top">The list to search for a stream
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Referenced JBStream pointer or 0
+     </p>
+<A NAME="m_exiting"></A><A NAME="ref38"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool  <strong>m_exiting</strong>
+</td><td align="right"><h3><strong>m_exiting</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_remoteDomain"></A><A NAME="ref39"></A><table width="100%"><tr bgcolor="#eeeeee"><td>JBRemoteDomainDef  <strong>m_remoteDomain</strong>
+</td><td align="right"><h3><strong>m_remoteDomain</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_remoteDomains"></A><A NAME="ref40"></A><table width="100%"><tr bgcolor="#eeeeee"><td>ObjList  <strong>m_remoteDomains</strong>
+</td><td align="right"><h3><strong>m_remoteDomains</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_restartMax"></A><A NAME="ref41"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned char  <strong>m_restartMax</strong>
+</td><td align="right"><h3><strong>m_restartMax</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_restartUpdInterval"></A><A NAME="ref42"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_restartUpdInterval</strong>
+</td><td align="right"><h3><strong>m_restartUpdInterval</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_setupTimeout"></A><A NAME="ref43"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_setupTimeout</strong>
+</td><td align="right"><h3><strong>m_setupTimeout</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_startTimeout"></A><A NAME="ref44"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_startTimeout</strong>
+</td><td align="right"><h3><strong>m_startTimeout</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_connectTimeout"></A><A NAME="ref45"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_connectTimeout</strong>
+</td><td align="right"><h3><strong>m_connectTimeout</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_srvTimeout"></A><A NAME="ref46"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_srvTimeout</strong>
+</td><td align="right"><h3><strong>m_srvTimeout</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_pingInterval"></A><A NAME="ref47"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_pingInterval</strong>
+</td><td align="right"><h3><strong>m_pingInterval</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_pingTimeout"></A><A NAME="ref48"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_pingTimeout</strong>
+</td><td align="right"><h3><strong>m_pingTimeout</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_idleTimeout"></A><A NAME="ref49"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_idleTimeout</strong>
+</td><td align="right"><h3><strong>m_idleTimeout</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_pptTimeoutC2s"></A><A NAME="ref50"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_pptTimeoutC2s</strong>
+</td><td align="right"><h3><strong>m_pptTimeoutC2s</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_pptTimeout"></A><A NAME="ref51"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_pptTimeout</strong>
+</td><td align="right"><h3><strong>m_pptTimeout</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_streamReadBuffer"></A><A NAME="ref52"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_streamReadBuffer</strong>
+</td><td align="right"><h3><strong>m_streamReadBuffer</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_maxIncompleteXml"></A><A NAME="ref53"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_maxIncompleteXml</strong>
+</td><td align="right"><h3><strong>m_maxIncompleteXml</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_redirectMax"></A><A NAME="ref54"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int  <strong>m_redirectMax</strong>
+</td><td align="right"><h3><strong>m_redirectMax</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_hasClientTls"></A><A NAME="ref55"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool  <strong>m_hasClientTls</strong>
+</td><td align="right"><h3><strong>m_hasClientTls</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_printXml"></A><A NAME="ref56"></A><table width="100%"><tr bgcolor="#eeeeee"><td>int  <strong>m_printXml</strong>
+</td><td align="right"><h3><strong>m_printXml</strong></h3></td></tr></table><p> <small>[protected]</small></p><A NAME="m_initialized"></A><A NAME="ref57"></A><table width="100%"><tr bgcolor="#eeeeee"><td>bool  <strong>m_initialized</strong>
+</td><td align="right"><h3><strong>m_initialized</strong></h3></td></tr></table><p> <small>[protected]</small></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

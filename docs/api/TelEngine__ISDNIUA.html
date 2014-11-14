@@ -1,0 +1,147 @@
+<HTML>
+<HEAD>
+<TITLE>class ISDNIUA</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class ISDNIUA</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">SIGTRAN ISDN Q.921 User Adaptation Layer. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::ISDNIUA</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ysig___yatesig_h.html">libs/ysig/yatesig.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><i><A HREF="TelEngine__ISDNLayer2.html">TelEngine::ISDNLayer2</A></i> <small>[public ]</small>, <i><A HREF="TelEngine__SIGAdaptUser.html">TelEngine::SIGAdaptUser</A></i> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__ISDNIUA.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref2">ISDNIUA</A></b> (const NamedList& params, const char* name = 0, <A HREF="#u_int8_t">u_int8_t</A> tei = 0) 
+</LI>
+<LI>virtual  &nbsp;<b><A HREF="#ref3">~ISDNIUA</A></b> () 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref4">initialize</A></b> (const NamedList* config) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref5">multipleFrame</A></b> (<A HREF="#u_int8_t">u_int8_t</A> tei, bool establish, bool force) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref6">sendData</A></b> (const DataBlock& data, <A HREF="#u_int8_t">u_int8_t</A> tei, bool ack) 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref7">cleanup</A></b> () 
+</LI>
+<LI>virtual  void &nbsp;<b><A HREF="#ref8">activeChange</A></b> (bool active) 
+</LI>
+<LI>inline <A HREF="#int32_t">int32_t</A> &nbsp;<b><A HREF="#ref9">iid</A></b> ()  const
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>ISDNIUAClient* &nbsp;<b><A HREF="#ref10">client</A></b> ()  const
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref11">processMGMT</A></b> (unsigned char msgType, const DataBlock& msg, int streamId) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref12">processQPTM</A></b> (unsigned char msgType, const DataBlock& msg, int streamId) 
+</LI>
+</ul><h4>Protected Members</h4><ul><LI>int32_t <b><A HREF="#ref13">m_iid</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ RFC4233 ISDN Layer 2 implementation over SCTP/IP
+ IUA is intended to be used as a Provider-User where Q.921 runs on a
+  Signalling Gateway and the user (Q.931) runs on an Application Server.
+</p>
+<A NAME="ISDNIUA"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>ISDNIUA</strong> (const NamedList& params, const char* name = 0, <A HREF="#u_int8_t">u_int8_t</A> tei = 0)
+<br></td><td align="right"><h3><strong>ISDNIUA</strong></h3></td></tr></table><p></p><p>
+ Constructor
+ Initialize this object and the layer 2
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Object and Layer 2 parameters
+</TD></TR>
+<TR><TD align="left" valign="top"><i>name</i></TD><TD align="left" valign="top">Optional name for Layer 2
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tei</i></TD><TD align="left" valign="top">Value of TEI for this component
+     </TD></TR>
+</TABLE></P>
+<A NAME="~ISDNIUA"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td> &nbsp;<strong>~ISDNIUA</strong> ()
+<br></td><td align="right"><h3><strong>~ISDNIUA</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Destructor
+     </p>
+<A NAME="initialize"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>initialize</strong> (const NamedList* config)
+<br></td><td align="right"><h3><strong>initialize</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Configure and initialize IUA and its transport
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>config</i></TD><TD align="left" valign="top">Optional configuration parameters override
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if IUA and the transport were initialized properly
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__SignallingComponent.html#initialize">SignallingComponent</A>.</p>
+<A NAME="multipleFrame"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>multipleFrame</strong> (<A HREF="#u_int8_t">u_int8_t</A> tei, bool establish, bool force)
+<br></td><td align="right"><h3><strong>multipleFrame</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Implements Q.921 DL-ESTABLISH and DL-RELEASE request primitives
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>tei</i></TD><TD align="left" valign="top">This layer's TEI
+</TD></TR>
+<TR><TD align="left" valign="top"><i>establish</i></TD><TD align="left" valign="top">True to establish. False to release
+</TD></TR>
+<TR><TD align="left" valign="top"><i>force</i></TD><TD align="left" valign="top">True to establish even if we already are in this mode. This
+  parameter is ignored if establish is false
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: True if the request was accepted
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__ISDNLayer2.html#multipleFrame">ISDNLayer2</A>.</p>
+<A NAME="sendData"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>sendData</strong> (const DataBlock& data, <A HREF="#u_int8_t">u_int8_t</A> tei, bool ack)
+<br></td><td align="right"><h3><strong>sendData</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Implements Q.921 DL-DATA and DL-UNIT DATA request primitives
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>data</i></TD><TD align="left" valign="top">Data to send
+</TD></TR>
+<TR><TD align="left" valign="top"><i>tei</i></TD><TD align="left" valign="top">The TEI to send with the data frane
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ack</i></TD><TD align="left" valign="top">True to send an acknowledged frame, false to send an unacknowledged one
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if the request was not accepted or send operation failed
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__ISDNLayer2.html#sendData">ISDNLayer2</A>.</p>
+<A NAME="cleanup"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>cleanup</strong> ()
+<br></td><td align="right"><h3><strong>cleanup</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Emergency release.
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__ISDNLayer2.html#cleanup">ISDNLayer2</A>.</p>
+<A NAME="activeChange"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>activeChange</strong> (bool active)
+<br></td><td align="right"><h3><strong>activeChange</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Traffic activity state change notification
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>active</i></TD><TD align="left" valign="top">True if the ASP is active and traffic is allowed
+     </TD></TR>
+</TABLE></P>
+<p>Reimplemented from <A HREF="TelEngine__SIGAdaptUser.html#activeChange">SIGAdaptUser</A>.</p>
+<A NAME="iid"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline <A HREF="#int32_t">int32_t</A> &nbsp;<strong>iid</strong> ()
+<br></td><td align="right"><h3><strong>iid</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the numeric Interface Identifier (if any)
+</p>
+<p><b>Returns</b>: IID value, -1 if not set
+     </p>
+<A NAME="client"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>ISDNIUAClient* &nbsp;<strong>client</strong> ()
+<br></td><td align="right"><h3><strong>client</strong></h3></td></tr></table><p> <small>[protected const]</small></p><A NAME="processMGMT"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>processMGMT</strong> (unsigned char msgType, const DataBlock& msg, int streamId)
+<br></td><td align="right"><h3><strong>processMGMT</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><A NAME="processQPTM"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>processQPTM</strong> (unsigned char msgType, const DataBlock& msg, int streamId)
+<br></td><td align="right"><h3><strong>processQPTM</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><A NAME="m_iid"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td><A HREF="#int32_t">int32_t</A>  <strong>m_iid</strong>
+</td><td align="right"><h3><strong>m_iid</strong></h3></td></tr></table><p> <small>[protected]</small></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

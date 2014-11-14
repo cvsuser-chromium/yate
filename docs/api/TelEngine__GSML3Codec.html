@@ -1,0 +1,339 @@
+<HTML>
+<HEAD>
+<TITLE>class GSML3Codec</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class GSML3Codec</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1"></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::GSML3Codec</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___ygsm___yategsm_h.html">libs/ygsm/yategsm.h</A>&gt;</code></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__GSML3Codec.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Types</h4><ul><LI>enum <A HREF="#ref2">Flags</A> {	XmlDumpMsg = 0x01,
+	XmlDumpIEs = 0x02,
+	MSCoder    = 0x04,
+    }
+</LI>
+<LI>enum <A HREF="#ref3">Status</A> {	NoError = 0,
+	MsgTooShort,
+	UnknownProto,
+	ParserErr,
+	MissingParam,
+	IncorrectOptionalIE,
+	IncorrectMandatoryIE,
+	MissingMandatoryIE,
+	UnknownMsgType,
+    }
+</LI>
+<LI>enum <A HREF="#ref4">Protocol</A> {	GCC       = 0x00, 
+	BCC       = 0x01, 
+	EPS_SM    = 0x02, 
+	CC        = 0x03, 
+	GTTP      = 0x04, 
+	MM        = 0x05, 
+	RRM       = 0x06, 
+	EPS_MM    = 0x07, 
+	GPRS_MM   = 0x08, 
+	SMS       = 0x09, 
+	GPRS_SM   = 0x0a, 
+	SS        = 0x0b, 
+	LCS       = 0x0c, 
+	Extension = 0x0e, 
+	Test      = 0x0f, 
+	Unknown   = 0xff,
+    }
+</LI>
+<LI>enum <A HREF="#ref5">Type</A> {	NoType = 0,
+	T,
+	V,
+	TV,
+	LV,
+	TLV,
+	LVE,
+	TLVE,
+    }
+</LI>
+<LI>enum <A HREF="#ref6">XmlType</A> {	Skip,
+	XmlElem,
+	XmlRoot,
+    }
+</LI>
+<LI>enum <A HREF="#ref7">EPSSecurityHeader</A> {	PlainNAS                           = 0x00,
+	IntegrityProtect                   = 0x01,
+	IntegrityProtectCiphered           = 0x02,
+	IntegrityProtectNewEPSCtxt         = 0x03,
+	IntegrityProtectCipheredNewEPSCtxt = 0x04,
+	ServiceRequestHeader               = 0xa0,
+    }
+</LI>
+</ul><h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref8">GSML3Codec</A></b> (DebugEnabler* dbg = 0) 
+</LI>
+<LI>unsigned int &nbsp;<b><A HREF="#ref9">decode</A></b> (const <A HREF="#uint8_t">uint8_t</A>* in, unsigned int len, XmlElement*& out, const NamedList& params = NamedList::empty()) 
+</LI>
+<LI>unsigned int &nbsp;<b><A HREF="#ref10">encode</A></b> (const XmlElement* in, DataBlock& out, const NamedList& params = NamedList::empty()) 
+</LI>
+<LI>unsigned int &nbsp;<b><A HREF="#ref11">decode</A></b> (XmlElement* xml, const NamedList& params = NamedList::empty()) 
+</LI>
+<LI>unsigned int &nbsp;<b><A HREF="#ref12">encode</A></b> (XmlElement* xml, const NamedList& params = NamedList::empty()) 
+</LI>
+<LI>void &nbsp;<b><A HREF="#ref13">setCodecDebug</A></b> (DebugEnabler* enabler = 0, void* ptr = 0) 
+</LI>
+<LI>inline <A HREF="#uint8_t">uint8_t</A> &nbsp;<b><A HREF="#ref14">flags</A></b> ()  const
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref15">setFlags</A></b> (<A HREF="#uint8_t">uint8_t</A> flgs, bool reset = false) 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref16">resetFlags</A></b> (<A HREF="#uint8_t">uint8_t</A> flgs = 0) 
+</LI>
+<LI>inline void &nbsp;<b><A HREF="#ref17">setPrintDbg</A></b> (bool on = false) 
+</LI>
+<LI>inline bool &nbsp;<b><A HREF="#ref18">printDbg</A></b> ()  const
+</LI>
+<LI>inline DebugEnabler* &nbsp;<b><A HREF="#ref19">dbg</A></b> ()  const
+</LI>
+<LI>inline void* &nbsp;<b><A HREF="#ref20">ptr</A></b> ()  const
+</LI>
+</ul><h4>Public Static Methods</h4><ul><LI>static  void &nbsp;<b><A HREF="#ref21">decodeGSM7Bit</A></b> (unsigned char* buf, unsigned int len, String& text) 
+</LI>
+<LI>static  void &nbsp;<b><A HREF="#ref22">encodeGSM7Bit</A></b> (const String& text, DataBlock& buf) 
+</LI>
+</ul><h4>Public Members</h4><ul><LI>static const TokenDict <b><A HREF="#ref23">s_typeDict[]</A></b></LI>
+<LI>static const TokenDict <b><A HREF="#ref24">s_protoDict[]</A></b></LI>
+<LI>static const TokenDict <b><A HREF="#ref25">s_securityHeaders[]</A></b></LI>
+<LI>static const TokenDict <b><A HREF="#ref26">s_errorsDict[]</A></b></LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><A NAME="Flags"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>Flags</strong> {	XmlDumpMsg = 0x01,
+	XmlDumpIEs = 0x02,
+	MSCoder    = 0x04,
+    }
+</td><td align="right"><h3><strong>Flags</strong></h3></td></tr></table><p></p><p>
+ Codec flags
+     </p>
+<A NAME="Status"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>Status</strong> {	NoError = 0,
+	MsgTooShort,
+	UnknownProto,
+	ParserErr,
+	MissingParam,
+	IncorrectOptionalIE,
+	IncorrectMandatoryIE,
+	MissingMandatoryIE,
+	UnknownMsgType,
+    }
+</td><td align="right"><h3><strong>Status</strong></h3></td></tr></table><p></p><p>
+ Codec return status
+     </p>
+<A NAME="Protocol"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>Protocol</strong> {	GCC       = 0x00, 
+	BCC       = 0x01, 
+	EPS_SM    = 0x02, 
+	CC        = 0x03, 
+	GTTP      = 0x04, 
+	MM        = 0x05, 
+	RRM       = 0x06, 
+	EPS_MM    = 0x07, 
+	GPRS_MM   = 0x08, 
+	SMS       = 0x09, 
+	GPRS_SM   = 0x0a, 
+	SS        = 0x0b, 
+	LCS       = 0x0c, 
+	Extension = 0x0e, 
+	Test      = 0x0f, 
+	Unknown   = 0xff,
+    }
+</td><td align="right"><h3><strong>Protocol</strong></h3></td></tr></table><p></p><p>
+ Protocol discriminator according to ETSI TS 124 007 V11.0.0, section 11.2.3.1.1
+     </p>
+<A NAME="Type"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>Type</strong> {	NoType = 0,
+	T,
+	V,
+	TV,
+	LV,
+	TLV,
+	LVE,
+	TLVE,
+    }
+</td><td align="right"><h3><strong>Type</strong></h3></td></tr></table><p></p><p>
+ IE types
+     </p>
+<A NAME="XmlType"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>XmlType</strong> {	Skip,
+	XmlElem,
+	XmlRoot,
+    }
+</td><td align="right"><h3><strong>XmlType</strong></h3></td></tr></table><p></p><p>
+ Type of XML data to generate
+     </p>
+<A NAME="EPSSecurityHeader"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td>enum <strong>EPSSecurityHeader</strong> {	PlainNAS                           = 0x00,
+	IntegrityProtect                   = 0x01,
+	IntegrityProtectCiphered           = 0x02,
+	IntegrityProtectNewEPSCtxt         = 0x03,
+	IntegrityProtectCipheredNewEPSCtxt = 0x04,
+	ServiceRequestHeader               = 0xa0,
+    }
+</td><td align="right"><h3><strong>EPSSecurityHeader</strong></h3></td></tr></table><p></p><p>
+ EPS Security Headers
+     </p>
+<A NAME="GSML3Codec"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>GSML3Codec</strong> (DebugEnabler* dbg = 0)
+<br></td><td align="right"><h3><strong>GSML3Codec</strong></h3></td></tr></table><p></p><p>
+ Constructor
+     </p>
+<A NAME="decode"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int &nbsp;<strong>decode</strong> (const <A HREF="#uint8_t">uint8_t</A>* in, unsigned int len, XmlElement*& out, const NamedList& params = NamedList::empty())
+<br></td><td align="right"><h3><strong>decode</strong></h3></td></tr></table><p></p><p>
+ Decode layer 3 message payload
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>in</i></TD><TD align="left" valign="top">Input buffer containing the data to be decoded
+</TD></TR>
+<TR><TD align="left" valign="top"><i>len</i></TD><TD align="left" valign="top">Length of input buffer
+</TD></TR>
+<TR><TD align="left" valign="top"><i>out</i></TD><TD align="left" valign="top">XmlElement into which the decoded data is returned
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Encoder parameters
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Parsing result: 0 (NoError) if succeeded, error status otherwise
+     </p>
+<A NAME="encode"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int &nbsp;<strong>encode</strong> (const XmlElement* in, DataBlock& out, const NamedList& params = NamedList::empty())
+<br></td><td align="right"><h3><strong>encode</strong></h3></td></tr></table><p></p><p>
+ Encode a layer 3 message
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>in</i></TD><TD align="left" valign="top">Layer 3 message in XML form
+</TD></TR>
+<TR><TD align="left" valign="top"><i>out</i></TD><TD align="left" valign="top">Output buffer into which to put encoded data
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Encoder parameters
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Parsing result: 0 (NoError) if succeeded, error status otherwise
+     </p>
+<A NAME="decode"></A><A NAME="ref11"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int &nbsp;<strong>decode</strong> (XmlElement* xml, const NamedList& params = NamedList::empty())
+<br></td><td align="right"><h3><strong>decode</strong></h3></td></tr></table><p></p><p>
+ Decode layer 3 message from an existing XML
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">XML which contains layer 3 messages to decode and into which the decoded XML will be put
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Decoder parameters
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Parsing result: 0 (NoError) if succeeded, error status otherwise
+     </p>
+<A NAME="encode"></A><A NAME="ref12"></A><table width="100%"><tr bgcolor="#eeeeee"><td>unsigned int &nbsp;<strong>encode</strong> (XmlElement* xml, const NamedList& params = NamedList::empty())
+<br></td><td align="right"><h3><strong>encode</strong></h3></td></tr></table><p></p><p>
+ Encode a layer 3 message from an existing XML
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">XML which contains a layer 3 message in XML form. The message will be replaced with its encoded buffer
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Encoder parameters
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: Parsing result: 0 (NoError) if succeeded, error status otherwise
+     </p>
+<A NAME="setCodecDebug"></A><A NAME="ref13"></A><table width="100%"><tr bgcolor="#eeeeee"><td>void &nbsp;<strong>setCodecDebug</strong> (DebugEnabler* enabler = 0, void* ptr = 0)
+<br></td><td align="right"><h3><strong>setCodecDebug</strong></h3></td></tr></table><p></p><p>
+ Set data used in debug
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>enabler</i></TD><TD align="left" valign="top">The DebugEnabler to use (0 to to use the engine)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>ptr</i></TD><TD align="left" valign="top">Pointer to print, 0 to use the codec pointer
+     </TD></TR>
+</TABLE></P>
+<A NAME="flags"></A><A NAME="ref14"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline <A HREF="#uint8_t">uint8_t</A> &nbsp;<strong>flags</strong> ()
+<br></td><td align="right"><h3><strong>flags</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve codec flags
+</p>
+<p><b>Returns</b>: Codec flags
+     </p>
+<A NAME="setFlags"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>setFlags</strong> (<A HREF="#uint8_t">uint8_t</A> flgs, bool reset = false)
+<br></td><td align="right"><h3><strong>setFlags</strong></h3></td></tr></table><p></p><p>
+ Set codec flags
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>flgs</i></TD><TD align="left" valign="top">Flags to set
+</TD></TR>
+<TR><TD align="left" valign="top"><i>reset</i></TD><TD align="left" valign="top">Reset flags before setting these ones
+     </TD></TR>
+</TABLE></P>
+<A NAME="resetFlags"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>resetFlags</strong> (<A HREF="#uint8_t">uint8_t</A> flgs = 0)
+<br></td><td align="right"><h3><strong>resetFlags</strong></h3></td></tr></table><p></p><p>
+ Reset codec flags
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>flgs</i></TD><TD align="left" valign="top">Flags to reset. If 0, all flags are reset
+     </TD></TR>
+</TABLE></P>
+<A NAME="setPrintDbg"></A><A NAME="ref17"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void &nbsp;<strong>setPrintDbg</strong> (bool on = false)
+<br></td><td align="right"><h3><strong>setPrintDbg</strong></h3></td></tr></table><p></p><p>
+ Activate printing of debug messages
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>on</i></TD><TD align="left" valign="top">True to activate, false to disable
+     </TD></TR>
+</TABLE></P>
+<A NAME="printDbg"></A><A NAME="ref18"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline bool &nbsp;<strong>printDbg</strong> ()
+<br></td><td align="right"><h3><strong>printDbg</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get printing of debug messages flag
+</p>
+<p><b>Returns</b>: True if debugging is activated, false otherwise
+     </p>
+<A NAME="dbg"></A><A NAME="ref19"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline DebugEnabler* &nbsp;<strong>dbg</strong> ()
+<br></td><td align="right"><h3><strong>dbg</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Get DebugEnabler used by this codec
+</p>
+<p><b>Returns</b>: DebugEnabler used by the codec
+     </p>
+<A NAME="ptr"></A><A NAME="ref20"></A><table width="100%"><tr bgcolor="#eeeeee"><td>inline void* &nbsp;<strong>ptr</strong> ()
+<br></td><td align="right"><h3><strong>ptr</strong></h3></td></tr></table><p> <small>[const]</small></p><p>
+ Retrieve the codec pointer used for debug messages
+</p>
+<p><b>Returns</b>: Codec pointer used for debug messages
+     </p>
+<A NAME="decodeGSM7Bit"></A><A NAME="ref21"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>decodeGSM7Bit</strong> (unsigned char* buf, unsigned int len, String& text)
+<br></td><td align="right"><h3><strong>decodeGSM7Bit</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Decode GSM 7bit buffer
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>buf</i></TD><TD align="left" valign="top">Input buffer
+</TD></TR>
+<TR><TD align="left" valign="top"><i>len</i></TD><TD align="left" valign="top">Input buffer length
+</TD></TR>
+<TR><TD align="left" valign="top"><i>text</i></TD><TD align="left" valign="top">Destination text
+     </TD></TR>
+</TABLE></P>
+<A NAME="encodeGSM7Bit"></A><A NAME="ref22"></A><table width="100%"><tr bgcolor="#eeeeee"><td> void &nbsp;<strong>encodeGSM7Bit</strong> (const String& text, DataBlock& buf)
+<br></td><td align="right"><h3><strong>encodeGSM7Bit</strong></h3></td></tr></table><p> <small>[static]</small></p><p>
+ Encode GSM 7bit buffer
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>text</i></TD><TD align="left" valign="top">Input text
+</TD></TR>
+<TR><TD align="left" valign="top"><i>buf</i></TD><TD align="left" valign="top">Destination buffer
+     </TD></TR>
+</TABLE></P>
+<A NAME="s_typeDict[]"></A><A NAME="ref23"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_typeDict[]</strong>
+</td><td align="right"><h3><strong>s_typeDict[]</strong></h3></td></tr></table><p></p><A NAME="s_protoDict[]"></A><A NAME="ref24"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_protoDict[]</strong>
+</td><td align="right"><h3><strong>s_protoDict[]</strong></h3></td></tr></table><p></p><A NAME="s_securityHeaders[]"></A><A NAME="ref25"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_securityHeaders[]</strong>
+</td><td align="right"><h3><strong>s_securityHeaders[]</strong></h3></td></tr></table><p></p><A NAME="s_errorsDict[]"></A><A NAME="ref26"></A><table width="100%"><tr bgcolor="#eeeeee"><td>static const TokenDict  <strong>s_errorsDict[]</strong>
+</td><td align="right"><h3><strong>s_errorsDict[]</strong></h3></td></tr></table><p></p><HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>

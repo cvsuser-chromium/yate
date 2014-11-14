@@ -1,0 +1,125 @@
+<HTML>
+<HEAD>
+<TITLE>class JBClusterStream</TITLE>
+
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class JBClusterStream</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">A cluster stream. <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Full name</TH><TD><code><A HREF="TelEngine.html">TelEngine</A>::JBClusterStream</code></TD></TR>
+<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="libs___yjabber___yatejabber_h.html">libs/yjabber/yatejabber.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD><A HREF="TelEngine__JBStream.html">TelEngine::JBStream</A> <small>[public ]</small></TD></TR>
+<TR><TH><A HREF="full-list-TelEngine__JBClusterStream.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</A></small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</A></small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</A></small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</A></small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</A></small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref2">JBClusterStream</A></b> (JBEngine* engine, Socket* socket) 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref3">JBClusterStream</A></b> (JBEngine* engine, const JabberID& local, const JabberID& remote,
+	const NamedList* params = 0) 
+</LI>
+<LI>virtual  JBClusterStream* &nbsp;<b><A HREF="#ref4">clusterStream</A></b> () 
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>virtual  XmlElement* &nbsp;<b><A HREF="#ref5">buildStreamStart</A></b> () 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref6">processStart</A></b> (const XmlElement* xml, const JabberID& from,
+	const JabberID& to) 
+</LI>
+<LI>virtual  bool &nbsp;<b><A HREF="#ref7">processRunning</A></b> (XmlElement* xml, const JabberID& from,
+	const JabberID& to) 
+</LI>
+</ul><HR><H2><A NAME="longdesc">Detailed Description</A></H2><p>
+ This class holds a cluster stream
+</p>
+<A NAME="JBClusterStream"></A><A NAME="ref2"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>JBClusterStream</strong> (JBEngine* engine, Socket* socket)
+<br></td><td align="right"><h3><strong>JBClusterStream</strong></h3></td></tr></table><p></p><p>
+ Constructor. Build an incoming stream from a socket
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>engine</i></TD><TD align="left" valign="top">Engine owning this stream
+</TD></TR>
+<TR><TD align="left" valign="top"><i>socket</i></TD><TD align="left" valign="top">The socket
+     </TD></TR>
+</TABLE></P>
+<A NAME="JBClusterStream"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td>&nbsp;<strong>JBClusterStream</strong> (JBEngine* engine, const JabberID& local, const JabberID& remote,
+	const NamedList* params = 0)
+<br></td><td align="right"><h3><strong>JBClusterStream</strong></h3></td></tr></table><p></p><p>
+ Constructor. Build an outgoing stream
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>engine</i></TD><TD align="left" valign="top">Engine owning this stream
+</TD></TR>
+<TR><TD align="left" valign="top"><i>local</i></TD><TD align="left" valign="top">Local party jabber id
+</TD></TR>
+<TR><TD align="left" valign="top"><i>remote</i></TD><TD align="left" valign="top">Remote party jabber id
+</TD></TR>
+<TR><TD align="left" valign="top"><i>params</i></TD><TD align="left" valign="top">Optional stream parameters
+     </TD></TR>
+</TABLE></P>
+<A NAME="clusterStream"></A><A NAME="ref4"></A><table width="100%"><tr bgcolor="#eeeeee"><td> JBClusterStream* &nbsp;<strong>clusterStream</strong> ()
+<br></td><td align="right"><h3><strong>clusterStream</strong></h3></td></tr></table><p> <small>[virtual]</small></p><p>
+ Get a cluster stream from this one
+</p>
+<p><b>Returns</b>: JBClusterStream pointer
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__JBStream.html#clusterStream">JBStream</A>.</p>
+<A NAME="buildStreamStart"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td> XmlElement* &nbsp;<strong>buildStreamStart</strong> ()
+<br></td><td align="right"><h3><strong>buildStreamStart</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Build a stream start XML element
+</p>
+<p><b>Returns</b>: XmlElement pointer
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__JBStream.html#buildStreamStart">JBStream</A>.</p>
+<A NAME="processStart"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>processStart</strong> (const XmlElement* xml, const JabberID& from,
+	const JabberID& to)
+<br></td><td align="right"><h3><strong>processStart</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Process stream start elements while waiting for them
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Received xml element
+</TD></TR>
+<TR><TD align="left" valign="top"><i>from</i></TD><TD align="left" valign="top">The 'from' attribute
+</TD></TR>
+<TR><TD align="left" valign="top"><i>to</i></TD><TD align="left" valign="top">The 'to' attribute
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if stream termination was initiated
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__JBStream.html#processStart">JBStream</A>.</p>
+<A NAME="processRunning"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td> bool &nbsp;<strong>processRunning</strong> (XmlElement* xml, const JabberID& from,
+	const JabberID& to)
+<br></td><td align="right"><h3><strong>processRunning</strong></h3></td></tr></table><p> <small>[protected virtual]</small></p><p>
+ Process elements in Running state
+</p>
+<p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>xml</i></TD><TD align="left" valign="top">Received element (will be consumed)
+</TD></TR>
+<TR><TD align="left" valign="top"><i>from</i></TD><TD align="left" valign="top">Already parsed source JID
+</TD></TR>
+<TR><TD align="left" valign="top"><i>to</i></TD><TD align="left" valign="top">Already parsed destination JID
+</TD></TR>
+</TABLE></P>
+<p><b>Returns</b>: False if stream termination was initiated
+     </p>
+<p>Reimplemented from <A HREF="TelEngine__JBStream.html#processRunning">JBStream</A>.</p>
+<HR>
+	<table>
+	<tr><td><small>Generated by: paulc on bussard on Thu Jul 24 18:41:02 2014, using kdoc 2.0a54.</small></td></tr>
+	</table>
+</BODY>
+</HTML>
